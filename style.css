@@ -387,7 +387,7 @@ nav {
 .btn-secondary {
   background: transparent;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border-medium);
+  border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
@@ -399,18 +399,22 @@ nav {
 
 .hero-socials {
     display: flex;
+    width: fit-content;
     gap: 1.5rem;
     margin-top: auto;
     position: relative;
     z-index: 2;
+    border : 2px solid rgba(10, 38, 11, 0.386);
+    padding: 1rem;
 }
 
 .hero-socials a {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Inter';
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 800;
     border-bottom: 2px solid transparent;
-    color : rgba(15, 67, 15, 0.832);
+    color : rgba(97, 76, 32, 0.711);
+    -webkit-text-stroke: 0.5px var(--accent-color);
 }
 
 .hero-socials a:hover {
@@ -857,6 +861,10 @@ footer {
     .artwork-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .role h3 {
+        font-size: 1.5rem;
+        padding: 5px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -899,6 +907,10 @@ footer {
     .hero-stats {
         flex-direction: row;
         flex-wrap: wrap;
+    }
+     .role h3 {
+        padding: 2px;
+        font-size: 1rem;
     }
 
     .stat-box {
