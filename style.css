@@ -325,7 +325,7 @@ nav {
 .btn:hover {
   background-color: #d0f224;
   box-shadow: -4px 3px 0 0 rgb(46, 44, 44);
-  transform: none;
+ 
 }
 
 .btn:hover::after {
@@ -342,6 +342,7 @@ nav {
   color: var(--color-text-primary);
   border-color: var(--color-text-primary);
   box-shadow: -4px 3px 0 0 black;
+  transform: translateY(-4px) translateX(4px);
 }
 
 .btn-secondary {
