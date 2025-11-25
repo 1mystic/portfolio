@@ -572,7 +572,7 @@ section {
 .research-card {
     padding: var(--pad-standard);
     border-right: var(--border-thin);
-    border-bottom: var(--border-thin);
+   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -927,4 +927,33 @@ footer {
 .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
+}
+
+/* --- MUSIC TOGGLE --- */
+.music-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: 2px solid var(--bg-color);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--personal-accent);
+}
+
+.music-toggle .material-symbols-outlined {
+    font-size: 24px;
 }
