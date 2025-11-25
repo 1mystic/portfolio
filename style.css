@@ -851,25 +851,40 @@ footer {
     .nav-links {
         margin-top: 1rem;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
         overflow-x: auto;
         padding-bottom: 0.5rem;
+        gap : 10px;
     }
 
     .nav-links a {
         margin-left: 0;
-        margin-right: 1.5rem;
+        margin-right: 1px;
         white-space: nowrap;
+        font-size: 1.5rem;
     }
 
     .hero {
         grid-template-columns: 1fr;
-        min-height: auto;
+        min-height: fit-content;
+        gap : 2px;
     }
 
     .hero-text {
+        margin-top: 1rem;
         padding: var(--pad-mobile);
-        min-height: 60vh;
+        min-height: 50vh;
+        
+    }
+
+    .title-name {
+        font-size: 4rem;
+    }
+    .title-line {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color : rgba(108, 74, 26, 0.769);
+        -webkit-text-stroke: 0.5px var(--accent-color);
     }
 
     .hero-visual {
@@ -903,10 +918,6 @@ footer {
         border-top: var(--border-thin);
     }
 
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
     .blog-grid {
         grid-template-columns: 1fr;
     }
@@ -923,8 +934,8 @@ footer {
 @media (max-width: 480px) {
     /* General Padding */
     :root {
-        --pad-standard: 1.5rem;
-        --pad-mobile: 1rem;
+        --pad-standard: 0rem;
+        --pad-mobile: 0.5rem;
     }
 
     /* Navigation */
@@ -947,8 +958,8 @@ footer {
     }
 
     .hero-buttons {
-        flex-direction: column;
         width: 100%;
+        margin-bottom: 16px;
     }
 
     .btn {
@@ -1026,6 +1037,17 @@ footer {
     }
 }
 
+@media (max-width: 380px) {
+    /* General Padding */
+    :root{
+        --pad-standard: 0rem;
+        --pad-mobile: 0rem;
+    }
+    body {
+       padding: 2px;
+    }
+}
+
 /* --- ANIMATIONS --- */
 .fade-in-section {
     opacity: 0;
@@ -1042,8 +1064,8 @@ footer {
 /* --- MUSIC TOGGLE --- */
 .music-toggle {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 2vh;
+    right: 1vw  ;
     width: 50px;
     height: 50px;
     border-radius: 50%;
