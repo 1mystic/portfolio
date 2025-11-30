@@ -601,7 +601,7 @@ section {
     border-right: var(--border-thin);
     max-height: 350px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     background-size: cover;
     background-position: center;
     position: relative;
