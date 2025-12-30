@@ -884,9 +884,10 @@ footer {
         font-size: 4rem;
     }
     .title-line {
+        font-family: 'Inter';
         font-size: 0.8rem;
         font-weight: 800;
-        color : rgba(108, 74, 26, 0.769);
+        color : rgba(93, 74, 44, 0.769);
         -webkit-text-stroke: 0.5px var(--accent-color);
     }
 
@@ -904,9 +905,27 @@ footer {
         flex-direction: row;
         flex-wrap: wrap;
     }
+
+    .hero-socials {
+       border : none ;
+       flex-direction: row;
+         justify-content: center;
+         width: 100%;
+    }
+
+    .hero-socials a {
+        font-size: 1.2rem;
+       border-bottom : 1.5px solid rgba(10, 38, 11, 0.603);
+    }
+
+    .role span {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
      .role h3 {
         padding: 2px;
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .stat-box {
@@ -938,7 +957,7 @@ footer {
     /* General Padding */
     :root {
         --pad-standard: 0rem;
-        --pad-mobile: 0.5rem;
+        --pad-mobile: 1.5rem;
     }
 
     /* Navigation */
