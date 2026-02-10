@@ -2,7 +2,7 @@
 :root {
     --bg-color: #F2F0E9;
     /* Warm beige from your reference */
-    --card-bg: #F9F8F4;
+    --card-bg: #e9e9e996;
     --border-color: #1A1A1A;
     --border-color-light: rgba(26, 26, 26, 0.2);
     --text-main: #1A1A1A;
@@ -474,7 +474,6 @@ nav a:hover {
     position: relative;
     backdrop-filter: blur(10px);
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.8);
     border-radius: 2px;
     border: 1px solid var(--border-color);
     margin-bottom: var(--spacing-sm);
@@ -1003,7 +1002,7 @@ nav a:hover {
 .inbox-card {
     border: 1px solid #ccc;
     padding: 15px;
-    background: #fff;
+    background: #ffffffb3;
 }
 
 .inbox-placeholder {
@@ -1231,12 +1230,30 @@ nav a:hover {
     line-height: 1.2;
 }
 
+footer {
+    position: absolute;
+    left : 0;
+    width : 100vw;
+}
+
 .footer-style {
-    margin-top: 50px;
+    margin-top: 10rem;
     text-align: center;
     font-size: 0.8rem;
     color: #999;
-    padding-bottom: 50px;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-top : 1px solid var(--border-color);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    font-family: 'JetBrains Mono'; 
+    font-size: 0.8rem; 
+    color : rgb(38, 41, 30) ; 
+    margin-bottom: 20px;
 }
 
 /* --- 8. NEW HERO & BUTTON STYLES (User Requested) --- */
@@ -2130,7 +2147,7 @@ body.dark-mode .callout {
 .retro-card {
     border: 2px solid var(--c-black);
     padding: 1.5rem;
-    background: #fff;
+    background: var(--card-bg);
     position: relative;
     transition: all 0.2s ease;
 }
@@ -2150,7 +2167,7 @@ body.dark-mode .callout {
     border: 2px solid var(--c-black);
     padding: 1rem;
     text-align: center;
-    background: #FAFAFA;
+    background: #ffffffb3;
     transition: all 0.2s;
     text-decoration: none;
     display: flex;
@@ -2224,7 +2241,7 @@ body.dark-mode .callout {
 
 /* --- 10. BENTO GRID (PROFILE OVERVIEW) --- */
 .bento-card {
-    background: #fff;
+    background: #e9e9e996;;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
