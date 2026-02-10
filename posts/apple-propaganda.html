@@ -29,6 +29,71 @@
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        /* Article specific table styles */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .comparison-table th {
+            background-color: var(--card-bg);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        body.dark-mode .comparison-table th {
+            background-color: var(--sub-card-bg);
+            color: var(--text-main);
+        }
+
+        body.dark-mode .comparison-table td {
+            color: var(--text-muted);
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .fact-box {
+            background: #fff0f0;
+            border-left: 4px solid #d64545;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        body.dark-mode .fact-box {
+            background: rgba(214, 69, 69, 0.1);
+            color: var(--text-main);
+        }
+
+        .fact-header {
+            font-weight: 700;
+            color: #d64545;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,12 +147,10 @@
                     <h4>ON THIS PAGE</h4>
                     <ul class="toc-list">
                         <li><a href="#intro" class="active">Introduction</a></li>
-                        <li><a href="#the-fruit">The Fruit Mythos</a></li>
-                        <li><a href="#chemical-reality">The Chemical Reality</a></li>
-                        <li><a href="#nutrition-comparison">Nutritional Check</a></li>
-                        <li><a href="#the-company">The Tech Giant</a></li>
-                        <li><a href="#stagnation">Innovation Stagnation</a></li>
-                        <li><a href="#competition">The Android Advantage</a></li>
+                        <li><a href="#fruit-myth">The Fruit Mythos</a></li>
+                        <li><a href="#chemical-reality">Chemical Reality</a></li>
+                        <li><a href="#tech-giant">The Tech Giant</a></li>
+                        <li><a href="#comparison">2026 Comparison</a></li>
                         <li><a href="#conclusion">Conclusion</a></li>
                     </ul>
 
@@ -100,117 +163,204 @@
             </aside>
 
             <!-- MAIN CONTENT -->
-            <main class="blog-content-area">
-                <article>
-                    <div class="article-header">
-                        <div class="article-meta">
-                            <span class="article-date">February 11, 2026</span>
-                            <span class="article-reading-time">6 min read</span>
-                        </div>
-                        <h1 class="article-title">The Apple Propaganda: Breaking the Illusion</h1>
-                        <div class="article-tags">
-                            <span class="blog-tag">Opinion</span>
-                            <span class="blog-tag">Tech Analysis</span>
-                            <span class="blog-tag">Healthy Living</span>
-                        </div>
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Opinion</span>
+                        <span class="blog-tag">Tech Analysis</span>
+                        <span class="blog-tag">Healthy Living</span>
                     </div>
-
-                    <div id="intro" class="content-section">
-                        <p>
-                            Names carry power. When we hear "Apple," two distinct images likely flood our minds: the pristine, shiny red fruit sitting in a basket, and the sleek, minimalist logo of a trillion-dollar tech conglomerate. Both entities have successfully cultivated an image of perfection, health, and premium status. But if we peel back the skin—or the aluminum chassis—we find that reality is often far more nuanced, and perhaps a bit more "processed" than we’d like to admit.
-                        </p>
+                    <h1 class="article-title">The Apple Propaganda: Breaking the Illusion</h1>
+                    <div class="article-meta">
+                        <span>Feb 11, 2026</span> • <span>6 min read</span> • <span>By Atharv Khare</span>
                     </div>
+                </header>
 
-                    <div id="the-fruit" class="content-section">
-                        <h2>The Fruit: "An Apple a Day" or Just Good Marketing?</h2>
-                        <p>
-                            The old adage "An apple a day keeps the doctor away" is perhaps one of the most successful marketing slogans in history. It originated in Pembrokeshire, Wales, in the 1860s, but it has shaped global perception for over a century. We view the apple as the default "healthy" snack.
-                        </p>
-                        <p>
-                            However, look closely at the fruit market, especially here in India. Apples are often the most expensive item on the cart. We pay a premium for that perfect, glossy red look. But that gloss isn't always natural. To keep apples looking fresh during long transport and storage periods (sometimes up to a year in cold storage!), vendors and distributors rely heavily on artificial enhancements.
-                        </p>
-                    </div>
-
-                    <div id="chemical-reality" class="content-section">
-                        <h3>The Chemical Coat</h3>
-                        <p>
-                            That shine you see? It's often a layer of food-grade wax—typically <strong>shellac</strong> or <strong>carnauba wax</strong>—applied to replace the natural wax lost during washing. While generally "safe," it seals in more than just moisture; it often seals in pesticides and fungicides.
-                        </p>
-                        <p>
-                            Even vendors will sometimes admit that to maintain that "fresh picked" crispness for months, apples are treated with chemicals like <strong>1-Methylcyclopropene (1-MCP)</strong>, which blocks ethylene receptors to pause ripening, or <strong>diphenylamine</strong> to prevent storage scald (browning). You aren't just eating a fruit; you're eating a marvel of preservation chemistry.
-                        </p>
-                    </div>
-
-                    <div id="nutrition-comparison" class="content-section">
-                        <h3>Nutritional Reality Check</h3>
-                        <p>
-                            Is it worth the price? Nutritionally, the apple is good, but it is hardly the "superfood" king it's made out to be, especially compared to local, cheaper alternatives available in India.
-                        </p>
-                        <ul>
-                            <li><strong>Guava (Amrood):</strong> A humble guava contains nearly <strong>4 times the fiber</strong> and up to <strong>20 times the Vitamin C</strong> of an apple. It is significantly cheaper and rarely requires the heavy waxing treatment.</li>
-                            <li><strong>Orange:</strong> Far superior in Vitamin C and folate content.</li>
-                            <li><strong>Papaya:</strong> Better for digestion and rich in Vitamin A, often available at a fraction of the cost per kilo.</li>
-                        </ul>
-                        <p>
-                            The apple is "health theatre"—it performs the role of healthiness perfectly, but often lacks the substance to justify its elite status and price tag compared to local heroes.
-                        </p>
-                    </div>
-
-                    <hr class="section-divider">
-
-                    <div id="the-company" class="content-section">
-                        <h2>The Company: From Think Different to Think Same</h2>
-                        <p>
-                            Much like its fruity namesake, Apple Inc. has mastered the art of perception. Decades ago, Apple was the rebel. The "Crazy Ones." They defined innovation with the Macintosh, the iPod, and the iPhone. They shifted paradigms.
-                        </p>
-                        <p>
-                            But fast forward to 2026. The rebel has become the establishment. The company that once prided itself on purely innovative leaps now seemingly focuses on endless refinement and polish. They have perfected the "garden"—a walled one—where everything looks beautiful, but nothing truly wild ever grows.
-                        </p>
-                    </div>
-
-                    <div id="stagnation" class="content-section">
-                        <h3>Saturated by Design</h3>
-                        <p>
-                            While the Mac lineup has seen genuine resurgence thanks to the sheer power of custom silicon (the M-series chips remain marvels of engineering), the smartphone segment tells a different story. The iPhone in 2026 feels remarkably similar to the iPhone of 2023, which felt like the iPhone of 2020.
-                        </p>
-                        <p>
-                            The strategy has shifted from "Innovation" to "Iteration." They polish the camera lenses, sheer a millimeter off the bezel, and market it as a revolution. Features that competitors have had for years—high refresh rates across all models, faster charging, true multitasking—are often drip-fed to Apple users as "new" features, years late and at a higher price point.
-                        </p>
-                    </div>
-
-                    <div id="competition" class="content-section">
-                        <h3>The Android Reality</h3>
-                        <p>
-                            By 2026, the gap isn't just closing; in many ways, it has inverted. The Android ecosystem, with its embrace of open-source philosophies and third-party freedom, feels more alive.
-                        </p>
-                        <ul>
-                            <li><strong>Freedom:</strong> The ability to sideload apps, customize UIs, and use third-party tools is a breath of fresh air compared to iOS's rigid control.</li>
-                            <li><strong>Utility:</strong> Competitors are offering foldables that are mature and durable, battery technologies that charge in minutes, and software features that genuinely leverage AI for productivity rather than just gimmicks.</li>
-                            <li><strong>Value:</strong> Paying the "Apple Tax" makes less sense when competitors offer devices with superior hardware specs and identical build quality for 30-40% less.</li>
-                        </ul>
-                    </div>
-
-                    <div id="conclusion" class="content-section">
-                        <h2>Conclusion</h2>
-                        <p>
-                            Whether it's the fruit in your basket or the phone in your pocket, the "Apple" brand relies heavily on a legacy of trust and an aesthetic of perfection. But in 2026, it is crucial to see past the wax coating and the aluminum sheen.
-                        </p>
-                        <p>
-                            Eat a guava. Buy a phone that lets you own your software. Don't buy into the propaganda just because it looks shiny.
-                        </p>
-                    </div>
-
-                </article>
-                
-                <!-- Comments or other footer stuff -->
-                <div class="article-footer-nav">
-                    <p style="margin-top: 2rem; opacity: 0.6; font-size: 0.9rem;">
-                        <em>Disclaimer: The views expressed in this article are personal opinions.</em>
+                <section id="intro">
+                    <p class="lead">
+                        Names carry power. When we hear "Apple," two distinct images flood our minds: the pristine, shiny red fruit, and the minimalist logo of a trillion-dollar tech conglomerate.
                     </p>
-                </div>
-            </main>
+                    <p>
+                        Both entities have successfully cultivated an image of perfection, health, and premium status. But if we peel back the skin, or the aluminum chassis, we find that reality is often far more nuanced.
+                    </p>
+                </section>
+
+                <section id="fruit-myth">
+                    <h2>The Fruit: "An Apple a Day" or Marketing?</h2>
+                    <p>
+                        The adage "An apple a day keeps the doctor away" originated in Wales in the 1860s. It shaped global perception, making the apple the default "healthy" snack. But in India, where apples are costly imports or heavily processed transport goods, the reality differs.
+                    </p>
+
+                    <h3>Nutritional Reality Check</h3>
+                    <p>While apples are good, they aren't the superfood they are marketed to be, especially compared to affordable local alternatives.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Nutrient (per 100g)</th>
+                                <th>Apple (Fuji)</th>
+                                <th>Guava (Local)</th>
+                                <th>Orange</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Vitamin C</strong></td>
+                                <td>4.6 mg</td>
+                                <td><strong>228.3 mg (50x)</strong></td>
+                                <td>53.2 mg (11x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dietary Fiber</strong></td>
+                                <td>2.4 g</td>
+                                <td><strong>5.4 g (2x)</strong></td>
+                                <td>2.4 g</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sugar</strong></td>
+                                <td>10.4 g</td>
+                                <td>8.9 g</td>
+                                <td>9.3 g</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Approx Cost (IN)</strong></td>
+                                <td>₹180-250/kg</td>
+                                <td><strong>₹40-80/kg</strong></td>
+                                <td>₹60-100/kg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="chemical-reality">
+                    <h2>The Chemical Coat</h2>
+                    <p>
+                        Why do apples in the supermarket look so shiny compared to the ones you might pick from a tree? The answer is often <strong>edible wax</strong>.
+                    </p>
+
+                    <div class="fact-box">
+                        <span class="fact-header">Did You Know?</span>
+                        Apples are often harvested <strong>9-12 months</strong> before you eat them. To survive this "zombie" phase, they are treated with <strong>1-Methylcyclopropene (1-MCP)</strong> to block ripening agents.
+                    </div>
+
+                    <p>
+                        To replace the natural wax washed off during cleaning, distributors apply Shellac (from the lac bug) or Carnauba wax. While FDA-approved, it seals in pesticides and creates an illusion of freshness that defies nature.
+                    </p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <section id="tech-giant">
+                    <h2>The Company: From Rebel to Regime</h2>
+                    <p>
+                        Much like its fruity namesake, Apple Inc. thrives on perception. In the early 2000s, they were the rebels. They "Thought Different." But in 2026, the rebel has become the establishment.
+                    </p>
+                    <p>
+                        The company now focuses on <strong>iteration over innovation</strong>. They perfect the "walled garden" : a beautiful prison where everything works, provided you don't try to leave or change anything.
+                    </p>
+                </section>
+
+                <section id="comparison">
+                    <h2>The 2026 Smartphone Landscape</h2>
+                    <p>
+                        While the Mac lineup (on M-series chips) remains impressive, the smartphone hegemony has cracked. Android's open ecosystem now offers more utility and value.
+                    </p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>iPhone 17 Pro (2026)</th>
+                                <th>Android Flagship (2026)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>OS Philosophy</strong></td>
+                                <td>Locked, Restricted</td>
+                                <td><strong>Open, Sideloading</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Charging</strong></td>
+                                <td>45W "Fast" Charging</td>
+                                <td><strong>120W+ HyperCharge</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multitasking</strong></td>
+                                <td>Limited</td>
+                                <td><strong>True Split-Screen/Desktop Mode</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Innovation</strong></td>
+                                <td>Refined Polish</td>
+                                <td><strong>Foldables, Holographic Displays</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Stagnation by Design</h3>
+                    <p>
+                        Features that competitors introduced years ago (high refresh rates, always-on displays, USB-C) were drip-fed to iPhone users as "revolutionary." In 2026, paying the "Apple Tax" isn't buying the future; it's buying a polished version of the past.
+                    </p>
+                </section>
+
+                <section id="conclusion">
+                    <h2>Conclusion</h2>
+                    <p>
+                        The "Apple" brand relies on a legacy of trust and an aesthetic of perfection. But whether it's the fruit or the phone, don't let the shine blind you to the substance.
+                    </p>
+                    <p>
+                        Eat a guava, it's healthier. Buy a device that respects your freedom, it's smarter. Break the illusion.
+                    </p>
+                </section>
+
+                <hr class="divider-sm">
+
+                 <!-- "Read Next" Section similar to other posts -->
+                 <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="women-empowerment.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Women Empowerment?</h4>
+                                <p class="text-xs">A philosophical essay</p>
+                            </div>
+                        </a>
+                        <a href="gitsyntropy.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">GitSyntropy</h4>
+                                <p class="text-xs">Astrology-Inspired Team Matching</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </article>
+
         </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="https://linktr.ee/atharvkhare" target="_blank">LINKTR.EE</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
     </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
 
     <script src="../script.js"></script>
     <script>
@@ -227,7 +377,7 @@
         });
 
         // Track all sections that have an ID
-        document.querySelectorAll('div[id]').forEach((section) => {
+        document.querySelectorAll('section[id]').forEach((section) => {
             observer.observe(section);
         });
     </script>
