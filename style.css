@@ -2361,9 +2361,99 @@ body.dark-mode .callout {
 .blog-thumb {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    /* object-fit: cover; Removed since these are divs mostly now */
     background-color: #eee;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    /* Centering text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.blog-thumb span {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color-light);
+    z-index: 2;
+}
+
+body.dark-mode .blog-thumb span {
+    background: rgba(26, 26, 26, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+/* Minimalist Patterns for Blog Thumbs */
+.thumb-tech {
+    background-color: #f0f4f8;
+    background-image:
+        linear-gradient(#e1e8ed 1px, transparent 1px),
+        linear-gradient(90deg, #e1e8ed 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* Grid Pattern */
+    color: #4a5568 !important;
+}
+
+.thumb-poetry {
+    background-color: #fff9f0;
+    background-image: radial-gradient(#e2caa8 1.5px, transparent 1.5px);
+    background-size: 15px 15px;
+    /* Polka Dot Pattern */
+    color: #8c7355 !important;
+}
+
+.thumb-essay {
+    background-color: #fdfdfd;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 23px, #e5e7eb 23px, #e5e7eb 24px);
+    /* Lined Paper */
+    color: #555 !important;
+}
+
+.thumb-general {
+    background-color: #fff0f0;
+    background-image:
+        linear-gradient(#ffdddd 2px, transparent 2px),
+        linear-gradient(90deg, #ffdddd 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: center center;
+    /* Large Grid / Pluses */
+    color: #d64545 !important;
+}
+
+/* Dark Mode Overrides for patterns */
+body.dark-mode .thumb-tech {
+    background-color: #1a202c;
+    background-image:
+        linear-gradient(#2d3748 1px, transparent 1px),
+        linear-gradient(90deg, #2d3748 1px, transparent 1px);
+    color: #a0aec0 !important;
+}
+
+body.dark-mode .thumb-poetry {
+    background-color: #2c241b;
+    background-image: radial-gradient(#4a3b2a 1.5px, transparent 1.5px);
+    color: #d4b585 !important;
+}
+
+body.dark-mode .thumb-essay {
+    background-color: #1a1a1a;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 23px, #333 23px, #333 24px);
+    color: #aaa !important;
+}
+
+body.dark-mode .thumb-general {
+    background-color: #2d1a1a;
+    background-image:
+        linear-gradient(#3d2222 2px, transparent 2px),
+        linear-gradient(90deg, #3d2222 2px, transparent 2px);
+    color: #ff6b6b !important;
 }
 
 .blog-content {
