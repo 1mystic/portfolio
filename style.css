@@ -4,6 +4,7 @@
     /* Warm beige from your reference */
     --card-bg: #F9F8F4;
     --border-color: #1A1A1A;
+    --border-color-light: rgba(26, 26, 26, 0.2);
     --text-main: #1A1A1A;
     --text-muted: #666;
     --accent-purple: #5D3FD3;
@@ -56,6 +57,10 @@ h2 {
     font-size: 1.1rem;
     border-bottom: 1px solid transparent;
     display: inline-block;
+}
+
+h3 {
+    font-size: 1.3rem;
 }
 
 p,
@@ -513,6 +518,10 @@ nav a:hover {
     font-weight: 700;
     opacity: 0.6;
     color: var(--text-main);
+}
+
+.edu-text h3 {
+    border-bottom: 0.8px solid var(--border-color-light);
 }
 
 .edu-icon h5 {
@@ -1020,6 +1029,7 @@ nav a:hover {
 
 .mb-sm {
     margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .avatar-circle {
@@ -1778,17 +1788,16 @@ body.dark-mode .theme-toggle-nav:hover {
 .blog-card-description {
     margin: 0;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.5;
 }
+
 
 .blog-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
+    margin-top: 0;
 }
 
 .blog-stats {
@@ -1800,6 +1809,8 @@ body.dark-mode .theme-toggle-nav:hover {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    border-top : 0.8px solid var(--border-color-light);
+    padding-top: 0.5rem;
 }
 
 .blog-stat-item {
