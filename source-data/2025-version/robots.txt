@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1mystic.github.io/portfolio/sitemap.xml
