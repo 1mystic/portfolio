@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharv Khare | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Work</a></li>
+                    <li><a href="#updates">Updates</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#achievements">About</a></li>
+                    <li><a href="mailto:atharvkhare18@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-status">
+                <span class="status-dot"></span> AVAILABLE FOR WORK
+            </div>
+
+            <h1 class="hero-name">ATHARV KHARE</h1>
+            <p class="hero-role">DATA SCIENTIST & UI DESIGNER</p>
+
+            <div class="hero-skills">
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Python & SQL</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Business Analytics</span>
+                <span class="skill-tag">Frontend Dev</span>
+            </div>
+        </section>
+
+        <!-- SECTION 1: PROJECTS SHOWCASE (4 Columns) -->
+        <h2>Projects Showcase</h2>
+        <section class="grid-section" id="projects">
+            <!-- Project 1: DominoML -->
+            <div class="card">
+                <div class="flex-row">
+                    <h3>DominoML</h3>
+                    <span>~</span>
+                </div>
+                <div class="illustration-box">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="work-list-item">
+                    <span><span class="checkbox-mock"></span>Flask / Postgres</span>
+                </div>
+                <div class="work-list-item">
+                    <span><span class="checkbox-mock"></span>ML Pipelines</span>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.75rem;">Drag & Drop Builder</p>
+            </div>
+
+            <!-- Project 2: Axiom Canvas -->
+            <div class="card">
+                <div class="flex-row">
+                    <h3>Axiom Canvas</h3>
+                    <span>~</span>
+                </div>
+                <div class="illustration-box" style="height: 60px;">Math Vis</div>
+                <div class="work-list-item">
+                    <span>NLP Engine</span>
+                </div>
+                <div class="work-list-item">
+                    <span>Graphing</span>
+                </div>
+                <div class="work-list-item">
+                    <span>Gemini AI</span>
+                </div>
+            </div>
+
+            <!-- Project 3: Clearview Eco -->
+            <div class="card">
+                <div class="flex-row">
+                    <h3>Clearview Eco</h3>
+                    <span>~</span>
+                </div>
+                <div class="illustration-box" style="height: 60px;">Pollution Map</div>
+                <div class="work-list-item">
+                    <span>TensorFlow</span>
+                </div>
+                <div class="work-list-item">
+                    <span>React JS</span>
+                </div>
+                <div class="work-list-item">
+                    <span>Geotagging</span>
+                </div>
+            </div>
+
+            <!-- Project 4: Whiz-It -->
+            <div class="card">
+                <div class="flex-row">
+                    <h3>Whiz-It</h3>
+                    <span>~</span>
+                </div>
+                <div class="illustration-box">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                </div>
+                <div class="work-list-item">
+                    <span>Vue.js / Redis</span>
+                </div>
+                <div class="work-list-item">
+                    <span>Real-time Quiz</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DEDICATED INBOX & UPDATES (Row 2 in wireframe) -->
+        <h2 style="margin-top: 2rem;">Updates & Insights</h2>
+        <section class="grid-section" id="updates">
+
+            <!-- Left: Inbox/Updates -->
+            <div class="card span-2">
+                <div class="flex-row">
+                    <h3>Inbox Items</h3>
+                    <small>Latest Updates</small>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <!-- Replicating the "Post-it" style notes from wireframe -->
+                    <div style="border: 1px solid #ccc; padding: 15px; background: #fff;">
+                        <div style="width: 100%; height: 50px; background: #eee; margin-bottom: 10px;"></div>
+                        <p>Built "MarkTex" - LaTeX/Markdown Editor</p>
+                    </div>
+                    <div style="border: 1px solid #ccc; padding: 15px; background: #fff;">
+                        <div style="width: 100%; height: 50px; background: #eee; margin-bottom: 10px;"></div>
+                        <p>Business Analytics: QSR Demand Forecasting</p>
+                    </div>
+                    <div style="border: 1px solid #ccc; padding: 15px; background: #fff;">
+                        <p>Certifications</p>
+                        <hr style="margin: 5px 0; border: 0; border-top: 1px solid #eee;">
+                        <p style="font-size: 0.7rem;">Data Science Associate (Datacamp)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content Overview (From your second image) -->
+            <div class="card span-2" style="background-color: #fcfcfc;">
+                <div class="flex-row" style="margin-bottom: 15px;">
+                    <div>
+                        <h3>Profile Overview</h3>
+                        <p style="font-size: 0.7rem;">Atharv Khare | IIT Madras BS Data Science</p>
+                    </div>
+                    <div
+                        style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid #333; display: flex; align-items:center; justify-content:center;">
+                        AK</div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <!-- Bar Chart Replication -->
+                    <div class="chart-container">
+                        <small style="display:block; margin-bottom:5px;">Skill Distribution</small>
+                        <div class="bar-chart">
+                            <div class="bar-row">
+                                <span class="bar-label">Python</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">ML/AI</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">Web</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label">SQL</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart Layout -->
+                    <div class="chart-container" style="display: flex; align-items: center; justify-content: center;">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: conic-gradient(#333 0% 60%, #ccc 60% 80%, #eee 80% 100%);">
+                        </div>
+                        <div style="margin-left: 10px; font-size: 0.7rem;">
+                            <div>● Engineering</div>
+                            <div>● Analysis</div>
+                            <div>● Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: EDUCATION & CERTIFICATIONS (Row 3) -->
+        <h2>Education & Research</h2>
+        <section class="grid-section" id="education">
+
+            <!-- Left: Visual/Calendar Block -->
+            <div class="card span-2">
+                <div style="display: flex; gap: 15px; height: 100%;">
+                    <div
+                        style="flex: 1; border: 1px solid #ddd; padding: 10px; display: flex; flex-direction: column; justify-content: center;">
+                        <!-- Abstract Illustration of user/student -->
+                        <svg viewBox="0 0 100 100" fill="none" stroke="#333" stroke-width="2">
+                            <circle cx="50" cy="40" r="20" />
+                            <path d="M20,90 Q50,60 80,90" />
+                        </svg>
+                        <div style="text-align: center; margin-top: 10px; font-weight: bold;">IIT MADRAS</div>
+                    </div>
+                    <div style="flex: 1.5; border: 1px solid #ddd; padding: 10px;">
+                        <!-- Calendar Grid Mockup -->
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #333; background: #333;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                            <div style="aspect-ratio:1; border: 1px solid #eee;"></div>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.8rem;">BS Data Science (2027)</p>
+                        <p style="font-size: 0.7rem; color: #666;">CGPA: 9.01</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Work List (Detailed) -->
+            <div class="card span-2">
+                <div class="flex-row">
+                    <h3>Research: TypeState</h3>
+                    <div style="letter-spacing: 2px;">...</div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <div class="work-list-item">
+                        <span>Keystroke Dynamics</span>
+                        <small>LSTM</small>
+                    </div>
+                    <div class="work-list-item">
+                        <span>Cognitive Load</span>
+                        <small>Analysis</small>
+                    </div>
+                    <div class="work-list-item">
+                        <span>Stress Detection</span>
+                        <small>ML Model</small>
+                    </div>
+
+                    <!-- Graph at bottom of card -->
+                    <div style="margin-top: 15px; height: 60px; display: flex; align-items: flex-end; gap: 5px;">
+                        <div style="width: 10%; height: 40%; background: #ccc;"></div>
+                        <div style="width: 10%; height: 70%; background: #ccc;"></div>
+                        <div style="width: 10%; height: 50%; background: #ccc;"></div>
+                        <div style="width: 10%; height: 90%; background: #333;"></div>
+                        <div style="width: 10%; height: 60%; background: #ccc;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: ART/BLOG & ACHIEVEMENTS (Bottom Row) -->
+        <div class="flex-row">
+            <h2>Art / Origami</h2>
+            <h2>Achievements</h2>
+        </div>
+
+        <section class="grid-section" id="achievements">
+
+            <!-- Art/Blog Cards -->
+            <div class="card span-2">
+                <h3>Origami Gallery</h3>
+                <div class="carousel-wrapper" style="height: 180px;">
+                    <div class="carousel-track">
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Dragon</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Pegasus</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Yoda</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Beetle</div>
+                        <!-- Clone -->
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Dragon</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Pegasus</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Yoda</div>
+                        <div class="carousel-item" style="width: 150px; height: 150px;">Beetle</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements List -->
+            <div class="card span-2">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Col 1 -->
+                    <ul class="checklist">
+                        <li><span class="check-icon">☑</span> HACKERRANK SQL</li>
+                        <li><span class="check-icon">☑</span> GCP WORKSHOP</li>
+                        <li><span class="check-icon">☑</span> ML WORKSHOP</li>
+                        <li><span class="check-icon">☑</span> DIP. PROGRAMMING</li>
+                    </ul>
+                    <!-- Col 2 -->
+                    <ul class="checklist">
+                        <li><span class="check-icon">🏆</span> EUPHORIA POET</li>
+                        <li><span class="check-icon">🔒</span> DOMINO ML</li>
+                        <li><span class="check-icon">📌</span> CGPA 9.44</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <footer style="margin-top: 50px; text-align: center; font-size: 0.8rem; color: #999; padding-bottom: 50px;">
+            <p>2026 Creative Standards Edition. Designed for Atharv Khare.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

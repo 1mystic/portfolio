@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs & Written Work | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Blogs, articles, and written work by Atharv Khare. Covering Data Science, Machine Learning, Web Development, and more.">
+    <meta name="keywords" content="Atharv Khare, Blog, Data Science, Machine Learning, Tutorials, Articles, Writing">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/posts/blog-lstm.html">
+    <meta property="og:title" content="Understanding LSTM Networks | Atharv Khare">
+    <meta property="og:description" content="A deep dive into Long Short-Term Memory networks.">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css?v=1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <!-- Loader (Optional: Keep it simple for now) -->
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="../index.html">Portfolio</a></li>
+                    <li><a href="../index.html#work">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">Introduction</a></li>
+                        <li><a href="#architecture">LSTM Architecture</a></li>
+                        <li><a href="#forget-gate">The Forget Gate</a></li>
+                        <li><a href="#input-gate">The Input Gate</a></li>
+                        <li><a href="#output-gate">The Output Gate</a></li>
+                        <li><a href="#code">Implementation</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Deep Learning</span>
+                        <span class="blog-tag">NLP</span>
+                    </div>
+                    <h1 class="article-title">Understanding Long Short-Term Memory (LSTM) Networks</h1>
+                    <div class="article-meta">
+                        <span>Jan 24, 2026</span> • <span>5 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                    <img src="../assets/bg_images/my-img .webp" alt="LSTM Header" class="article-hero-img">
+                </header>
+
+                <section id="intro">
+                    <p class="lead">Recurrent Neural Networks (RNNs) are powerful, but they suffer from short-term
+                        memory. LSTMs were designed to solve this via a unique internal mechanisms called gates.</p>
+                    <p>In this article, we'll demystify the mathematics behind LSTMs and assume a "first principles"
+                        approach to understanding how they process sequences.</p>
+                </section>
+
+                <section id="architecture">
+                    <h2>The Architecture</h2>
+                    <p>Unlike standard feedforward neural networks, LSTMs have feedback connections. They can process
+                        not only single data points (such as images), but also entire sequences of data (such as speech
+                        or video).</p>
+                    <div class="callout">
+                        <strong>Key Concept:</strong> The core idea behind LSTMs is the cell state, a horizontal line
+                        running through the top of the diagram. It's like a conveyor belt, running straight down the
+                        entire chain, with only some minor linear interactions.
+                    </div>
+                </section>
+
+                <section id="forget-gate">
+                    <h2>1. The Forget Gate</h2>
+                    <p>The first step in our LSTM is to decide what information we're going to throw away from the cell
+                        state. This decision is made by a sigmoid layer called the "forget gate layer".</p>
+                    <pre><code class="language-python">def forget_gate(x, h_prev, W_f, b_f):
+    # Concatenate input and previous hidden state
+    concat = np.concatenate((h_prev, x))
+    # Apply sigmoid
+    f_t = sigmoid(np.dot(W_f, concat) + b_f)
+    return f_t</code></pre>
+                </section>
+
+                <section id="input-gate">
+                    <h2>2. The Input Gate</h2>
+                    <p>The next step is to decide what new information we're going to store in the cell state. This has
+                        two parts. First, a sigmoid layer called the "input gate layer" decides which values we'll
+                        update.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <section id="conclusion">
+                    <h2>Conclusion</h2>
+                    <p>LSTMs are a significant step forward in what we can achieve with RNNs. While Transformers have
+                        taken over NLP, LSTMs remain crucial for timeseries analysis and distinct sequential tasks.</p>
+                </section>
+
+                <!-- "Read Next" Section at bottom of article -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="#" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">The "New Retro" Design</h4>
+                                <p class="text-xs">Web Design Trends in 2026</p>
+                            </div>
+                        </a>
+                        <a href="#" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">DominoML</h4>
+                                <p class="text-xs">Building visual pipelines.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="https://linktr.ee/atharvkhare" target="_blank">LINKTR.EE</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <!-- Reusing script if strictly needed, mostly for loader/strip text -->
+    <script src="../script.js?v=1"></script>
+</body>
+
+</html>
