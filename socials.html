@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATHARV KHARE | @1MYSTIC</title>
+  
+  <!-- Importing classy serif and playful clean sans-serif fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CSS Variables: Earthy & Minimalist --- */
+    :root {
+      --bg-color: #f4efe6;        /* Sand / Oatmeal */
+      --card-bg: #fdfcf9;         /* Warm Off-White */
+      --text-main: #2c3127;       /* Deep Olive / Charcoal */
+      --text-muted: #737b67;      /* Muted Sage */
+      --accent-color: #92a083;    /* Earthy Sage Green */
+      --accent-hover: #d2a17c;    /* Terracotta / Warm Tan accent */
+      --shadow-color: rgba(44, 49, 39, 0.08);
+      --hover-shadow: rgba(44, 49, 39, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    /* --- Layout --- */
+    .container {
+      max-width: 440px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* --- Profile Header --- */
+    .profile-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--card-bg);
+      margin-bottom: 0.5rem;
+      box-shadow: 0 8px 24px var(--shadow-color);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .avatar:hover {
+      transform: scale(1.08) rotate(-5deg);
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .handle {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* --- Links Stack --- */
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* --- Individual Cards --- */
+    .link-card {
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg);
+      text-decoration: none;
+      color: var(--text-main);
+      padding: 1rem 1.5rem;
+      border-radius: 18px;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 12px var(--shadow-color);
+      
+      /* Playful bouncy transition */
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      
+      /* Initial state for JS staggered animation */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .link-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 14px 28px var(--hover-shadow);
+      border-color: var(--accent-color);
+      color: var(--text-main);
+    }
+
+    /* Icon Container */
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: rgba(146, 160, 131, 0.15); /* Soft sage bg */
+      color: var(--accent-color);
+      margin-right: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .link-card:hover .icon-wrapper {
+      background-color: var(--accent-color);
+      color: var(--card-bg);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .icon-wrapper svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Link Title */
+    .link-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      flex-grow: 1;
+    }
+
+    /* Hover Arrow */
+    .arrow {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: var(--accent-hover);
+    }
+
+    .link-card:hover .arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-in {
+      animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Profile Header -->
+    <header class="profile-header">
+      <div class="avatar" aria-label="Initials">AK</div>
+      <h1>Atharv Khare</h1>
+      <span class="handle">@1Mystic</span>
+    </header>
+
+    <!-- Links Stack -->
+    <main class="links-container" id="links-container">
+      <!-- The cards will be dynamically injected here via JavaScript to keep HTML clean -->
+    </main>
+    
+  </div>
+
+  <script>
+    // Data containing all social links, names, and normalized SVGs based on your snippet
+    const linksData =[
+      {
+        name: "LinkedIn",
+        url: "https://linkedin.com/in/atharvkhare/",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><path d="M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>`
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/1mystic",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.8 1 1-.3 2-.4 3-.4s2 .1 3 .4c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.2.6.8.6 1.7V20c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg>`
+      },
+      {
+        name: "Substack",
+        url: "https://substack.com/@1mystic1",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 5h14v3H5z"/><path d="M5 9h14v10l-7-4-7 4z"/></svg>`
+      },
+      {
+        name: "Reddit",
+        url: "https://www.reddit.com/user/1mystc/",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="13" r="5"/><path d="M8.5 11.5 7 7.5"/><path d="M15.5 11.5 17 7.5"/><circle cx="9.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><path d="M10 15.2c.7.6 1.5.9 2 .9s1.3-.3 2-.9"/></svg>`
+      },
+      {
+        name: "Behance",
+        url: "https://www.behance.net/1mystic",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h6a2.5 2.5 0 0 1 0 5H4z"/><path d="M4 12h7a3 3 0 0 1 0 6H4z"/><path d="M15 10h5"/><path d="M19 8a2.5 2.5 0 0 0-2.2 1.4"/><path d="M16.5 13h5a4 4 0 0 1-5 0z"/></svg>`
+      },
+      {
+        name: "ResearchGate",
+        url: "https://www.researchgate.net/profile/Atharv-Khare-2?ev=hdr_xprf",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 16V8h4.2a2.4 2.4 0 0 1 0 4.8H8"/><path d="M12.2 12.8 15.2 16"/></svg>`
+      },
+      {
+        name: "LeetCode",
+        url: "https://leetcode.com/1mystic",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 13h7.5"/><path d="M9.424 7.268l4.999 -4.999"/><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313"/></svg>`
+      },
+      {
+        name: "HackerRank",
+        url: "https://www.hackerrank.com/1mystic",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12,3 19,7 19,17 12,21 5,17 5,7"/><path d="M9 9h6v6H9z"/></svg>`
+      },
+      {
+        name: "Email Me",
+        url: "mailto:atharvkhare18@gmail.com",
+        svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.9 4.3a2 2 0 0 0 2.2 0L21 8"/><path d="M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>`
+      }
+    ];
+
+    const container = document.getElementById('links-container');
+
+    // Generating links and applying a staggered animation effect
+    linksData.forEach((link, index) => {
+      // Create anchor element
+      const a = document.createElement('a');
+      a.href = link.url;
+      a.target = link.url.startsWith('http') ? '_blank' : '_self';
+      a.rel = "noopener noreferrer";
+      a.className = 'link-card animate-in';
+      
+      // Calculate stagger delay to create a cascading entrance effect
+      a.style.animationDelay = `${(index * 0.08) + 0.3}s`;
+
+      // Card Content
+      a.innerHTML = `
+        <div class="icon-wrapper">
+          ${link.svg}
+        </div>
+        <span class="link-title">${link.name}</span>
+        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      `;
+
+      container.appendChild(a);
+    });
+  </script>
+</body>
+</html>
