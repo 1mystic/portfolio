@@ -155,6 +155,31 @@
     border-radius: 4px;
   }
 
+  .loader-nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .loader-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 0.65rem 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .loader-nav a:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: var(--lime-pale);
+  }
+
   @keyframes loadMove {
     0% { background-position: 0 0; }
     100% { background-position: 250px 0; }
@@ -277,6 +302,10 @@
     <div class="loading-bar-container">
       <div class="loading-bar-fill"></div>
       <div class="loading-text">LOADING... 65%</div>
+    </div>
+
+    <div class="loader-nav">
+      <a href="links.html">View All Links</a>
     </div>
   </div>
 </body>

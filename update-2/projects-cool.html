@@ -527,6 +527,60 @@
   footer a { color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s; }
   footer a:hover { color: var(--rose-text); border-color: var(--rose-border); }
 
+  .footer-socials {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 0.5rem;
+  }
+  .footer-links-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .footer-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  .footer-divider {
+    width: 0;
+    height: 2.35rem;
+    border-left: 2px dotted var(--ink);
+    opacity: 0.7;
+  }
+  .footer-social-link {
+    width: 2.35rem;
+    height: 2.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+  .footer-social-link svg {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2;
+  }
+  .footer-social-link:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--ink);
+    color: var(--rose-text);
+    background: var(--paper);
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -1017,7 +1071,8 @@
     <p>
       <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
       <a href="https://github.com/1mystic" target="_blank">GitHub</a> &nbsp;·&nbsp;
-      <a href="/cdn-cgi/l/email-protection#92f3e6faf3e0e4f9faf3e0f7a3aad2f5fff3fbfebcf1fdff">Email</a>
+      <a href="mailto:atharvkhare18@gmail.com" target="_blank">Email</a> &nbsp;·&nbsp;
+      <a href="../links.html">All Links</a>
     </p>
   </footer>
 

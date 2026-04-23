@@ -829,6 +829,58 @@ footer p {
 footer a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
 footer a:hover { color: var(--accent); }
 
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+.footer-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.footer-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.footer-divider {
+  width: 0;
+  height: 2.2rem;
+  border-left: 2px dotted var(--border);
+  opacity: 0.8;
+}
+.footer-social-link {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.5);
+  transition: transform 0.16s ease, color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+.footer-social-link svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2;
+}
+.footer-social-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
 /* ══════════════════════════════════════
    HOME PAGE
 ══════════════════════════════════════ */
@@ -1942,7 +1994,8 @@ footer a:hover { color: var(--accent); }
     <p>
       <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
       <a href="https://github.com/1mystic" target="_blank">GitHub</a> &nbsp;·&nbsp;
-      <a href="mailto:23f2004201@ds.study.iitm.ac.in">Email</a>
+      <a href="https://www.hackerrank.com/1mystic" target="_blank">HackerRank</a> &nbsp;·&nbsp;
+      <a href="../links.html">All Links</a>
     </p>
   </footer>
 
