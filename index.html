@@ -6,8 +6,8 @@
 <title>Initialize Portfolio</title>
 
 <!-- Favicon -->
-<link rel="icon" type="image/webp" href="Deployed-now/assets/yoda.webp">
-<link rel="apple-touch-icon" href="Deployed-now/assets/yoda.webp">
+<link rel="icon" type="image/webp" href="fresh/assets/yoda.webp">
+<link rel="apple-touch-icon" href="fresh/assets/yoda.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,8 +106,8 @@
     transform: translateY(-8px) scale(1.02);
     box-shadow: 14px 14px 0px var(--ink);
   }
-  .avatar-card:nth-child(1):hover { background: var(--blue-pale); }
-  .avatar-card:nth-child(2):hover { background: var(--lime-pale); }
+  .avatar-card:nth-child(1):hover { background: var(--lime-pale); }
+  .avatar-card:nth-child(2):hover { background: var(--blue-pale); }
   .avatar-card:nth-child(3):hover { background: var(--rose-pale); }
 
   .avatar-icon { width: 80px; height: 80px; margin-bottom: 1.5rem; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
@@ -247,39 +247,47 @@
     <p class="preloader-sub">Select your companion to enter the portfolio</p>
     <div class="avatars-grid">
       <!-- Navigates directly to the portfolio page -->
-      <a href="Deployed-now/index.html" class="avatar-card">
+      <a href="fresh/index.html" class="avatar-card">
         <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="25" y="30" width="50" height="50" rx="4" fill="var(--surface)" />
-          <line x1="50" y1="30" x2="50" y2="15" />
-          <circle cx="50" cy="10" r="4" fill="currentColor" />
-          <circle cx="38" cy="48" r="5" fill="currentColor" />
-          <circle cx="62" cy="48" r="5" fill="currentColor" />
-          <path d="M 38 65 Q 50 72 62 65" stroke-width="4"/>
-          <!-- Antennas sideways -->
-          <line x1="25" y1="40" x2="15" y2="40" />
-          <circle cx="12" cy="40" r="3" fill="currentColor" />
-          <line x1="75" y1="40" x2="85" y2="40" />
-          <circle cx="88" cy="40" r="3" fill="currentColor" />
+          <!-- Sprout Stem -->
+          <path d="M50 38 L50 22" stroke-width="4" />
+          <!-- Two cute leaves -->
+          <path d="M50 22 Q65 12 75 25 Q50 30 50 22" fill="var(--lime-pale)" />
+          <path d="M50 22 Q35 12 25 25 Q50 30 50 22" fill="var(--lime-pale)" />
+          <!-- Round Character Body -->
+          <circle cx="50" cy="65" r="28" fill="var(--surface)" />
+          <!-- Eyes -->
+          <circle cx="42" cy="62" r="3.5" fill="currentColor" />
+          <circle cx="58" cy="62" r="3.5" fill="currentColor" />
+          <!-- Cute small mouth -->
+          <path d="M47 72 Q50 75 53 72" stroke-width="2.5" />
+          <!-- Blush -->
+          <circle cx="34" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
+          <circle cx="66" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
         </svg>
-        <div class="avatar-label">Byte</div>
+        <div class="avatar-label">Moss</div>
         <div class="avatar-desc">The Classic</div>
       </a>
-      <a href="update/index.html" class="avatar-card emphasized">
+      <a href="minimal/index.html" class="avatar-card emphasized">
         <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 20 70 L 20 40 L 40 20 L 60 20 L 80 40 L 80 70 Z" fill="var(--surface)" />
-          <!-- Owl eyes -->
-          <circle cx="35" cy="45" r="14" fill="#fff" />
-          <circle cx="65" cy="45" r="14" fill="#fff" />
-          <circle cx="35" cy="45" r="4" fill="currentColor" />
-          <circle cx="65" cy="45" r="4" fill="currentColor" />
-          <path d="M 50 55 L 43 68 L 57 68 Z" fill="currentColor" />
-          <!-- Fur details -->
-          <path d="M 30 80 L 35 70 L 40 80 M 60 80 L 65 70 L 70 80" />
+          <!-- Body: Sharp Geometric Rectangle -->
+          <rect x="25" y="30" width="50" height="50" fill="var(--surface)" stroke-width="3.5" />
+          <!-- Sharp Ear Tufts -->
+          <path d="M25 30 L25 15 L40 30" fill="currentColor" />
+          <path d="M75 30 L75 15 L60 30" fill="currentColor" />
+          <!-- Tiny Line Eyes (Minimalist) -->
+          <path d="M38 52 H44" stroke-width="4" />
+          <path d="M56 52 H62" stroke-width="4" />
+          <!-- Minimalist Sharp Beak -->
+          <path d="M48 62 L50 66 L52 62" fill="currentColor" />
+          <!-- Blue aesthetic accent lines -->
+          <line x1="30" y1="70" x2="40" y2="70" stroke="var(--blue-pale)" stroke-width="2" />
+          <line x1="60" y1="70" x2="70" y2="70" stroke="var(--blue-pale)" stroke-width="2" />
         </svg>
         <div class="avatar-label">Sigma</div>
-        <div class="avatar-desc">Data Scientist</div>
+        <div class="avatar-desc">The Minimalist</div>
       </a>
-      <a href="update-2/projects-cool.html" class="avatar-card emphasized">
+      <a href="squishy/projects-cool.html" class="avatar-card emphasized">
         <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <!-- Origami Fox -->
           <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--surface)" />
@@ -294,8 +302,8 @@
           <circle cx="35" cy="55" r="2" fill="currentColor" />
           <circle cx="65" cy="55" r="2" fill="currentColor" />
         </svg>
-        <div class="avatar-label">Fold</div>
-        <div class="avatar-desc">The Creator</div>
+        <div class="avatar-label">Squishy</div>
+        <div class="avatar-desc">The Softie</div>
       </a>
     </div>
     
