@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharv Khare | Data Scientist</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Atharv Khare, a Data Scientist and student at IIT Madras. Expertise in Machine Learning, Business Analysis, and Web Development. Based in Bhopal.">
+    <meta name="keywords"
+        content="Atharv Khare, Data Scientist, IIT Madras, IITM, Bhopal, Machine Learning, Web Development, Portfolio, Python, SQL, Business Analysis">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/">
+    <meta property="og:title" content="Atharv Khare | Data Scientist">
+    <meta property="og:description"
+        content="Portfolio of Atharv Khare, a Data Scientist and student at IIT Madras. Expertise in Machine Learning, Business Analysis, and Web Development.">
+    <meta property="og:image" content="https://1mystic.github.io/portfolio/assets/bg_images/my-img .webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1mystic.github.io/portfolio/">
+    <meta property="twitter:title" content="Atharv Khare | Data Scientist">
+    <meta property="twitter:description"
+        content="Portfolio of Atharv Khare, a Data Scientist and student at IIT Madras. Expertise in Machine Learning, Business Analysis, and Web Development.">
+    <meta property="twitter:image" content="https://1mystic.github.io/portfolio/assets/bg_images/my-img .webp">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://1mystic.github.io/portfolio/">
+
+    <link rel="icon" type="image/webp" href="assets/yoda.webp">
+    <link rel="apple-touch-icon" href="assets/yoda.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Merged File 2 Styles for Consecutive Sections -->
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      /* ── DARK THEME (default) ── */
+      :root,[data-theme="dark"] {
+        --bg:           #161616fb;
+        --bg3:          #1a1a1a;
+        --bg2:          #111111;
+        --border:       rgba(255,255,255,0.18);
+        --border-hover: rgba(255,255,255,0.35);
+        --text:         #f0ede6;
+        --text-muted:   #a8a8a8;
+        --text-dim:     #717171;
+        --accent:       #c8f060;
+        --accent2:      #60c8f0;
+        --mono: 'DM Mono', monospace;
+        --sans: 'Sora', sans-serif;
+        --home-band:      #191919;
+        --home-band-alt:  #161616;
+        --home-band-hover:#1f1f1f;
+        --home-rule:      rgba(255,255,255,0.07);
+        --home-num:       rgba(255,255,255,0.06);
+      }
+
+      /* ── LIGHT THEME ── */
+      [data-theme="light"] {
+        --bg:           #f5f1eb;
+        --bg3:          #ede9e2;
+        --bg2:          #eae5dd;
+        --border:       rgba(60,50,30,0.16);
+        --border-hover: rgba(60,50,30,0.32);
+        --text:         #1c1a16;
+        --text-muted:   #6b6458;
+        --text-dim:     #9b9080;
+        --accent:       #6b8c2a;
+        --accent2:      #2a6b8c;
+        --home-band:      #ede9e2;
+        --home-band-alt:  #f0ece5;
+        --home-band-hover:#e6e1d8;
+        --home-rule:      rgba(60,50,30,0.08);
+        --home-num:       rgba(60,50,30,0.05);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-weight: 400;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      body::before {
+        content: '';
+        position: fixed; inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none; z-index: 0; opacity: 0.4;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative; z-index: 1;
+      }
+
+      /* ── Section Navbar ── */
+      .section-nav {
+        display: flex;
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto;
+        scrollbar-width: none;
+        gap: 0;
+        margin-top: 2rem;
+      }
+      .section-nav::-webkit-scrollbar { display: none; }
+
+      .nav-btn {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        padding: 1rem 1.4rem;
+        border: none;
+        border-bottom: 2px solid transparent;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: color 0.15s, border-color 0.15s;
+        white-space: nowrap;
+        margin-bottom: -1px;
+      }
+
+      .nav-btn:hover { color: var(--text-muted); }
+      .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+      .section-panel { display: none; }
+      .section-panel.active { display: block; animation: fadeUp 0.4s ease both; }
+
+      /* ── Filter bar & Meta bar ── */
+      .filter-bar {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--border);
+        align-items: center;
+      }
+      .filter-label {
+        font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+        text-transform: uppercase; color: var(--text-muted); margin-right: 4px;
+      }
+      .filter-btn {
+        font-family: var(--mono); font-size: 12px; padding: 5px 14px;
+        border-radius: 2px; border: 1px solid var(--border);
+        background: transparent; color: var(--text-muted);
+        cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
+      }
+      .filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
+      .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #0a0a0a; font-weight: 500; }
+      
+      .meta-bar { display: flex; align-items: center; padding: 0.9rem 0 1.4rem; }
+      .item-count { font-family: var(--mono); font-size: 12px; color: var(--text-muted); }
+      .item-count span { color: var(--text); }
+
+      /* ── Grid & Card ── */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1px; border: 1px solid var(--border);
+        background: var(--border); margin-bottom: 5rem;
+      }
+      .card {
+        background: var(--bg); padding: 1.6rem 1.8rem; display: flex;
+        flex-direction: column; gap: 1rem; transition: background 0.2s;
+        position: relative; overflow: hidden; animation: fadeUp 0.4s ease both;
+        text-decoration: none; color: inherit;
+      }
+      .card::after {
+        content: ''; position: absolute; inset: 0; background: var(--accent);
+        opacity: 0; transition: opacity 0.3s; pointer-events: none;
+      }
+      .card:hover { background: var(--bg3); }
+      .card:hover::after { opacity: 0.015; }
+      .card.hidden { display: none; }
+      .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+      .card-index { font-family: var(--mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 2px; flex-shrink: 0; }
+      
+      .cat-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; border: 1px solid; flex-shrink: 0; }
+      .cat-ml       { border-color: rgba(192,136,240,0.7); color: #d4a8f8; }
+      .cat-ds       { border-color: rgba(96,200,240,0.7);  color: #7dd8f5; }
+      .cat-tool     { border-color: rgba(200,240,96,0.7);  color: #d4f270; }
+      .cat-web      { border-color: rgba(96,240,160,0.7);  color: #70f0b0; }
+      .cat-platform { border-color: rgba(240,160,96,0.7);  color: #f5b870; }
+      .cat-edu      { border-color: rgba(240,200,96,0.7);  color: #f5d470; }
+      .cat-paper    { border-color: rgba(96,200,240,0.7);  color: #7dd8f5; }
+      .cat-analysis { border-color: rgba(192,136,240,0.7); color: #d4a8f8; }
+      .cat-blog     { border-color: rgba(200,240,96,0.7);  color: #d4f270; }
+      .cat-tutorial { border-color: rgba(96,240,160,0.7);  color: #70f0b0; }
+      .cat-cert     { border-color: rgba(240,200,96,0.7);  color: #f5d470; }
+      .cat-degree   { border-color: rgba(96,200,240,0.7);  color: #7dd8f5; }
+      .cat-award    { border-color: rgba(240,160,96,0.7);  color: #f5b870; }
+      .cat-medal    { border-color: rgba(200,240,96,0.7);  color: #d4f270; }
+      .cat-title    { border-color: rgba(192,136,240,0.7); color: #d4a8f8; }[data-theme="light"] .cat-ml       { border-color: rgba(120,60,180,0.5); color: #7a3db0; }[data-theme="light"] .cat-ds       { border-color: rgba(42,107,140,0.5); color: #2a6b8c; }
+      [data-theme="light"] .cat-tool     { border-color: rgba(107,140,42,0.5); color: #6b8c2a; }
+      [data-theme="light"] .cat-web      { border-color: rgba(42,140,90,0.5);  color: #2a8c5a; }
+      [data-theme="light"] .cat-platform { border-color: rgba(180,100,42,0.5); color: #b06430; }
+      [data-theme="light"] .cat-edu      { border-color: rgba(160,130,42,0.5); color: #9c8028; }
+      [data-theme="light"] .cat-paper    { border-color: rgba(42,107,140,0.5); color: #2a6b8c; }
+      [data-theme="light"] .cat-analysis { border-color: rgba(120,60,180,0.5); color: #7a3db0; }
+      [data-theme="light"] .cat-blog     { border-color: rgba(107,140,42,0.5); color: #6b8c2a; }
+      [data-theme="light"] .cat-tutorial { border-color: rgba(42,140,90,0.5);  color: #2a8c5a; }
+      [data-theme="light"] .cat-cert     { border-color: rgba(160,130,42,0.5); color: #9c8028; }
+      [data-theme="light"] .cat-degree   { border-color: rgba(42,107,140,0.5); color: #2a6b8c; }
+      [data-theme="light"] .cat-award    { border-color: rgba(180,100,42,0.5); color: #b06430; }
+      [data-theme="light"] .cat-medal    { border-color: rgba(107,140,42,0.5); color: #6b8c2a; }
+      [data-theme="light"] .cat-title    { border-color: rgba(120,60,180,0.5); color: #7a3db0; }
+
+      .card-title { font-size: 17px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1.25; }
+      .card-sub { font-family: var(--mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.02em; margin-top: 4px; }
+      .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.72; font-weight: 400; flex: 1; }
+      .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+      .tag { font-family: var(--mono); font-size: 11px; color: var(--text-muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 1px; letter-spacing: 0.03em; transition: border-color 0.15s, color 0.15s; }
+      .card:hover .tag { border-color: var(--border-hover); color: var(--text); }
+      .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 0.5rem; min-height: 22px; }
+      
+      .gh-link { display: inline-flex; align-items: center; color: var(--text-dim); text-decoration: none; transition: color 0.15s; flex-shrink: 0; line-height: 1; }
+      .gh-link:hover { color: var(--text); }
+      .gh-icon { width: 14px; height: 14px; display: block; flex-shrink: 0; }
+      
+      .card-link { font-family: var(--mono); font-size: 12px; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: color 0.15s; width: fit-content; }
+      .card-link:hover { color: var(--accent); }
+      .card-link .arrow { display: inline-block; transition: transform 0.15s; }
+      .card-link:hover .arrow { transform: translate(2px, -2px); }
+
+      /* ── HOME ── */
+      #panel-home { padding-bottom: 5rem; }
+      .home-hero { padding: 0 0 2.8rem; border-bottom: 1px solid var(--border); margin-top: 2rem; }
+      .home-intro { font-size: clamp(15px, 2vw, 17px); color: var(--text-muted); line-height: 1.75; max-width: 680px; font-weight: 300; }
+      .home-intro strong { color: var(--text); font-weight: 500; }
+      
+      .home-stats { display: flex; gap: 1px; border: 1px solid var(--border); margin: 2rem 0 0; }
+      .stat-cell { flex: 1; padding: 1.1rem 1.4rem; display: flex; flex-direction: column; gap: 3px; border: 1px solid var(--border); transition: background 0.18s; }
+      .stat-cell:hover { background: var(--home-band-hover); }
+      .stat-num { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+      .stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); }
+
+      .home-sections { margin-top: 2.8rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+      .home-band { background: var(--home-band); display: grid; grid-template-columns: 52px 1fr auto; align-items: stretch; gap: 0; cursor: pointer; transition: background 0.18s; position: relative; overflow: hidden; }
+      .home-band:nth-child(even) { background: var(--home-band-alt); }
+      .home-band:hover { background: var(--home-band-hover); }
+      .home-band::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+      .home-band:hover::before { opacity: 1; }
+      
+      .band-num { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; border-right: 1px solid var(--home-rule); background: var(--home-num); padding: 1.6rem 0; flex-shrink: 0; }
+      .band-body { padding: 1.5rem 1.8rem; display: flex; flex-direction: column; gap: 0.55rem; }
+      .band-header { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+      .band-title { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+      .band-count { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); padding: 2px 7px; border: 1px solid var(--border); border-radius: 1px; }
+      .band-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; max-width: 640px; }
+      .band-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+      .band-tag { font-family: var(--mono); font-size: 10px; color: var(--text-dim); padding: 2px 7px; border: 1px solid var(--home-rule); border-radius: 1px; letter-spacing: 0.04em; transition: border-color 0.15s, color 0.15s; }
+      .home-band:hover .band-tag { border-color: var(--border); color: var(--text-muted); }
+      .band-arrow { display: flex; align-items: center; justify-content: center; padding: 0 1.5rem; font-family: var(--mono); font-size: 16px; color: var(--text-dim); border-left: 1px solid var(--home-rule); transition: color 0.18s, transform 0.18s; flex-shrink: 0; }
+      .home-band:hover .band-arrow { color: var(--accent); transform: translateX(3px); }
+
+      .home-section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); padding: 2rem 0 0.8rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+      .home-section-label:first-of-type { margin-top: 2.8rem; border-top: none; }
+
+      .updates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 0; }
+      .updates-col { background: var(--home-band); display: flex; flex-direction: column; }
+      .updates-col-head { display: flex; align-items: center; gap: 0.7rem; padding: 0.9rem 1.3rem; border-bottom: 1px solid var(--home-rule); }
+      .updates-col-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); flex: 1; }
+      .updates-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: pulse 2.4s ease-in-out infinite; }
+      
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      
+      .update-list { display: flex; flex-direction: column; list-style: none; }
+      .update-item { display: flex; gap: 0; border-bottom: 1px solid var(--home-rule); transition: background 0.15s; position: relative; }
+      .update-item:last-child { border-bottom: none; }
+      .update-item:hover { background: var(--home-band-hover); }
+      .update-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); opacity: 0; transition: opacity 0.18s; }
+      .update-item:hover::before { opacity: 0.8; }
+      .update-date { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.06em; padding: 0.9rem 0.8rem 0.9rem 1.1rem; min-width: 72px; flex-shrink: 0; line-height: 1.5; border-right: 1px solid var(--home-rule); display: flex; align-items: flex-start; padding-top: 1rem; }
+      .update-body { padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 3px; flex: 1; }
+      .update-title { font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; line-height: 1.3; }
+      .update-sub { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); line-height: 1.5; }
+      
+      .update-pill { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 6px; border-radius: 1px; border: 1px solid var(--border); color: var(--text-dim); align-self: flex-start; margin-top: 3px; }
+      .update-pill.pill-new   { border-color: rgba(200,240,96,0.4); color: var(--accent); }
+      .update-pill.pill-ship  { border-color: rgba(96,200,240,0.4); color: var(--accent2); }
+      .update-pill.pill-cert  { border-color: rgba(240,200,96,0.4); color: #f5d470; }
+      .update-pill.pill-paper { border-color: rgba(192,136,240,0.4); color: #d4a8f8; }
+      .update-pill.pill-win   { border-color: rgba(96,240,160,0.4); color: #70f0b0; }
+      .update-pill.pill-wip   { border-color: rgba(240,160,96,0.4); color: #f5b870; }[data-theme="light"] .update-pill.pill-new   { border-color: rgba(107,140,42,0.5); color: #6b8c2a; }
+      [data-theme="light"] .update-pill.pill-ship  { border-color: rgba(42,107,140,0.5); color: #2a6b8c; }
+      [data-theme="light"] .update-pill.pill-cert  { border-color: rgba(160,130,42,0.5); color: #9c8028; }
+      [data-theme="light"] .update-pill.pill-paper { border-color: rgba(120,60,180,0.5); color: #7a3db0; }
+      [data-theme="light"] .update-pill.pill-win   { border-color: rgba(42,140,90,0.5);  color: #2a8c5a; }
+      [data-theme="light"] .update-pill.pill-wip   { border-color: rgba(180,100,42,0.5); color: #b06430; }
+
+      /* Footer styling */
+      footer { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+      footer p { font-family: var(--mono); font-size: 12px; color: var(--text-muted); letter-spacing: 0.08em; }
+      footer a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+      footer a:hover { color: var(--accent); }
+
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes navGlow { 0% { box-shadow: 0 0 0 0 rgba(200,240,96,0.28); } 55% { box-shadow: 0 0 0 5px rgba(200,240,96,0.08); } 100% { box-shadow: 0 0 0 0 rgba(200,240,96,0); } }
+
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 2px; }
+
+      @media (max-width: 680px) {
+        .updates-grid { grid-template-columns: 1fr; }
+        .home-stats { flex-direction: row; flex-wrap: wrap; }
+        .stat-cell { min-width: 45%; }
+        .home-band { grid-template-columns: 40px 1fr 40px; }
+        .band-arrow { padding: 0 0.8rem; }
+        .band-body { padding: 1.2rem 1.2rem; }
+      }
+      
+      @media (max-width: 600px) {
+        .section-nav { display: grid; grid-template-columns: repeat(3, 1fr); overflow-x: visible; border: 1px solid var(--border); border-bottom: 1px solid var(--border); gap: 1px; background: var(--border); animation: navGlow 1.4s ease 0.6s both; }
+        .nav-btn { padding: 0.8rem 0.3rem; font-size: 11.5px; font-weight: 500; letter-spacing: 0.04em; text-align: center; white-space: normal; line-height: 1.25; background: var(--bg); border-bottom: 2px solid transparent; margin-bottom: 0; }
+        .nav-btn.active { background: rgba(200,240,96,0.06); color: var(--accent); border-bottom-color: var(--accent); }
+      }
+    </style>
+</head>
+
+<body>
+    <img class="jute-bg" src="jute-bg.webp" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="loader">1mystic...</div>
+    </div>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="showSectionAndScroll('projects')">Projects</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSectionAndScroll('home')">Work</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSectionAndScroll('research')">Overview</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSectionAndScroll('education')">Education</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- HERO SECTION -->
+        <div class="leaves leaves-1"> <img src="assets/leaf-top.webp" alt=""></div>
+        <div class="leaves leaves-2"> <img src="assets/leaf-bottom.webp" alt=""></div>
+        <section class="hero-section">
+            <h1 class="hero-name strip-text" data-text="ATHARV KHARE">ATHARV KHARE</h1>
+            <p class="hero-role">DATA SCIENTIST</p>
+
+            <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+                <a href="javascript:void(0)" onclick="showSectionAndScroll('projects')" class="btn btn-primary">View My Work</a>
+                <a href="assets/Atharv_Khare.pdf" target="_blank" class="btn">Download CV</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/atharvkhare/" class="social-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="https://github.com/1mystic" class="social-link" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                </a>
+                <a href="https://leetcode.com/1mystic" class="social-link" aria-label="LeetCode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-leetcode">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 13h7.5" />
+                        <path d="M9.424 7.268l4.999 -4.999" />
+                        <path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313" />
+                    </svg>
+                </a>
+                <a href="https://t.me/1mystic4u" class="social-link" aria-label="Telegram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4" />
+                    </svg>
+                </a>
+                <a href="mailto:atharvkhare18@gmail.com" class="social-link" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- TECH STACK MARQUEE -->
+        <section class="tech-stack-section">
+            <div class="marquee-container">
+                <div id="tech-stack" class="marquee-content">
+                    <span>PYTHON</span> <span>JAVA</span> <span>HTML</span> <span>CSS</span> <span>JAVASCRIPT</span>
+                    <span>FLASK</span> <span>REACT</span> <span>NEXT.JS</span> <span>REDIS</span> <span>MYSQL</span>
+                    <span>POSTGRESQL</span> <span>PANDAS</span> <span>NUMPY</span> <span>TENSORFLOW</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span>PYTHON</span> <span>JAVA</span> <span>HTML</span> <span>CSS</span> <span>JAVASCRIPT</span>
+                    <span>FLASK</span> <span>REACT</span> <span>NEXT.JS</span> <span>REDIS</span> <span>MYSQL</span>
+                    <span>POSTGRESQL</span> <span>PANDAS</span> <span>NUMPY</span> <span>TENSORFLOW</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Section Navbar ── -->
+        <nav class="section-nav" id="sectionNav">
+            <button class="nav-btn active" data-section="home">Overview</button>
+            <button class="nav-btn" data-section="projects">Projects</button>
+            <button class="nav-btn" data-section="research">Research &amp; Analysis</button>
+            <button class="nav-btn" data-section="blogs">Written Blogs</button>
+            <button class="nav-btn" data-section="certificates">Certificates</button>
+            <button class="nav-btn" data-section="education">Education</button>
+            <button class="nav-btn" data-section="achievements">Achievements</button>
+        </nav>
+
+        <!-- ════ HOME (default) ════ -->
+        <div class="section-panel active" id="panel-home">
+            <div class="home-hero">
+                <p class="home-intro">
+                    <strong>Data scientist, builder, and researcher</strong> at IIT Madras. I work at the intersection of machine learning, systems design, and applied data science — building tools that make analysis tangible and research legible. This index collects everything across projects, papers, writing, and credentials.
+                </p>
+                <div class="home-stats">
+                    <div class="stat-cell">
+                        <span class="stat-num">23</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="stat-num">5</span>
+                        <span class="stat-label">Research works</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="stat-num">5</span>
+                        <span class="stat-label">Articles</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="stat-num">6</span>
+                        <span class="stat-label">Certificates</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="stat-num">9.01</span>
+                        <span class="stat-label">CGPA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Updates & Recent Works ── -->
+            <p class="home-section-label">// Latest Updates &amp; Recent Works</p>
+
+            <div class="updates-grid">
+                <!-- Left col: Updates / changelog -->
+                <div class="updates-col">
+                    <div class="updates-col-head">
+                        <div class="updates-dot"></div>
+                        <span class="updates-col-title">Updates &amp; Activity</span>
+                    </div>
+                    <ul class="update-list">
+                        <li class="update-item">
+                            <span class="update-date">Apr 2025</span>
+                            <div class="update-body">
+                                <span class="update-title">DataCamp Data Science Associate — Certified</span>
+                                <span class="update-sub">Passed proctored multi-stage assessment · Python, SQL, ML</span>
+                                <span class="update-pill pill-cert">Certification</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">Mar 2025</span>
+                            <div class="update-body">
+                                <span class="update-title">Silver Medal at Paradox IITM — Anukriti</span>
+                                <span class="update-sub">Technical arts competition · IIT Madras annual fest</span>
+                                <span class="update-pill pill-win">Award</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">Feb 2025</span>
+                            <div class="update-body">
+                                <span class="update-title">Diploma in Programming — Completed</span>
+                                <span class="update-sub">IIT Madras · CGPA 9.44 · Algorithms, Web Dev, Systems</span>
+                                <span class="update-pill pill-cert">Credential</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">Jan 2025</span>
+                            <div class="update-body">
+                                <span class="update-title">Aura-Delhi — Air Quality Platform shipped</span>
+                                <span class="update-sub">Next.js + Flutter + PyTorch + GCP/K8s full deployment</span>
+                                <span class="update-pill pill-ship">Shipped</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">Nov 2024</span>
+                            <div class="update-body">
+                                <span class="update-title">Tech Dominion Hackathon — 1st Place</span>
+                                <span class="update-sub">Inter-house competition · IIT Madras · Rapid prototyping</span>
+                                <span class="update-pill pill-win">Won</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">Oct 2024</span>
+                            <div class="update-body">
+                                <span class="update-title">HackerRank SQL Advanced — Verified</span>
+                                <span class="update-sub">Window functions, joins, subqueries, query optimisation</span>
+                                <span class="update-pill pill-cert">Certification</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right col: Recent works/projects -->
+                <div class="updates-col">
+                    <div class="updates-col-head">
+                        <span class="updates-col-title">Recently Built / In Progress</span>
+                    </div>
+                    <ul class="update-list">
+                        <li class="update-item">
+                            <span class="update-date">2025</span>
+                            <div class="update-body">
+                                <span class="update-title">TerraHeal — Post-Wildfire Recovery Study</span>
+                                <span class="update-sub">Remote sensing · NDVI/NBR · Satellite imagery analysis</span>
+                                <span class="update-pill pill-paper">Research Paper</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">2025</span>
+                            <div class="update-body">
+                                <span class="update-title">Wixplore — Cultural Quiz Platform</span>
+                                <span class="update-sub">Vue 3 · Python AI agents · Vercel serverless · Whiz.it v2</span>
+                                <span class="update-pill pill-new">New</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">2025</span>
+                            <div class="update-body">
+                                <span class="update-title">VeraMind — Mental Wellness App</span>
+                                <span class="update-sub">Vue 3 + Python · Cognitive bias tracking · AI-driven insights</span>
+                                <span class="update-pill pill-wip">Active</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">2025</span>
+                            <div class="update-body">
+                                <span class="update-title">DevLoft — 19-Utility Developer Toolkit</span>
+                                <span class="update-sub">React + TypeScript · Zero-dep · Browser-native tools</span>
+                                <span class="update-pill pill-ship">Shipped</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">2024</span>
+                            <div class="update-body">
+                                <span class="update-title">TypeState — Keystroke Dynamics Research</span>
+                                <span class="update-sub">Dwell/flight time · Behavioural biometrics · Python</span>
+                                <span class="update-pill pill-paper">Research</span>
+                            </div>
+                        </li>
+                        <li class="update-item">
+                            <span class="update-date">2024</span>
+                            <div class="update-body">
+                                <span class="update-title">CloudMorph Lens — Satellite Cloud Classifier</span>
+                                <span class="update-sub">ResNet50 + U-Net · Grad-CAM · Flask UI · Production-ready</span>
+                                <span class="update-pill pill-ship">Shipped</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="home-section-label">// Index</p>
+
+            <div class="home-sections">
+                <!-- Projects band -->
+                <div class="home-band" data-goto="projects">
+                    <div class="band-num">01</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Projects</span>
+                            <span class="band-count">23 entries</span>
+                        </div>
+                        <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform — each project is a working deployment or open-source repository.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">ML / AI</span>
+                            <span class="band-tag">Dev Tools</span>
+                            <span class="band-tag">Data Science</span>
+                            <span class="band-tag">Platforms</span>
+                            <span class="band-tag">Web Apps</span>
+                            <span class="band-tag">Education</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+
+                <!-- Research band -->
+                <div class="home-band" data-goto="research">
+                    <div class="band-num">02</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Research &amp; Analysis</span>
+                            <span class="band-count">5 entries</span>
+                        </div>
+                        <p class="band-desc">Formal research papers and rigorous data analyses — from remote sensing studies of post-wildfire vegetation recovery (TerraHeal) to geospatial mapping of 5,000 food delivery orders across Bhopal. Research-grade methodology applied to real-world questions.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">Remote Sensing</span>
+                            <span class="band-tag">Geospatial</span>
+                            <span class="band-tag">Biometrics</span>
+                            <span class="band-tag">Statistics</span>
+                            <span class="band-tag">Signal Processing</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+
+                <!-- Blogs band -->
+                <div class="home-band" data-goto="blogs">
+                    <div class="band-num">03</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Written Blogs</span>
+                            <span class="band-count">5 entries</span>
+                        </div>
+                        <p class="band-desc">Technical writing and dev journals — from deep-dives into Transformer attention mechanisms and GeoPandas spatial analysis, to engineering stories behind tools like MarkTex and keystroke biometrics. Writing that bridges rigour and readability.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">Transformers</span>
+                            <span class="band-tag">NLP</span>
+                            <span class="band-tag">GeoPandas</span>
+                            <span class="band-tag">Dev Journal</span>
+                            <span class="band-tag">Tutorial</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+
+                <!-- Certificates band -->
+                <div class="home-band" data-goto="certificates">
+                    <div class="band-num">04</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Certificates</span>
+                            <span class="band-count">6 entries</span>
+                        </div>
+                        <p class="band-desc">Verified credentials from HackerRank, DataCamp, Google Cloud, and IIT Madras — covering advanced SQL, data science fundamentals, GCP architecture, dynamic programming, machine learning, and Python programming with graded assessments.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">SQL Advanced</span>
+                            <span class="band-tag">DataCamp</span>
+                            <span class="band-tag">GCP</span>
+                            <span class="band-tag">IIT Madras</span>
+                            <span class="band-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+
+                <!-- Education band -->
+                <div class="home-band" data-goto="education">
+                    <div class="band-num">05</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Education</span>
+                            <span class="band-count">2 qualifications</span>
+                        </div>
+                        <p class="band-desc">B.S. Data Science &amp; Applications from IIT Madras (CGPA 9.01, 2023–2027) and a Diploma in Programming (CGPA 9.44, completed 2025) — covering mathematics, statistics, machine learning, algorithms, databases, and applied AI.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">IIT Madras</span>
+                            <span class="band-tag">CGPA 9.01</span>
+                            <span class="band-tag">Data Science</span>
+                            <span class="band-tag">AI / ML</span>
+                            <span class="band-tag">Diploma</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+
+                <!-- Achievements band -->
+                <div class="home-band" data-goto="achievements">
+                    <div class="band-num">06</div>
+                    <div class="band-body">
+                        <div class="band-header">
+                            <span class="band-title">Achievements</span>
+                            <span class="band-count">5 entries</span>
+                        </div>
+                        <p class="band-desc">Competition wins and recognition — including 1st place at IIT Madras Inter-house Tech Dominion, Silver Medal at Paradox IITM 2025, the Mr Focused title at SPSN, and two verified professional certifications in SQL and Data Science.</p>
+                        <div class="band-tags">
+                            <span class="band-tag">Hackathon Win</span>
+                            <span class="band-tag">Silver Medal</span>
+                            <span class="band-tag">Paradox IITM</span>
+                            <span class="band-tag">HackerRank</span>
+                            <span class="band-tag">DataCamp</span>
+                        </div>
+                    </div>
+                    <div class="band-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════ PROJECTS ════ -->
+        <div class="section-panel" id="panel-projects">
+            <div class="filter-bar">
+                <span class="filter-label">Filter</span>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ml-ai">ML / AI</button>
+                <button class="filter-btn" data-filter="data-science">Data Science</button>
+                <button class="filter-btn" data-filter="tool">Dev Tools</button>
+                <button class="filter-btn" data-filter="platform">Platforms</button>
+                <button class="filter-btn" data-filter="edu">Education</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+            </div>
+            <div class="meta-bar">
+                <p class="item-count">Showing <span id="proj-count">23</span> projects</p>
+            </div>
+            <div class="grid" id="proj-grid"></div>
+        </div>
+
+        <!-- ════ RESEARCH ════ -->
+        <div class="section-panel" id="panel-research">
+            <div class="meta-bar">
+                <p class="item-count"><span>5</span> research works</p>
+            </div>
+            <div class="grid" id="research-grid"></div>
+        </div>
+
+        <!-- ════ BLOGS ════ -->
+        <div class="section-panel" id="panel-blogs">
+            <div class="meta-bar">
+                <p class="item-count"><span>5</span> articles &amp; posts</p>
+            </div>
+            <div class="grid" id="blogs-grid"></div>
+        </div>
+
+        <!-- ════ CERTIFICATES ════ -->
+        <div class="section-panel" id="panel-certificates">
+            <div class="meta-bar">
+                <p class="item-count"><span>6</span> certificates</p>
+            </div>
+            <div class="grid" id="certs-grid"></div>
+        </div>
+
+        <!-- ════ EDUCATION ════ -->
+        <div class="section-panel" id="panel-education">
+            <div class="meta-bar">
+                <p class="item-count"><span>2</span> qualifications</p>
+            </div>
+            <div class="grid" id="edu-grid"></div>
+        </div>
+
+        <!-- ════ ACHIEVEMENTS ════ -->
+        <div class="section-panel" id="panel-achievements">
+            <div class="meta-bar">
+                <p class="item-count"><span>5</span> achievements</p>
+            </div>
+            <div class="grid" id="achiev-grid"></div>
+        </div>
+
+        <!-- ── Footer ── -->
+        <footer>
+            <p>© 2026 ATHARV KHARE — 1MYSTIC</p>
+            <p>
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+                <a href="https://github.com/1mystic" target="_blank">GitHub</a> &nbsp;·&nbsp;
+                <a href="mailto:atharvkhare18@gmail.com">Email</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <!-- UI Logic Scripts -->
+    <script>
+        /* ─── DATA ─────────────────────────────────────────────────────── */
+        const projects =[
+            { title: "GitSyntropy", sub: "git-syntropy.vercel.app", href: "https://git-syntropy.vercel.app", github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions — with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.", tags:["Python", "FastAPI", "LangGraph", "Claude", "Astro", "PostgreSQL", "TypeScript"] },
+            { title: "Axiom Canvas", sub: "axiom-canvas.onrender.com", href: "https://axiom-canvas.onrender.com", github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively, with AI-generated contextual explanations and retrieval-augmented insights layered on top.", tags: ["Desmos API", "OpenRouter", "RAG", "JavaScript"] },
+            { title: "DominoML", sub: "domino-ml.onrender.com", href: "https://domino-ml.onrender.com", github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Visual drag-and-drop ML pipeline builder built with Flask and SQLite. Users compose, connect, and run machine learning steps via a node-based canvas. Supports Marked.js and MathJax for in-app documentation rendering.", tags:["Flask", "SQLite", "Drag & Drop", "MathJax"] },
+            { title: "Clearview Eco", sub: "clearvieweco.netlify.app", href: "https://clearvieweco.netlify.app", github: "https://github.com/1mystic", cat: "platform", catLabel: "Platform", desc: "Civic tech platform for pollution reporting and verification with geotagged submissions. Uses TensorFlow for pollution detection and a React map interface where users can submit and verify environmental reports in real time.", tags:["TensorFlow", "React", "Geotagging", "Civic Tech"] },
+            { title: "SOHOS ED", sub: "School Optimization & Holistic Operating System", href: null, github: "https://github.com/1mystic/Sohos-ED", cat: "edu", catLabel: "Education", desc: "Data-driven educational consultancy and SaaS platform for 400,000+ Indian budget private schools. Automates NEP 2020/PARAKH compliance via Japanese Tokkatsu methodologies (Han groups, Chokai, Toban, Soji). Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.", tags:["HTML5", "JavaScript", "Linear Programming", "NEP 2020", "PDF Generation", "localStorage"] },
+            { title: "DineOps", sub: "Restaurant Intelligence & Optimization Platform", href: null, github: "https://github.com/1mystic", cat: "data-science", catLabel: "Data Science", desc: "6-layer restaurant intelligence system combining demand forecasting (SARIMA / LSTM / Transformer ensemble), LP/MILP staffing optimization, stochastic inventory planning, and LLM-driven executive reporting. Fuses weather, news sentiment, and holiday signals into a closed-loop prediction-to-decision pipeline.", tags:["FastAPI", "PostgreSQL", "SARIMA", "LSTM", "LangGraph", "Optimization", "Python"] },
+            { title: "DevLoft", sub: "devloft-tools.netlify.app", href: "https://devloft-tools.netlify.app", github: "https://github.com/1mystic", cat: "tool", catLabel: "Dev Tool", desc: "19 client-side developer utilities built from real data science workflows — JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-SQL, hash/encode, and more. Zero dependencies, everything runs in the browser.", tags:["React", "TypeScript", "Vite", "Zero-dep"] },
+            { title: "MarkTex", sub: "marktex.wasmer.app", href: "https://marktex.wasmer.app", github: "https://github.com/1mystic", cat: "tool", catLabel: "Dev Tool", desc: "Full-featured Markdown + LaTeX editor with live preview, annotation mode (pen, shapes, arrows), HTML/CSS injection, and one-click export to PDF or HTML. Includes a quick snippet library for headings, tables, math, and code.", tags:["Wasmer", "LaTeX", "PDF Export", "Annotation"] },
+            { title: "Aura-Delhi", sub: "AI Air Quality Platform", href: null, github: "https://github.com/1mystic", cat: "data-science", catLabel: "Data Science", desc: "Comprehensive air quality monitoring and forecasting platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, PyTorch ML engine for source identification, Prefect data pipeline, and TimescaleDB — deployed on GCP with Kubernetes.", tags:["Next.js", "Flutter", "FastAPI", "PyTorch", "GCP", "K8s"] },
+            { title: "PyCrumbs", sub: "pycrumbs.netlify.app", href: "https://pycrumbs.netlify.app", github: "https://github.com/1mystic", cat: "edu", catLabel: "Education", desc: "Interactive step-by-step Python learning platform for beginners. Guides learners through Python concepts in small, digestible chunks with hands-on exercises — designed to make the learning curve as smooth as possible.", tags: ["React", "Netlify", "Python Education"] },
+            { title: "Transformer: Text-to-Emoji", sub: "GitHub project", href: null, github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "From-scratch PyTorch implementation of the full encoder-decoder Transformer architecture for translating text phrases to emojis. Includes multi-head attention, sinusoidal positional encoding, AdamW training, greedy decoding, and attention weight visualization.", tags:["PyTorch", "Transformer", "NLP", "From Scratch"] },
+            { title: "VeraMind", sub: "Mental Wellness Platform", href: null, github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "AI-powered mental wellness web app built with Vue 3 and Python. Helps users identify cognitive biases, track anxiety and mood, complete structured learning modules, and receive AI-driven insights via evidence-based assessments and journaling.", tags:["Vue 3", "Python", "Vite", "AI Insights"] },
+            { title: "Bhopal Food Delivery Analysis", sub: "bhopal-food-delivery.vercel.app", href: "https://bhopal-food-delivery.vercel.app", github: "https://github.com/1mystic", cat: "data-science", catLabel: "Data Science", desc: "Geospatial research report on 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Includes order density heatmaps, platform comparison (55:45 split), peak hour analysis, locality-level revenue breakdown, and a downloadable CSV dataset.", tags:["Python", "Pandas", "GeoPandas", "Matplotlib"] },
+            { title: "Whiz.it", sub: "GitHub project", href: null, github: "https://github.com/1mystic", cat: "edu", catLabel: "Education", desc: "Full-stack quiz platform with AI-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks — daily reminder emails, monthly activity reports, and downloadable PDF report generation.", tags:["Vue 3", "Flask", "Celery", "Redis", "Gemini API"] },
+            { title: "Qwix.it", sub: "GitHub project", href: null, github: "https://github.com/1mystic", cat: "platform", catLabel: "Platform", desc: "Multi-role household service marketplace connecting customers, professionals, and admins. Customers book and review services; professionals manage packages and requests; admins oversee the platform with RBAC. Built with Flask, Bootstrap, and payment integration.", tags:["Flask", "JavaScript", "Bootstrap", "Payments", "RBAC"] },
+            { title: "GlideML", sub: "glideml.vercel.app", href: "https://glideml.vercel.app", github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Visual ML pipeline builder frontend with a fast, intuitive interface for constructing and managing machine learning workflows. Pairs with DominoML as a sleek Vite-powered pipeline design tool.", tags:["React", "Vite", "TypeScript", "ML Pipelines"] },
+            { title: "WikiViz", sub: "AI Studio app", href: null, github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Interactive visual explorer for Wikipedia content augmented with Gemini AI. Visualizes timelines and statistics extracted from Wikipedia data, with AI-generated summaries and contextual insights. Built with Vite, React, and TypeScript.", tags:["Gemini API", "React", "TypeScript", "Vite", "Wikipedia"] },
+            { title: "CloudMorph Lens", sub: "GitHub project", href: null, github: "https://github.com/1mystic", cat: "ml-ai", catLabel: "ML / AI", desc: "Production-ready deep learning platform for cloud classification and segmentation from satellite imagery. Uses ResNet50 for multi-label classification and U-Net for pixel-level segmentation, with Grad-CAM explainability and a Flask web UI.", tags:["ResNet50", "U-Net", "Grad-CAM", "Flask", "CV"] },
+            { title: "Wixplore", sub: "Whiz.it v2", href: null, github: "https://github.com/1mystic", cat: "edu", catLabel: "Education", desc: "Evolution of Whiz.it combining cultural exploration quizzes with intelligent data processing. Features Python AI agents for data cleaning and profiling, language detection, dataset upload for AI analysis, personalized profiles, and real-time analytics on a serverless Vercel architecture.", tags: ["Vue 3", "Node.js", "Python Agents", "Vercel"] },
+            { title: "MindFluence", sub: "mindfluence.netlify.app", href: "https://mindfluence.netlify.app", github: "https://github.com/1mystic", cat: "platform", catLabel: "Platform", desc: "A mind-path navigator app for guided mental exploration and structured decision-making flows. Helps users navigate thought patterns for clarity and self-reflection through interactive guided paths.", tags:["React", "Netlify"] },
+            { title: "Origami Simulator", sub: "GitHub project", href: null, github: "https://github.com/1mystic", cat: "web", catLabel: "Web App", desc: "Interactive 3D origami simulator with physics-based aerodynamics. Import OBJ/GLTF models, fold step-by-step, and simulate realistic wind, gravity, and air density on folded models. Includes a crease pattern editor, pre-loaded model library, and live simulation stats.", tags:["Three.js", "React 18", "Tailwind", "Physics", "Vite"] },
+            { title: "Kanha Student House", sub: "kanha-min.netlify.app", href: "https://kanha-min.netlify.app", github: "https://github.com/1mystic", cat: "web", catLabel: "Web App", desc: "Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents — a polished minimal landing page.", tags:["React", "Netlify", "Landing Page"] },
+            { title: "Portfolio — atharvk.me", sub: "atharvk.me · 3 versions", href: "https://www.atharvk.me", github: "https://github.com/1mystic", cat: "web", catLabel: "Web App", desc: "Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.01). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.", tags:["React", "Next.js", "GitHub Pages", "Vercel"] },
+        ];
+
+        const research =[
+            { title: "TerraHeal", sub: "Post-Wildfire Vegetation Recovery", href: "https://www.atharvk.me/assets/TerraHeal.pdf", cat: "paper", catLabel: "Research Paper", desc: "A remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR). Identifies recovery trajectories, affected zone extents, and ecological resilience patterns across burn scar regions.", tags:["Remote Sensing", "NDVI", "Satellite Imagery", "Ecology"] },
+            { title: "TypeState", sub: "Keystroke Dynamics Study", href: "https://github.com/1mystic/typestate-data", cat: "analysis", catLabel: "Research", desc: "Investigation into keystroke dynamics as a behavioural biometric. Collects and analyses typing patterns — dwell time, flight time, and inter-key latency — to explore identity verification and cognitive state inference from typing behaviour.", tags: ["Biometrics", "Python", "Data Collection", "Signal Processing"] },
+            { title: "Bhopal Food Delivery — Geospatial Study", sub: "bhopal-food-delivery.vercel.app", href: "https://bhopal-food-delivery.vercel.app", cat: "analysis", catLabel: "Analysis", desc: "Comprehensive data-driven study of 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Maps delivery hotspots, platform market share, cuisine preferences, and temporal demand patterns for the city's food delivery ecosystem.", tags:["GeoPandas", "Pandas", "Matplotlib", "Spatial Analysis"] },
+            { title: "Statistics II — Course Analysis", sub: "IIT Madras BS Programme", href: "https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii", cat: "analysis", catLabel: "Analysis", desc: "Detailed statistical analyses and problem sets completed as part of the IIT Madras BS Data Science programme's Statistics II course — covering hypothesis testing, regression, ANOVA, and probability distributions.", tags:["Statistics", "Hypothesis Testing", "Regression", "ANOVA"] },
+            { title: "QSR Demand Forecasting & Affinity Analysis", sub: "Business Data Analysis", href: null, cat: "analysis", catLabel: "Analysis", desc: "Business analytics study focused on quick-service restaurant demand forecasting and product affinity mining. Applies time-series modelling, market basket analysis, and segmentation to derive actionable insights for operational planning.", tags:["Forecasting", "Market Basket", "Time Series", "Segmentation"] },
+        ];
+
+        const blogs =[
+            { title: "Understanding Attention Mechanisms", sub: "Technical deep-dive", href: "https://www.atharvk.me/blog.html", cat: "tutorial", catLabel: "Tutorial", desc: "A detailed walkthrough of the self-attention mechanism in Transformers — from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.", tags: ["Transformers", "NLP", "Deep Learning", "PyTorch"] },
+            { title: "Building Pipelines with DominoML", sub: "Project spotlight", href: "https://www.atharvk.me/blog.html", cat: "tutorial", catLabel: "Tutorial", desc: "A guide to constructing end-to-end machine learning pipelines using DominoML's node-based canvas — covering data ingestion, feature engineering, model selection, and evaluation within the visual interface.", tags: ["ML Pipelines", "Flask", "DominoML", "Tutorial"] },
+            { title: "Geospatial Analysis with GeoPandas", sub: "Data science article", href: "https://www.atharvk.me/blog.html", cat: "blog", catLabel: "Blog", desc: "A practical introduction to geospatial data analysis using GeoPandas and Folium. Walks through coordinate systems, spatial joins, choropleth mapping, and real-world applications using the Bhopal food delivery dataset.", tags:["GeoPandas", "Folium", "Python", "Spatial Data"] },
+            { title: "From Markdown to PDF — Building MarkTex", sub: "Dev journal", href: "https://www.atharvk.me/blog.html", cat: "blog", catLabel: "Blog", desc: "The engineering story behind MarkTex — how a frustration with existing editors led to building a full Markdown + LaTeX tool with annotation support, live preview, and PDF export from scratch in a browser environment.", tags: ["Markdown", "LaTeX", "Wasmer", "Product"] },
+            { title: "Keystroke Dynamics as a Biometric", sub: "Research-to-blog", href: "https://www.atharvk.me/blog.html", cat: "blog", catLabel: "Blog", desc: "A reader-friendly adaptation of the TypeState research project, exploring how the way you type — not what you type — can serve as a unique behavioural fingerprint for identity verification and cognitive monitoring.", tags:["Biometrics", "Security", "Research", "Python"] },
+        ];
+
+        const certificates =[
+            { title: "HackerRank SQL (Advanced)", sub: "HackerRank · 2024", href: "https://www.hackerrank.com/certificates/d366117ff2b9", cat: "cert", catLabel: "Certificate", desc: "Certified proficiency in advanced SQL — covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.", tags: ["SQL", "Databases", "HackerRank"] },
+            { title: "DataCamp Data Science Associate", sub: "DataCamp · 2025", href: null, cat: "cert", catLabel: "Certificate", desc: "Professional certification validating skills in Python, SQL, statistical analysis, data wrangling, and machine learning fundamentals across a proctored multi-stage assessment.", tags:["Python", "SQL", "PyTorch", "DataCamp", "2025"] },
+            { title: "GCP Cloud Workshop", sub: "Google Cloud", href: "https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view", cat: "cert", catLabel: "Certificate", desc: "Workshop certification covering Google Cloud Platform core services — Compute Engine, Cloud Storage, BigQuery, and Vertex AI — with hands-on deployment and data pipeline exercises.", tags:["GCP", "Cloud", "BigQuery", "Vertex AI"] },
+            { title: "Dynamic Programming Workshop", sub: "IIT Madras", href: "https://drive.google.com/file/d/1Ru0ShGa4jEx2j4BsGiIVRf2HTLWhJxtE/view", cat: "cert", catLabel: "Certificate", desc: "Certification from a focused workshop on dynamic programming paradigms — covering memoisation, tabulation, state-space design, and classic DP problem patterns relevant to competitive programming and algorithm design.", tags: ["Algorithms", "DP", "Competitive Programming"] },
+            { title: "Machine Learning Workshop", sub: "IIT Madras", href: "https://drive.google.com/file/d/1RWIVo5YHam_mqswe_A5NlX0VXH5TcLyX/view", cat: "cert", catLabel: "Certificate", desc: "Workshop certificate covering supervised and unsupervised machine learning — linear models, decision trees, clustering, dimensionality reduction, and model evaluation with scikit-learn.", tags:["Machine Learning", "scikit-learn", "Python"] },
+            { title: "Python Programming", sub: "IIT Madras", href: "https://drive.google.com/file/d/192zatB1EimlnHuJyFu7wcGbvb4QMrDSa/view", cat: "cert", catLabel: "Certificate", desc: "Foundational Python programming certificate covering data types, control flow, functions, object-oriented programming, file I/O, and standard libraries — with graded assessments and practical exercises.", tags: ["Python", "OOP", "Programming"] },
+        ];
+
+        const education =[
+            { title: "B.S. Data Science & Applications", sub: "IIT Madras · 2023 – 2027", href: "https://study.iitm.ac.in", cat: "degree", catLabel: "Degree", desc: "Bachelor of Science in Data Science & Applications from IIT Madras — one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.01.", tags:["IIT Madras", "CGPA 9.01", "Data Science", "AI/ML", "Python", "SQL"] },
+            { title: "Diploma in Programming", sub: "IIT Madras · Completed 2025", href: "https://study.iitm.ac.in", cat: "degree", catLabel: "Diploma", desc: "Diploma-level qualification in programming from IIT Madras, completed with a 9.44 CGPA. Covered systems thinking, data structures, algorithms, web technologies, and application development.", tags:["IIT Madras", "CGPA 9.44", "Diploma", "Algorithms", "Web Dev"] },
+        ];
+
+        const achievements =[
+            { title: "Inter-house Tech Dominion — 1st Place", sub: "IIT Madras · 2024", href: null, cat: "award", catLabel: "Hackathon Win", desc: "First-place finish at the Inter-house Tech Dominion hackathon at IIT Madras — a competitive technical event spanning problem-solving, rapid prototyping, and system design across multiple domains.", tags:["Hackathon", "IIT Madras", "First Place"] },
+            { title: "Silver Medal — Anukriti, Paradox IITM", sub: "IIT Madras · 2025", href: null, cat: "medal", catLabel: "Medal", desc: "Silver medal at Anukriti — part of Paradox, IIT Madras's annual technical and cultural fest. Recognised for outstanding performance in the technical arts competition category.", tags:["Silver Medal", "Paradox IITM", "2025"] },
+            { title: "MR Focused Title — SPSN", sub: "School recognition", href: null, cat: "title", catLabel: "Title", desc: "Awarded the 'Mr Focused' title at SPSN — a recognition of consistent dedication, academic discipline, and focused pursuit of excellence over the course of the school programme.", tags:["Award", "Title", "School"] },
+            { title: "HackerRank SQL — Advanced Certified", sub: "Verified · 2024", href: "https://www.hackerrank.com/certificates/d366117ff2b9", cat: "cert", catLabel: "Certification", desc: "Passed HackerRank's advanced SQL certification with a verified credential — demonstrating professional-grade database querying skills recognised by recruiters globally.", tags: ["SQL", "HackerRank", "Verified"] },
+            { title: "DataCamp Data Science Associate", sub: "Proctored · 2025", href: null, cat: "cert", catLabel: "Certification", desc: "Earned the DataCamp Data Science Associate certification through a rigorous multi-stage proctored assessment covering Python, SQL, statistics, and machine learning.", tags:["DataCamp", "Proctored", "Data Science", "2025"] },
+        ];
+
+        /* ─── RENDER ────────────────────────────────────────────────────── */
+        const projCatClass = { 'ml-ai': 'cat-ml', 'data-science': 'cat-ds', 'tool': 'cat-tool', 'web': 'cat-web', 'platform': 'cat-platform', 'edu': 'cat-edu' };
+        const otherCatClass = { 'paper': 'cat-paper', 'analysis': 'cat-analysis', 'blog': 'cat-blog', 'tutorial': 'cat-tutorial', 'cert': 'cat-cert', 'degree': 'cat-degree', 'award': 'cat-award', 'medal': 'cat-medal', 'title': 'cat-title' };
+
+        const GH_SVG = `<svg class="gh-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`;
+
+        function buildCard(item, index, map) {
+            const cc = map[item.cat] || 'cat-cert';
+            const idx = String(index + 1).padStart(2, '0');
+            return `
+    <div class="card" data-cat="${item.cat}" style="animation-delay:${index * 30}ms">
+      <div class="card-head">
+        <span class="card-index">${idx}</span>
+        <span class="cat-pill ${cc}">${item.catLabel}</span>
+      </div>
+      <div>
+        <div class="card-title">${item.title}</div>
+        <div class="card-sub">${item.sub}</div>
+      </div>
+      <p class="card-desc">${item.desc}</p>
+      <div class="tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-footer">
+        ${item.github ? `<a class="gh-link" href="${item.github}" target="_blank" title="View on GitHub" aria-label="GitHub repository">${GH_SVG}</a>` : '<span></span>'}
+        ${item.href ? `<a class="card-link" href="${item.href}" target="_blank">View <span class="arrow">&#8599;</span></a>` : ''}
+      </div>
+    </div>`;
+        }
+
+        function renderGrid(id, data, map) {
+            document.getElementById(id).innerHTML = data.map((d, i) => buildCard(d, i, map)).join('');
+        }
+
+        renderGrid('proj-grid', projects, projCatClass);
+        renderGrid('research-grid', research, otherCatClass);
+        renderGrid('blogs-grid', blogs, otherCatClass);
+        renderGrid('certs-grid', certificates, otherCatClass);
+        renderGrid('edu-grid', education, otherCatClass);
+        renderGrid('achiev-grid', achievements, otherCatClass);
+
+        /* ─── PROJECT FILTER ────────────────────────────────────────────── */
+        const countEl = document.getElementById('proj-count');
+
+        document.querySelectorAll('#panel-projects .filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#panel-projects .filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+                let n = 0;
+                document.querySelectorAll('#proj-grid .card').forEach(card => {
+                    const show = f === 'all' || card.dataset.cat === f;
+                    card.classList.toggle('hidden', !show);
+                    if (show) {
+                        card.style.animationDelay = (n * 35) + 'ms';
+                        card.style.animation = 'none';
+                        card.offsetHeight;
+                        card.style.animation = '';
+                        n++;
+                    }
+                });
+                countEl.textContent = n;
+            });
+        });
+
+        /* ─── SECTION NAV ───────────────────────────────────────────────── */
+        function showSection(sectionId) {
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+
+            const btn = document.querySelector(`.nav-btn[data-section="${sectionId}"]`);
+            const panel = document.getElementById(`panel-${sectionId}`);
+            if (btn) btn.classList.add('active');
+            if (panel) panel.classList.add('active');
+        }
+
+        function showSectionAndScroll(sectionId) {
+            showSection(sectionId);
+            const navElement = document.getElementById('sectionNav');
+            const navPosition = navElement.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: navPosition - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showSection(btn.dataset.section);
+            });
+        });
+
+        document.querySelectorAll('.home-band').forEach(band => {
+            band.addEventListener('click', () => {
+                showSectionAndScroll(band.dataset.goto);
+            });
+        });
+
+        /* ─── THEME TOGGLE (Synced with File 1's Button) ───────────────── */
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconSun = document.querySelector('.theme-icon-sun');
+        const themeIconMoon = document.querySelector('.theme-icon-moon');
+        const htmlEl = document.documentElement;
+
+        // Initialize from localStorage
+        const savedTheme = localStorage.getItem('ak-theme') || 'dark';
+        if (savedTheme === 'light') {
+            htmlEl.setAttribute('data-theme', 'light');
+            themeIconSun.style.display = 'none';
+            themeIconMoon.style.display = 'block';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme');
+            if (current === 'light') {
+                htmlEl.setAttribute('data-theme', 'dark');
+                localStorage.setItem('ak-theme', 'dark');
+                themeIconSun.style.display = 'block';
+                themeIconMoon.style.display = 'none';
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+                localStorage.setItem('ak-theme', 'light');
+                themeIconSun.style.display = 'none';
+                themeIconMoon.style.display = 'block';
+            }
+        });
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
