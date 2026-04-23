@@ -7,177 +7,181 @@
 <meta name="description" content="A compact hub for Atharv Khare's social, technical, and contact links.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@500;600;700&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fira+Code:wght@500;600&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #111111;
-    --paper: #f3f1ec;
+    --ink: #292524;
+    --sage: #a8a29e;
+    --paper: #faf9f6;
     --surface: #ffffff;
-    --sage: #8f8a80;
-    --lime: #d8f1a3;
-    --rose: #f9c2b4;
-    --blue: #c7e7fb;
-    --border: #111111;
+    --surface-sunken: #f5f4f1;
+    --lime-pale: #f2fce2;
+    --lime-border: #84cc16;
+    --lime-text: #4d7c0f;
+    --rose-pale: #ffe4e6;
+    --rose-border: #f43f5e;
+    --rose-text: #be123c;
+    --blue-pale: #e0f2fe;
+
     --mono: 'Fira Code', monospace;
+    --sans: 'DM Sans', sans-serif;
     --heading: 'Raleway', sans-serif;
-    --body: 'DM Sans', sans-serif;
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; min-height: 100%; }
+
   body {
-    font-family: var(--body);
+    font-family: var(--sans);
     color: var(--ink);
     background:
-      radial-gradient(circle at top left, rgba(215, 241, 163, 0.65), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(249, 194, 180, 0.55), transparent 28%),
-      radial-gradient(var(--sage) 1px, transparent 1px);
-    background-color: var(--paper);
-    background-size: auto, auto, 20px 20px;
+      radial-gradient(circle at 15% 10%, rgba(132, 204, 22, 0.12), transparent 26%),
+      radial-gradient(circle at 92% 86%, rgba(244, 63, 94, 0.12), transparent 23%),
+      linear-gradient(180deg, #fcfbf8 0%, var(--paper) 100%);
   }
 
   .frame {
-    width: min(960px, calc(100% - 2rem));
-    margin: 1rem auto;
-    border: 3px solid var(--border);
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow: 14px 14px 0 var(--border);
+    width: min(1040px, calc(100% - 2rem));
+    margin: 1.2rem auto;
+    border: 2px solid var(--ink);
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    box-shadow: 8px 8px 0 var(--surface-sunken);
+    backdrop-filter: blur(2px);
     overflow: hidden;
   }
 
   .hero {
     padding: 2rem 1.5rem 1.25rem;
-    border-bottom: 2px solid var(--border);
-    position: relative;
-    background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82));
+    border-bottom: 2px solid var(--ink);
+    background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.85));
   }
 
   .eyebrow {
+    margin: 0 0 0.65rem;
     font-family: var(--mono);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    margin: 0 0 0.75rem;
+    color: var(--sage);
   }
 
   h1 {
     margin: 0;
     font-family: var(--heading);
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 0.95;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
     text-transform: uppercase;
-    letter-spacing: -0.05em;
   }
 
   .hero p {
     margin: 0.9rem 0 0;
-    max-width: 52rem;
-    font-family: var(--body);
-    font-size: 1rem;
-    color: #3d3a35;
+    max-width: 46rem;
+    color: #57534e;
+    line-height: 1.55;
   }
 
   .top-nav {
+    margin-top: 1.2rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.35rem;
+    gap: 0.65rem;
   }
 
   .pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    border: 2px solid var(--border);
+    border: 2px solid var(--ink);
     background: var(--surface);
     color: var(--ink);
     text-decoration: none;
-    padding: 0.6rem 0.9rem;
+    padding: 0.55rem 0.85rem;
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    box-shadow: 4px 4px 0 var(--border);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    transition: all 0.16s ease;
   }
 
   .pill:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 6px 6px 0 var(--border);
-    background: var(--lime);
+    background: var(--lime-pale);
+    border-color: var(--lime-border);
+    color: var(--lime-text);
+    transform: translateY(-1px);
   }
 
   .content {
     padding: 1.5rem;
-  }
-
-  .section {
-    margin-top: 1rem;
-  }
-
-  .section + .section {
-    margin-top: 1.5rem;
+    display: grid;
+    gap: 1.25rem;
   }
 
   .section-title {
+    margin: 0 0 0.8rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    margin: 0 0 0.9rem;
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #4a4741;
+    color: #57534e;
   }
 
   .section-title::after {
     content: '';
     flex: 1;
-    border-bottom: 2px dotted rgba(17, 17, 17, 0.3);
+    border-bottom: 2px dotted color-mix(in srgb, var(--ink) 30%, transparent);
   }
 
   .link-stack {
     display: grid;
-    gap: 0.85rem;
+    gap: 0.7rem;
   }
 
   .link-card {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1rem 1rem 1.05rem;
-    border: 2px solid var(--border);
+    gap: 0.9rem;
+    padding: 0.85rem 0.95rem;
+    border: 2px solid var(--ink);
     background: var(--surface);
     text-decoration: none;
     color: var(--ink);
-    box-shadow: 6px 6px 0 var(--border);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
   }
 
   .link-card:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 8px 8px 0 var(--border);
-    background: linear-gradient(90deg, rgba(216, 241, 163, 0.55), rgba(255,255,255,0.98));
+    transform: translateY(-1px);
+  }
+
+  .social .link-card:hover {
+    border-color: var(--rose-border);
+    background: color-mix(in srgb, var(--rose-pale) 65%, var(--surface));
+  }
+
+  .technical .link-card:hover {
+    border-color: var(--lime-border);
+    background: color-mix(in srgb, var(--lime-pale) 65%, var(--surface));
   }
 
   .link-icon {
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid var(--border);
+    width: 2.65rem;
+    height: 2.65rem;
+    border: 2px solid var(--ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    background: #f8f8f5;
+    background: var(--surface-sunken);
   }
 
   .link-icon svg {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.25rem;
+    height: 1.25rem;
     stroke-width: 2;
   }
 
@@ -189,71 +193,71 @@
   .link-name {
     display: block;
     font-family: var(--heading);
-    font-size: 1.05rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.15;
   }
 
   .link-meta {
     display: block;
-    margin-top: 0.15rem;
+    margin-top: 0.14rem;
     font-family: var(--mono);
-    font-size: 0.76rem;
-    color: #5f5a52;
+    font-size: 0.74rem;
+    color: #6b665e;
     word-break: break-word;
   }
 
   .tag {
     flex: 0 0 auto;
+    padding: 0.36rem 0.55rem;
+    border: 1px solid var(--ink);
     font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0.45rem 0.6rem;
-    border: 1px solid var(--border);
-    background: #f8f7f2;
+    background: var(--blue-pale);
   }
 
-  .social .tag { background: var(--blue); }
-  .technical .tag { background: var(--lime); }
-  .contact .tag { background: var(--rose); }
+  .social .tag { background: var(--rose-pale); color: var(--rose-text); border-color: var(--rose-border); }
+  .technical .tag { background: var(--lime-pale); color: var(--lime-text); border-color: var(--lime-border); }
 
   footer {
-    padding: 1.5rem;
-    border-top: 2px solid var(--border);
+    border-top: 2px solid var(--ink);
+    padding: 1.2rem 1.5rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-    background: rgba(255,255,255,0.84);
+    background: var(--surface-sunken);
   }
 
   footer p {
     margin: 0;
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: #57534e;
   }
 
   footer a {
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px dotted var(--sage);
   }
 
   footer a:hover {
-    border-color: var(--ink);
+    color: var(--rose-text);
+    border-bottom-style: solid;
+    border-bottom-color: var(--rose-border);
   }
 
-  @media (max-width: 700px) {
-    .frame { width: min(100% - 1rem, 960px); box-shadow: 9px 9px 0 var(--border); }
-    .hero { padding: 1.4rem 1rem 1rem; }
-    .content, footer { padding-left: 1rem; padding-right: 1rem; }
+  @media (max-width: 760px) {
+    .frame { width: calc(100% - 1rem); margin: 0.5rem auto; }
+    .hero, .content, footer { padding-left: 1rem; padding-right: 1rem; }
     .link-card { align-items: flex-start; }
     .tag { display: none; }
   }
@@ -264,72 +268,56 @@
     <section class="hero">
       <p class="eyebrow">Atharv Khare</p>
       <h1>All Links</h1>
-      <p>A single vertical hub for the main social profiles, technical platforms, and contact links used across the portfolio.</p>
+      <p>A single vertical hub for social profiles, technical platforms, and direct contact links used across this portfolio.</p>
       <div class="top-nav">
         <a class="pill" href="index.html">Back to Loader</a>
-        <a class="pill" href="Deployed-now/index.html">Deployed Now</a>
-        <a class="pill" href="update/index.html">Update</a>
-        <a class="pill" href="update-2/projects-cool.html">Update 2</a>
+        <a class="pill" href="Deployed-now/index.html">Classic Portfolio</a>
+        <a class="pill" href="update/index.html">Minimal Portfolio</a>
+        <a class="pill" href="update-2/projects-cool.html">Neat Portfolio</a>
       </div>
     </section>
 
     <section class="content">
       <div class="section social">
-        <div class="section-title">Social</div>
+        <div class="section-title">Social + Contact</div>
         <div class="link-stack">
           <a class="link-card" href="https://linkedin.com/in/atharvkhare/" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><path d="M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><path d="M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
             <span class="link-copy"><span class="link-name">LinkedIn</span><span class="link-meta">linkedin.com/in/atharvkhare</span></span>
             <span class="tag">Professional</span>
           </a>
           <a class="link-card" href="https://github.com/1mystic" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.8 1 1-.3 2-.4 3-.4s2 .1 3 .4c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.2.6.8.6 1.7V20c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.8 1 1-.3 2-.4 3-.4s2 .1 3 .4c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.2.6.8.6 1.7V20c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg></span>
             <span class="link-copy"><span class="link-name">GitHub</span><span class="link-meta">github.com/1mystic</span></span>
             <span class="tag">Code</span>
           </a>
           <a class="link-card" href="https://substack.com/@1mystic1" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 5h14v3H5z"/><path d="M5 9h14v10l-7-4-7 4z"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 5h14v3H5z"/><path d="M5 9h14v10l-7-4-7 4z"/></svg></span>
             <span class="link-copy"><span class="link-name">Substack</span><span class="link-meta">substack.com/@1mystic1</span></span>
             <span class="tag">Writing</span>
           </a>
           <a class="link-card" href="https://www.reddit.com/user/1mystc/" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="13" r="5"/><path d="M8.5 11.5 7 7.5"/><path d="M15.5 11.5 17 7.5"/><circle cx="9.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><path d="M10 15.2c.7.6 1.5.9 2 .9s1.3-.3 2-.9"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="13" r="5"/><path d="M8.5 11.5 7 7.5"/><path d="M15.5 11.5 17 7.5"/><circle cx="9.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="13" r="0.7" fill="currentColor" stroke="none"/><path d="M10 15.2c.7.6 1.5.9 2 .9s1.3-.3 2-.9"/></svg></span>
             <span class="link-copy"><span class="link-name">Reddit</span><span class="link-meta">reddit.com/user/1mystc</span></span>
             <span class="tag">Community</span>
           </a>
           <a class="link-card" href="https://www.behance.net/1mystic" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h6a2.5 2.5 0 0 1 0 5H4z"/><path d="M4 12h7a3 3 0 0 1 0 6H4z"/><path d="M15 10h5"/><path d="M19 8a2.5 2.5 0 0 0-2.2 1.4"/><path d="M16.5 13h5a4 4 0 0 1-5 0z"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h6a2.5 2.5 0 0 1 0 5H4z"/><path d="M4 12h7a3 3 0 0 1 0 6H4z"/><path d="M15 10h5"/><path d="M19 8a2.5 2.5 0 0 0-2.2 1.4"/><path d="M16.5 13h5a4 4 0 0 1-5 0z"/></svg></span>
             <span class="link-copy"><span class="link-name">Behance</span><span class="link-meta">behance.net/1mystic</span></span>
             <span class="tag">Portfolio</span>
           </a>
           <a class="link-card" href="https://www.researchgate.net/profile/Atharv-Khare-2?ev=hdr_xprf" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 16V8h4.2a2.4 2.4 0 0 1 0 4.8H8"/><path d="M12.2 12.8 15.2 16"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 16V8h4.2a2.4 2.4 0 0 1 0 4.8H8"/><path d="M12.2 12.8 15.2 16"/></svg></span>
             <span class="link-copy"><span class="link-name">ResearchGate</span><span class="link-meta">researchgate.net/profile/Atharv-Khare-2</span></span>
             <span class="tag">Research</span>
           </a>
           <a class="link-card" href="mailto:atharvkhare18@gmail.com">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.9 4.3a2 2 0 0 0 2.2 0L21 8"/><path d="M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.9 4.3a2 2 0 0 0 2.2 0L21 8"/><path d="M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg></span>
             <span class="link-copy"><span class="link-name">Email</span><span class="link-meta">atharvkhare18@gmail.com</span></span>
             <span class="tag">Contact</span>
           </a>
           <a class="link-card" href="https://t.me/1mystic4u" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 10-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></span>
             <span class="link-copy"><span class="link-name">Telegram</span><span class="link-meta">t.me/1mystic4u</span></span>
             <span class="tag">Chat</span>
           </a>
@@ -337,19 +325,15 @@
       </div>
 
       <div class="section technical">
-        <div class="section-title">Technical</div>
+        <div class="section-title">Technical Platforms</div>
         <div class="link-stack">
           <a class="link-card" href="https://leetcode.com/1mystic" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 13h7.5"/><path d="M9.424 7.268l4.999 -4.999"/><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 13h7.5"/><path d="M9.424 7.268l4.999 -4.999"/><path d="M16.633 16.644l-2.402 2.415a3.189 3.189 0 0 1 -4.524 0l-3.77 -3.787a3.223 3.223 0 0 1 0 -4.544l3.77 -3.787a3.189 3.189 0 0 1 4.524 0l2.302 2.313"/></svg></span>
             <span class="link-copy"><span class="link-name">LeetCode</span><span class="link-meta">leetcode.com/1mystic</span></span>
             <span class="tag">Problems</span>
           </a>
           <a class="link-card" href="https://www.hackerrank.com/1mystic" target="_blank" rel="noreferrer">
-            <span class="link-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12,3 19,7 19,17 12,21 5,17 5,7"/><path d="M9 9h6v6H9z"/></svg>
-            </span>
+            <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12,3 19,7 19,17 12,21 5,17 5,7"/><path d="M9 9h6v6H9z"/></svg></span>
             <span class="link-copy"><span class="link-name">HackerRank</span><span class="link-meta">hackerrank.com/1mystic</span></span>
             <span class="tag">Practice</span>
           </a>
