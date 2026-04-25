@@ -11,122 +11,192 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fira+Code:wght@500;600&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fira+Code:wght@500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:           #111111;
+    /* SharpPop Color Palette */
+    --ink:           #292524;
     --sage:          #A8A29E;
-    --paper:         #F3F1EC;
+    --paper:         #FAF9F6;
     --surface:       #FFFFFF;
-    --lime-pale:     #D0F0A3;
-    --rose-pale:     #FCA5A5;
-    --blue-pale:     #BAE6FD;
+    --sunken:        #F5F4F1;
+
+    /* Lime Accent */
+    --lime-pale:     #F2FCE2;
+    --lime-border:   #84CC16;
+    --lime-text:     #4D7C0F;
+
+    /* Rose Accent */
+    --rose-pale:     #FFE4E6;
+    --rose-border:   #F43F5E;
+    --rose-text:     #BE123C;
+
+    /* Blue Alternate (for the minimal card to keep variation) */
+    --blue-pale:     #E0F2FE;
+    --blue-border:   #38BDF8;
+    --blue-text:     #0369A1;
+
     --mono: 'Fira Code', monospace;
     --heading: 'Raleway', sans-serif;
+    --body: 'DM Sans', sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   
   body { 
     background-color: var(--paper); 
-    background-image: radial-gradient(var(--sage) 1px, transparent 1px);
-    background-size: 20px 20px;
+    /* Physics Canvas / Grid of Dots */
+    background-image: radial-gradient(var(--sage) 2px, transparent 2px);
+    background-size: 80px 80px;
+    background-position: center;
     display: flex; justify-content: center; align-items: center; 
     height: 100vh; overflow: hidden;
-    font-family: var(--heading);
+    font-family: var(--body);
     position: relative;
+    cursor: crosshair; /* Fallback for sharp custom cursor */
   }
 
-  /* Decorative Background Shapes */
+  /* Decorative Background Shapes (Sharp Geometric now) */
   .shape {
     position: absolute;
     z-index: -1;
-    opacity: 0.7;
+    opacity: 0.9;
+    border-radius: 0px !important; /* Strict sharp corners */
   }
   .shape-1 {
     width: 150px; height: 150px;
     background: var(--lime-pale);
-    border: 3px solid var(--ink);
-    border-radius: 50%;
-    top: -50px; right: -50px;
+    border: 2px solid var(--lime-border);
+    box-shadow: 10px 10px 0px var(--lime-border);
+    top: -40px; right: -40px;
   }
   .shape-2 {
     width: 120px; height: 120px;
     background: var(--rose-pale);
-    border: 3px solid var(--ink);
-    bottom: -30px; left: -30px;
+    border: 2px dotted var(--rose-border);
+    bottom: -20px; left: -20px;
     transform: rotate(15deg);
   }
 
   .preloader-content {
     text-align: center;
-    padding: 3rem;
+    padding: 36px;
     background: var(--surface);
-    border: 4px solid var(--ink);
+    border: 2px solid var(--ink);
     box-shadow: 12px 12px 0px var(--ink);
     max-width: 900px;
     width: 90%;
     position: relative;
     z-index: 10;
+    border-radius: 0px;
   }
 
   .preloader-title {
     font-family: var(--heading); 
-    font-size: 3rem; 
+    font-size: 56px; 
     color: var(--ink); 
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     margin-bottom: 0.5rem;
   }
   .preloader-sub {
-    font-family: var(--mono); font-size: 14px; color: var(--ink); margin-bottom: 2.5rem; text-transform: uppercase; font-weight: 600;
+    font-family: var(--mono); 
+    font-size: 14px; 
+    color: var(--sage); 
+    margin-bottom: 36px; 
+    text-transform: uppercase; 
+    font-weight: 500;
+    letter-spacing: 0.05em;
   }
+  
   .avatars-grid {
-    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
   }
+  
+  /* Mindful Grayscale Focus */
+  .avatars-grid:has(.avatar-card:hover) .avatar-card:not(:hover) {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+
   .avatar-card {
-    width: 190px; height: 230px;
-    border: 3px solid var(--ink);
+    width: 200px; height: 240px;
+    border: 2px solid var(--ink);
+    border-radius: 0px;
     background: var(--surface);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    padding: 1.5rem; position: relative;
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 24px; position: relative;
     color: var(--ink);
     text-decoration: none;
-    box-shadow: 6px 6px 0px var(--ink);
+    box-shadow: 4px 4px 0px var(--sunken);
   }
-
-  /* Specific Mascot Colors */
-  .avatar-card:nth-child(1) { background: #f8fafc; }
-  .avatar-card:nth-child(2) { background: #fefce8; }
-  .avatar-card:nth-child(3) { background: #fdf2f8; }
 
   .avatar-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 14px 14px 0px var(--ink);
+    transform: translate(-6px, -6px);
   }
-  .avatar-card:nth-child(1):hover { background: var(--lime-pale); }
-  .avatar-card:nth-child(2):hover { background: var(--blue-pale); }
-  .avatar-card:nth-child(3):hover { background: var(--rose-pale); }
 
-  .avatar-icon { width: 80px; height: 80px; margin-bottom: 1.5rem; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
-  .avatar-card:hover .avatar-icon { transform: scale(1.2) rotate(8deg); }
+  /* Specific Mascot Colors & Interactions */
+  .avatar-card:nth-child(1):hover { 
+    background: var(--lime-pale); 
+    border-color: var(--lime-border);
+    box-shadow: 10px 10px 0px var(--lime-border);
+    color: var(--lime-text);
+  }
+  .avatar-card:nth-child(2):hover { 
+    background: var(--blue-pale); 
+    border-color: var(--blue-border);
+    box-shadow: 10px 10px 0px var(--blue-border);
+    color: var(--blue-text);
+  }
+  .avatar-card:nth-child(3):hover { 
+    background: var(--rose-pale); 
+    border-color: var(--rose-border);
+    box-shadow: 10px 10px 0px var(--rose-border);
+    color: var(--rose-text);
+  }
 
-  .avatar-label { font-family: var(--heading); font-weight: 800; font-size: 1.4rem; margin-bottom: 4px; text-transform: uppercase;}
-  .avatar-desc { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+  .avatar-icon { width: 80px; height: 80px; margin-bottom: 24px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
+  .avatar-card:hover .avatar-icon { transform: scale(1.15) rotate(5deg); }
+
+  .avatar-label { 
+    font-family: var(--heading); 
+    font-weight: 700; 
+    font-size: 28px; 
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .avatar-desc { 
+    font-family: var(--mono); 
+    font-size: 13px; 
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--sage);
+    border-top: 2px dotted var(--sage);
+    padding-top: 8px;
+    width: 100%;
+    text-align: center;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .avatar-card:nth-child(1):hover .avatar-desc { color: var(--lime-text); border-color: var(--lime-border); }
+  .avatar-card:nth-child(2):hover .avatar-desc { color: var(--blue-text); border-color: var(--blue-border); }
+  .avatar-card:nth-child(3):hover .avatar-desc { color: var(--rose-text); border-color: var(--rose-border); }
 
   /* Loading Bar Mockup */
   .loading-bar-container {
     width: 100%;
-    height: 30px;
-    border: 3px solid var(--ink);
+    height: 36px;
+    border: 2px solid var(--ink);
+    border-radius: 0px;
     background: var(--surface);
-    margin-top: 1.5rem;
+    margin-top: 24px;
     position: relative;
     overflow: hidden;
     display: flex; align-items: center;
-    box-shadow: 4px 4px 0px var(--ink);
+    box-shadow: 4px 4px 0px var(--sunken);
   }
   .loading-bar-fill {
     height: 100%;
@@ -134,107 +204,167 @@
     background: repeating-linear-gradient(
       -45deg,
       var(--lime-pale),
-      var(--lime-pale) 15px,
-      var(--ink) 15px,
-      var(--ink) 30px,
-      var(--rose-pale) 30px,
-      var(--rose-pale) 45px
+      var(--lime-pale) 12px,
+      var(--lime-border) 12px,
+      var(--lime-border) 24px
     );
-    border-right: 3px solid var(--ink);
-    animation: loadMove 10s linear infinite;
+    border-right: 2px solid var(--ink);
+    animation: loadMove 5s linear infinite;
   }
   .loading-text {
     position: absolute;
-    right: 15px;
+    right: 12px;
     font-family: var(--mono);
     font-weight: 600;
     font-size: 14px;
     color: var(--ink);
     background: var(--surface);
-    padding: 0 5px;
-    border-radius: 4px;
+    padding: 0 8px;
+    border: 2px solid var(--ink);
   }
 
   .loader-nav {
-    margin-top: 1rem;
+    margin-top: 24px;
     display: flex;
     justify-content: center;
   }
   .loader-nav a {
     font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--sage);
     text-decoration: none;
-    border: 2px solid var(--ink);
-    background: var(--surface);
-    box-shadow: 4px 4px 0 var(--ink);
-    padding: 0.65rem 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    border: 2px dotted var(--sage);
+    background: transparent;
+    padding: 12px 24px;
+    transition: all 0.2s ease;
+    border-radius: 0px;
   }
   .loader-nav a:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 6px 6px 0 var(--ink);
+    color: var(--ink);
+    border: 2px solid var(--ink);
     background: var(--lime-pale);
+    transform: translate(-4px, -4px);
+    box-shadow: 6px 6px 0px var(--lime-border);
   }
 
   @keyframes loadMove {
     0% { background-position: 0 0; }
-    100% { background-position: 250px 0; }
+    100% { background-position: 100px 0; }
   }
 
   @media (max-width: 700px) {
-    .avatars-grid { gap: 1rem; }
-    .avatar-card { width: 140px; height: 180px; }
-    .avatar-icon { width: 60px; height: 60px; margin-bottom: 1rem; }
-    .preloader-title { font-size: 1.8rem; }
-    .preloader-sub { font-size: 12px; margin-bottom: 2rem; }
-    .preloader-content { padding: 1.5rem; }
+    .avatars-grid { gap: 12px; }
+    .avatar-card { width: 150px; height: 190px; padding: 12px; }
+    .avatar-icon { width: 60px; height: 60px; margin-bottom: 12px; }
+    .avatar-label { font-size: 20px; }
+    .preloader-title { font-size: 40px; }
+    .preloader-sub { font-size: 12px; margin-bottom: 24px; }
+    .preloader-content { padding: 24px; width: 95%; }
   }
 
-  /* Emphasis for Sigma & Fold */
+  /* Tags / Emphasis */
   .avatar-card.emphasized {
-    border-color: var(--ink);
     position: relative;
   }
   .avatar-card.emphasized::before {
     content: 'RECOMMENDED';
     position: absolute;
-    top: -12px;
-    background: var(--lime-pale);
-    color: var(--ink);
+    top: -14px;
+    background: var(--surface);
+    color: var(--sage);
     font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border: 2px solid var(--ink);
-    border-radius: 12px;
-    box-shadow: 2px 2px 0px var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 2px 12px;
+    border: 2px dotted var(--sage);
+    border-radius: 0px; /* SHARP! */
     z-index: 2;
     white-space: nowrap;
+    transition: all 0.3s;
   }
-  .avatar-card:nth-child(3).emphasized::before {
-    background: var(--rose-pale);
-    content: 'HOT';
+  .avatar-card:nth-child(2).emphasized:hover::before {
+    background: var(--surface);
+    color: var(--blue-text);
+    border: 2px solid var(--blue-border);
   }
   
-  /* De-emphasize Byte slightly */
-  .avatar-card:nth-child(1) {
-    opacity: 0.85;
-    filter: grayscale(0.2);
+  .avatar-card:nth-child(3).emphasized::before {
+    content: 'HOT';
   }
-  .avatar-card:nth-child(1):hover {
-    opacity: 1;
-    filter: grayscale(0);
+  .avatar-card:nth-child(3).emphasized:hover::before {
+    background: var(--surface);
+    color: var(--rose-text);
+    border: 2px solid var(--rose-border);
   }
+  
   @media (max-width: 700px) {
     .avatar-card.emphasized::before {
-      top: -14px;
-      font-size: 9px;
-      padding: 3px 8px;
+      top: -12px;
+      font-size: 10px;
+      padding: 2px 8px;
     }
+  }
+  
+  /* --- Playful Resting Colors --- */
+  
+  /* Give each card a very subtle tinted background instead of pure white */
+  .avatar-card:nth-child(1) { background: #FAFDFA; }
+  .avatar-card:nth-child(2) { background: #F8FCFF; }
+  .avatar-card:nth-child(3) { background: #FFF9FA; }
+
+  /* Colorize the mascot bodies slightly in their resting state */
+  .avatar-card:nth-child(1) .avatar-icon circle[fill="var(--surface)"] {
+    fill: #E8F5E9; /* Soft minty green for Moss */
+    transition: fill 0.3s;
+  }
+  .avatar-card:nth-child(2) .avatar-icon rect[fill="var(--surface)"] {
+    fill: #E1F5FE; /* Soft frosty blue for Sigma */
+    transition: fill 0.3s;
+  }
+  .avatar-card:nth-child(3) .avatar-icon polygon[fill="var(--surface)"] {
+    fill: #FCE4EC; /* Soft blush pink for Squishy */
+    transition: fill 0.3s;
+  }
+
+  /* Make the mascot bodies turn bright white when the card background floods with color on hover */
+  .avatar-card:hover .avatar-icon *[fill^="#E"], 
+  .avatar-card:hover .avatar-icon *[fill^="#FCE"] {
+    fill: var(--surface) !important;
+  }
+
+  /* Tint the labels to match their respective themes slightly */
+  .avatar-card:nth-child(1) .avatar-label { color: #3A5D0B; }
+  .avatar-card:nth-child(2) .avatar-label { color: #025382; }
+  .avatar-card:nth-child(3) .avatar-label { color: #9A0E2F; }
+
+  /* Add a tiny pop of accent color to the corner of the cards */
+  .avatar-card::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid var(--ink);
+    border-top: 2px solid var(--ink);
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  
+  .avatar-card:nth-child(1)::after { background: var(--lime-border); }
+  .avatar-card:nth-child(2)::after { background: var(--blue-border); }
+  .avatar-card:nth-child(3)::after { background: var(--rose-border); }
+
+  /* Expand the corner accent slightly on hover */
+  .avatar-card:hover::after {
+    width: 100%;
+    height: 6px;
+    bottom: -6px;
+    right: -6px;
+    border: none;
   }
 </style>
 </head>
@@ -281,8 +411,8 @@
           <!-- Minimalist Sharp Beak -->
           <path d="M48 62 L50 66 L52 62" fill="currentColor" />
           <!-- Blue aesthetic accent lines -->
-          <line x1="30" y1="70" x2="40" y2="70" stroke="var(--blue-pale)" stroke-width="2" />
-          <line x1="60" y1="70" x2="70" y2="70" stroke="var(--blue-pale)" stroke-width="2" />
+          <line x1="30" y1="70" x2="40" y2="70" stroke="currentColor" stroke-width="2" />
+          <line x1="60" y1="70" x2="70" y2="70" stroke="currentColor" stroke-width="2" />
         </svg>
         <div class="avatar-label">Sigma</div>
         <div class="avatar-desc">The Minimalist</div>
