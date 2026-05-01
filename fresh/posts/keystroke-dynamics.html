@@ -21,6 +21,9 @@
 
 <body>
     <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <!-- NAVBAR -->
@@ -28,8 +31,30 @@
             <nav>
                 <ul>
                     <li><a href="../blog.html">Home</a></li>
-                    <li><a href="../../minimal/index.html">Portfolio</a></li>
+                    <li><a href="/">Portfolio</a></li>
                     <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -92,8 +117,27 @@
         </div>
         
         <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
             <p>© 2026 1mystic</p>
         </footer>
     </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
 </body>
 </html>
