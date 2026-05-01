@@ -479,8 +479,8 @@
   .updates-col-title { font-size: 20px; color: var(--ink); }
   .updates-dot { width: 12px; height: 12px; background: var(--rose-border); border: 2px solid var(--ink); flex-shrink: 0; }
 
-  .update-list { display: flex; flex-direction: column; list-style: none; }
-  .update-item { display: flex; border-bottom: 2px dotted var(--sage); transition: background 0.2s; }
+  .update-list { display: flex; flex-direction: column; list-style: none; flex: 1; }
+  .update-item { display: flex; border-bottom: 2px dotted var(--sage); transition: background 0.2s; flex: 1; }
   .update-item:last-child { border-bottom: none; }
   .update-item:hover { background: var(--lime-pale); }
   .update-date {
@@ -715,7 +715,7 @@
       <div class="header-right">
         
         <div class="header-meta">
-          IIT Madras — BS Data Science<br>
+          IIT Madras :BS Data Science<br>
           CGPA 9.01 &nbsp;·&nbsp; Hackathon Winner<br>
           <a href="../links.html" target="_blank">Profile-Links</a>
           &nbsp;·&nbsp;
@@ -740,11 +740,11 @@
     <div class="home-hero">
       <p class="home-tagline">// research · engineering · data science</p>
       <p class="home-intro">
-        <strong>Data scientist, builder, and researcher</strong> at IIT Madras. I work at the intersection of <span class='kw-lime'>machine learning</span>, systems design, and applied <span class='kw-lime'>data science</span> — building tools that make analysis tangible and <span class='kw-rose'>research</span> legible. This index collects everything across projects, papers, writing, and credentials.
+        <strong>Data scientist, builder, and researcher</strong> at IIT Madras. I work at the intersection of <span class='kw-lime'>machine learning</span>, systems design, and applied <span class='kw-lime'>data science</span>, building tools that make analysis tangible and <span class='kw-rose'>research</span> legible. This index collects everything across projects, papers, writing, and credentials.
       </p>
       <div class="home-stats">
         <div class="stat-cell">
-          <span class="stat-num">23</span>
+          <span class="stat-num">24</span>
           <span class="stat-label">Projects</span>
         </div>
         <div class="stat-cell">
@@ -752,11 +752,11 @@
           <span class="stat-label">Research works</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num">5</span>
+          <span class="stat-num">11</span>
           <span class="stat-label">Articles</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num">6</span>
+          <span class="stat-num">7</span>
           <span class="stat-label">Certificates</span>
         </div>
         <div class="stat-cell">
@@ -770,8 +770,6 @@
     <p class="home-section-label">// Latest Updates &amp; Recent Works</p>
 
     <div class="updates-grid">
-
-      <!-- Left col: Updates / changelog -->
       <div class="updates-col">
         <div class="updates-col-head">
           <div class="updates-dot"></div>
@@ -779,9 +777,33 @@
         </div>
         <ul class="update-list">
           <li class="update-item">
+            <span class="update-date">Apr 2026</span>
+            <div class="update-body">
+              <span class="update-title">Anthropic Claude Builder Club : 2nd Runner</span>
+              <span class="update-sub">Spring 2026 Hackathon · April 2026 · $300 Prize</span>
+              <span class="update-pill pill-win">Won</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Jan 2026</span>
+            <div class="update-body">
+              <span class="update-title">Tech Dominion Hackathon : 2nd Place</span>
+              <span class="update-sub">Inter-house competition · IIT Madras · January 2026</span>
+              <span class="update-pill pill-win">Won</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Jun 2025</span>
+            <div class="update-body">
+              <span class="update-title">Hack4Health Hackathon : 3rd Position</span>
+              <span class="update-sub">Health-tech innovation challenge · June 2025</span>
+              <span class="update-pill pill-win">Won</span>
+            </div>
+          </li>
+          <li class="update-item">
             <span class="update-date">Apr 2025</span>
             <div class="update-body">
-              <span class="update-title">DataCamp Data Science Associate — Certified</span>
+              <span class="update-title">DataCamp Data Science Associate : Certified</span>
               <span class="update-sub">Passed proctored multi-stage assessment · Python, SQL, ML</span>
               <span class="update-pill pill-cert">Certification</span>
             </div>
@@ -789,7 +811,7 @@
           <li class="update-item">
             <span class="update-date">Mar 2025</span>
             <div class="update-body">
-              <span class="update-title">Silver Medal at Paradox IITM — Anukriti</span>
+              <span class="update-title">Silver Medal at Paradox IITM : Anukriti</span>
               <span class="update-sub">Technical arts competition · IIT Madras annual fest</span>
               <span class="update-pill pill-win">Award</span>
             </div>
@@ -797,95 +819,71 @@
           <li class="update-item">
             <span class="update-date">Feb 2025</span>
             <div class="update-body">
-              <span class="update-title">Diploma in Programming — Completed</span>
+              <span class="update-title">Diploma in Programming : Completed</span>
               <span class="update-sub">IIT Madras · CGPA 9.44 · Algorithms, Web Dev, Systems</span>
               <span class="update-pill pill-cert">Credential</span>
             </div>
           </li>
-          <li class="update-item">
-            <span class="update-date">Jan 2025</span>
-            <div class="update-body">
-              <span class="update-title">Aura-Delhi — Air Quality Platform shipped</span>
-              <span class="update-sub">Next.js + Flutter + PyTorch + GCP/K8s full deployment</span>
-              <span class="update-pill pill-ship">Shipped</span>
-            </div>
-          </li>
-          <li class="update-item">
-            <span class="update-date">Nov 2024</span>
-            <div class="update-body">
-              <span class="update-title">Tech Dominion Hackathon — 1st Place</span>
-              <span class="update-sub">Inter-house competition · IIT Madras · Rapid prototyping</span>
-              <span class="update-pill pill-win">Won</span>
-            </div>
-          </li>
-          <li class="update-item">
-            <span class="update-date">Oct 2024</span>
-            <div class="update-body">
-              <span class="update-title">HackerRank SQL Advanced — Verified</span>
-              <span class="update-sub">Window functions, joins, subqueries, query optimisation</span>
-              <span class="update-pill pill-cert">Certification</span>
-            </div>
-          </li>
+         
+          
         </ul>
       </div>
 
-      <!-- Right col: Recent works/projects -->
       <div class="updates-col">
         <div class="updates-col-head">
           <span class="updates-col-title">Recently Built / In Progress</span>
         </div>
         <ul class="update-list">
           <li class="update-item">
-            <span class="update-date">2025</span>
+            <span class="update-date">Apr 2026</span>
             <div class="update-body">
-              <span class="update-title">TerraHeal — Post-Wildfire Recovery Study</span>
-              <span class="update-sub">Remote sensing · NDVI/NBR · Satellite imagery analysis</span>
-              <span class="update-pill pill-paper">Research Paper</span>
+              <span class="update-title">Episteme : Socratic Study Engine</span>
+              <span class="update-sub">Next.js 15 · Claude Sonnet 4 · Supabase · Vercel</span>
+              <span class="update-pill pill-ship">Shipped</span>
             </div>
           </li>
           <li class="update-item">
-            <span class="update-date">2025</span>
+            <span class="update-date">Mar 2026</span>
             <div class="update-body">
-              <span class="update-title">Wixplore — Cultural Quiz Platform</span>
-              <span class="update-sub">Vue 3 · Python AI agents · Vercel serverless · Whiz.it v2</span>
-              <span class="update-pill pill-new">New</span>
+              <span class="update-title">GitSyntropy : Multi-Agent Hiring Simulator</span>
+              <span class="update-sub">LangGraph · FastAPI · Astro · Claude</span>
+              <span class="update-pill pill-ship">Shipped</span>
             </div>
           </li>
           <li class="update-item">
-            <span class="update-date">2025</span>
+            <span class="update-date">Feb 2026</span>
             <div class="update-body">
-              <span class="update-title">VeraMind — Mental Wellness App</span>
-              <span class="update-sub">Vue 3 + Python · Cognitive bias tracking · AI-driven insights</span>
-              <span class="update-pill pill-wip">Active</span>
+              <span class="update-title">Axiom Canvas : Math Visualization Engine</span>
+              <span class="update-sub">Desmos API · OpenRouter AI · RAG</span>
+              <span class="update-pill pill-ship">Shipped</span>
             </div>
           </li>
           <li class="update-item">
-            <span class="update-date">2025</span>
+            <span class="update-date">Feb 2026</span>
             <div class="update-body">
-              <span class="update-title">DevLoft — 19-Utility Developer Toolkit</span>
+              <span class="update-title">DevLoft : 19-Utility Developer Toolkit</span>
               <span class="update-sub">React + TypeScript · Zero-dep · Browser-native tools</span>
               <span class="update-pill pill-ship">Shipped</span>
             </div>
           </li>
           <li class="update-item">
-            <span class="update-date">2024</span>
+            <span class="update-date">Nov 2025</span>
             <div class="update-body">
-              <span class="update-title">TypeState — Keystroke Dynamics Research</span>
+              <span class="update-title">TypeState : Keystroke Dynamics Research</span>
               <span class="update-sub">Dwell/flight time · Behavioural biometrics · Python</span>
               <span class="update-pill pill-paper">Research</span>
             </div>
           </li>
           <li class="update-item">
-            <span class="update-date">2024</span>
+            <span class="update-date">Jul 2025</span>
             <div class="update-body">
-              <span class="update-title">CloudMorph Lens — Satellite Cloud Classifier</span>
-              <span class="update-sub">ResNet50 + U-Net · Grad-CAM · Flask UI · Production-ready</span>
-              <span class="update-pill pill-ship">Shipped</span>
+              <span class="update-title">TerraHeal : Post-Wildfire Recovery Study</span>
+              <span class="update-sub">Remote sensing · NDVI/NBR · Satellite imagery analysis</span>
+              <span class="update-pill pill-paper">Research Paper</span>
             </div>
           </li>
         </ul>
       </div>
-
     </div>
 
     <p class="home-section-label">// Index</p>
@@ -898,9 +896,9 @@
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Projects</span>
-            <span class="band-count">23 entries</span>
+            <span class="band-count">24 entries</span>
           </div>
-          <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform — each project is a working deployment or open-source repository.</p>
+          <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform: each project is a working deployment or open-source repository.</p>
           <div class="band-tags">
             <span class="band-tag">ML / AI</span>
             <span class="band-tag">Dev Tools</span>
@@ -921,7 +919,7 @@
             <span class="band-title">Research &amp; Analysis</span>
             <span class="band-count">5 entries</span>
           </div>
-          <p class="band-desc">Formal research papers and rigorous data analyses — from remote sensing studies of post-wildfire vegetation recovery (TerraHeal) to geospatial mapping of 5,000 food delivery orders across Bhopal. Research-grade methodology applied to real-world questions.</p>
+          <p class="band-desc">Formal research papers and rigorous data analyses :from remote sensing studies of post-wildfire vegetation recovery (TerraHeal) to geospatial mapping of 5,000 food delivery orders across Bhopal. Research-grade methodology applied to real-world questions.</p>
           <div class="band-tags">
             <span class="band-tag">Remote Sensing</span>
             <span class="band-tag">Geospatial</span>
@@ -939,9 +937,9 @@
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Written Blogs</span>
-            <span class="band-count">5 entries</span>
+            <span class="band-count">11 entries</span>
           </div>
-          <p class="band-desc">Technical writing and dev journals — from deep-dives into Transformer attention mechanisms and GeoPandas spatial analysis, to engineering stories behind tools like MarkTex and keystroke biometrics. Writing that bridges rigour and readability.</p>
+          <p class="band-desc">Technical writing and dev journals :from deep-dives into Transformer attention mechanisms and GeoPandas spatial analysis, to engineering stories behind tools like MarkTex and keystroke biometrics. Writing that bridges rigour and readability.</p>
           <div class="band-tags">
             <span class="band-tag">Transformers</span>
             <span class="band-tag">NLP</span>
@@ -959,9 +957,9 @@
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Certificates</span>
-            <span class="band-count">6 entries</span>
+            <span class="band-count">7 entries</span>
           </div>
-          <p class="band-desc">Verified credentials from HackerRank, DataCamp, Google Cloud, and IIT Madras — covering advanced SQL, data science fundamentals, GCP architecture, dynamic programming, machine learning, and Python programming with graded assessments.</p>
+          <p class="band-desc">Verified credentials from HackerRank, DataCamp, Google Cloud, and IIT Madras :covering advanced SQL, data science fundamentals, GCP architecture, dynamic programming, machine learning, and Python programming with graded assessments.</p>
           <div class="band-tags">
             <span class="band-tag">SQL Advanced</span>
             <span class="band-tag">DataCamp</span>
@@ -981,7 +979,7 @@
             <span class="band-title">Education</span>
             <span class="band-count">2 qualifications</span>
           </div>
-          <p class="band-desc">B.S. Data Science &amp; Applications from IIT Madras (CGPA 9.01, 2023–2027) and a Diploma in Programming (CGPA 9.44, completed 2025) — covering mathematics, statistics, machine learning, algorithms, databases, and applied AI.</p>
+          <p class="band-desc">B.S. Data Science &amp; Applications from IIT Madras (CGPA 9.01, 2023–2027) and a Diploma in Programming (CGPA 9.44, completed 2025) :covering mathematics, statistics, machine learning, algorithms, databases, and applied AI.</p>
           <div class="band-tags">
             <span class="band-tag">IIT Madras</span>
             <span class="band-tag">CGPA 9.01</span>
@@ -999,9 +997,9 @@
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Achievements</span>
-            <span class="band-count">5 entries</span>
+            <span class="band-count">7 entries</span>
           </div>
-          <p class="band-desc">Competition wins and recognition — including 1st place at IIT Madras Inter-house Tech Dominion, Silver Medal at Paradox IITM 2025, the Mr Focused title at SPSN, and two verified professional certifications in SQL and Data Science.</p>
+          <p class="band-desc">Competition wins and recognition :including 1st place at IIT Madras Inter-house Tech Dominion, Silver Medal at Paradox IITM 2025, the Mr Focused title at SPSN, and two verified professional certifications in SQL and Data Science.</p>
           <div class="band-tags">
             <span class="band-tag">Hackathon Win</span>
             <span class="band-tag">Silver Medal</span>
@@ -1030,7 +1028,7 @@
       <button class="filter-btn" data-filter="web">Web</button>
     </div>
     <div class="meta-bar">
-      <p class="item-count">Showing <span id="proj-count">23</span> projects</p>
+      <p class="item-count">Showing <span id="proj-count">24</span> projects</p>
     </div>
     <div class="grid" id="proj-grid"></div>
   </div>
@@ -1043,13 +1041,13 @@
 
   <!-- ════ BLOGS ════ -->
   <div class="section-panel" id="panel-blogs">
-    <div class="meta-bar"><p class="item-count"><span>5</span> articles &amp; posts</p></div>
+    <div class="meta-bar"><p class="item-count"><span>11</span> articles &amp; posts</p></div>
     <div class="grid" id="blogs-grid"></div>
   </div>
 
   <!-- ════ CERTIFICATES ════ -->
   <div class="section-panel" id="panel-certificates">
-    <div class="meta-bar"><p class="item-count"><span>6</span> certificates</p></div>
+    <div class="meta-bar"><p class="item-count"><span>7</span> certificates</p></div>
     <div class="grid" id="certs-grid"></div>
   </div>
 
@@ -1061,13 +1059,13 @@
 
   <!-- ════ ACHIEVEMENTS ════ -->
   <div class="section-panel" id="panel-achievements">
-    <div class="meta-bar"><p class="item-count"><span>5</span> achievements</p></div>
+    <div class="meta-bar"><p class="item-count"><span>7</span> achievements</p></div>
     <div class="grid" id="achiev-grid"></div>
   </div>
 
   <!-- ── Footer ── -->
   <footer>
-    <p>© 2026 ATHARV KHARE — 1MYSTIC</p>
+    <p>© 2026 ATHARV KHARE :1MYSTIC</p>
     <p>
       <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
       <a href="https://github.com/1mystic" target="_blank">GitHub</a> &nbsp;·&nbsp;
@@ -1082,137 +1080,161 @@
 /* ─── DATA ─────────────────────────────────────────────────────── */
 
 const projects = [
+  { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI",
+    desc:"Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
+    tags:["Next.js 15","Claude 3.5 Sonnet","Supabase","BKT","Vercel"] },
   { title:"GitSyntropy", sub:"git-syntropy.vercel.app", href:"https://git-syntropy.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Multi-agent system that scores team compatibility and <span class='kw-rose'>simulates</span> hiring impact using GitHub <span class='kw-rose'>behavioral</span> data and <span class='kw-rose'>psychometric</span> profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 <span class='kw-rose'>behavioral</span> dimensions — with <span class='kw-rose'>Monte Carlo</span> hire simulation and <span class='kw-lime'>Claude</span>-synthesized streaming narrative reports.",
+    desc:"Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions : with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
     tags:["Python","FastAPI","LangGraph","Claude","Astro","PostgreSQL","TypeScript"] },
   { title:"Axiom Canvas", sub:"axiom-canvas.onrender.com", href:"https://axiom-canvas.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Math visualization engine powered by the <span class='kw-lime'>Desmos API</span> and <span class='kw-lime'>OpenRouter</span> <span class='kw-lime'>AI</span> with <span class='kw-rose'>RAG</span>. Users explore mathematical concepts interactively, with <span class='kw-lime'>AI</span>-generated contextual explanations and retrieval-augmented insights layered on top.",
+    desc:"Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively, with AI-generated contextual explanations and retrieval-augmented insights layered on top.",
     tags:["Desmos API","OpenRouter","RAG","JavaScript"] },
   { title:"DominoML", sub:"domino-ml.onrender.com", href:"https://domino-ml.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Visual drag-and-drop ML pipeline builder built with <span class='kw-lime'>Flask</span> and SQLite. Users compose, connect, and run <span class='kw-lime'>machine learning</span> steps via a node-based canvas. Supports Marked.js and MathJax for in-app documentation rendering.",
+    desc:"Visual drag-and-drop ML pipeline builder built with Flask and SQLite. Users compose, connect, and run machine learning steps via a node-based canvas. Supports Marked.js and MathJax for in-app documentation rendering.",
     tags:["Flask","SQLite","Drag & Drop","MathJax"] },
   { title:"Clearview Eco", sub:"clearvieweco.netlify.app", href:"https://clearvieweco.netlify.app", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
-    desc:"Civic tech platform for pollution reporting and verification with <span class='kw-rose'>geotagged</span> submissions. Uses <span class='kw-lime'>TensorFlow</span> for pollution detection and a <span class='kw-lime'>React</span> map interface where users can submit and verify environmental reports in real time.",
+    desc:"Civic tech platform for pollution reporting and verification with geotagged submissions. Uses TensorFlow for pollution detection and a React map interface where users can submit and verify environmental reports in real time.",
     tags:["TensorFlow","React","Geotagging","Civic Tech"] },
   { title:"SOHOS ED", sub:"School Optimization & Holistic Operating System", href:null, github:"https://github.com/1mystic/Sohos-ED", cat:"edu", catLabel:"Education",
-    desc:"<span class='kw-rose'>Data-driven</span> educational <span class='kw-rose'>consultancy</span> and <span class='kw-rose'>SaaS</span> platform for 400,000+ Indian budget private schools. Automates <span class='kw-lime'>NEP 2020</span>/PARAKH compliance via Japanese Tokkatsu methodologies (Han groups, Chokai, Toban, Soji). Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.",
+    desc:"Data-driven educational consultancy and SaaS platform for 400,000+ Indian budget private schools. Automates NEP 2020/PARAKH compliance via Japanese Tokkatsu methodologies. Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.",
     tags:["HTML5","JavaScript","Linear Programming","NEP 2020","PDF Generation","localStorage"] },
   { title:"DineOps", sub:"Restaurant Intelligence & Optimization Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
-    desc:"6-layer restaurant intelligence system combining demand <span class='kw-rose'>forecasting</span> (<span class='kw-lime'>SARIMA</span> / <span class='kw-lime'>LSTM</span> / Transformer ensemble), <span class='kw-rose'>LP/MILP</span> staffing <span class='kw-rose'>optimization</span>, <span class='kw-rose'>stochastic</span> inventory planning, and LLM-driven executive reporting. Fuses weather, news sentiment, and holiday signals into a closed-loop prediction-to-decision pipeline.",
+    desc:"6-layer restaurant intelligence system combining demand forecasting (SARIMA / LSTM / Transformer ensemble), LP/MILP staffing optimization, stochastic inventory planning, and LLM-driven executive reporting. Fuses weather, news sentiment, and holiday signals into a closed-loop prediction-to-decision pipeline.",
     tags:["FastAPI","PostgreSQL","SARIMA","LSTM","LangGraph","Optimization","Python"] },
   { title:"DevLoft", sub:"devloft-tools.netlify.app", href:"https://devloft-tools.netlify.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
-    desc:"19 client-side developer <span class='kw-rose'>utilities</span> built from real <span class='kw-lime'>data science</span> workflows — JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-<span class='kw-lime'>SQL</span>, hash/encode, and more. Zero dependencies, everything runs in the browser.",
+    desc:"19 client-side developer utilities built from real data science workflows : JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-SQL, hash/encode, and more. Zero dependencies, everything runs in the browser.",
     tags:["React","TypeScript","Vite","Zero-dep"] },
   { title:"MarkTex", sub:"marktex.wasmer.app", href:"https://marktex.wasmer.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
-    desc:"Full-featured <span class='kw-rose'>Markdown</span> + <span class='kw-rose'>LaTeX</span> editor with live preview, annotation mode (pen, shapes, arrows), HTML/CSS injection, and one-click export to PDF or HTML. Includes a quick snippet library for headings, tables, math, and code.",
+    desc:"Full-featured Markdown + LaTeX editor with live preview, annotation mode (pen, shapes, arrows), HTML/CSS injection, and one-click export to PDF or HTML. Includes a quick snippet library for headings, tables, math, and code.",
     tags:["Wasmer","LaTeX","PDF Export","Annotation"] },
   { title:"Aura-Delhi", sub:"AI Air Quality Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
-    desc:"Comprehensive air quality monitoring and <span class='kw-rose'>forecasting</span> platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, <span class='kw-lime'>PyTorch</span> ML engine for <span class='kw-rose'>source identification</span>, Prefect data pipeline, and TimescaleDB — deployed on <span class='kw-lime'>GCP</span> with Kubernetes.",
+    desc:"Comprehensive air quality monitoring and forecasting platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, PyTorch ML engine for source identification, Prefect data pipeline, and TimescaleDB : deployed on GCP with Kubernetes.",
     tags:["Next.js","Flutter","FastAPI","PyTorch","GCP","K8s"] },
   { title:"PyCrumbs", sub:"pycrumbs.netlify.app", href:"https://pycrumbs.netlify.app", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
-    desc:"Interactive step-by-step <span class='kw-lime'>Python</span> learning platform for beginners. Guides learners through <span class='kw-lime'>Python</span> concepts in small, digestible chunks with hands-on exercises — designed to make the learning curve as smooth as possible.",
+    desc:"Interactive step-by-step Python learning platform for beginners. Guides learners through Python concepts in small, digestible chunks with hands-on exercises : designed to make the learning curve as smooth as possible.",
     tags:["React","Netlify","Python Education"] },
   { title:"Transformer: Text-to-Emoji", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"From-scratch <span class='kw-lime'>PyTorch</span> implementation of the full encoder-decoder Transformer architecture for translating text phrases to emojis. Includes multi-head attention, sinusoidal positional encoding, AdamW training, greedy decoding, and attention weight visualization.",
+    desc:"From-scratch PyTorch implementation of the full encoder-decoder Transformer architecture for translating text phrases to emojis. Includes multi-head attention, sinusoidal positional encoding, AdamW training, greedy decoding, and attention weight visualization.",
     tags:["PyTorch","Transformer","NLP","From Scratch"] },
   { title:"VeraMind", sub:"Mental Wellness Platform", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"<span class='kw-lime'>AI</span>-powered mental wellness web app built with <span class='kw-lime'>Vue 3</span> and <span class='kw-lime'>Python</span>. Helps users identify cognitive biases, track anxiety and mood, complete structured learning modules, and receive <span class='kw-lime'>AI</span>-driven insights via evidence-based assessments and journaling.",
+    desc:"AI-powered mental wellness web app built with Vue 3 and Python. Helps users identify cognitive biases, track anxiety and mood, complete structured learning modules, and receive AI-driven insights via evidence-based assessments and journaling.",
     tags:["Vue 3","Python","Vite","AI Insights"] },
   { title:"Bhopal Food Delivery Analysis", sub:"bhopal-food-delivery.vercel.app", href:"https://bhopal-food-delivery.vercel.app", github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
-    desc:"<span class='kw-rose'>Geospatial</span> <span class='kw-rose'>research</span> report on 5,000 <span class='kw-lime'>Zomato</span> and <span class='kw-lime'>Swiggy</span> orders across 20 Bhopal localities. Includes order density heatmaps, platform comparison (55:45 split), peak hour analysis, locality-level revenue breakdown, and a downloadable CSV dataset.",
+    desc:"Geospatial research report on 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Includes order density heatmaps, platform comparison (55:45 split), peak hour analysis, locality-level revenue breakdown, and a downloadable CSV dataset.",
     tags:["Python","Pandas","GeoPandas","Matplotlib"] },
   { title:"Whiz.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
-    desc:"Full-stack quiz platform with <span class='kw-lime'>AI</span>-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks — daily reminder emails, monthly activity reports, and downloadable PDF report generation.",
+    desc:"Full-stack quiz platform with AI-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks : daily reminder emails, monthly activity reports, and downloadable PDF report generation.",
     tags:["Vue 3","Flask","Celery","Redis","Gemini API"] },
   { title:"Qwix.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
-    desc:"Multi-role household service marketplace connecting customers, professionals, and admins. Customers book and review services; professionals manage packages and requests; admins oversee the platform with RBAC. Built with <span class='kw-lime'>Flask</span>, Bootstrap, and payment integration.",
+    desc:"Multi-role household service marketplace connecting customers, professionals, and admins. Customers book and review services; professionals manage packages and requests; admins oversee the platform with RBAC. Built with Flask, Bootstrap, and payment integration.",
     tags:["Flask","JavaScript","Bootstrap","Payments","RBAC"] },
   { title:"GlideML", sub:"glideml.vercel.app", href:"https://glideml.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Visual ML pipeline builder frontend with a fast, intuitive interface for constructing and managing <span class='kw-lime'>machine learning</span> workflows. Pairs with <span class='kw-lime'>DominoML</span> as a sleek <span class='kw-lime'>Vite</span>-powered pipeline design tool.",
+    desc:"Visual ML pipeline builder frontend with a fast, intuitive interface for constructing and managing machine learning workflows. Pairs with DominoML as a sleek Vite-powered pipeline design tool.",
     tags:["React","Vite","TypeScript","ML Pipelines"] },
   { title:"WikiViz", sub:"AI Studio app", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Interactive visual explorer for Wikipedia content augmented with <span class='kw-lime'>Gemini AI</span>. Visualizes timelines and statistics extracted from Wikipedia data, with <span class='kw-lime'>AI</span>-generated summaries and contextual insights. Built with <span class='kw-lime'>Vite</span>, <span class='kw-lime'>React</span>, and <span class='kw-lime'>TypeScript</span>.",
+    desc:"Interactive visual explorer for Wikipedia content augmented with Gemini AI. Visualizes timelines and statistics extracted from Wikipedia data, with AI-generated summaries and contextual insights. Built with Vite, React, and TypeScript.",
     tags:["Gemini API","React","TypeScript","Vite","Wikipedia"] },
   { title:"CloudMorph Lens", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Production-ready <span class='kw-lime'>deep learning</span> platform for cloud classification and <span class='kw-rose'>segmentation</span> from satellite imagery. Uses <span class='kw-lime'>ResNet50</span> for multi-label classification and <span class='kw-lime'>U-Net</span> for pixel-level <span class='kw-rose'>segmentation</span>, with Grad-CAM explainability and a <span class='kw-lime'>Flask</span> web UI.",
+    desc:"Production-ready deep learning platform for cloud classification and segmentation from satellite imagery. Uses ResNet50 for multi-label classification and U-Net for pixel-level segmentation, with Grad-CAM explainability and a Flask web UI.",
     tags:["ResNet50","U-Net","Grad-CAM","Flask","CV"] },
   { title:"Wixplore", sub:"Whiz.it v2", href:null, github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
-    desc:"Evolution of Whiz.it combining cultural exploration quizzes with intelligent data processing. Features <span class='kw-lime'>Python</span> <span class='kw-lime'>AI</span> agents for data cleaning and profiling, language detection, dataset upload for <span class='kw-lime'>AI</span> analysis, personalized profiles, and real-time <span class='kw-rose'>analytics</span> on a <span class='kw-rose'>serverless</span> Vercel architecture.",
+    desc:"Evolution of Whiz.it combining cultural exploration quizzes with intelligent data processing. Features Python AI agents for data cleaning and profiling, language detection, dataset upload for AI analysis, personalized profiles, and real-time analytics on a serverless Vercel architecture.",
     tags:["Vue 3","Node.js","Python Agents","Vercel"] },
   { title:"MindFluence", sub:"mindfluence.netlify.app", href:"https://mindfluence.netlify.app", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
     desc:"A mind-path navigator app for guided mental exploration and structured decision-making flows. Helps users navigate thought patterns for clarity and self-reflection through interactive guided paths.",
     tags:["React","Netlify"] },
   { title:"Origami Simulator", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
-    desc:"Interactive 3D origami simulator with physics-based <span class='kw-rose'>aerodynamics</span>. Import OBJ/GLTF models, fold step-by-step, and simulate realistic wind, gravity, and air density on folded models. Includes a crease pattern editor, pre-loaded model library, and live simulation stats.",
+    desc:"Interactive 3D origami simulator with physics-based aerodynamics. Import OBJ/GLTF models, fold step-by-step, and simulate realistic wind, gravity, and air density on folded models. Includes a crease pattern editor, pre-loaded model library, and live simulation stats.",
     tags:["Three.js","React 18","Tailwind","Physics","Vite"] },
   { title:"Kanha Student House", sub:"kanha-min.netlify.app", href:"https://kanha-min.netlify.app", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
-    desc:"Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents — a polished minimal landing page.",
+    desc:"Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents : a polished minimal landing page.",
     tags:["React","Netlify","Landing Page"] },
-  { title:"Portfolio — atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
-    desc:"Personal portfolio as Atharv Khare, IIT Madras BS <span class='kw-lime'>Data Science</span> (CGPA 9.01). Showcases projects, <span class='kw-rose'>research</span>, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
+  { title:"Portfolio : atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
+    desc:"Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.01). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
     tags:["React","Next.js","GitHub Pages","Vercel"] },
 ];
 
 const research = [
   { title:"TerraHeal", sub:"Post-Wildfire Vegetation Recovery", href:"https://www.atharvk.me/assets/TerraHeal.pdf", cat:"paper", catLabel:"Research Paper",
-    desc:"A <span class='kw-rose'>remote sensing</span> study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (<span class='kw-rose'>NDVI</span>, NBR). Identifies recovery trajectories, affected zone extents, and ecological resilience patterns across burn scar regions.",
+    desc:"A remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR). Identifies recovery trajectories, affected zone extents, and ecological resilience patterns across burn scar regions.",
     tags:["Remote Sensing","NDVI","Satellite Imagery","Ecology"] },
   { title:"TypeState", sub:"Keystroke Dynamics Study", href:"https://github.com/1mystic/typestate-data", cat:"analysis", catLabel:"Research",
-    desc:"Investigation into keystroke dynamics as a behavioural <span class='kw-rose'>biometric</span>. Collects and analyses typing patterns — dwell time, flight time, and inter-key latency — to explore <span class='kw-rose'>identity verification</span> and cognitive state inference from typing behaviour.",
+    desc:"Investigation into keystroke dynamics as a behavioural biometric. Collects and analyses typing patterns : dwell time, flight time, and inter-key latency : to explore identity verification and cognitive state inference from typing behaviour.",
     tags:["Biometrics","Python","Data Collection","Signal Processing"] },
-  { title:"Bhopal Food Delivery — Geospatial Study", sub:"bhopal-food-delivery.vercel.app", href:"https://bhopal-food-delivery.vercel.app", cat:"analysis", catLabel:"Analysis",
-    desc:"Comprehensive <span class='kw-rose'>data-driven</span> study of 5,000 <span class='kw-lime'>Zomato</span> and <span class='kw-lime'>Swiggy</span> orders across 20 Bhopal localities. Maps delivery hotspots, platform market share, cuisine preferences, and temporal demand patterns for the city's food delivery ecosystem.",
+  { title:"Bhopal Food Delivery : Geospatial Study", sub:"bhopal-food-delivery.vercel.app", href:"https://bhopal-food-delivery.vercel.app", cat:"analysis", catLabel:"Analysis",
+    desc:"Comprehensive data-driven study of 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Maps delivery hotspots, platform market share, cuisine preferences, and temporal demand patterns for the city's food delivery ecosystem.",
     tags:["GeoPandas","Pandas","Matplotlib","Spatial Analysis"] },
-  { title:"Statistics II — Course Analysis", sub:"IIT Madras BS Programme", href:"https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii", cat:"analysis", catLabel:"Analysis",
-    desc:"Detailed statistical analyses and problem sets completed as part of the IIT Madras BS <span class='kw-lime'>Data Science</span> programme's Statistics II course — covering <span class='kw-rose'>hypothesis testing</span>, <span class='kw-rose'>regression</span>, <span class='kw-rose'>ANOVA</span>, and <span class='kw-rose'>probability distributions</span>.",
+  { title:"Statistics II : Course Analysis", sub:"IIT Madras BS Programme", href:"https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii", cat:"analysis", catLabel:"Analysis",
+    desc:"Detailed statistical analyses and problem sets completed as part of the IIT Madras BS Data Science programme's Statistics II course : covering hypothesis testing, regression, ANOVA, and probability distributions.",
     tags:["Statistics","Hypothesis Testing","Regression","ANOVA"] },
   { title:"QSR Demand Forecasting & Affinity Analysis", sub:"Business Data Analysis", href:null, cat:"analysis", catLabel:"Analysis",
-    desc:"Business <span class='kw-rose'>analytics</span> study focused on quick-service restaurant demand <span class='kw-rose'>forecasting</span> and product affinity mining. Applies time-series modelling, <span class='kw-rose'>market basket</span> analysis, and <span class='kw-rose'>segmentation</span> to derive actionable insights for operational planning.",
+    desc:"Business analytics study focused on quick-service restaurant demand forecasting and product affinity mining. Applies time-series modelling, market basket analysis, and segmentation to derive actionable insights for operational planning.",
     tags:["Forecasting","Market Basket","Time Series","Segmentation"] },
 ];
 
 const blogs = [
-  { title:"Understanding Attention Mechanisms", sub:"Technical deep-dive", href:"../Deployed-now/blog.html", cat:"tutorial", catLabel:"Tutorial",
-    desc:"A detailed walkthrough of the self-attention mechanism in <span class='kw-lime'>Transformers</span> — from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.",
+  { title:"Understanding Attention Mechanisms", sub:"Technical deep-dive", href:"../fresh/posts/attention-mechanisms.html", cat:"tutorial", catLabel:"Tutorial",
+    desc:"A detailed walkthrough of the self-attention mechanism in Transformers : from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.",
     tags:["Transformers","NLP","Deep Learning","PyTorch"] },
-  { title:"Building Pipelines with DominoML", sub:"Project spotlight", href:"../Deployed-now/blog.html", cat:"tutorial", catLabel:"Tutorial",
-    desc:"A guide to constructing end-to-end <span class='kw-lime'>machine learning</span> pipelines using <span class='kw-lime'>DominoML</span>'s node-based canvas — covering data ingestion, feature engineering, model selection, and evaluation within the visual interface.",
+  { title:"Building Pipelines with DominoML", sub:"Project spotlight", href:"../fresh/posts/domino-ml-pipelines.html", cat:"tutorial", catLabel:"Tutorial",
+    desc:"A guide to constructing end-to-end machine learning pipelines using DominoML's node-based canvas : covering data ingestion, feature engineering, model selection, and evaluation within the visual interface.",
     tags:["ML Pipelines","Flask","DominoML","Tutorial"] },
-  { title:"Geospatial Analysis with GeoPandas", sub:"Data science article", href:"../Deployed-now/blog.html", cat:"blog", catLabel:"Blog",
-    desc:"A practical introduction to <span class='kw-rose'>geospatial</span> data analysis using GeoPandas and Folium. Walks through coordinate systems, <span class='kw-rose'>spatial joins</span>, <span class='kw-rose'>choropleth mapping</span>, and real-world applications using the Bhopal food delivery dataset.",
+  { title:"Geospatial Analysis with GeoPandas", sub:"Data science article", href:"../fresh/posts/geopandas-analysis.html", cat:"blog", catLabel:"Blog",
+    desc:"A practical introduction to geospatial data analysis using GeoPandas and Folium. Walks through coordinate systems, spatial joins, choropleth mapping, and real-world applications using the Bhopal food delivery dataset.",
     tags:["GeoPandas","Folium","Python","Spatial Data"] },
-  { title:"From Markdown to PDF — Building MarkTex", sub:"Dev journal", href:"../Deployed-now/blog.html", cat:"blog", catLabel:"Blog",
-    desc:"The engineering story behind <span class='kw-lime'>MarkTex</span> — how a frustration with existing editors led to building a full <span class='kw-rose'>Markdown</span> + <span class='kw-rose'>LaTeX</span> tool with annotation support, live preview, and <span class='kw-rose'>PDF export</span> from scratch in a browser environment.",
+  { title:"From Markdown to PDF : Building MarkTex", sub:"Dev journal", href:"../fresh/posts/building-marktex.html", cat:"blog", catLabel:"Blog",
+    desc:"The engineering story behind MarkTex : how a frustration with existing editors led to building a full Markdown + LaTeX tool with annotation support, live preview, and PDF export from scratch in a browser environment.",
     tags:["Markdown","LaTeX","Wasmer","Product"] },
-  { title:"Keystroke Dynamics as a Biometric", sub:"Research-to-blog", href:"../Deployed-now/blog.html", cat:"blog", catLabel:"Blog",
-    desc:"A reader-friendly adaptation of the TypeState <span class='kw-rose'>research</span> project, exploring how the way you type — not what you type — can serve as a unique behavioural fingerprint for <span class='kw-rose'>identity verification</span> and <span class='kw-rose'>cognitive monitoring</span>.",
+  { title:"Keystroke Dynamics as a Biometric", sub:"Research-to-blog", href:"../fresh/posts/keystroke-dynamics.html", cat:"blog", catLabel:"Blog",
+    desc:"A reader-friendly adaptation of the TypeState research project, exploring how the way you type : not what you type : can serve as a unique behavioural fingerprint for identity verification and cognitive monitoring.",
     tags:["Biometrics","Security","Research","Python"] },
+  { title:"The Apple Propaganda: Breaking the Illusion", sub:"Opinion & Tech Analysis", href:"../fresh/posts/apple-propaganda.html", cat:"blog", catLabel:"Blog",
+    desc:"An analysis of the 'Apple' mythos - from the wax-coated fruits in our markets to the stagnant innovation of the tech giant in 2026.",
+    tags:["Opinion","Tech Analysis","Healthy Living"] },
+  { title:"Understanding LSTM Networks", sub:"Deep Learning", href:"../fresh/posts/blog-lstm.html", cat:"tutorial", catLabel:"Tutorial",
+    desc:"A deep dive into Long Short-Term Memory networks. Demystifying the mathematics behind LSTMs and the core idea of cell states.",
+    tags:["Deep Learning","NLP"] },
+  { title:"GitSyntropy Algorithm", sub:"Astrology-Inspired Team Matching", href:"../fresh/posts/gitsyntropy.html", cat:"blog", catLabel:"Blog",
+    desc:"A novel algorithm inspired by Vedic astrology to find perfect development teams using GitHub metrics like chronotype clustering and sentiment analysis.",
+    tags:["Algorithms","DevOps","Innovation"] },
+  { title:"Resonance", sub:"Poem", href:"../fresh/posts/resonance.html", cat:"blog", catLabel:"Poetry",
+    desc:"A reflection on perseverance, hope, and the journey of self-discovery through poetry.",
+    tags:["Poetry","Creative Writing"] },
+  { title:"Time", sub:"Poem", href:"../fresh/posts/time.html", cat:"blog", catLabel:"Poetry",
+    desc:"A philosophical reflection on time's fleeting nature and the importance of cherishing each moment.",
+    tags:["Poetry","Philosophy"] },
+  { title:"Women Empowerment?", sub:"Philosophical Essay", href:"../fresh/posts/women-empowerment.html", cat:"blog", catLabel:"Essay",
+    desc:"A philosophical perspective on gender equality, societal conditioning, and the importance of self-evaluation.",
+    tags:["Social Commentary","Philosophy"] },
 ];
 
 const certificates = [
   { title:"HackerRank SQL (Advanced)", sub:"HackerRank · 2024", href:"https://www.hackerrank.com/certificates/d366117ff2b9", cat:"cert", catLabel:"Certificate",
-    desc:"Certified proficiency in advanced <span class='kw-lime'>SQL</span> — covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.",
+    desc:"Certified proficiency in advanced SQL : covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.",
     tags:["SQL","Databases","HackerRank"] },
   { title:"DataCamp Data Science Associate", sub:"DataCamp · 2025", href:null, cat:"cert", catLabel:"Certificate",
-    desc:"Professional certification validating skills in <span class='kw-lime'>Python</span>, <span class='kw-lime'>SQL</span>, statistical analysis, data wrangling, and <span class='kw-lime'>machine learning</span> fundamentals across a proctored multi-stage assessment.",
+    desc:"Professional certification validating skills in Python, SQL, statistical analysis, data wrangling, and machine learning fundamentals across a proctored multi-stage assessment.",
     tags:["Python","SQL","PyTorch","DataCamp","2025"] },
   { title:"GCP Cloud Workshop", sub:"Google Cloud", href:"https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view", cat:"cert", catLabel:"Certificate",
-    desc:"Workshop certification covering Google Cloud Platform core services — Compute Engine, Cloud Storage, <span class='kw-lime'>BigQuery</span>, and <span class='kw-lime'>Vertex AI</span> — with hands-on deployment and data pipeline exercises.",
+    desc:"Workshop certification covering Google Cloud Platform core services : Compute Engine, Cloud Storage, BigQuery, and Vertex AI : with hands-on deployment and data pipeline exercises.",
     tags:["GCP","Cloud","BigQuery","Vertex AI"] },
   { title:"Dynamic Programming Workshop", sub:"IIT Madras", href:"https://drive.google.com/file/d/1Ru0ShGa4jEx2j4BsGiIVRf2HTLWhJxtE/view", cat:"cert", catLabel:"Certificate",
-    desc:"Certification from a focused workshop on dynamic programming paradigms — covering memoisation, tabulation, state-space design, and classic DP problem patterns relevant to competitive programming and algorithm design.",
+    desc:"Certification from a focused workshop on dynamic programming paradigms : covering memoisation, tabulation, state-space design, and classic DP problem patterns relevant to competitive programming and algorithm design.",
     tags:["Algorithms","DP","Competitive Programming"] },
   { title:"Machine Learning Workshop", sub:"IIT Madras", href:"https://drive.google.com/file/d/1RWIVo5YHam_mqswe_A5NlX0VXH5TcLyX/view", cat:"cert", catLabel:"Certificate",
-    desc:"Workshop certificate covering supervised and unsupervised <span class='kw-lime'>machine learning</span> — linear models, decision trees, clustering, dimensionality reduction, and model evaluation with <span class='kw-lime'>scikit-learn</span>.",
+    desc:"Workshop certificate covering supervised and unsupervised machine learning : linear models, decision trees, clustering, dimensionality reduction, and model evaluation with scikit-learn.",
     tags:["Machine Learning","scikit-learn","Python"] },
   { title:"Python Programming", sub:"IIT Madras", href:"https://drive.google.com/file/d/192zatB1EimlnHuJyFu7wcGbvb4QMrDSa/view", cat:"cert", catLabel:"Certificate",
-    desc:"Foundational <span class='kw-lime'>Python</span> programming certificate covering data types, control flow, functions, object-oriented programming, file I/O, and standard libraries — with graded assessments and practical exercises.",
+    desc:"Foundational Python programming certificate covering data types, control flow, functions, object-oriented programming, file I/O, and standard libraries : with graded assessments and practical exercises.",
     tags:["Python","OOP","Programming"] },
+  { title:"NPTEL Distributed Systems & Cloud Computing", sub:"NPTEL · Elite Tier · 2026", href:null, cat:"cert", catLabel:"Certificate",
+    desc:"Elite tier certification in Distributed Systems and Cloud Computing from NPTEL :covering architecture, virtualisation, resource management, and scalable system design.",
+    tags:["Distributed Systems","Cloud Computing","Elite Tier","NPTEL"] },
 ];
 
 const education = [
   { title:"B.S. Data Science & Applications", sub:"IIT Madras · 2023 – 2027", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Degree",
-    desc:"Bachelor of Science in <span class='kw-lime'>Data Science</span> & Applications from IIT Madras — one of India's premier technical institutes. Curriculum spans <span class='kw-rose'>mathematics</span>, statistics, <span class='kw-lime'>machine learning</span>, databases, programming, and <span class='kw-lime'>AI</span>. Currently maintaining a CGPA of 9.01.",
+    desc:"Bachelor of Science in Data Science & Applications from IIT Madras : one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.01.",
     tags:["IIT Madras","CGPA 9.01","Data Science","AI/ML","Python","SQL"] },
   { title:"Diploma in Programming", sub:"IIT Madras · Completed 2025", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Diploma",
     desc:"Diploma-level qualification in programming from IIT Madras, completed with a 9.44 CGPA. Covered systems thinking, data structures, algorithms, web technologies, and application development.",
@@ -1220,20 +1242,26 @@ const education = [
 ];
 
 const achievements = [
-  { title:"Inter-house Tech Dominion — 1st Place", sub:"IIT Madras · 2024", href:null, cat:"award", catLabel:"Hackathon Win",
-    desc:"First-place finish at the Inter-house Tech Dominion hackathon at IIT Madras — a competitive technical event spanning problem-solving, rapid prototyping, and system design across multiple domains.",
-    tags:["Hackathon","IIT Madras","First Place"] },
-  { title:"Silver Medal — Anukriti, Paradox IITM", sub:"IIT Madras · 2025", href:null, cat:"medal", catLabel:"Medal",
-    desc:"Silver medal at Anukriti — part of Paradox, IIT Madras's annual technical and cultural fest. Recognised for outstanding performance in the technical arts competition category.",
+  { title:"Anthropic Claude Builder Club : 2nd Runner Up", sub:"Spring 2026 Hackathon · April 2026", href:null, cat:"award", catLabel:"Hackathon Win",
+    desc:"Secured 2nd runner-up position in Anthropic's Claude Builder Club Hackathon (Spring 2026), receiving a $300 prize for innovative application of LLM technology.",
+    tags:["Anthropic","Claude","Hackathon","Prize Winner"] },
+  { title:"Hack4Health Hackathon : 3rd Position", sub:"Health-Tech · June 2025", href:null, cat:"award", catLabel:"Hackathon Win",
+    desc:"Won 3rd position at the Hack4Health hackathon for developing technology-driven health solutions in a competitive environment.",
+    tags:["Health-Tech","Hackathon","Third Place"] },
+  { title:"Inter-house Tech Dominion : 2nd Place", sub:"IIT Madras · January 2026", href:null, cat:"award", catLabel:"Hackathon Win",
+    desc:"Achieved 2nd place at the Tech Dominion hackathon at IIT Madras : January 2026 edition. Recognized for rapid prototyping and system design excellence.",
+    tags:["Hackathon","IIT Madras","Second Place"] },
+  { title:"Silver Medal : Anukriti, Paradox IITM", sub:"IIT Madras · 2025", href:null, cat:"medal", catLabel:"Medal",
+    desc:"Silver medal at Anukriti : part of Paradox, IIT Madras's annual technical and cultural fest. Recognised for outstanding performance in the technical arts competition category.",
     tags:["Silver Medal","Paradox IITM","2025"] },
-  { title:"MR Focused Title — SPSN", sub:"School recognition", href:null, cat:"title", catLabel:"Title",
-    desc:"Awarded the 'Mr Focused' title at SPSN — a recognition of consistent dedication, academic discipline, and focused pursuit of excellence over the course of the school programme.",
+  { title:"MR Focused Title : SPSN", sub:"School recognition", href:null, cat:"title", catLabel:"Title",
+    desc:"Awarded the 'Mr Focused' title at SPSN : a recognition of consistent dedication, academic discipline, and focused pursuit of excellence over the course of the school programme.",
     tags:["Award","Title","School"] },
-  { title:"HackerRank SQL — Advanced Certified", sub:"Verified · 2024", href:"https://www.hackerrank.com/certificates/d366117ff2b9", cat:"cert", catLabel:"Certification",
-    desc:"Passed <span class='kw-lime'>HackerRank</span>'s advanced <span class='kw-lime'>SQL</span> certification with a verified credential — demonstrating professional-grade database querying skills recognised by recruiters globally.",
+  { title:"HackerRank SQL : Advanced Certified", sub:"Verified · 2024", href:"https://www.hackerrank.com/certificates/d366117ff2b9", cat:"cert", catLabel:"Certification",
+    desc:"Passed HackerRank's advanced SQL certification with a verified credential : demonstrating professional-grade database querying skills recognised by recruiters globally.",
     tags:["SQL","HackerRank","Verified"] },
   { title:"DataCamp Data Science Associate", sub:"Proctored · 2025", href:null, cat:"cert", catLabel:"Certification",
-    desc:"Earned the <span class='kw-lime'>DataCamp</span> <span class='kw-lime'>Data Science</span> Associate certification through a rigorous multi-stage proctored assessment covering <span class='kw-lime'>Python</span>, <span class='kw-lime'>SQL</span>, statistics, and <span class='kw-lime'>machine learning</span>.",
+    desc:"Earned the DataCamp Data Science Associate certification through a rigorous multi-stage proctored assessment covering Python, SQL, statistics, and machine learning.",
     tags:["DataCamp","Proctored","Data Science","2025"] },
 ];
 
