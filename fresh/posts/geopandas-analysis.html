@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geospatial Analysis with GeoPandas | Atharv Khare</title>
+
+    <meta name="description"
+        content="A practical introduction to geospatial data analysis using GeoPandas and Folium, featuring a Bhopal food delivery dataset.">
+    <meta name="keywords" content="GeoPandas, Folium, Python, Spatial Data, Data Science, Atharv Khare">
+    <meta name="author" content="Atharv Khare">
+    
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+
+    <div class="container">
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="../../minimal/index.html">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">Introduction</a></li>
+                        <li><a href="#mapping">Choropleth Mapping</a></li>
+                        <li><a href="#conclusions">Conclusions</a></li>
+                    </ul>
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">GeoPandas</span>
+                        <span class="blog-tag">Folium</span>
+                        <span class="blog-tag">Spatial Data</span>
+                    </div>
+                    <h1 class="article-title">Geospatial Analysis with GeoPandas</h1>
+                    <div class="article-meta">
+                        <span>Nov 10, 2025</span> • <span>6 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">Numbers tell you what happened. Geospatial data tells you where it happened. And in the world of logistics and food delivery, 'where' is often more important than 'what'.</p>
+                    <p>In this post, I explore a real-world dataset of 5,000 food delivery orders in Bhopal, using GeoPandas and Folium to uncover spatial trends that raw spreadsheets obscure.</p>
+                </section>
+
+                <section id="mapping">
+                    <h2>Choropleth Mapping with Folium</h2>
+                    <p>Visualising order density across different localities reveals stark economic and demographic divides. A spatial join between the order coordinates and municipal boundary polygons allows us to aggregate demand efficiently.</p>
+                    <pre><code class="language-python">import geopandas as gpd
+import folium
+
+# Load data
+gdf = gpd.read_file('bhopal_orders.geojson')
+
+# Create a base map
+m = folium.Map(location=[23.2599, 77.4126], zoom_start=12)
+
+# Add density mapping
+folium.Choropleth(
+    geo_data=wards_geojson,
+    name='choropleth',
+    data=order_counts,
+    columns=['ward_id', 'order_volume'],
+    key_on='feature.properties.ward_id',
+    fill_color='YlOrRd'
+).add_to(m)</code></pre>
+                </section>
+
+                <section id="conclusions">
+                    <h2>Conclusions</h2>
+                    <p>The analysis revealed concentrated delivery hotspots around educational hubs and commercial zones, strongly correlated with the time of day. Spatial data science transforms abstract coordinates into actionable business intelligence.</p>
+                </section>
+            </article>
+        </div>
+        
+        <footer class="footer-style">
+            <p>© 2026 1mystic</p>
+        </footer>
+    </div>
+</body>
+</html>

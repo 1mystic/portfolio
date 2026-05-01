@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Markdown to PDF : Building MarkTex | Atharv Khare</title>
+
+    <meta name="description"
+        content="The engineering story behind MarkTex, a full Markdown + LaTeX tool with annotation support, live preview, and PDF export.">
+    <meta name="keywords" content="Markdown, LaTeX, Wasmer, Product, WebAssembly, Atharv Khare">
+    <meta name="author" content="Atharv Khare">
+    
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+
+    <div class="container">
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="../../minimal/index.html">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">The Problem</a></li>
+                        <li><a href="#solution">The Solution</a></li>
+                        <li><a href="#wasm">WebAssembly Magic</a></li>
+                    </ul>
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Markdown</span>
+                        <span class="blog-tag">LaTeX</span>
+                        <span class="blog-tag">WebAssembly</span>
+                    </div>
+                    <h1 class="article-title">From Markdown to PDF : Building MarkTex</h1>
+                    <div class="article-meta">
+                        <span>Dec 5, 2025</span> • <span>7 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">Every developer has experienced the friction of trying to write mathematical equations in a simple markdown file, only to realize the parser doesn't support LaTeX.</p>
+                    <p>MarkTex was born out of my own frustration with existing editors. I wanted the simplicity of Markdown, the power of LaTeX, and the ability to annotate directly on the document before exporting to PDF.</p>
+                </section>
+
+                <section id="solution">
+                    <h2>The Solution Architecture</h2>
+                    <p>Building an editor requires managing complex state. You have the raw text, the parsed Abstract Syntax Tree (AST), the rendered HTML, and the overlay canvas for annotations.</p>
+                    <div class="callout">
+                        <strong>Insight:</strong> Syncing the scroll position between the raw editor and the preview pane requires non-linear mapping, because a single line of Markdown might expand into a massive math block.
+                    </div>
+                </section>
+
+                <section id="wasm">
+                    <h2>WebAssembly Magic with Wasmer</h2>
+                    <p>To handle heavy PDF rendering entirely client-side without relying on a backend server, I leveraged WebAssembly. Using Wasmer, we can compile native rendering engines to run directly in the browser, providing a blazingly fast, privacy-first export experience.</p>
+                </section>
+            </article>
+        </div>
+        
+        <footer class="footer-style">
+            <p>© 2026 1mystic</p>
+        </footer>
+    </div>
+</body>
+</html>
