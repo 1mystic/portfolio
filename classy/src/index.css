@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 40 10% 90%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 40 10% 90%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 40 10% 90%;
+
+    --primary: 40 45% 55%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 40 10% 80%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 40 45% 55%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 40 45% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 55%;
+    --sidebar-primary: 40 45% 55%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 10% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 40 45% 55%;
+
+    --gold: 40 45% 55%;
+    --gold-light: 40 50% 70%;
+    --gold-dark: 40 40% 40%;
+    --surface: 0 0% 14%;
+    --surface-hover: 0 0% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  .bg-surface-hover {
+    background-color: hsl(var(--surface-hover));
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent any child from blowing out horizontal width on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Mobile nav trigger glow ring */
+@keyframes nav-glow-ring {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0   hsl(40 45% 55% / 0.55),
+      0 0 0 0   hsl(40 45% 55% / 0.25),
+      0 4px 24px rgba(0,0,0,0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px  hsl(40 45% 55% / 0.18),
+      0 0 0 11px hsl(40 45% 55% / 0.07),
+      0 4px 24px rgba(0,0,0,0.5);
+  }
+}
+
+.mobile-nav-glow {
+  animation: nav-glow-ring 2.2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 10%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 25%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(40 45% 55%);
+}

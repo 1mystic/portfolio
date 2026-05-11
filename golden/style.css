@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --background: 0 0% 10%;
+  --foreground: 40 10% 90%;
+
+  --card: 0 0% 12%;
+  --card-foreground: 40 10% 90%;
+
+  --popover: 0 0% 12%;
+  --popover-foreground: 40 10% 90%;
+
+  --primary: 40 45% 55%;
+  --primary-foreground: 0 0% 5%;
+
+  --secondary: 0 0% 16%;
+  --secondary-foreground: 40 10% 80%;
+
+  --muted: 0 0% 16%;
+  --muted-foreground: 0 0% 55%;
+
+  --accent: 40 45% 55%;
+  --accent-foreground: 0 0% 5%;
+
+  --destructive: 0 62.8% 50%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 40 45% 55%;
+
+  --radius: 0.5rem;
+
+  --sidebar-background: 0 0% 8%;
+  --sidebar-foreground: 0 0% 55%;
+  --sidebar-primary: 40 45% 55%;
+  --sidebar-primary-foreground: 0 0% 5%;
+  --sidebar-accent: 0 0% 14%;
+  --sidebar-accent-foreground: 40 10% 90%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 40 45% 55%;
+
+  --gold: 40 45% 55%;
+  --gold-light: 40 50% 70%;
+  --gold-dark: 40 40% 40%;
+  --surface: 0 0% 14%;
+  --surface-hover: 0 0% 18%;
+}
+
+/* Base resets & styles matching classy index.css */
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 10%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 25%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(40 45% 55%);
+}
+
+/* Utility classes matching classy tailwind & layers */
+.text-gold {
+  color: hsl(var(--gold));
+}
+.bg-gold {
+  background-color: hsl(var(--gold));
+}
+.border-gold {
+  border-color: hsl(var(--gold));
+}
+.bg-surface {
+  background-color: hsl(var(--surface));
+}
+.bg-surface-hover {
+  background-color: hsl(var(--surface-hover));
+}
+
+/* Mobile nav trigger glow ring animation */
+@keyframes nav-glow-ring {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0   hsl(40 45% 55% / 0.55),
+      0 0 0 0   hsl(40 45% 55% / 0.25),
+      0 4px 24px rgba(0,0,0,0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px  hsl(40 45% 55% / 0.18),
+      0 0 0 11px hsl(40 45% 55% / 0.07),
+      0 4px 24px rgba(0,0,0,0.5);
+  }
+}
+
+.mobile-nav-glow {
+  animation: nav-glow-ring 2.2s ease-in-out infinite;
+}
+
+/* Expandable content panel transitions (Accordion behavior) */
+.expandable-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+}
+
+.expandable-panel.expanded {
+  max-height: 500px; /* high enough to cover description blocks */
+  opacity: 1;
+}
+
+/* Fade in class for scroll reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom transitions and states */
+.transition-all-300 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
