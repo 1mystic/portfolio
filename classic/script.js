@@ -507,7 +507,7 @@ const posts = [
     date: 'Apr 2026',
     description: 'A detailed walkthrough of the self-attention mechanism in Transformers : from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.',
     tag: 'Transformers',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80',
+    image: 'attention_mechanism_banner.png',
     href: '../fresh/posts/attention-mechanisms.html'
   },
   {
@@ -515,7 +515,7 @@ const posts = [
     date: 'Mar 2026',
     description: "A guide to constructing end-to-end machine learning pipelines using DominoML's node-based canvas : covering data ingestion, feature engineering, model selection, and evaluation within the visual interface.",
     tag: 'ML Pipelines',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+    image: 'ml_pipeline_banner.png',
     href: '../fresh/posts/domino-ml-pipelines.html'
   },
   {
@@ -523,7 +523,7 @@ const posts = [
     date: 'Feb 2026',
     description: 'A practical introduction to geospatial data analysis using GeoPandas and Folium. Walks through coordinate systems, spatial joins, choropleth mapping, and real-world applications using the Bhopal food delivery dataset.',
     tag: 'GeoPandas',
-    image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&q=80',
+    image: 'geospatial_analysis_banner.png',
     href: '../fresh/posts/geopandas-analysis.html'
   },
   {
@@ -531,7 +531,7 @@ const posts = [
     date: 'Feb 2026',
     description: 'The engineering story behind MarkTex : how a frustration with existing editors led to building a full Markdown + LaTeX tool with annotation support, live preview, and PDF export from scratch in a browser environment.',
     tag: 'LaTeX',
-    image: 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:monospace;'><rect x='150' y='40' width='160' height='220' rx='4' fill='%23141312' stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1.5' /><rect x='490' y='40' width='160' height='220' rx='4' fill='%23141312' stroke='%23C9A84C' stroke-width='1.5' /><g fill='%23ffffff' fill-opacity='0.25'><rect x='170' y='60' width='80' height='8' /><rect x='170' y='80' width='120' height='4' /><rect x='170' y='90' width='110' height='4' /><rect x='170' y='110' width='90' height='8' /><rect x='170' y='130' width='120' height='4' /><rect x='170' y='140' width='120' height='4' /><rect x='170' y='150' width='60' height='4' /><rect x='170' y='170' width='100' height='6' /></g><path d='M360 150h80' stroke='%23C9A84C' stroke-width='2' stroke-dasharray='4,4' /><path d='M430 145l10 5-10 5v-10z' fill='%23C9A84C' /><text x='400' y='135' fill='%23C9A84C' font-size='11' text-anchor='middle'>PDF Rendering Engine</text><g fill='%23C9A84C' fill-opacity='0.6'><rect x='510' y='60' width='80' height='10' /><rect x='510' y='80' width='120' height='3' /><rect x='510' y='88' width='120' height='3' /><rect x='510' y='105' width='100' height='8' /><rect x='510' y='125' width='120' height='3' /><rect x='510' y='133' width='120' height='3' /></g><text x='515' y='170' fill='%23ffffff' fill-opacity='0.8' font-size='12' font-family='serif' font-style='italic'>∫ e^x dx = e^x + C</text></svg>`,
     href: '../fresh/posts/building-marktex.html'
   },
   {
@@ -539,7 +539,7 @@ const posts = [
     date: 'Jan 2026',
     description: 'A reader-friendly adaptation of the TypeState research project, exploring how the way you type : not what you type : can serve as a unique behavioural fingerprint for identity verification and cognitive monitoring.',
     tag: 'Biometrics',
-    image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:monospace;'><g stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'><path d='M0 50h800M0 100h800M0 150h800M0 200h800M0 250h800M0 300h800' /><path d='M100 0v342M200 0v342M300 0v342M400 0v342M500 0v342M600 0v342M700 0v342' /></g><path d='M50 171 Q150 71 250 171 T450 171 T650 171 T750 171' fill='none' stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1.5' /><path d='M50 171 Q150 111 250 171 T450 111 T650 171 T750 171' fill='none' stroke='%23C9A84C' stroke-opacity='0.3' stroke-width='2' /><line x1='150' y1='100' x2='150' y2='240' stroke='%23C9A84C' stroke-width='1' stroke-dasharray='2,2' /><line x1='350' y1='100' x2='350' y2='240' stroke='%23C9A84C' stroke-width='1' stroke-dasharray='2,2' stroke-opacity='0.5' /><g fill='%23C9A84C'><circle cx='150' cy='121' r='4' /><circle cx='350' cy='221' r='4' /><circle cx='250' cy='171' r='5' /></g><text x='160' y='115' fill='%23C9A84C' font-size='11'>Dwell Time (t_D)</text><text x='360' y='215' fill='%23ffffff' fill-opacity='0.6' font-size='11'>Flight Time (t_F)</text><text x='50' y='70' fill='%23C9A84C' fill-opacity='0.7' font-weight='bold'>Biometric Signature Profile</text></svg>`,
     href: '../fresh/posts/keystroke-dynamics.html'
   },
   {
@@ -547,7 +547,7 @@ const posts = [
     date: 'Jan 2026',
     description: "An analysis of the 'Apple' mythos - from the wax-coated fruits in our markets to the stagnant innovation of the tech giant in 2026.",
     tag: 'Opinion',
-    image: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:sans-serif;'><circle cx='400' cy='180' r='110' fill='none' stroke='%23C9A84C' stroke-opacity='0.1' stroke-dasharray='5,5' stroke-width='2' /><circle cx='400' cy='180' r='85' fill='%23C9A84C' fill-opacity='0.05' /><g transform='translate(400, 185) scale(2.2) translate(-25, -25)'><path d='M32 6 c2 6-4 12-10 12 c-2-5 3-11 10-12z' fill='%23C9A84C' fill-opacity='0.4' /><path d='M25 45 C15 45 6 36 6 25 C6 15 15 8 25 10 C25 15 20 20 20 28 C20 37 25 45 25 45z' fill='%23ffffff' fill-opacity='0.8' /><path d='M27 45 C27 45 32 37 32 28 C32 20 27 15 27 10 C37 8 46 15 46 25 C46 36 37 45 27 45z' fill='%23C9A84C' /></g><text x='50' y='70' fill='%23C9A84C' font-size='14' font-family='monospace' letter-spacing='3'>ILLUSION OF INNOVATION</text><text x='50' y='90' fill='%23ffffff' fill-opacity='0.2' font-size='11' font-family='monospace'>A Critically Adjusted Opinion Block · 2026</text></svg>`,
     href: '../fresh/posts/apple-propaganda.html'
   },
   {
@@ -555,7 +555,7 @@ const posts = [
     date: 'Dec 2025',
     description: 'A deep dive into Long Short-Term Memory networks. Demystifying the mathematics behind LSTMs and the core idea of cell states.',
     tag: 'Deep Learning',
-    image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:monospace;'><g stroke='%23C9A84C' stroke-opacity='0.05' stroke-width='1'><path d='M0 50h800M0 100h800M0 150h800M0 200h800M0 250h800M0 300h800' /></g><rect x='250' y='80' width='300' height='180' rx='12' fill='%23141312' stroke='%23C9A84C' stroke-width='1.5' /><line x1='150' y1='120' x2='650' y2='120' stroke='%23C9A84C' stroke-width='2' stroke-dasharray='4,4' /><circle cx='350' cy='120' r='10' fill='%23141312' stroke='%23C9A84C' stroke-width='1.5' /><path d='M346 120h8M350 116v8' stroke='%23C9A84C' stroke-width='1.5' /><line x1='150' y1='220' x2='250' y2='220' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4' /><line x1='550' y1='220' x2='650' y2='220' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4' /><text x='310' y='200' fill='%23C9A84C' font-size='12' font-weight='bold'>f_t</text><text x='400' y='200' fill='%23ffffff' fill-opacity='0.7' font-size='12' font-weight='bold'>i_t</text><text x='490' y='200' fill='%23C9A84C' font-size='12' font-weight='bold'>o_t</text><text x='400' y='60' fill='%23ffffff' fill-opacity='0.2' font-size='12' text-anchor='middle'>Cell State (C_t)</text></svg>`,
     href: '../fresh/posts/blog-lstm.html'
   },
   {
@@ -563,7 +563,7 @@ const posts = [
     date: 'Nov 2025',
     description: 'A novel algorithm inspired by Vedic astrology to find perfect development teams using GitHub metrics like chronotype clustering and sentiment analysis.',
     tag: 'Algorithms',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:monospace;'><circle cx='400' cy='171' r='120' fill='none' stroke='%23C9A84C' stroke-opacity='0.15' stroke-width='1' /><circle cx='400' cy='171' r='80' fill='none' stroke='%23C9A84C' stroke-opacity='0.1' stroke-width='1' /><g stroke='%23C9A84C' stroke-opacity='0.4' stroke-width='1.5'><line x1='400' y1='171' x2='400' y2='51' /><line x1='400' y1='171' x2='520' y2='171' /><line x1='400' y1='171' x2='315' y2='256' /></g><circle cx='400' cy='51' r='6' fill='%23C9A84C' /><circle cx='520' cy='171' r='5' fill='%23ffffff' fill-opacity='0.8' /><circle cx='315' cy='256' r='6' fill='%23C9A84C' /><circle cx='460' cy='111' r='4' fill='%23ffffff' fill-opacity='0.5' /><circle cx='340' cy='111' r='4' fill='%23ffffff' fill-opacity='0.5' /><text x='400' y='35' fill='%23C9A84C' font-size='10' text-anchor='middle'>I (Aries)</text><text x='555' y='175' fill='%23ffffff' fill-opacity='0.4' font-size='10'>IV (Cancer)</text><text x='270' y='270' fill='%23C9A84C' font-size='10'>VIII (Scorpio)</text><text x='50' y='70' fill='%23ffffff' fill-opacity='0.15' font-size='18' font-weight='bold'>GIT_SYNTROPY_V1</text></svg>`,
     href: '../fresh/posts/gitsyntropy.html'
   },
   {
@@ -571,7 +571,7 @@ const posts = [
     date: 'Oct 2025',
     description: 'A reflection on perseverance, hope, and the journey of self-discovery through poetry.',
     tag: 'Poetry',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:serif;'><circle cx='400' cy='171' r='30' fill='none' stroke='%23C9A84C' stroke-opacity='0.8' stroke-width='1.5' /><circle cx='400' cy='171' r='60' fill='none' stroke='%23C9A84C' stroke-opacity='0.5' stroke-width='1.2' /><circle cx='400' cy='171' r='100' fill='none' stroke='%23C9A84C' stroke-opacity='0.3' stroke-width='1' /><circle cx='400' cy='171' r='150' fill='none' stroke='%23C9A84C' stroke-opacity='0.15' stroke-width='1' /><circle cx='400' cy='171' r='210' fill='none' stroke='%23C9A84C' stroke-opacity='0.08' stroke-width='1' /><text x='400' y='176' fill='%23ffffff' font-size='16' font-style='italic' text-anchor='middle' letter-spacing='4'>r e s o n a n c e</text></svg>`,
     href: '../fresh/posts/resonance.html'
   },
   {
@@ -579,7 +579,7 @@ const posts = [
     date: 'Sep 2025',
     description: "A philosophical reflection on time's fleeting nature and the importance of cherishing each moment.",
     tag: 'Poetry',
-    image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:serif;'><circle cx='400' cy='171' r='110' fill='none' stroke='%23C9A84C' stroke-opacity='0.1' stroke-width='1' /><g stroke='%23C9A84C' stroke-opacity='0.3'><line x1='400' y1='61' x2='400' y2='71' /><line x1='400' y1='271' x2='400' y2='281' /><line x1='290' y1='171' x2='300' y2='171' /><line x1='500' y1='171' x2='510' y2='171' /></g><line x1='400' y1='171' x2='490' y2='120' stroke='%23C9A84C' stroke-width='2' /><line x1='400' y1='171' x2='350' y2='171' stroke='%23ffffff' stroke-opacity='0.2' stroke-width='1.5' /><circle cx='400' cy='171' r='4' fill='%23C9A84C' /><text x='400' y='50' fill='%23C9A84C' font-size='11' font-family='monospace' text-anchor='middle' letter-spacing='2'>TEMPUS FUGIT</text></svg>`,
     href: '../fresh/posts/time.html'
   },
   {
@@ -587,7 +587,7 @@ const posts = [
     date: 'Aug 2025',
     description: 'A philosophical perspective on gender equality, societal conditioning, and the importance of self-evaluation.',
     tag: 'Social Commentary',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80',
+    image: `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 342' style='background-color:%230e0d0c;font-family:serif;'><g stroke='%23C9A84C' stroke-width='1.5' fill='none' stroke-linecap='round'><line x1='400' y1='100' x2='400' y2='240' /><line x1='370' y1='240' x2='430' y2='240' stroke-width='2.5' /><line x1='320' y1='120' x2='480' y2='120' stroke-width='2' /><line x1='320' y1='120' x2='320' y2='180' /><path d='M300 180 h40' stroke-width='2.5' /><line x1='480' y1='120' x2='480' y2='180' /><path d='M460 180 h40' stroke-width='2.5' /></g><circle cx='320' cy='160' r='10' fill='%23C9A84C' fill-opacity='0.2' /><circle cx='320' cy='160' r='3' fill='%23C9A84C' /><text x='400' y='80' fill='%23C9A84C' font-size='12' font-family='monospace' text-anchor='middle' letter-spacing='3'>CRITICAL REVIEW</text></svg>`,
     href: '../fresh/posts/women-empowerment.html'
   }
 ];
