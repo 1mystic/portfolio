@@ -889,12 +889,12 @@ function initMobileNav() {
   });
 
   // Highlight active mobile nav items on scrollspy
-  const sectionIds = ['hero', 'process', 'skills', 'projects', 'writing', 'experiments'];
+  const sectionIds = ['hero', 'projects', 'skills', 'achievements', 'writing', 'experiments', 'process'];
   const indicatorLabel = trigger.querySelector('.font-mono');
 
   const updateMobileNavActive = (activeId) => {
     const activeIdx = sectionIds.indexOf(activeId);
-    const labels = ['00', '01', '02', '03', '04', '05'];
+    const labels = ['00', '01', '02', '03', '04', '05', '06'];
     if (activeIdx !== -1) {
       indicatorLabel.textContent = labels[activeIdx];
     }
