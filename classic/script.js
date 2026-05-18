@@ -420,16 +420,6 @@ const projects = [
     coverIcons: [`flask/${G}`, `javascript/${G}`]
   },
   {
-    name: "GlideML",
-    category: "AI / ML",
-    description: "Visual ML pipeline builder frontend with a fast, intuitive interface for constructing and managing machine learning workflows. Pairs with DominoML as a sleek Vite-powered pipeline design tool.",
-    tech: ["React", "Vite", "TypeScript", "ML Pipelines"],
-    demo: "https://glideml.vercel.app",
-    github: "https://github.com/1mystic",
-    cover: catGradients['AI / ML'],
-    coverIcons: [`react/${G}`, `vite/${G}`]
-  },
-  {
     name: "WikiViz",
     category: "AI / ML",
     description: "Interactive visual explorer for Wikipedia content augmented with Gemini AI. Visualizes timelines and statistics extracted from Wikipedia data, with AI-generated summaries and contextual insights. Built with Vite, React, and TypeScript.",
@@ -458,16 +448,6 @@ const projects = [
     github: "https://github.com/1mystic",
     cover: catGradients['Tools'],
     coverIcons: [`vuedotjs/${G}`, `nodedotjs/${G}`]
-  },
-  {
-    name: "MindFluence",
-    category: "Web Apps",
-    description: "A mind-path navigator app for guided mental exploration and structured decision-making flows. Helps users navigate thought patterns for clarity and self-reflection through interactive guided paths.",
-    tech: ["React", "Netlify"],
-    demo: "https://mindfluence.netlify.app",
-    github: "https://github.com/1mystic",
-    cover: catGradients['Web Apps'],
-    coverIcons: [`react/${G}`, `javascript/${G}`]
   },
   {
     name: "Origami Simulator",
