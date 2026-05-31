@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atharv Khare — Portfolio Index</title>
+  <title>Atharv Khare </title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2305070f' stroke='%23e5c158' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%23e5c158'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
@@ -64,7 +65,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1.35fr 0.65fr;
       width: 100%;
       align-items: center;
       gap: 3rem;
@@ -346,7 +347,68 @@
     .timeline-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
 
     /* FOOTER */
-    footer { padding: 5rem 0 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+    footer { 
+      padding: 5rem 0 3rem; 
+      text-align: center; 
+      border-top: 1px solid rgba(255,255,255,0.03); 
+      color: var(--text-muted); 
+      font-size: 0.85rem; 
+      letter-spacing: 0.05em; 
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-link-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    .footer-link-item:hover {
+      color: var(--accent-gold);
+    }
+    
+    /* timeline link styling */
+    .timeline-link {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .timeline-link:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Yoda Avatar Styling */
+    .hero-avatar-container {
+      position: absolute;
+      top: 50%;
+      left: 45%; /* Shifted slightly to the left side */
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .hero-avatar-img {
+      width: 100%;
+      
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+    .avatar-dotted-ring {
+      position: absolute;
+      inset: -15px;
+      border: 2px dotted rgba(240, 237, 230, 0.3);
+      border-radius: 50%;
+      animation: slowRotate 30s linear infinite reverse;
+      pointer-events: none;
+    }
 
     @media (max-width: 860px) {
       .hero-grid, .about-grid, .work-item, .split-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -366,11 +428,10 @@
         <div class="hero-left">
           <div class="hero-logo">ak.</div>
           <h1 class="hero-text">
-            <span class="line-reveal"><span>Hey, I'm <span class="white">Atharv Khare</span>.<!--[cite: 1] --></span></span>
-            <span class="line-reveal"><span>I build <span class="white">data engines</span> and research<!--[cite: 1] --></span></span>
-            <span class="line-reveal"><span>computational <span class="accent">biometric foundations</span>.<!--[cite: 1] --></span></span>
+            <span class="line-reveal"><span>Hey, I'm <span class="white">Atharv Khare,</span> I build high-performance <span class="white">data engines</span></span></span>
+            <span class="line-reveal"><span>and research computational <span class="accent">biometric foundations. </span></span></span>
           </h1>
-          <p class="hero-sub">IIT Madras  ·  3X Hackathon Winner  ·  CGPA 9.02<!--[cite: 1] --></p>
+          <p class="hero-sub">IIT Madras  ·  3X Hackathon Winner  ·  CGPA 9.02</p>
         </div>
         <div class="hero-right">
           <div class="diagonal-lines">
@@ -383,6 +444,11 @@
             <div class="main-circle"></div>
             <div class="satellite-lg"></div>
             <div class="satellite-sm"></div>
+            <!-- Interactive Yoda Avatar Circle -->
+            <div class="hero-avatar-container">
+              <img src="digital-yoda.png" alt="Atharv Khare" class="hero-avatar-img">
+              <div class="avatar-dotted-ring"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -393,7 +459,8 @@
       <div class="about-grid">
         <div class="about-visual">
           <div class="photo-frame">
-            <div class="photo-placeholder">AK</div>
+            <img src="fresh/assets/web-origami/me.webp" alt="Atharv Khare" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+            <div class="photo-placeholder" style="z-index: 1;">AK</div>
           </div>
           <div class="animated-wave">
             <svg width="160" height="16" viewBox="0 0 160 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -405,11 +472,11 @@
           <p class="section-label">Core Philosophy</p>
           <div class="about-bio">
             <p>
-              I am a third-year undergraduate student in the <strong class="white">IIT Madras BS program in Data Science</strong><!--[cite: 1] -->. I approach artificial intelligence from first principles, specializing in low-level system design beneath high-level abstractions<!--[cite: 1] -->. 
+              I am a third-year undergraduate student in the <strong class="white">IIT Madras BS program in Data Science</strong>. I approach artificial intelligence from first principles, specializing in low-level system design beneath high-level abstractions. 
             </p>
             <br>
             <p>
-              My exploration spans building neural architectures from scratch to studying <strong class="white">behavioral psychometrics</strong><!--[cite: 1] -->, analyzing patterns in cognitive load optimization and predictive modeling interfaces<!--[cite: 1] -->.
+              My exploration spans building neural architectures from scratch to studying <strong class="white">behavioral psychometrics</strong>, analyzing patterns in cognitive load optimization and predictive modeling interfaces.
             </p>
           </div>
         </div>
@@ -422,25 +489,43 @@
 
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">NEXT.JS 15 + CLAUDE SONNET 4</div><!--[cite: 1] -->
-          <h2 class="work-title">Episteme</h2><!--[cite: 1] -->
-          <p class="work-desc">Socratic Study Engine deploying Bayesian Knowledge Tracing loops, prerequisite DAG structures, and continuous metacognitive optimization agents<!--[cite: 1] -->.</p>
-          <a href="https://episteme-chat.vercel.app" target="_blank" class="work-link">Review Codebase ↗</a><!--[cite: 1] -->
+          <div class="work-meta">NEXT.JS 15 + CLAUDE SONNET 4</div>
+          <h2 class="work-title">Episteme</h2>
+          <p class="work-desc">Socratic Study Engine deploying Bayesian Knowledge Tracing loops, prerequisite DAG structures, and continuous metacognitive optimization agents.</p>
+          <a href="https://episteme-chat.vercel.app" target="_blank" class="work-link">Review Codebase ↗</a>
         </div>
         <div class="work-visual-container">
-          <div class="device-mockup"><div class="device-screen"><div class="screen-header"><div class="screen-dots"><span></span><span></span><span></span></div></div><div class="screen-body">Bayesian DAG Array Engine</div></div></div><!--[cite: 1] -->
+          <div class="device-mockup">
+            <div class="device-screen">
+              <div class="screen-header">
+                <div class="screen-dots"><span></span><span></span><span></span></div>
+              </div>
+              <div class="screen-body" style="background-image: url('fresh/assets/proj-img/mind.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                Bayesian DAG Array Engine
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">LANGGRAPH + FASTAPI + ASTRO</div><!--[cite: 1] -->
-          <h2 class="work-title">GitSyntropy</h2><!--[cite: 1] -->
-          <p class="work-desc">Multi-agent deployment computing structural compatibility balances and simulated performance matrices from behavioral activity vectors<!--[cite: 1] -->.</p>
-          <a href="https://git-syntropy.vercel.app" target="_blank" class="work-link">Launch Simulator ↗</a><!--[cite: 1] -->
+          <div class="work-meta">LANGGRAPH + FASTAPI + ASTRO</div>
+          <h2 class="work-title">GitSyntropy</h2>
+          <p class="work-desc">Multi-agent deployment computing structural compatibility balances and simulated performance matrices from behavioral activity vectors.</p>
+          <a href="https://git-syntropy.vercel.app" target="_blank" class="work-link">Launch Simulator ↗</a>
         </div>
         <div class="work-visual-container">
-          <div class="device-mockup"><div class="device-screen"><div class="screen-header"><div class="screen-dots"><span></span><span></span><span></span></div></div><div class="screen-body">Behavioral Trace Graphing</div></div></div><!--[cite: 1] -->
+          <div class="device-mockup">
+            <div class="device-screen">
+              <div class="screen-header">
+                <div class="screen-dots"><span></span><span></span><span></span></div>
+              </div>
+              <div class="screen-body" style="background-image: url('fresh/assets/proj-img/src.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                Behavioral Trace Graphing
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -452,32 +537,32 @@
         
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Remote Sensing Paper</div><!--[cite: 1] -->
-            <h3 class="card-title">TerraHeal</h3><!--[cite: 1] -->
-            <div class="card-sub">Vegetation Recovery Indexes</div><!--[cite: 1] -->
-            <p class="card-desc">An ecological evaluation analyzing post-wildfire vegetative recovery anomalies mapping spectral indices like NDVI and NBR<!--[cite: 1] -->.</p>
+            <div class="card-tag">Remote Sensing Paper</div>
+            <h3 class="card-title">TerraHeal</h3>
+            <div class="card-sub">Vegetation Recovery Indexes</div>
+            <p class="card-desc">An ecological evaluation analyzing post-wildfire vegetative recovery anomalies mapping spectral indices like NDVI and NBR.</p>
           </div>
-          <a href="https://www.atharvk.me/assets/TerraHeal.pdf" target="_blank" class="card-footer-link">View Documentation ↗</a><!--[cite: 1] -->
+          <a href="https://zenodo.org/records/19630252" target="_blank" class="card-footer-link">View Documentation ↗</a>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Biometric Analysis</div><!--[cite: 1] -->
-            <h3 class="card-title">TypeState</h3><!--[cite: 1] -->
-            <div class="card-sub">Keystroke Processing Array</div><!--[cite: 1] -->
-            <p class="card-desc">Analyzing flight/dwell timing signatures as continuous identifiers to discover underlying shifts in user cognitive states<!--[cite: 1] -->.</p>
+            <div class="card-tag">Biometric Analysis</div>
+            <h3 class="card-title">TypeState</h3>
+            <div class="card-sub">Keystroke Processing Array</div>
+            <p class="card-desc">Analyzing flight/dwell timing signatures as continuous identifiers to discover underlying shifts in user cognitive states.</p>
           </div>
-          <a href="https://github.com/1mystic/typestate-data" target="_blank" class="card-footer-link">Explore Dataset ↗</a><!--[cite: 1] -->
+          <a href="https://zenodo.org/records/19387975" target="_blank" class="card-footer-link">Explore Dataset ↗</a>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Geospatial Processing</div><!--[cite: 1] -->
-            <h3 class="card-title">Bhopal Logistics Analysis</h3><!--[cite: 1] -->
-            <div class="card-sub">5,000 Spatial Matrices</div><!--[cite: 1] -->
-            <p class="card-desc">Processing regional delivery trends using GeoPandas, designing localized density heatmaps and network routing efficiency maps<!--[cite: 1] -->.</p>
+            <div class="card-tag">Geospatial Processing</div>
+            <h3 class="card-title">Bhopal Logistics Analysis</h3>
+            <div class="card-sub">5,000 Spatial Matrices</div>
+            <p class="card-desc">Processing regional delivery trends using GeoPandas, designing localized density heatmaps and network routing efficiency maps.</p>
           </div>
-          <a href="https://bhopal-food-delivery.vercel.app" target="_blank" class="card-footer-link">Review Analysis ↗</a><!--[cite: 1] -->
+          <a href="https://bhopal-food-delivery.vercel.app" target="_blank" class="card-footer-link">Review Analysis ↗</a>
         </div>
 
       </div>
@@ -490,27 +575,27 @@
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Deep Learning Mechanics</div><!--[cite: 1] -->
-            <h3 class="card-title">Attention Topologies</h3><!--[cite: 1] -->
-            <p class="card-desc">An architectural breakdown of self-attention engines within modern transformers, mapping mathematical sequence weights<!--[cite: 1] -->.</p>
+            <div class="card-tag">Deep Learning Mechanics</div>
+            <h3 class="card-title">Attention Topologies</h3>
+            <p class="card-desc">An architectural breakdown of self-attention engines within modern transformers, mapping mathematical sequence weights.</p>
           </div>
           <a href="#" class="card-footer-link">Read Entry ↗</a>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Product Engineering</div><!--[cite: 1] -->
-            <h3 class="card-title">Building MarkTex</h3><!--[cite: 1] -->
-            <p class="card-desc">Documenting from-scratch implementation loops inside browser rendering canvases integrating custom LaTeX math compilers<!--[cite: 1] -->.</p>
+            <div class="card-tag">Product Engineering</div>
+            <h3 class="card-title">Building MarkTex</h3>
+            <p class="card-desc">Documenting from-scratch implementation loops inside browser rendering canvases integrating custom LaTeX math compilers.</p>
           </div>
           <a href="#" class="card-footer-link">Read Entry ↗</a>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Algorithmic Philosophy</div><!--[cite: 1] -->
-            <h3 class="card-title">Vedic Chronotype Clustering</h3><!--[cite: 1] -->
-            <p class="card-desc">Structuring non-traditional team balance matrix models combining engineering sentiment signals with chronological cycles<!--[cite: 1] -->.</p>
+            <div class="card-tag">Algorithmic Philosophy</div>
+            <h3 class="card-title">Vedic Chronotype Clustering</h3>
+            <p class="card-desc">Structuring non-traditional team balance matrix models combining engineering sentiment signals with chronological cycles.</p>
           </div>
           <a href="#" class="card-footer-link">Read Entry ↗</a>
         </div>
@@ -528,17 +613,17 @@
           <h3>Education Background</h3>
           
           <div class="timeline-item">
-            <div class="timeline-time">2023 — 2027</div><!--[cite: 1] -->
-            <div class="timeline-title">B.S. Data Science &amp; Applications</div><!--[cite: 1] -->
-            <div class="timeline-sub">Indian Institute of Technology, Madras</div><!--[cite: 1] -->
-            <div class="timeline-desc">Specialized training in functional algorithmic mathematics, deep inference, and structural data system setups. Maintaining CGPA: 9.02.<!--[cite: 1] --></div>
+            <div class="timeline-time">2023 — 2027</div>
+            <div class="timeline-title">B.S. Data Science &amp; Applications</div>
+            <div class="timeline-sub">Indian Institute of Technology, Madras</div>
+            <div class="timeline-desc">Specialized training in functional algorithmic mathematics, deep inference, and structural data system setups. Maintaining CGPA: 9.02.</div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-time">Completed 2025</div><!--[cite: 1] -->
-            <div class="timeline-title">Diploma in Computer Programming</div><!--[cite: 1] -->
-            <div class="timeline-sub">IIT Madras</div><!--[cite: 1] -->
-            <div class="timeline-desc">Graduated with 9.44 CGPA covering advanced web system architecture builds and core algorithm analysis paths.<!--[cite: 1] --></div>
+            <div class="timeline-time">Completed 2025</div>
+            <div class="timeline-title">Diploma in Computer Programming</div>
+            <div class="timeline-sub">IIT Madras</div>
+            <div class="timeline-desc">Graduated with 9.44 CGPA covering advanced web system architecture builds and core algorithm analysis paths.</div>
           </div>
         </div>
 
@@ -547,15 +632,33 @@
           <h3>Verified Qualifications</h3>
           
           <div class="timeline-item">
-            <div class="timeline-time">Credential</div>
-            <div class="timeline-title">HackerRank Advanced SQL</div><!--[cite: 1] -->
-            <div class="timeline-desc">Verified expertise in handling structural joins, processing database partition windows, and query path optimization loops<!--[cite: 1] -->.</div>
+            <div class="timeline-time">Credential — HackerRank</div>
+            <div class="timeline-title"><a href="https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing" target="_blank" class="timeline-link">Advanced SQL ↗</a></div>
+            <div class="timeline-desc">Verified expertise in handling structural joins, processing database partition windows, and query path optimization loops.</div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-time">Credential</div>
-            <div class="timeline-title">NPTEL Distributed Systems</div><!--[cite: 1] -->
-            <div class="timeline-desc">Achieved Elite Tier validation modeling network virtualization arrays, multi-node setups, and scale patterns<!--[cite: 1] -->.</div>
+            <div class="timeline-time">Credential — NPTEL</div>
+            <div class="timeline-title"><a href="https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing" target="_blank" class="timeline-link">Distributed Systems ↗</a></div>
+            <div class="timeline-desc">Achieved Elite Tier validation modeling network virtualization arrays, multi-node setups, and scale patterns.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">Credential — DataCamp</div>
+            <div class="timeline-title"><a href="https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing" target="_blank" class="timeline-link">Data Science Associate ↗</a></div>
+            <div class="timeline-desc">Verified data processing, statistical analysis, and predictive modeling capabilities in Python and SQL.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">Credential — Simplilearn</div>
+            <div class="timeline-title"><a href="https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing" target="_blank" class="timeline-link">Machine Learning with Python ↗</a></div>
+            <div class="timeline-desc">Mastered core regression, clustering models, decision tree algorithms, and scikit-learn pipeline operations.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">Credential — Simplilearn</div>
+            <div class="timeline-title"><a href="https://drive.google.com/file/d/1eFqV5gONP0AfkhjaOjMjau1mdr9YyKr9/view?usp=sharing" target="_blank" class="timeline-link">Cloud Computing Foundations ↗</a></div>
+            <div class="timeline-desc">Verified knowledge of AWS deployment architectures, cloud storage strategies, and scaling mechanisms.</div>
           </div>
         </div>
       </div>
@@ -568,25 +671,25 @@
         
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Anthropic Club 2026</div><!--[cite: 1] -->
-            <h3 class="card-title">Claude Challenge Winner</h3><!--[cite: 1] -->
-            <p class="card-desc">Secured 2nd Runner Up standing globally in the Spring 2026 Hackathon loop for structural LLM application design<!--[cite: 1] -->.</p>
+            <div class="card-tag">Anthropic Club 2026</div>
+            <h3 class="card-title">Claude Challenge Winner</h3>
+            <p class="card-desc">Secured 2nd Runner Up standing globally in the Spring 2026 Hackathon loop for structural LLM application design.</p>
           </div>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">IIT Madras 2026</div><!--[cite: 1] -->
-            <h3 class="card-title">Tech Dominion — 2nd Place</h3><!--[cite: 1] -->
-            <p class="card-desc">Awarded top engineering platform prize across institutional rapid-prototyping tracks<!--[cite: 1] -->.</p>
+            <div class="card-tag">IIT Madras 2026</div>
+            <h3 class="card-title">Tech Dominion — 2nd Place</h3>
+            <p class="card-desc">Awarded top engineering platform prize across institutional rapid-prototyping tracks.</p>
           </div>
         </div>
 
         <div class="index-card reveal-on-scroll">
           <div class="card-top">
-            <div class="card-tag">Paradox Fest 2025</div><!--[cite: 1] -->
-            <h3 class="card-title">Anukriti Silver Medal</h3><!--[cite: 1] -->
-            <p class="card-desc">Awarded structural podium placement inside the competitive technical computing showcase arena<!--[cite: 1] -->.</p>
+            <div class="card-tag">Paradox Fest 2025</div>
+            <h3 class="card-title">Anukriti Silver Medal</h3>
+            <p class="card-desc">Awarded structural podium placement inside the competitive technical computing showcase arena.</p>
           </div>
         </div>
 
@@ -648,8 +751,14 @@
     });
   </script>
 
-  <footer>
-    <p>© 2026 ATHARV KHARE — INDEX PIPELINE V4</p><!--[cite: 1] -->
+  <footer class="profile-footer">
+    <div class="footer-links">
+      <a href="index.html" class="footer-link-item">Home Base</a>
+      <a href="socials.html" class="footer-link-item">Social Hub</a>
+      <a href="https://github.com/1mystic" target="_blank" class="footer-link-item">GitHub</a>
+      <a href="https://www.linkedin.com/in/atharvkhare" target="_blank" class="footer-link-item">LinkedIn</a>
+    </div>
+    <p class="footer-copyright">© 2026 ATHARV KHARE</p>
   </footer>
 
 </body>

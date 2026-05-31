@@ -211,16 +211,12 @@
   }
   .loading-bar-fill {
     height: 100%;
-    width: 65%;
-    background: repeating-linear-gradient(
-      -45deg,
-      var(--lime-pale),
-      var(--lime-pale) 12px,
-      var(--lime-border) 12px,
-      var(--lime-border) 24px
-    );
+    width: 100%;
+    background-color: #E8F0EA;
+    background-image: radial-gradient(#8CA693 2px, transparent 2px);
+    background-size: 10px 10px;
     border-right: 2px solid var(--ink);
-    animation: loadMove 5s linear infinite;
+    animation: loadMove 1s linear infinite;
   }
   .loading-text {
     position: absolute;
@@ -262,7 +258,7 @@
 
   @keyframes loadMove {
     0% { background-position: 0 0; }
-    100% { background-position: 100px 0; }
+    100% { background-position: 10px 0; }
   }
 
   @media (max-width: 700px) {
@@ -489,13 +485,44 @@
     </div>
     
     <div class="loading-bar-container">
-      <div class="loading-bar-fill"></div>
-      <div class="loading-text">LOADING... 65%</div>
+      <div class="loading-bar-fill" id="timer-fill"></div>
+      <div class="loading-text" id="timer-text">AUTO-SELECT IN 5.0S...</div>
     </div>
 
     <div class="loader-nav">
       <a href="links.html">Social Links</a>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const timerFill = document.getElementById('timer-fill');
+      const timerText = document.getElementById('timer-text');
+      const duration = 5000; // 5 seconds in milliseconds
+      const startTime = performance.now();
+      
+      function updateTimer() {
+        const now = performance.now();
+        const elapsed = now - startTime;
+        const remaining = Math.max(0, duration - elapsed);
+        const progress = (remaining / duration) * 100;
+        
+        if (timerFill) {
+          timerFill.style.width = `${progress}%`;
+        }
+        if (timerText) {
+          timerText.textContent = `AUTO-SELECT IN ${(remaining / 1000).toFixed(1)}s...`;
+        }
+        
+        if (remaining > 0) {
+          requestAnimationFrame(updateTimer);
+        } else {
+          window.location.href = 'profile.html';
+        }
+      }
+      
+      requestAnimationFrame(updateTimer);
+    });
+  </script>
 </body>
 </html>
