@@ -1340,7 +1340,27 @@ footer .copy {
   }
   
   .certs-grid { grid-template-columns: 1fr; }
-  .origami-strip { grid-template-columns: repeat(2, 1fr); }
+  .origami-strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 16px;
+    padding: 12px 4px;
+    margin-inline: -18px;
+    padding-inline: 18px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .origami-strip::-webkit-scrollbar {
+    display: none;
+  }
+  .origami-strip .ori-item {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+    aspect-ratio: 3/4;
+  }
   .blog-row { grid-template-columns: 24px 1fr auto; gap: 10px; padding: 12px 14px; }
   .br-meta { display: none; }
   
@@ -1364,6 +1384,5 @@ footer .copy {
 }
 
 @media (max-width: 440px) {
-  .origami-strip { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
 }

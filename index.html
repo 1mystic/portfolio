@@ -157,6 +157,12 @@
     box-shadow: 10px 10px 0px var(--rose-border);
     color: var(--rose-text);
   }
+  .avatar-card:nth-child(4):hover { 
+    background: #EAFCEE; 
+    border-color: #22C55E;
+    box-shadow: 10px 10px 0px #22C55E;
+    color: #15803D;
+  }
 
   .avatar-icon { width: 80px; height: 80px; margin-bottom: 24px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
   .avatar-card:hover .avatar-icon { transform: scale(1.15) rotate(5deg); }
@@ -184,6 +190,7 @@
   .avatar-card:nth-child(1):hover .avatar-desc { color: var(--lime-text); border-color: var(--lime-border); }
   .avatar-card:nth-child(2):hover .avatar-desc { color: var(--blue-text); border-color: var(--blue-border); }
   .avatar-card:nth-child(3):hover .avatar-desc { color: var(--rose-text); border-color: var(--rose-border); }
+  .avatar-card:nth-child(4):hover .avatar-desc { color: #15803D; border-color: #22C55E; }
 
   /* Loading Bar Mockup */
   .loading-bar-container {
@@ -300,6 +307,15 @@
     border: 2px solid var(--rose-border);
   }
   
+  .avatar-card:nth-child(4).emphasized::before {
+    content: 'NEW';
+  }
+  .avatar-card:nth-child(4).emphasized:hover::before {
+    background: var(--surface);
+    color: #15803D;
+    border: 2px solid #22C55E;
+  }
+  
   @media (max-width: 700px) {
     .avatar-card.emphasized::before {
       top: -12px;
@@ -314,6 +330,7 @@
   .avatar-card:nth-child(1) { background: #FAFDFA; }
   .avatar-card:nth-child(2) { background: #F8FCFF; }
   .avatar-card:nth-child(3) { background: #FFF9FA; }
+  .avatar-card:nth-child(4) { background: #F7FDF9; }
 
   /* Colorize the mascot bodies slightly in their resting state */
   .avatar-card:nth-child(1) .avatar-icon circle[fill="var(--surface)"] {
@@ -328,6 +345,10 @@
     fill: #FCE4EC; /* Soft blush pink for Squishy */
     transition: fill 0.3s;
   }
+  .avatar-card:nth-child(4) .avatar-icon rect[fill="var(--surface)"] {
+    fill: #E8F5E9; /* Soft neon green for Byte */
+    transition: fill 0.3s;
+  }
 
   /* Make the mascot bodies turn bright white when the card background floods with color on hover */
   .avatar-card:hover .avatar-icon *[fill^="#E"], 
@@ -339,6 +360,7 @@
   .avatar-card:nth-child(1) .avatar-label { color: #3A5D0B; }
   .avatar-card:nth-child(2) .avatar-label { color: #025382; }
   .avatar-card:nth-child(3) .avatar-label { color: #9A0E2F; }
+  .avatar-card:nth-child(4) .avatar-label { color: #1B5E20; }
 
   /* Add a tiny pop of accent color to the corner of the cards */
   .avatar-card::after {
@@ -357,6 +379,7 @@
   .avatar-card:nth-child(1)::after { background: var(--lime-border); }
   .avatar-card:nth-child(2)::after { background: var(--blue-border); }
   .avatar-card:nth-child(3)::after { background: var(--rose-border); }
+  .avatar-card:nth-child(4)::after { background: #22C55E; }
 
   /* Expand the corner accent slightly on hover */
   .avatar-card:hover::after {
@@ -434,6 +457,27 @@
         </svg>
         <div class="avatar-label">Squishy</div>
         <div class="avatar-desc">The Softie</div>
+      </a>
+      <a href="dev-profile/portfolio.html" class="avatar-card emphasized">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Robot Head/Screen -->
+          <rect x="22" y="28" width="56" height="46" rx="8" fill="var(--surface)" stroke-width="3.5" />
+          <!-- Neck -->
+          <line x1="45" y1="74" x2="45" y2="82" stroke-width="3.5" />
+          <line x1="55" y1="74" x2="55" y2="82" stroke-width="3.5" />
+          <!-- Stand/Base -->
+          <path d="M30 82 H70" stroke-width="3.5" />
+          <!-- Ears/Antennae -->
+          <circle cx="50" cy="18" r="3.5" fill="currentColor" />
+          <line x1="50" y1="18" x2="50" y2="28" stroke-width="2.5" />
+          <!-- Glowing Eyes -->
+          <circle cx="38" cy="48" r="4" fill="currentColor" />
+          <circle cx="62" cy="48" r="4" fill="currentColor" />
+          <!-- Terminal cursor or smiling mouth -->
+          <path d="M46 60 H54" stroke-width="3.5" />
+        </svg>
+        <div class="avatar-label">Byte</div>
+        <div class="avatar-desc">The Developer</div>
       </a>
     </div>
     

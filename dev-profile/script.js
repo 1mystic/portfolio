@@ -166,3 +166,66 @@ document.querySelectorAll('.proj').forEach((card) => {
     card.style.setProperty('--my', y + '%');
   });
 });
+
+// --- Origami Carousel Auto-sliding on Mobile ---
+(function initOrigamiCarousel() {
+  const strip = document.querySelector('.origami-strip');
+  if (!strip) return;
+
+  let intervalId = null;
+  let isUserInteracting = false;
+  let interactionTimeout = null;
+
+  function startAutoSlide() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(() => {
+      if (window.innerWidth > 600 || isUserInteracting) return;
+
+      const items = Array.from(strip.querySelectorAll('.ori-item'));
+      if (!items.length) return;
+
+      const stripWidth = strip.clientWidth;
+      const scrollLeft = strip.scrollLeft;
+
+      // Find the index of the item currently closest to the center/left
+      let currentIndex = 0;
+      let minDiff = Infinity;
+      items.forEach((item, index) => {
+        const diff = Math.abs(item.offsetLeft - scrollLeft - (stripWidth - item.clientWidth) / 2);
+        if (diff < minDiff) {
+          minDiff = diff;
+          currentIndex = index;
+        }
+      });
+
+      // Go to the next index, or wrap around
+      const nextIndex = (currentIndex + 1) % items.length;
+      const nextItem = items[nextIndex];
+      
+      // Smoothly scroll to center the next item
+      strip.scrollTo({
+        left: nextItem.offsetLeft - (stripWidth - nextItem.clientWidth) / 2,
+        behavior: 'smooth'
+      });
+    }, 3000);
+  }
+
+  function handleUserInteraction() {
+    isUserInteracting = true;
+    if (interactionTimeout) clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(() => {
+      isUserInteracting = false;
+    }, 6000); // Resume auto-sliding after 6s of inactivity
+  }
+
+  strip.addEventListener('touchstart', handleUserInteraction, { passive: true });
+  strip.addEventListener('mousedown', handleUserInteraction);
+  strip.addEventListener('scroll', () => {
+    if (isUserInteracting) {
+      handleUserInteraction();
+    }
+  });
+
+  startAutoSlide();
+  window.addEventListener('resize', startAutoSlide);
+})();

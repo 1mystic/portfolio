@@ -581,7 +581,7 @@ const experiments = [
     howItWorks: 'Tracks vegetation regeneration trajectories over time by analyzing satellite spectral indices. Combines historical fire data and GIS modeling to identify recovery rates across biomes, enabling data-driven conservation and ecosystem resilience assessment.',
     tech: ['Remote Sensing', 'NDVI', 'Satellite Imagery', 'Ecology'],
     type: 'Research',
-    links: [{ url: "https://www.atharvk.me/assets/TerraHeal.pdf", label: "Read Paper" }]
+    links: [{ url: "https://zenodo.org/records/19630252", label: "Read Paper" }]
   },
   {
     title: 'TypeState',
@@ -590,7 +590,16 @@ const experiments = [
     howItWorks: 'Collects and processes high-resolution keystroke timing data (dwell times, flight times, and inter-key latencies). Applies statistical modeling and machine learning to build high-precision user signature profiles for passive authentication.',
     tech: ['Biometrics', 'Python', 'Signal Processing', 'Behavioral Science'],
     type: 'Research',
-    links: [{ url: "https://github.com/1mystic/typestate-data", label: "View Data & Code" }]
+    links: [{ url: "https://zenodo.org/records/19387975", label: "Read Paper" }]
+  },
+  {
+    title: 'GitSyntropy',
+    subtitle: 'Astrology-Inspired Dev Team Matching',
+    description: 'A research paper exploring a novel multi-agent algorithm inspired by Vedic astrology principles to optimize development team composition.',
+    howItWorks: 'Scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Applies chronotype spectral clustering and sentiment analysis across 8 behavioral dimensions.',
+    tech: ['Algorithms', 'Multi-Agent', 'Vedic Astrology', 'Team Optimization'],
+    type: 'Research',
+    links: [{ url: "https://zenodo.org/records/20001501", label: "Read Paper" }]
   },
   {
     title: 'Bhopal Food Delivery : Geospatial Study',
@@ -689,7 +698,7 @@ const experiments = [
     howItWorks: 'Completed comprehensive timed assessments covering complex multi-table joins, subqueries, aggregations, window functions, and query optimization paradigms on heavy production-like relational schemas.',
     tech: ['SQL', 'Databases', 'HackerRank'],
     type: 'Certificate',
-    links: [{ url: "https://www.hackerrank.com/certificates/d366117ff2b9", label: "Verify Certificate" }]
+    links: [{ url: "https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing", label: "Verify Certificate" }]
   },
   {
     title: 'DataCamp Data Science Associate',
@@ -742,6 +751,22 @@ const experiments = [
     howItWorks: 'Completed academic assessment covering virtualization strategies, consensus algorithms, cloud resource allocation, MapReduce scalability, and robust server architecting.',
     tech: ['Distributed Systems', 'Cloud Computing', 'Elite Tier', 'NPTEL'],
     type: 'Certificate'
+  },
+  {
+    title: 'Machine Learning using Python',
+    subtitle: 'Simplilearn · 2026',
+    description: 'Comprehensive training in machine learning concepts using Python, covering data preprocessing, regression, classification, clustering, and model deployment.',
+    tech: ['Machine Learning', 'Python', 'Simplilearn'],
+    type: 'Certificate',
+    links: [{ url: "https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing", label: "Verify Certificate" }]
+  },
+  {
+    title: 'Cloud Computing Foundations',
+    subtitle: 'Simplilearn · 2026',
+    description: 'Foundational training in cloud computing models, service architectures, virtualization, and deployment strategies across major cloud platforms.',
+    tech: ['Cloud Computing', 'Infrastructure', 'Simplilearn'],
+    type: 'Certificate',
+    links: [{ url: "https://drive.google.com/file/d/1eFqV5gONP0AfkhjaOjMjau1mdr9YyKr9/view?usp=sharing", label: "Verify Certificate" }]
   }
 ];
 
