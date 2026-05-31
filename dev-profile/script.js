@@ -130,7 +130,8 @@ window.addEventListener('mousemove', (e) => {
   const x = (e.clientX / window.innerWidth - 0.5) * 12;
   const y = (e.clientY / window.innerHeight - 0.5) * 12;
   leaves.forEach((leaf, i) => {
-    const k = i === 0 ? 1 : -1.2;
+    // Dynamic coefficients for a 3D parallax layer depth effect
+    const k = i === 0 ? 1 : -0.5 - ((i % 4) * 0.3);
     leaf.style.translate = `${x * k}px ${y * k}px`;
   });
 });
