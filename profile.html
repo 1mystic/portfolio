@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atharv Khare — Portfolio Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #05070f;
+      --text-main: #f0ede6;
+      --text-muted: #737f96;
+      --accent-gold: #e5c158;
+      --accent-dim: rgba(229, 193, 88, 0.15);
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --transition-kinetic: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle Film Grain Noise Overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── ADVANCED HERO ANIMATIONS ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      width: 100%;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-logo {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+
+    .hero-text {
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
+    }
+
+    /* Staggered text line tracking reveals */
+    .hero-text .line-reveal {
+      display: block;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .hero-text .line-reveal span {
+      display: block;
+      transform: translateY(100%);
+      animation: lineRevealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-text .line-reveal:nth-child(1) span { animation-delay: 0.4s; }
+    .hero-text .line-reveal:nth-child(2) span { animation-delay: 0.55s; }
+    .hero-text .line-reveal:nth-child(3) span { animation-delay: 0.7s; }
+
+    .hero-text span.white { color: var(--text-main); font-weight: 500; }
+    .hero-text span.accent { color: var(--accent-gold); font-weight: 400; font-style: italic; font-family: var(--font-serif); }
+
+    .hero-sub {
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+    }
+
+    @keyframes lineRevealUp {
+      to { transform: translateY(0); }
+    }
+    @keyframes heroFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Kinetic Celestial Right Panel */
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 450px;
+      perspective: 1000px;
+    }
+
+    .interactive-orbit-zone {
+      width: 340px;
+      height: 340px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .main-circle {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(240, 237, 230, 0.12);
+      border-radius: 50%;
+      animation: slowRotate 25s linear infinite;
+    }
+
+    .satellite-lg {
+      position: absolute;
+      top: 12%;
+      right: 12%;
+      width: 22px;
+      height: 22px;
+      border: 1px solid rgba(240, 237, 230, 0.4);
+      background-color: var(--bg-color);
+      border-radius: 50%;
+    }
+
+    .satellite-sm {
+      position: absolute;
+      bottom: 25%;
+      right: -4%;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(240, 237, 230, 0.2);
+      background-color: var(--bg-color);
+      border-radius: 50%;
+    }
+
+    /* Structural Parallax Background Lines */
+    .diagonal-lines {
+      position: absolute;
+      width: 160%;
+      height: 160%;
+      transform: rotate(-32deg);
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      justify-content: center;
+      z-index: 0;
+    }
+
+    .line {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(240, 237, 230, 0.09) 50%, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: lineExtend 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    }
+    .line:nth-child(2) { animation-delay: 0.2s; }
+    .line:nth-child(3) { animation-delay: 0.3s; }
+    .line:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes lineExtend { to { transform: scaleX(1); } }
+    @keyframes slowRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── SCROLL REVEAL ENGINES ── */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal-on-scroll.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── ABOUT SECTION & MORPH DIVIDERS ── */
+    .about { padding: 15vh 0 10vh; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .about-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 5rem; align-items: top; }
+    
+    .photo-frame {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 3/4;
+      background: #0b101d;
+      border: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+      filter: grayscale(100%) contrast(108%);
+      transition: var(--transition-kinetic);
+    }
+    .photo-frame:hover { filter: grayscale(0%) contrast(100%); transform: scale(1.02); }
+    .photo-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,0.06); font-size: 4.5rem; }
+
+    /* Animated continuous waveform graphic */
+    .animated-wave {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 300px;
+      height: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .animated-wave svg path {
+      animation: waveMove 4s linear infinite;
+    }
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-80px); }
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--accent-gold);
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .about-bio { font-size: 1.2rem; font-weight: 300; line-height: 1.75; color: var(--text-muted); }
+    .about-bio strong { color: var(--text-main); font-weight: 500; }
+
+    /* ── EXPERIMENTAL WORK ITEMS GRID ── */
+    .work { padding: 15vh 0; }
+    .work-item { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; margin-bottom: 20vh; }
+    .work-item:last-child { margin-bottom: 0; }
+    .work-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600; letter-spacing: 0.05em; }
+    .work-title { font-size: 2.4rem; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .work-desc { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+    .work-link { color: var(--text-main); text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-kinetic); border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; }
+    .work-link:hover { color: var(--accent-gold); border-color: var(--accent-gold); gap: 0.8rem; }
+
+    /* Project Device Screen Canvas Positioning */
+    .work-visual-container { perspective: 1400px; display: flex; justify-content: center; }
+    .device-mockup {
+      width: 90%;
+      max-width: 450px;
+      aspect-ratio: 16/10;
+      background: #0f1424;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      transform: rotateY(-14deg) rotateX(8deg) translateZ(0);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+    .work-item:hover .device-mockup {
+      transform: rotateY(-4deg) rotateX(4deg) translateZ(30px);
+    }
+    .device-screen { padding: 1.5rem; height: 100%; display: flex; flex-direction: column; background: linear-gradient(145deg, #12182b 0%, #080c16 100%); }
+    .screen-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 0.8rem; margin-bottom: 1rem; }
+    .screen-dots { display: flex; gap: 5px; }
+    .screen-dots span { width: 6px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 50%; }
+    .screen-body { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: rgba(255,255,255,0.2); letter-spacing: 0.12em; text-transform: uppercase; border: 1px dashed rgba(255,255,255,0.03); }
+
+    /* ── INDEX SECTIONS: RESEARCH / WRITING / ACADEMICS ── */
+    .index-section { padding: 12vh 0; border-top: 1px solid rgba(255,255,255,0.03); }
+    .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    
+    /* Standardized Modular Display Cards */
+    .index-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 2rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-kinetic);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    .index-card:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+    }
+    .card-top { margin-bottom: 1.5rem; }
+    .card-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 0.75rem; font-weight: 600; }
+    .card-title { font-size: 1.35rem; font-weight: 400; line-height: 1.3; color: var(--text-main); margin-bottom: 0.5rem; }
+    .card-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-serif); font-style: italic; }
+    .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+    
+    .card-footer-link {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .index-card:hover .card-footer-link { color: var(--accent-gold); gap: 0.6rem; }
+
+    /* ── DUAL COLUMN ACADEMIC SPLIT ── */
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .split-column h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; color: var(--text-main); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; }
+    .timeline-item { margin-bottom: 2rem; position: relative; padding-left: 1.5rem; border-left: 1px solid rgba(255,255,255,0.05); }
+    .timeline-time { font-size: 0.8rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 0.25rem; }
+    .timeline-title { font-size: 1.15rem; font-weight: 500; color: var(--text-main); }
+    .timeline-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic; }
+    .timeline-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
+
+    /* FOOTER */
+    footer { padding: 5rem 0 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+
+    @media (max-width: 860px) {
+      .hero-grid, .about-grid, .work-item, .split-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-right { order: -1; height: 300px; }
+      .device-mockup { transform: none !important; width: 100%; }
+      .work-item:hover .device-mockup { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- ── COMPREHENSIVE HERO SECTION ── -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-logo">ak.</div>
+          <h1 class="hero-text">
+            <span class="line-reveal"><span>Hey, I'm <span class="white">Atharv Khare</span>.<!--[cite: 1] --></span></span>
+            <span class="line-reveal"><span>I build <span class="white">data engines</span> and research<!--[cite: 1] --></span></span>
+            <span class="line-reveal"><span>computational <span class="accent">biometric foundations</span>.<!--[cite: 1] --></span></span>
+          </h1>
+          <p class="hero-sub">IIT Madras  ·  3X Hackathon Winner  ·  CGPA 9.02<!--[cite: 1] --></p>
+        </div>
+        <div class="hero-right">
+          <div class="diagonal-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="interactive-orbit-zone" id="heroOrbit">
+            <div class="main-circle"></div>
+            <div class="satellite-lg"></div>
+            <div class="satellite-sm"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ARCHITECTURE ── -->
+    <section class="about reveal-on-scroll">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="photo-frame">
+            <div class="photo-placeholder">AK</div>
+          </div>
+          <div class="animated-wave">
+            <svg width="160" height="16" viewBox="0 0 160 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8 Q20 0 40 8 T80 8 T120 8 T160 8 T200 8" stroke="rgba(240,237,230,0.3)" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="about-right">
+          <p class="section-label">Core Philosophy</p>
+          <div class="about-bio">
+            <p>
+              I am a third-year undergraduate student in the <strong class="white">IIT Madras BS program in Data Science</strong><!--[cite: 1] -->. I approach artificial intelligence from first principles, specializing in low-level system design beneath high-level abstractions<!--[cite: 1] -->. 
+            </p>
+            <br>
+            <p>
+              My exploration spans building neural architectures from scratch to studying <strong class="white">behavioral psychometrics</strong><!--[cite: 1] -->, analyzing patterns in cognitive load optimization and predictive modeling interfaces<!--[cite: 1] -->.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SELECTED CODE WORK (PROJECTS) ── -->
+    <section class="work index-section reveal-on-scroll">
+      <p class="section-label">01 / Engineering Frameworks</p>
+
+      <div class="work-item reveal-on-scroll">
+        <div class="work-details">
+          <div class="work-meta">NEXT.JS 15 + CLAUDE SONNET 4</div><!--[cite: 1] -->
+          <h2 class="work-title">Episteme</h2><!--[cite: 1] -->
+          <p class="work-desc">Socratic Study Engine deploying Bayesian Knowledge Tracing loops, prerequisite DAG structures, and continuous metacognitive optimization agents<!--[cite: 1] -->.</p>
+          <a href="https://episteme-chat.vercel.app" target="_blank" class="work-link">Review Codebase ↗</a><!--[cite: 1] -->
+        </div>
+        <div class="work-visual-container">
+          <div class="device-mockup"><div class="device-screen"><div class="screen-header"><div class="screen-dots"><span></span><span></span><span></span></div></div><div class="screen-body">Bayesian DAG Array Engine</div></div></div><!--[cite: 1] -->
+        </div>
+      </div>
+
+      <div class="work-item reveal-on-scroll">
+        <div class="work-details">
+          <div class="work-meta">LANGGRAPH + FASTAPI + ASTRO</div><!--[cite: 1] -->
+          <h2 class="work-title">GitSyntropy</h2><!--[cite: 1] -->
+          <p class="work-desc">Multi-agent deployment computing structural compatibility balances and simulated performance matrices from behavioral activity vectors<!--[cite: 1] -->.</p>
+          <a href="https://git-syntropy.vercel.app" target="_blank" class="work-link">Launch Simulator ↗</a><!--[cite: 1] -->
+        </div>
+        <div class="work-visual-container">
+          <div class="device-mockup"><div class="device-screen"><div class="screen-header"><div class="screen-dots"><span></span><span></span><span></span></div></div><div class="screen-body">Behavioral Trace Graphing</div></div></div><!--[cite: 1] -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESEARCH & ANALYSIS INDEX ── -->
+    <section class="index-section reveal-on-scroll">
+      <p class="section-label">02 / Research &amp; Analytics</p>
+      <div class="index-grid">
+        
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Remote Sensing Paper</div><!--[cite: 1] -->
+            <h3 class="card-title">TerraHeal</h3><!--[cite: 1] -->
+            <div class="card-sub">Vegetation Recovery Indexes</div><!--[cite: 1] -->
+            <p class="card-desc">An ecological evaluation analyzing post-wildfire vegetative recovery anomalies mapping spectral indices like NDVI and NBR<!--[cite: 1] -->.</p>
+          </div>
+          <a href="https://www.atharvk.me/assets/TerraHeal.pdf" target="_blank" class="card-footer-link">View Documentation ↗</a><!--[cite: 1] -->
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Biometric Analysis</div><!--[cite: 1] -->
+            <h3 class="card-title">TypeState</h3><!--[cite: 1] -->
+            <div class="card-sub">Keystroke Processing Array</div><!--[cite: 1] -->
+            <p class="card-desc">Analyzing flight/dwell timing signatures as continuous identifiers to discover underlying shifts in user cognitive states<!--[cite: 1] -->.</p>
+          </div>
+          <a href="https://github.com/1mystic/typestate-data" target="_blank" class="card-footer-link">Explore Dataset ↗</a><!--[cite: 1] -->
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Geospatial Processing</div><!--[cite: 1] -->
+            <h3 class="card-title">Bhopal Logistics Analysis</h3><!--[cite: 1] -->
+            <div class="card-sub">5,000 Spatial Matrices</div><!--[cite: 1] -->
+            <p class="card-desc">Processing regional delivery trends using GeoPandas, designing localized density heatmaps and network routing efficiency maps<!--[cite: 1] -->.</p>
+          </div>
+          <a href="https://bhopal-food-delivery.vercel.app" target="_blank" class="card-footer-link">Review Analysis ↗</a><!--[cite: 1] -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── TECHNICAL WRITING & JOURNAL INDEX ── -->
+    <section class="index-section reveal-on-scroll">
+      <p class="section-label">03 / Technical Writing &amp; Journal</p>
+      <div class="index-grid">
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Deep Learning Mechanics</div><!--[cite: 1] -->
+            <h3 class="card-title">Attention Topologies</h3><!--[cite: 1] -->
+            <p class="card-desc">An architectural breakdown of self-attention engines within modern transformers, mapping mathematical sequence weights<!--[cite: 1] -->.</p>
+          </div>
+          <a href="#" class="card-footer-link">Read Entry ↗</a>
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Product Engineering</div><!--[cite: 1] -->
+            <h3 class="card-title">Building MarkTex</h3><!--[cite: 1] -->
+            <p class="card-desc">Documenting from-scratch implementation loops inside browser rendering canvases integrating custom LaTeX math compilers<!--[cite: 1] -->.</p>
+          </div>
+          <a href="#" class="card-footer-link">Read Entry ↗</a>
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Algorithmic Philosophy</div><!--[cite: 1] -->
+            <h3 class="card-title">Vedic Chronotype Clustering</h3><!--[cite: 1] -->
+            <p class="card-desc">Structuring non-traditional team balance matrix models combining engineering sentiment signals with chronological cycles<!--[cite: 1] -->.</p>
+          </div>
+          <a href="#" class="card-footer-link">Read Entry ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── ACADEMICS, EXPERIENCES & BACKGROUND ── -->
+    <section class="index-section reveal-on-scroll">
+      <p class="section-label">04 / Credentials &amp; Architecture</p>
+      
+      <div class="split-grid">
+        <!-- Education Column -->
+        <div class="split-column reveal-on-scroll">
+          <h3>Education Background</h3>
+          
+          <div class="timeline-item">
+            <div class="timeline-time">2023 — 2027</div><!--[cite: 1] -->
+            <div class="timeline-title">B.S. Data Science &amp; Applications</div><!--[cite: 1] -->
+            <div class="timeline-sub">Indian Institute of Technology, Madras</div><!--[cite: 1] -->
+            <div class="timeline-desc">Specialized training in functional algorithmic mathematics, deep inference, and structural data system setups. Maintaining CGPA: 9.02.<!--[cite: 1] --></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">Completed 2025</div><!--[cite: 1] -->
+            <div class="timeline-title">Diploma in Computer Programming</div><!--[cite: 1] -->
+            <div class="timeline-sub">IIT Madras</div><!--[cite: 1] -->
+            <div class="timeline-desc">Graduated with 9.44 CGPA covering advanced web system architecture builds and core algorithm analysis paths.<!--[cite: 1] --></div>
+          </div>
+        </div>
+
+        <!-- Credentials Column -->
+        <div class="split-column reveal-on-scroll">
+          <h3>Verified Qualifications</h3>
+          
+          <div class="timeline-item">
+            <div class="timeline-time">Credential</div>
+            <div class="timeline-title">HackerRank Advanced SQL</div><!--[cite: 1] -->
+            <div class="timeline-desc">Verified expertise in handling structural joins, processing database partition windows, and query path optimization loops<!--[cite: 1] -->.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">Credential</div>
+            <div class="timeline-title">NPTEL Distributed Systems</div><!--[cite: 1] -->
+            <div class="timeline-desc">Achieved Elite Tier validation modeling network virtualization arrays, multi-node setups, and scale patterns<!--[cite: 1] -->.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RECOGNITIONS & REWARDS ── -->
+    <section class="index-section reveal-on-scroll">
+      <p class="section-label">05 / Honors &amp; Awards</p>
+      <div class="index-grid">
+        
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Anthropic Club 2026</div><!--[cite: 1] -->
+            <h3 class="card-title">Claude Challenge Winner</h3><!--[cite: 1] -->
+            <p class="card-desc">Secured 2nd Runner Up standing globally in the Spring 2026 Hackathon loop for structural LLM application design<!--[cite: 1] -->.</p>
+          </div>
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">IIT Madras 2026</div><!--[cite: 1] -->
+            <h3 class="card-title">Tech Dominion — 2nd Place</h3><!--[cite: 1] -->
+            <p class="card-desc">Awarded top engineering platform prize across institutional rapid-prototyping tracks<!--[cite: 1] -->.</p>
+          </div>
+        </div>
+
+        <div class="index-card reveal-on-scroll">
+          <div class="card-top">
+            <div class="card-tag">Paradox Fest 2025</div><!--[cite: 1] -->
+            <h3 class="card-title">Anukriti Silver Medal</h3><!--[cite: 1] -->
+            <p class="card-desc">Awarded structural podium placement inside the competitive technical computing showcase arena<!--[cite: 1] -->.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ── CORE ANIMATION KINETIC LOGIC ENGINE ── -->
+  <script>
+    // Parallax Interactive Mouse Matrix Tracking for Hero Celestial Cluster
+    const orbitZone = document.getElementById('heroOrbit');
+    
+    document.addEventListener('mousemove', (e) => {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const dx = (e.clientX - cx) / cx;
+      const dy = (e.clientY - cy) / cy;
+      
+      if(orbitZone) {
+        orbitZone.style.transform = `rotateY(${dx * 18}deg) rotateX(${-dy * 18}deg)`;
+      }
+    });
+
+    // Intersection Observer Config for Smooth Reveal Steps
+    const scrollRevealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          // Micro-stagger implementation for adjacent grids
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, idx * 60);
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+      scrollRevealObserver.observe(element);
+    });
+
+    // 3D Parallax Tilt Vector Engine for Modular Grid Cards
+    document.querySelectorAll('.index-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const dimensions = card.getBoundingClientRect();
+        const midX = dimensions.left + dimensions.width / 2;
+        const midY = dimensions.top + dimensions.height / 2;
+        const tiltX = (e.clientX - midX) / (dimensions.width / 2);
+        const tiltY = (e.clientY - midY) / (dimensions.height / 2);
+        
+        card.style.transform = `translateY(-6px) rotateX(${-tiltY * 6}deg) rotateY(${tiltX * 6}deg) scale(1.01)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+  </script>
+
+  <footer>
+    <p>© 2026 ATHARV KHARE — INDEX PIPELINE V4</p><!--[cite: 1] -->
+  </footer>
+
+</body>
+</html>

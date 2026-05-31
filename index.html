@@ -111,7 +111,11 @@
   }
   
   .avatars-grid {
-    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 36px;
   }
   
   /* Mindful Grayscale Focus */
@@ -152,16 +156,16 @@
     color: var(--blue-text);
   }
   .avatar-card:nth-child(3):hover { 
-    background: var(--rose-pale); 
-    border-color: var(--rose-border);
-    box-shadow: 10px 10px 0px var(--rose-border);
-    color: var(--rose-text);
-  }
-  .avatar-card:nth-child(4):hover { 
     background: #EAFCEE; 
     border-color: #22C55E;
     box-shadow: 10px 10px 0px #22C55E;
     color: #15803D;
+  }
+  .avatar-card:nth-child(4):hover { 
+    background: var(--rose-pale); 
+    border-color: var(--rose-border);
+    box-shadow: 10px 10px 0px var(--rose-border);
+    color: var(--rose-text);
   }
 
   .avatar-icon { width: 80px; height: 80px; margin-bottom: 24px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
@@ -189,8 +193,8 @@
 
   .avatar-card:nth-child(1):hover .avatar-desc { color: var(--lime-text); border-color: var(--lime-border); }
   .avatar-card:nth-child(2):hover .avatar-desc { color: var(--blue-text); border-color: var(--blue-border); }
-  .avatar-card:nth-child(3):hover .avatar-desc { color: var(--rose-text); border-color: var(--rose-border); }
-  .avatar-card:nth-child(4):hover .avatar-desc { color: #15803D; border-color: #22C55E; }
+  .avatar-card:nth-child(3):hover .avatar-desc { color: #15803D; border-color: #22C55E; }
+  .avatar-card:nth-child(4):hover .avatar-desc { color: var(--rose-text); border-color: var(--rose-border); }
 
   /* Loading Bar Mockup */
   .loading-bar-container {
@@ -262,7 +266,10 @@
   }
 
   @media (max-width: 700px) {
-    .avatars-grid { gap: 12px; }
+    .avatars-grid {
+      grid-template-columns: repeat(2, 150px);
+      gap: 12px;
+    }
     .avatar-card { width: 150px; height: 190px; padding: 12px; }
     .avatar-icon { width: 60px; height: 60px; margin-bottom: 12px; }
     .avatar-label { font-size: 20px; }
@@ -299,21 +306,21 @@
   }
   
   .avatar-card:nth-child(3).emphasized::before {
-    content: 'HOT';
+    content: 'NEW';
   }
   .avatar-card:nth-child(3).emphasized:hover::before {
     background: var(--surface);
-    color: var(--rose-text);
-    border: 2px solid var(--rose-border);
+    color: #15803D;
+    border: 2px solid #22C55E;
   }
   
   .avatar-card:nth-child(4).emphasized::before {
-    content: 'NEW';
+    content: 'HOT';
   }
   .avatar-card:nth-child(4).emphasized:hover::before {
     background: var(--surface);
-    color: #15803D;
-    border: 2px solid #22C55E;
+    color: var(--rose-text);
+    border: 2px solid var(--rose-border);
   }
   
   @media (max-width: 700px) {
@@ -329,8 +336,8 @@
   /* Give each card a very subtle tinted background instead of pure white */
   .avatar-card:nth-child(1) { background: #FAFDFA; }
   .avatar-card:nth-child(2) { background: #F8FCFF; }
-  .avatar-card:nth-child(3) { background: #FFF9FA; }
-  .avatar-card:nth-child(4) { background: #F7FDF9; }
+  .avatar-card:nth-child(3) { background: #F7FDF9; }
+  .avatar-card:nth-child(4) { background: #FFF9FA; }
 
   /* Colorize the mascot bodies slightly in their resting state */
   .avatar-card:nth-child(1) .avatar-icon circle[fill="var(--surface)"] {
@@ -341,12 +348,12 @@
     fill: #E1F5FE; /* Soft frosty blue for Sigma */
     transition: fill 0.3s;
   }
-  .avatar-card:nth-child(3) .avatar-icon polygon[fill="var(--surface)"] {
-    fill: #FCE4EC; /* Soft blush pink for Squishy */
+  .avatar-card:nth-child(3) .avatar-icon rect[fill="var(--surface)"] {
+    fill: #E8F5E9; /* Soft neon green for Byte */
     transition: fill 0.3s;
   }
-  .avatar-card:nth-child(4) .avatar-icon rect[fill="var(--surface)"] {
-    fill: #E8F5E9; /* Soft neon green for Byte */
+  .avatar-card:nth-child(4) .avatar-icon polygon[fill="var(--surface)"] {
+    fill: #FCE4EC; /* Soft blush pink for Squishy */
     transition: fill 0.3s;
   }
 
@@ -359,8 +366,8 @@
   /* Tint the labels to match their respective themes slightly */
   .avatar-card:nth-child(1) .avatar-label { color: #3A5D0B; }
   .avatar-card:nth-child(2) .avatar-label { color: #025382; }
-  .avatar-card:nth-child(3) .avatar-label { color: #9A0E2F; }
-  .avatar-card:nth-child(4) .avatar-label { color: #1B5E20; }
+  .avatar-card:nth-child(3) .avatar-label { color: #1B5E20; }
+  .avatar-card:nth-child(4) .avatar-label { color: #9A0E2F; }
 
   /* Add a tiny pop of accent color to the corner of the cards */
   .avatar-card::after {
@@ -378,8 +385,8 @@
   
   .avatar-card:nth-child(1)::after { background: var(--lime-border); }
   .avatar-card:nth-child(2)::after { background: var(--blue-border); }
-  .avatar-card:nth-child(3)::after { background: var(--rose-border); }
-  .avatar-card:nth-child(4)::after { background: #22C55E; }
+  .avatar-card:nth-child(3)::after { background: #22C55E; }
+  .avatar-card:nth-child(4)::after { background: var(--rose-border); }
 
   /* Expand the corner accent slightly on hover */
   .avatar-card:hover::after {
@@ -440,24 +447,6 @@
         <div class="avatar-label">Sigma</div>
         <div class="avatar-desc">The Minimalist</div>
       </a>
-      <a href="squishy/portfolio.html" class="avatar-card emphasized">
-        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Origami Fox -->
-          <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--surface)" />
-          <line x1="35" y1="15" x2="50" y2="45" />
-          <line x1="65" y1="15" x2="50" y2="45" />
-          <line x1="15" y1="30" x2="50" y2="45" />
-          <line x1="85" y1="30" x2="50" y2="45" />
-          <!-- Fox snout -->
-          <polygon points="35,50 65,50 50,80" fill="currentColor" opacity="0.1" />
-          <circle cx="50" cy="80" r="5" fill="currentColor" />
-          <!-- Eyes -->
-          <circle cx="35" cy="55" r="2" fill="currentColor" />
-          <circle cx="65" cy="55" r="2" fill="currentColor" />
-        </svg>
-        <div class="avatar-label">Squishy</div>
-        <div class="avatar-desc">The Softie</div>
-      </a>
       <a href="dev-profile/portfolio.html" class="avatar-card emphasized">
         <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
           <!-- Robot Head/Screen -->
@@ -478,6 +467,24 @@
         </svg>
         <div class="avatar-label">Byte</div>
         <div class="avatar-desc">The Developer</div>
+      </a>
+      <a href="squishy/portfolio.html" class="avatar-card emphasized">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Origami Fox -->
+          <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--surface)" />
+          <line x1="35" y1="15" x2="50" y2="45" />
+          <line x1="65" y1="15" x2="50" y2="45" />
+          <line x1="15" y1="30" x2="50" y2="45" />
+          <line x1="85" y1="30" x2="50" y2="45" />
+          <!-- Fox snout -->
+          <polygon points="35,50 65,50 50,80" fill="currentColor" opacity="0.1" />
+          <circle cx="50" cy="80" r="5" fill="currentColor" />
+          <!-- Eyes -->
+          <circle cx="35" cy="55" r="2" fill="currentColor" />
+          <circle cx="65" cy="55" r="2" fill="currentColor" />
+        </svg>
+        <div class="avatar-label">Squishy</div>
+        <div class="avatar-desc">The Softie</div>
       </a>
     </div>
     

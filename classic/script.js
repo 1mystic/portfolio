@@ -706,7 +706,8 @@ const experiments = [
     description: 'Professional certification validating skills in Python, SQL, and Machine Learning fundamentals.',
     howItWorks: 'Passed a rigorous multi-stage proctored evaluation. Assessed on exploratory data analysis, data wrangling, SQL joins, predictive modeling with scikit-learn, and statistical hypothesis formulation.',
     tech: ['Python', 'SQL', 'PyTorch', 'DataCamp', '2025'],
-    type: 'Certificate'
+    type: 'Certificate',
+    links: [{ url: "https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing", label: "Verify Certificate" }]
   },
   {
     title: 'GCP Cloud Workshop',
@@ -750,7 +751,8 @@ const experiments = [
     description: 'Elite tier certification in Distributed Systems and Cloud Computing from NPTEL.',
     howItWorks: 'Completed academic assessment covering virtualization strategies, consensus algorithms, cloud resource allocation, MapReduce scalability, and robust server architecting.',
     tech: ['Distributed Systems', 'Cloud Computing', 'Elite Tier', 'NPTEL'],
-    type: 'Certificate'
+    type: 'Certificate',
+    links: [{ url: "https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing", label: "Verify Certificate" }]
   },
   {
     title: 'Machine Learning using Python',
