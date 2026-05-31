@@ -76,29 +76,65 @@
     
     .floating-orbit-decor-1 {
       position: absolute;
-      top: 15vh;
-      left: -100px;
-      width: 320px;
-      height: 320px;
-      opacity: 0.6;
+      top: 10vh;
+      left: -120px;
+      width: 380px;
+      height: 380px;
+      opacity: 0.35;
+      transition: transform 0.2s ease-out;
     }
     
     .floating-orbit-decor-2 {
       position: absolute;
-      top: 60vh;
-      right: -80px;
-      width: 280px;
-      height: 280px;
-      opacity: 0.6;
+      top: 75vh;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      opacity: 0.35;
+      transition: transform 0.2s ease-out;
     }
 
     .floating-orbit-decor-3 {
       position: absolute;
-      bottom: 15vh;
-      left: -50px;
-      width: 250px;
-      height: 250px;
-      opacity: 0.5;
+      top: 165vh;
+      left: -100px;
+      width: 340px;
+      height: 340px;
+      opacity: 0.3;
+      transition: transform 0.2s ease-out;
+    }
+
+    .floating-orbit-decor-4 {
+      position: absolute;
+      top: 250vh;
+      right: -90px;
+      width: 320px;
+      height: 320px;
+      opacity: 0.3;
+      transition: transform 0.2s ease-out;
+    }
+
+    .floating-orbit-decor-5 {
+      position: absolute;
+      top: 335vh;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      opacity: 0.25;
+      transition: transform 0.2s ease-out;
+    }
+
+    .spin-slow {
+      animation: slowRotate 65s linear infinite;
+    }
+    .spin-medium {
+      animation: slowRotate 35s linear infinite;
+    }
+    .spin-reverse-slow {
+      animation: slowRotate 75s linear infinite reverse;
+    }
+    .spin-reverse-medium {
+      animation: slowRotate 45s linear infinite reverse;
     }
 
     /* ── STYLISH HEADER LABELS & SECTIONS ── */
@@ -837,8 +873,8 @@
       top: 50%;
       left: 45%; /* Shifted slightly to the left side */
       transform: translate(-50%, -50%);
-      width: 180px;
-      height: 180px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
       z-index: 10;
     }
@@ -862,9 +898,108 @@
     @media (max-width: 860px) {
       .hero-grid, .about-grid, .work-item, .split-grid { grid-template-columns: 1fr; gap: 3rem; }
       .hero-right { order: -1; height: 300px; }
-      .device-mockup { transform: none !important; width: 100%; }
+      .device-mockup { transform: none !important; width: 100%; margin: 0 auto; }
       .work-item:hover .device-mockup { transform: none; }
-      .floating-orbit-decor-1, .floating-orbit-decor-2, .floating-orbit-decor-3 { display: none; }
+      .floating-orbit-decor-1, .floating-orbit-decor-2, .floating-orbit-decor-3, .floating-orbit-decor-4, .floating-orbit-decor-5 { display: none !important; }
+      
+      /* Centralized mobile alignment overrides */
+      body {
+        text-align: center;
+      }
+      
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero-logo {
+        justify-content: center;
+      }
+      
+      .hero-text .line-reveal {
+        display: inline;
+      }
+      .hero-text .line-reveal span {
+        display: inline;
+        text-align: center;
+      }
+      
+      .hero-sub {
+        margin: 0 auto !important;
+      }
+      
+      .about-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .photo-frame {
+        margin: 0 auto !important;
+      }
+      
+      .animated-wave {
+        margin: 2rem auto 0 !important;
+      }
+      
+      .about-right {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-decor-header {
+        text-align: center;
+      }
+      
+      .decor-h2::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+      
+      .work-details {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .work-visual-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .blueprint-card {
+        text-align: center;
+        align-items: center;
+      }
+      
+      .blueprint-card .tags {
+        justify-content: center;
+      }
+      
+      .blueprint-card .card-footer-link {
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .split-column h3 {
+        text-align: center;
+      }
+      
+      .split-column h3::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+      
+      .see-all-container {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     /* ── FULL-SCREEN GRID OVERLAY VIEW ── */
@@ -974,21 +1109,47 @@
 
   <!-- ── FLOATING ORBITAL DECORATIONS ── -->
   <div class="sketch-orbit-bg-container">
+    <!-- Decor 1: Concentric Compass Grid -->
     <div class="floating-orbit-decor-1">
       <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
-        <circle cx="100" cy="100" r="85" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1" stroke-dasharray="6 8" fill="none" class="spin-slow" />
-        <ellipse cx="100" cy="100" rx="95" ry="35" stroke="rgba(229, 193, 88, 0.04)" stroke-width="0.75" transform="rotate(45 100 100)" fill="none" class="spin-medium" style="transform-origin: 100px 100px;" />
+        <circle cx="100" cy="100" r="85" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1.2" stroke-dasharray="6 8" fill="none" class="spin-slow" style="transform-origin: 100px 100px;" />
+        <ellipse cx="100" cy="100" rx="95" ry="35" stroke="rgba(229, 193, 88, 0.03)" stroke-width="0.8" transform="rotate(45 100 100)" fill="none" class="spin-medium" style="transform-origin: 100px 100px;" />
+        <circle cx="100" cy="100" r="60" stroke="rgba(200, 240, 96, 0.02)" stroke-width="1" stroke-dasharray="2 15" fill="none" class="spin-reverse-slow" style="transform-origin: 100px 100px;" />
       </svg>
     </div>
+
+    <!-- Decor 2: Polar Graph Blueprint -->
     <div class="floating-orbit-decor-2">
       <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
-        <circle cx="100" cy="100" r="75" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1.2" fill="none" />
-        <circle cx="100" cy="100" r="55" stroke="rgba(200, 240, 96, 0.04)" stroke-width="0.8" stroke-dasharray="4 12" fill="none" class="spin-reverse-slow" />
+        <circle cx="100" cy="100" r="80" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1" fill="none" />
+        <circle cx="100" cy="100" r="60" stroke="rgba(229, 193, 88, 0.03)" stroke-width="0.8" stroke-dasharray="4 16" fill="none" class="spin-reverse-medium" style="transform-origin: 100px 100px;" />
+        <line x1="100" y1="10" x2="100" y2="190" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" transform="rotate(30 100 100)" class="spin-slow" style="transform-origin: 100px 100px;" />
+        <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" transform="rotate(30 100 100)" class="spin-slow" style="transform-origin: 100px 100px;" />
       </svg>
     </div>
+
+    <!-- Decor 3: Blueprint Drafting Crosshair Nodes -->
     <div class="floating-orbit-decor-3">
       <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
-        <circle cx="100" cy="100" r="90" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" stroke-dasharray="2 10" fill="none" class="spin-slow" />
+        <circle cx="100" cy="100" r="90" stroke="rgba(240, 237, 230, 0.015)" stroke-width="1" stroke-dasharray="3 9" fill="none" class="spin-slow" style="transform-origin: 100px 100px;" />
+        <circle cx="100" cy="100" r="70" stroke="rgba(200, 240, 96, 0.03)" stroke-width="0.8" fill="none" />
+        <rect x="70" y="70" width="60" height="60" stroke="rgba(229, 193, 88, 0.02)" stroke-width="0.8" fill="none" transform="rotate(15 100 100)" class="spin-medium" style="transform-origin: 100px 100px;" />
+      </svg>
+    </div>
+
+    <!-- Decor 4: Angled Grid Array -->
+    <div class="floating-orbit-decor-4">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <circle cx="100" cy="100" r="85" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" stroke-dasharray="5 20" fill="none" class="spin-reverse-slow" style="transform-origin: 100px 100px;" />
+        <ellipse cx="100" cy="100" rx="90" ry="45" stroke="rgba(200, 240, 96, 0.025)" stroke-width="0.8" fill="none" transform="rotate(60 100 100)" class="spin-medium" style="transform-origin: 100px 100px;" />
+      </svg>
+    </div>
+
+    <!-- Decor 5: Concentric Drafting Orbits -->
+    <div class="floating-orbit-decor-5">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <circle cx="100" cy="100" r="75" stroke="rgba(240, 237, 230, 0.015)" stroke-width="1.2" fill="none" />
+        <circle cx="100" cy="100" r="45" stroke="rgba(229, 193, 88, 0.025)" stroke-width="0.8" stroke-dasharray="2 12" fill="none" class="spin-slow" style="transform-origin: 100px 100px;" />
       </svg>
     </div>
   </div>
@@ -1095,7 +1256,7 @@
               <div class="screen-header">
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="screen-body" style="background-image: url('projects/osoecx5jbqnvcnlhitsq.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+              <div class="screen-body" style="background-image: url('projects/sentio.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Sentio Cognitive Wellness
               </div>
             </div>
@@ -1117,7 +1278,7 @@
               <div class="screen-header">
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="screen-body" style="background-image: url('projects/tl0hbwynrqyltj95ubs5.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+              <div class="screen-body" style="background-image: url('projects/episteme.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Bayesian DAG Array Engine
               </div>
             </div>
@@ -1139,7 +1300,7 @@
               <div class="screen-header">
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="screen-body" style="background-image: url('projects/xvy7oqnjmu6o5dzubb9k.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+              <div class="screen-body" style="background-image: url('projects/git-sync.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Behavioral Trace Graphing
               </div>
             </div>
@@ -1785,6 +1946,8 @@
     const decor1 = document.querySelector('.floating-orbit-decor-1');
     const decor2 = document.querySelector('.floating-orbit-decor-2');
     const decor3 = document.querySelector('.floating-orbit-decor-3');
+    const decor4 = document.querySelector('.floating-orbit-decor-4');
+    const decor5 = document.querySelector('.floating-orbit-decor-5');
     
     document.addEventListener('mousemove', (e) => {
       const cx = window.innerWidth / 2;
@@ -1798,6 +1961,8 @@
       if(decor1) decor1.style.transform = `translate(${dx * 25}px, ${dy * 25}px)`;
       if(decor2) decor2.style.transform = `translate(${dx * -20}px, ${dy * -20}px)`;
       if(decor3) decor3.style.transform = `translate(${dx * 15}px, ${dy * 15}px)`;
+      if(decor4) decor4.style.transform = `translate(${dx * -12}px, ${dy * -12}px)`;
+      if(decor5) decor5.style.transform = `translate(${dx * 10}px, ${dy * 10}px)`;
     });
 
     const scrollRevealObserver = new IntersectionObserver((entries) => {
