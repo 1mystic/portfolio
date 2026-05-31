@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atharv Khare — ~/portfolio</title>
+<meta name="description" content="Atharv Khare. Data Scientist · IIT Madras. Building intelligent systems at the seam of ML, web, and clean configuration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="jute"></div>
+
+<div class="shell">
+
+  <!-- TOPBAR -->
+  <header class="topbar reveal">
+    <div class="brand">
+      <span class="pulse"></span>
+      <span>~/atharv</span>
+    </div>
+    <nav>
+      <a href="#about" class="active">about</a>
+      <a href="#projects">projects</a>
+      <a href="#work">work</a>
+      <a href="#stats">stats</a>
+      <a href="#education">edu</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-size:11px; color:var(--text-muted); letter-spacing:0.08em;">UTC+05:30</span>
+      <span id="clock" style="font-size:12px; color:var(--lume); font-feature-settings:'tnum'; min-width:60px;">--:--:--</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <!-- Decorative leaves -->
+    <div class="leaf leaf-1" aria-hidden="true">
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <path d="M70 10 C 30 30, 20 80, 70 130 C 120 80, 110 30, 70 10 Z" stroke="oklch(0.88 0.19 130)" stroke-width="1" fill="oklch(0.88 0.19 130 / 0.05)"/>
+        <path d="M70 10 L 70 130" stroke="oklch(0.88 0.19 130)" stroke-width="1" opacity="0.4"/>
+        <path d="M70 40 L 50 55 M70 60 L 45 78 M70 80 L 50 95 M70 40 L 90 55 M70 60 L 95 78 M70 80 L 90 95" stroke="oklch(0.88 0.19 130)" stroke-width="0.6" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="leaf leaf-2" aria-hidden="true">
+      <svg width="180" height="180" viewBox="0 0 140 140" fill="none">
+        <path d="M70 10 C 30 30, 20 80, 70 130 C 120 80, 110 30, 70 10 Z" stroke="oklch(0.82 0.14 80)" stroke-width="1" fill="oklch(0.82 0.14 80 / 0.04)"/>
+        <path d="M70 10 L 70 130" stroke="oklch(0.82 0.14 80)" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="hero-left">
+      <div class="prompt"><span>whoami</span> <span class="flag">--verbose</span></div>
+
+      <div class="hero-role">data scientist · iit madras</div>
+
+      <h1 class="hero-name">
+        <span class="first">Atharv</span><br>
+        <span class="last">Khare<span style="color:var(--lume); display:inline-block; transform:translateY(-2px);">.</span></span>
+      </h1>
+
+      <div class="hero-tags">
+        <span class="tag">python</span>
+        <span class="tag">machine learning</span>
+        <span class="tag">full-stack</span>
+        <span class="tag">sql</span>
+      </div>
+
+      <p class="hero-bio">
+        BS Data Science student at <span class="hl-lume">IIT Madras</span>, building at the seam of ML and the web. I learn from first principles and ship things end-to-end &mdash; from <span class="hl-amber">model experiments</span> to deployed systems. Currently exploring <span class="hl-lume">RAG, GenAI tooling</span>, and well-configured Linux.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span>see projects</span>
+          <span class="arrow">→</span>
+        </a>
+          <a href="../Atharv-Khare.pdf" target="_blank" class="btn">
+            <span>download cv</span>
+            <span class="arrow">↓</span>
+          </a>
+      </div>
+    </div>
+
+    <!-- Fastfetch terminal card -->
+    <div class="hero-right">
+      <div class="term reveal">
+        <div class="term-bar">
+          <div class="dots">
+            <span class="dot r"></span>
+            <span class="dot y"></span>
+            <span class="dot g"></span>
+          </div>
+          <span class="title">~/atharv — fastfetch</span>
+        </div>
+        <div class="term-body">
+          <div class="ascii">
+            <div class="logo">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin:0 auto;">
+                <path d="M32 6 C 14 16, 8 38, 32 58 C 56 38, 50 16, 32 6 Z" stroke="oklch(0.88 0.19 130)" stroke-width="1.2" fill="oklch(0.88 0.19 130 / 0.08)"/>
+                <path d="M32 6 L 32 58" stroke="oklch(0.88 0.19 130)" stroke-width="0.8"/>
+                <path d="M32 18 L 22 26 M32 30 L 18 40 M32 42 L 22 50 M32 18 L 42 26 M32 30 L 46 40 M32 42 L 42 50" stroke="oklch(0.88 0.19 130)" stroke-width="0.5" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="who">
+              <div><span class="at">atharv</span><span style="color:var(--text-muted);">@</span><span style="color:var(--amber);">iitm-arch</span></div>
+              <div class="host">─────────────────────</div>
+            </div>
+          </div>
+
+          <span class="k">os</span><span class="v">arch linux x86_64</span>
+          <span class="k amber">kernel</span><span class="v">6.16.8-arch3-1</span>
+          <span class="k rose">edu</span><span class="v">bs data science · iit madras</span>
+          <span class="k sky">cgpa</span><span class="v">9.02 / 10</span>
+          <span class="k violet">shell</span><span class="v">fish 4.1.1</span>
+          <span class="k">editor</span><span class="v">neovim 0.11</span>
+          <span class="k amber">stack</span><span class="v">python · flask · react · pg</span>
+          <div class="row-sep"></div>
+          <span class="k">status</span><span class="v live">available for opportunities</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee reveal">
+    <div class="marquee-track">
+      <span>python</span><span>tensorflow</span><span>pytorch</span><span>flask</span>
+      <span>react</span><span>next.js</span><span>postgres</span><span>redis</span>
+      <span>pandas</span><span>numpy</span><span>scikit-learn</span><span>docker</span>
+      <span>linux</span><span>git</span><span>sql</span><span>fastapi</span>
+      <!-- duplicate -->
+      <span>python</span><span>tensorflow</span><span>pytorch</span><span>flask</span>
+      <span>react</span><span>next.js</span><span>postgres</span><span>redis</span>
+      <span>pandas</span><span>numpy</span><span>scikit-learn</span><span>docker</span>
+      <span>linux</span><span>git</span><span>sql</span><span>fastapi</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="section" id="stats">
+    <div class="prompt"><span>fastfetch</span> <span class="flag">--stats</span></div>
+    <div class="section-head">
+      <h2>by the <span class="accent">numbers</span></h2>
+      <span class="meta">// updated <span class="num">2026.05</span></span>
+    </div>
+
+    <div class="stats stagger">
+      <div class="stat">
+        <div class="ticks"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="label">cgpa</div>
+        <div class="num" data-num="9.02">0.00</div>
+        <div class="sub-label">bs data science / iitm</div>
+      </div>
+      <div class="stat amber">
+        <div class="ticks"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="label">projects shipped</div>
+        <div class="num" data-num="24">00</div>
+        <div class="sub-label">across ml · web · data</div>
+      </div>
+      <div class="stat">
+        <div class="ticks"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="label">hackathon wins</div>
+        <div class="num" data-num="3"><span>0</span><span class="sub">/8</span></div>
+        <div class="sub-label">finalist & podiums</div>
+      </div>
+      <div class="stat amber">
+        <div class="ticks"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="label">commits / yr</div>
+        <div class="num" data-num="847">000</div>
+        <div class="sub-label">github · 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="prompt"><span>ls ~/projects/</span> <span class="flag">--featured</span></div>
+    <div class="section-head">
+      <h2>selected <span class="accent">projects</span></h2>
+      <span class="meta">// <span class="num">06</span> of <span class="num">24</span></span>
+    </div>
+
+    <div class="projects stagger">
+      <a href="https://sentio-go.vercel.app/" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>Sentio</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="wellness.platform"></div>
+        <div class="proj-stack">
+          <span>vue 3</span><span>fastapi</span><span>supabase</span><span>nlp/dl</span>
+        </div>
+        <p>AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered RAG assistant and custom scrapers.</p>
+      </a>
+
+      <a href="https://episteme-chat.vercel.app" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>Episteme</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="socratic.tutor"></div>
+        <div class="proj-stack">
+          <span>next.js 15</span><span>claude 3.5</span><span>supabase</span><span>vercel</span>
+        </div>
+        <p>Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself via Bayesian Knowledge Tracing.</p>
+      </a>
+
+      <a href="https://git-syntropy.vercel.app" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>GitSyntropy</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="team.simulator"></div>
+        <div class="proj-stack">
+          <span>python</span><span>langgraph</span><span>claude</span><span>astro</span><span>fastapi</span>
+        </div>
+        <p>Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling.</p>
+      </a>
+
+      <a href="https://axiom-canvas.onrender.com" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>Axiom Canvas</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="math.viz/rag"></div>
+        <div class="proj-stack">
+          <span>desmos api</span><span>openrouter</span><span>rag</span><span>js</span>
+        </div>
+        <p>Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively.</p>
+      </a>
+
+      <a href="https://domino-ml.onrender.com" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>DominoML</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="ml-pipeline.builder"></div>
+        <div class="proj-stack">
+          <span>flask</span><span>sqlite</span><span>drag & drop</span><span>mathjax</span>
+        </div>
+        <p>Visual drag-and-drop ML pipeline builder. Compose preprocessing, models, and evaluators on a canvas; export training scripts.</p>
+      </a>
+
+      <a href="https://clearvieweco.netlify.app" target="_blank" class="proj">
+        <div class="proj-head">
+          <h3>Clearview Eco</h3>
+          <span class="ext">↗</span>
+        </div>
+        <div class="proj-thumb" data-label="pollution.map"></div>
+        <div class="proj-stack">
+          <span>tensorflow</span><span>react</span><span>geotagging</span><span>civic tech</span>
+        </div>
+        <p>Civic tech platform for pollution reporting and verification. Crowdsourced photos verified by TensorFlow CNN model, geotagged on React map.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- LATEST WORK + RESEARCH -->
+  <section class="section" id="work">
+    <div class="prompt"><span>tail -f</span> <span class="flag">~/.work.log</span></div>
+    <div class="section-head">
+      <h2>latest <span class="accent">work</span></h2>
+      <span class="meta">// live updates</span>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <h3>recent ships <span class="badge">live</span></h3>
+        <div class="work-list">
+          <a class="work-item" href="https://git-syntropy.vercel.app" target="_blank">
+            <div class="left">
+              <h4>GitSyntropy &mdash; hiring simulator</h4>
+              <p>LangGraph agents · FastAPI · agent orchestration</p>
+            </div>
+            <div class="right">2026 · Q1 →</div>
+          </a>
+          <a class="work-item" href="https://episteme-chat.vercel.app/" target="_blank">
+            <div class="left">
+              <h4>Episteme &mdash; socratic study engine</h4>
+              <p>Next.js 15 · Claude Sonnet 4 · Supabase</p>
+            </div>
+            <div class="right">2026 · Q1 →</div>
+          </a>
+          <div class="work-item">
+            <div class="left">
+              <h4>Anthropic Claude Builder Club</h4>
+              <p>2nd Runner Up · Spring 2026 · $300 prize</p>
+            </div>
+            <div class="right">award</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>research &amp; analysis</h3>
+        <div class="work-list">
+          <a class="work-item" href="https://www.atharvk.me/assets/TerraHeal.pdf" target="_blank">
+            <div class="left">
+              <h4>TerraHeal</h4>
+              <p>Post-wildfire vegetation recovery modeling</p>
+            </div>
+            <div class="right">paper →</div>
+          </a>
+          <a class="work-item" href="https://github.com/1mystic/typestate-data" target="_blank">
+            <div class="left">
+              <h4>TypeState</h4>
+              <p>Keystroke dynamics &mdash; behavioral biometrics dataset</p>
+            </div>
+            <div class="right">dataset →</div>
+          </a>
+          <a class="work-item" href="https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii" target="_blank">
+            <div class="left">
+              <h4>Statistical Analysis</h4>
+              <p>Coursework · methods &amp; experiments</p>
+            </div>
+            <div class="right">notes →</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ACHIEVEMENT -->
+  <section class="section">
+    <div class="prompt"><span>cat</span> <span class="flag">~/.achievements/featured.md</span></div>
+    <div class="section-head">
+      <h2>featured <span class="accent">recognition</span></h2>
+      <span class="meta">// 2024 — 2026</span>
+    </div>
+
+    <div class="feature-row">
+      <div class="featured">
+        <div class="award">★ silver medal · paradox iitm 2025</div>
+        <h3>Anukriti — Best Focused Title</h3>
+        <p>Recognized at IIT Madras Paradox 2025 for a focused, well-presented data-science submission &mdash; alongside a hackathon win and a Hack4Health podium in the same year.</p>
+
+        <div class="featured-grid">
+          <div class="mini">
+            <div class="n">02</div>
+            <div class="l">tech dominion · 2nd place</div>
+          </div>
+          <div class="mini">
+            <div class="n">01</div>
+            <div class="l">silver · paradox iitm</div>
+          </div>
+          <div class="mini">
+            <div class="n">03</div>
+            <div class="l">hack4health · 3rd</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>currently</h3>
+        <div class="work-list">
+          <div class="work-item">
+            <div class="left">
+              <h4>building</h4>
+              <p>RAG-first study tools and agentic systems</p>
+            </div>
+            <div class="right" style="color:var(--lume);">●</div>
+          </div>
+          <div class="work-item">
+            <div class="left">
+              <h4>learning</h4>
+              <p>Distributed systems · NPTEL · model deployment</p>
+            </div>
+            <div class="right" style="color:var(--amber);">●</div>
+          </div>
+          <div class="work-item">
+            <div class="left">
+              <h4>tinkering</h4>
+              <p>Hyprland rices · neovim configs · origami</p>
+            </div>
+            <div class="right" style="color:var(--text-muted);">●</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + CERTS -->
+  <section class="section" id="education">
+    <div class="prompt"><span>cat</span> <span class="flag">~/.edu.txt</span></div>
+    <div class="section-head">
+      <h2>education &amp; <span class="accent">certs</span></h2>
+      <span class="meta">// iit madras</span>
+    </div>
+
+    <div class="split-2">
+      <div class="card">
+        <h3>education</h3>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="yr">2027</div>
+            <div>
+              <h4>B.S. Data Science</h4>
+              <p class="inst">Indian Institute of Technology Madras</p>
+            </div>
+            <div>
+              <div class="gpa">9.02</div>
+              <div class="gpa-l">cgpa</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="yr">2025</div>
+            <div>
+              <h4>Diploma in Programming</h4>
+              <p class="inst">Indian Institute of Technology Madras</p>
+            </div>
+            <div>
+              <div class="gpa">9.44</div>
+              <div class="gpa-l">cgpa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>certifications</h3>
+        <div class="certs">
+          <a class="cert" href="https://www.hackerrank.com/certificates/d366117ff2b9" target="_blank">
+            <span class="idx">01</span>
+            <div>
+              <span class="name">SQL (Advanced)</span>
+              <span class="org"> · hackerrank</span>
+            </div>
+            <span class="arr">→</span>
+          </a>
+          <a class="cert" href="javascript:void(0)" style="cursor: default;">
+            <span class="idx">02</span>
+            <div>
+              <span class="name">Data Science Associate</span>
+              <span class="org"> · datacamp</span>
+            </div>
+          </a>
+          <a class="cert" href="https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view" target="_blank">
+            <span class="idx">03</span>
+            <div>
+              <span class="name">GCP Workshop</span>
+              <span class="org"> · google cloud</span>
+            </div>
+            <span class="arr">→</span>
+          </a>
+          <a class="cert" href="https://drive.google.com/file/d/1Ru0ShGa4jEx2j4BsGiIVRf2HTLWhJxtE/view" target="_blank">
+            <span class="idx">04</span>
+            <div>
+              <span class="name">Dynamic Programming</span>
+              <span class="org"> · workshop</span>
+            </div>
+            <span class="arr">→</span>
+          </a>
+          <a class="cert" href="https://drive.google.com/file/d/1RWIVo5YHam_mqswe_A5NlX0VXH5TcLyX/view" target="_blank">
+            <span class="idx">05</span>
+            <div>
+              <span class="name">Machine Learning</span>
+              <span class="org"> · workshop</span>
+            </div>
+            <span class="arr">→</span>
+          </a>
+          <a class="cert" href="https://drive.google.com/file/d/192zatB1EimlnHuJyFu7wcGbvb4QMrDSa/view" target="_blank">
+            <span class="idx">06</span>
+            <div>
+              <span class="name">Python Programming</span>
+              <span class="org"> · certification</span>
+            </div>
+            <span class="arr">→</span>
+          </a>
+          <a class="cert" href="javascript:void(0)" style="cursor: default;">
+            <span class="idx">07</span>
+            <div>
+              <span class="name">Distributed Systems</span>
+              <span class="org"> · nptel</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGAMI + BLOG -->
+  <section class="section" id="gallery">
+    <div class="prompt"><span>ls</span> <span class="flag">~/origami &amp; ~/blog</span></div>
+    <div class="section-head">
+      <h2>off-keyboard <span class="accent">work</span></h2>
+      <span class="meta">// origami · writing</span>
+    </div>
+
+    <div class="gallery-blog-stack">
+
+      <div class="card">
+        <div class="card-row-head">
+          <h3>origami gallery <span class="badge">@1._.mystic</span></h3>
+          <a href="https://www.instagram.com/1._.mystic" target="_blank" class="btn" style="padding:8px 16px; font-size:12px;">
+            <span>view full gallery</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+        <div class="gallery-track">
+          <div class="gallery-item">[ pegasus.fold ]</div>
+          <div class="gallery-item">[ darkness-dragon ]</div>
+          <div class="gallery-item">[ sun-wukong ]</div>
+          <div class="gallery-item">[ yoda ]</div>
+          <div class="gallery-item">[ beetle-h ]</div>
+          <div class="gallery-item">[ wyvern.v2 ]</div>
+        </div>
+      </div>
+
+      <a href="../fresh/blog.html" class="card blog-card" style="text-decoration:none;">
+        <div class="card-row-head">
+          <h3>written work &amp; blog <span class="badge">11 posts</span></h3>
+          <span class="blog-cta">browse all →</span>
+        </div>
+        <p class="blog-desc">
+          Articles, technical deep-dives, and tutorials &mdash; mostly on systems I've built and ideas I'm chewing on. From ML pipeline architecture to Linux daily-driving notes.
+        </p>
+        <div class="work-list">
+          <div class="work-item">
+            <div class="left">
+              <h4>Latest: Understanding Attention Mechanisms</h4>
+              <p>Feb 12, 2026 · 8 min read</p>
+            </div>
+            <div class="right">read →</div>
+          </div>
+          <div class="work-item">
+            <div class="left">
+              <h4>GitSyntropy Algorithm &mdash; Vedic astrology matching</h4>
+              <p>Jan 08, 2026 · 5 min read</p>
+            </div>
+            <div class="right">read →</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="prompt" style="justify-content:center;"><span>echo</span> <span class="flag">"let's build something"</span></div>
+    <div class="big">
+      hit me up at <a href="mailto:atharvkhare18@gmail.com">atharvkhare18@gmail.com</a>
+    </div>
+    <div class="links">
+      <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+      <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+      <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+      <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+      <a href="mailto:atharvkhare18@gmail.com">EMAIL</a>
+    </div>
+    <div class="copy">
+      © 2026 atharv khare · crafted with 🍃 in arch linux · v2.0
+    </div>
+  </div>
+</footer>
+
+<button class="music-toggle" id="music-toggle" aria-label="toggle music">▶</button>
+
+<script src="script.js"></script>
+</body>
+</html>
