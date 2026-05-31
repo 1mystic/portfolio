@@ -7,18 +7,24 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2305070f' stroke='%23e5c158' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%23e5c158'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Mitr:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --bg-color: #05070f;
       --text-main: #f0ede6;
-      --text-muted: #737f96;
+      --text-muted: #8694af;
       --accent-gold: #e5c158;
-      --accent-dim: rgba(229, 193, 88, 0.15);
-      --font-sans: 'Inter', sans-serif;
+      --accent-dim: rgba(229, 193, 88, 0.12);
+      --accent-lime: #c8f060;
+      --accent-lime-dim: rgba(200, 240, 96, 0.12);
+      --font-sans: 'Outfit', sans-serif;
+      --font-heading: 'Mitr', sans-serif;
       --font-serif: 'Playfair Display', Georgia, serif;
-      --transition-kinetic: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-mono: 'Fira Code', 'DM Mono', monospace;
+      --border-color: rgba(240, 237, 230, 0.08);
+      --border-hover: rgba(229, 193, 88, 0.35);
+      --transition-kinetic: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -44,7 +50,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 999;
     }
@@ -53,6 +59,84 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── FLOATING ORBITAL DECORATIONS ── */
+    .sketch-orbit-bg-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .floating-orbit-decor-1 {
+      position: absolute;
+      top: 15vh;
+      left: -100px;
+      width: 320px;
+      height: 320px;
+      opacity: 0.6;
+    }
+    
+    .floating-orbit-decor-2 {
+      position: absolute;
+      top: 60vh;
+      right: -80px;
+      width: 280px;
+      height: 280px;
+      opacity: 0.6;
+    }
+
+    .floating-orbit-decor-3 {
+      position: absolute;
+      bottom: 15vh;
+      left: -50px;
+      width: 250px;
+      height: 250px;
+      opacity: 0.5;
+    }
+
+    /* ── STYLISH HEADER LABELS & SECTIONS ── */
+    .section-decor-header {
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+    
+    .decor-coord {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-gold);
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+    
+    .decor-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 500;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .decor-h2::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--accent-gold);
+      border-radius: 2px;
     }
 
     /* ── ADVANCED HERO ANIMATIONS ── */
@@ -61,29 +145,41 @@
       display: flex;
       align-items: center;
       position: relative;
+      padding: 6rem 0 3rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
+      grid-template-columns: 1.3fr 0.7fr;
       width: 100%;
       align-items: center;
-      gap: 3rem;
+      gap: 4rem;
     }
 
     .hero-logo {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 2.2rem;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 2.5rem;
       color: var(--text-main);
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       opacity: 0;
       transform: translateY(-20px);
       animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-logo::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent-gold);
+      border-radius: 50%;
     }
 
     .hero-text {
-      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      font-size: clamp(1.7rem, 3.4vw, 2.6rem);
       font-weight: 300;
       line-height: 1.45;
       color: var(--text-muted);
@@ -94,7 +190,7 @@
     .hero-text .line-reveal {
       display: block;
       overflow: hidden;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .hero-text .line-reveal span {
@@ -108,17 +204,28 @@
     .hero-text .line-reveal:nth-child(3) span { animation-delay: 0.7s; }
 
     .hero-text span.white { color: var(--text-main); font-weight: 500; }
-    .hero-text span.accent { color: var(--accent-gold); font-weight: 400; font-style: italic; font-family: var(--font-serif); }
+    .hero-text span.accent { 
+      color: var(--accent-gold); 
+      font-weight: 400; 
+      font-style: italic; 
+      font-family: var(--font-serif); 
+    }
 
     .hero-sub {
       margin-top: 2.5rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       opacity: 0;
       transform: translateY(15px);
       animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+      background: rgba(229, 193, 88, 0.04);
+      padding: 6px 16px;
+      border: 1px dashed rgba(229, 193, 88, 0.15);
+      border-radius: 4px;
+      width: fit-content;
     }
 
     @keyframes lineRevealUp {
@@ -149,31 +256,44 @@
     .main-circle {
       position: absolute;
       inset: 0;
-      border: 1px solid rgba(240, 237, 230, 0.12);
+      border: 1.5px solid rgba(240, 237, 230, 0.08);
       border-radius: 50%;
-      animation: slowRotate 25s linear infinite;
+      animation: slowRotate 30s linear infinite;
     }
 
     .satellite-lg {
       position: absolute;
-      top: 12%;
-      right: 12%;
-      width: 22px;
-      height: 22px;
-      border: 1px solid rgba(240, 237, 230, 0.4);
+      top: 10%;
+      right: 10%;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--accent-gold);
       background-color: var(--bg-color);
       border-radius: 50%;
+      box-shadow: 0 0 10px rgba(229, 193, 88, 0.2);
     }
 
     .satellite-sm {
       position: absolute;
-      bottom: 25%;
-      right: -4%;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(240, 237, 230, 0.2);
+      bottom: 20%;
+      right: -5%;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(200, 240, 96, 0.2);
       background-color: var(--bg-color);
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .satellite-sm::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-lime);
+      box-shadow: 0 0 8px var(--accent-lime);
     }
 
     /* Structural Parallax Background Lines */
@@ -193,7 +313,7 @@
     .line {
       height: 1px;
       width: 100%;
-      background: linear-gradient(90deg, transparent, rgba(240, 237, 230, 0.09) 50%, transparent);
+      background: linear-gradient(90deg, transparent, rgba(240, 237, 230, 0.07) 50%, transparent);
       transform: scaleX(0);
       transform-origin: left;
       animation: lineExtend 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
@@ -209,7 +329,7 @@
     .reveal-on-scroll {
       opacity: 0;
       transform: translateY(40px);
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
     }
 
@@ -219,21 +339,47 @@
     }
 
     /* ── ABOUT SECTION & MORPH DIVIDERS ── */
-    .about { padding: 15vh 0 10vh; border-bottom: 1px solid rgba(255,255,255,0.03); }
-    .about-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 5rem; align-items: top; }
+    .about { 
+      padding: 15vh 0 10vh; 
+      border-bottom: 1px solid var(--border-color); 
+    }
+    .about-grid { 
+      display: grid; 
+      grid-template-columns: 0.75fr 1.25fr; 
+      gap: 5rem; 
+      align-items: center; 
+    }
     
     .photo-frame {
       width: 100%;
       max-width: 300px;
       aspect-ratio: 3/4;
       background: #0b101d;
-      border: 1px solid rgba(255,255,255,0.04);
+      border: 1px solid var(--border-color);
       position: relative;
-      filter: grayscale(100%) contrast(108%);
+      filter: grayscale(100%) contrast(105%);
       transition: var(--transition-kinetic);
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .photo-frame:hover { filter: grayscale(0%) contrast(100%); transform: scale(1.02); }
-    .photo-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,0.06); font-size: 4.5rem; }
+    
+    .photo-frame:hover { 
+      filter: grayscale(0%) contrast(100%); 
+      transform: scale(1.02);
+      border-color: var(--accent-gold);
+    }
+    
+    .photo-placeholder { 
+      position: absolute; 
+      inset: 0; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-family: var(--font-serif); 
+      font-style: italic; 
+      color: rgba(255,255,255,0.04); 
+      font-size: 4.5rem; 
+    }
 
     /* Animated continuous waveform graphic */
     .animated-wave {
@@ -253,26 +399,300 @@
     }
 
     .section-label {
+      font-family: var(--font-mono);
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
       color: var(--accent-gold);
       margin-bottom: 2rem;
-      font-weight: 600;
+      font-weight: 500;
     }
 
-    .about-bio { font-size: 1.2rem; font-weight: 300; line-height: 1.75; color: var(--text-muted); }
+    .about-bio { 
+      font-size: 1.15rem; 
+      font-weight: 300; 
+      line-height: 1.8; 
+      color: var(--text-muted); 
+    }
     .about-bio strong { color: var(--text-main); font-weight: 500; }
 
-    /* ── EXPERIMENTAL WORK ITEMS GRID ── */
-    .work { padding: 15vh 0; }
-    .work-item { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; margin-bottom: 20vh; }
-    .work-item:last-child { margin-bottom: 0; }
-    .work-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600; letter-spacing: 0.05em; }
-    .work-title { font-size: 2.4rem; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-    .work-desc { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
-    .work-link { color: var(--text-main); text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-kinetic); border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; }
-    .work-link:hover { color: var(--accent-gold); border-color: var(--accent-gold); gap: 0.8rem; }
+    /* ── COMPREHENSIVE BLUEPRINT CARD STYLING ── */
+    .blueprint-card {
+      position: relative;
+      background: rgba(11, 16, 29, 0.4) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color) !important;
+      padding: 2.2rem !important;
+      border-radius: 8px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-kinetic);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      overflow: hidden;
+    }
+    
+    .blueprint-card:hover {
+      background: rgba(15, 23, 42, 0.55) !important;
+      border-color: var(--border-hover) !important;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(229, 193, 88, 0.05);
+    }
+    
+    /* Blueprint dot matrix background */
+    .blueprint-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(240, 237, 230, 0.04) 1.2px, transparent 1.2px);
+      background-size: 22px 22px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+    }
+    
+    /* Corner L-Brackets */
+    .card-bracket {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 1.5px solid var(--accent-gold);
+      opacity: 0.4;
+      transition: var(--transition-kinetic);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .bracket-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .bracket-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .bracket-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .bracket-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+    .blueprint-card:hover .card-bracket {
+      opacity: 1;
+      width: 14px;
+      height: 14px;
+      border-color: var(--accent-lime);
+    }
+
+    .card-top { 
+      margin-bottom: 1.5rem; 
+      position: relative;
+      z-index: 2;
+    }
+    .card-tag { 
+      font-family: var(--font-mono);
+      font-size: 0.7rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.12em; 
+      color: var(--accent-gold); 
+      margin-bottom: 0.75rem; 
+      font-weight: 500; 
+    }
+    .card-title { 
+      font-family: var(--font-heading);
+      font-size: 1.35rem; 
+      font-weight: 500; 
+      line-height: 1.3; 
+      color: var(--text-main); 
+      margin-bottom: 0.5rem; 
+    }
+    .card-sub { 
+      font-family: var(--font-mono);
+      font-size: 0.8rem; 
+      color: var(--text-muted); 
+      margin-bottom: 1rem; 
+    }
+    .card-sub a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255,255,255,0.2);
+      transition: var(--transition-kinetic);
+    }
+    .card-sub a:hover {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
+    .card-desc { 
+      font-size: 0.95rem; 
+      color: var(--text-muted); 
+      line-height: 1.65; 
+      font-weight: 300; 
+      position: relative;
+      z-index: 2;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1.2rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding: 3px 9px;
+      border: 1px solid var(--border-color);
+      border-radius: 2px;
+      background: rgba(255,255,255,0.01);
+      transition: var(--transition-kinetic);
+    }
+    
+    .blueprint-card:hover .tag {
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+    }
+
+    .card-footer-link {
+      margin-top: 1.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+      position: relative;
+      z-index: 2;
+      font-weight: 500;
+    }
+    .blueprint-card:hover .card-footer-link { 
+      color: var(--accent-gold); 
+      gap: 0.6rem; 
+    }
+
+    /* ── STUNNING SEE ALL BUTTON ── */
+    .see-all-container {
+      text-align: center;
+      margin-top: 4.5rem;
+    }
+    
+    .see-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--accent-lime);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.8rem 1.8rem;
+      border: 1px dashed rgba(200, 240, 96, 0.25);
+      border-radius: 4px;
+      background: rgba(200, 240, 96, 0.02);
+      transition: var(--transition-kinetic);
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .see-all-btn::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1.5px solid var(--accent-lime);
+      border-radius: 4px;
+      clip-path: polygon(0 0, 15px 0, 0 15px);
+      opacity: 0.4;
+      transition: var(--transition-kinetic);
+    }
+    
+    .see-all-btn:hover {
+      color: var(--bg-color);
+      background: var(--accent-lime);
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 20px rgba(200, 240, 96, 0.3);
+      transform: scale(1.02);
+    }
+    
+    .see-all-btn:hover::before {
+      opacity: 1;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    
+    .see-all-btn .arrow {
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    
+    .see-all-btn:hover .arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* ── CUTE WAVE UNDERLINES ── */
+    .wavy-highlight {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' fill='none' stroke='%23e5c158' stroke-width='2'/%3E%3C/svg%3E");
+      background-position: bottom;
+      background-size: 14px 4px;
+      background-repeat: repeat-x;
+      padding-bottom: 4px;
+    }
+    
+    .wavy-highlight-lime {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' fill='none' stroke='%23c8f060' stroke-width='2'/%3E%3C/svg%3E");
+      background-position: bottom;
+      background-size: 14px 4px;
+      background-repeat: repeat-x;
+      padding-bottom: 4px;
+    }
+
+    /* ── EXPERIMENTAL WORK ITEMS GRID (PROJECTS) ── */
+    .work { padding: 15vh 0 10vh; }
+    .work-item { 
+      display: grid; 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 5rem; 
+      align-items: center; 
+      margin-bottom: 18vh; 
+      position: relative;
+    }
+    .work-item:last-of-type { margin-bottom: 0; }
+    .work-meta { 
+      font-family: var(--font-mono);
+      font-size: 0.8rem; 
+      color: var(--accent-gold); 
+      margin-bottom: 1rem; 
+      font-weight: 500; 
+      letter-spacing: 0.08em; 
+    }
+    .work-title { 
+      font-family: var(--font-heading);
+      font-size: 2.5rem; 
+      font-weight: 500; 
+      margin-bottom: 1.5rem; 
+      letter-spacing: -0.02em; 
+    }
+    .work-desc { 
+      font-size: 1.1rem; 
+      color: var(--text-muted); 
+      line-height: 1.75; 
+      margin-bottom: 2rem; 
+      font-weight: 300; 
+    }
+    .work-link { 
+      color: var(--text-main); 
+      text-decoration: none; 
+      font-size: 0.95rem; 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+      transition: var(--transition-kinetic); 
+      border-bottom: 1px solid rgba(255,255,255,0.2); 
+      padding-bottom: 2px; 
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+    .work-link:hover { 
+      color: var(--accent-gold); 
+      border-color: var(--accent-gold); 
+      gap: 0.8rem; 
+    }
 
     /* Project Device Screen Canvas Positioning */
     .work-visual-container { perspective: 1400px; display: flex; justify-content: center; }
@@ -282,75 +702,109 @@
       aspect-ratio: 16/10;
       background: #0f1424;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--border-color);
       box-shadow: 0 40px 80px rgba(0,0,0,0.5);
       transform: rotateY(-14deg) rotateX(8deg) translateZ(0);
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: var(--transition-kinetic);
       overflow: hidden;
     }
     .work-item:hover .device-mockup {
       transform: rotateY(-4deg) rotateX(4deg) translateZ(30px);
+      border-color: var(--border-hover);
     }
-    .device-screen { padding: 1.5rem; height: 100%; display: flex; flex-direction: column; background: linear-gradient(145deg, #12182b 0%, #080c16 100%); }
+    .device-screen { padding: 1.2rem; height: 100%; display: flex; flex-direction: column; background: linear-gradient(145deg, #12182b 0%, #080c16 100%); }
     .screen-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.04); padding-bottom: 0.8rem; margin-bottom: 1rem; }
     .screen-dots { display: flex; gap: 5px; }
     .screen-dots span { width: 6px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 50%; }
     .screen-body { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: rgba(255,255,255,0.2); letter-spacing: 0.12em; text-transform: uppercase; border: 1px dashed rgba(255,255,255,0.03); }
 
     /* ── INDEX SECTIONS: RESEARCH / WRITING / ACADEMICS ── */
-    .index-section { padding: 12vh 0; border-top: 1px solid rgba(255,255,255,0.03); }
-    .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .index-section { padding: 12vh 0; border-top: 1px solid var(--border-color); }
+    .index-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+      gap: 1.5rem; 
+    }
     
-    /* Standardized Modular Display Cards */
-    .index-card {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      padding: 2rem;
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition-kinetic);
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-    .index-card:hover {
-      background: rgba(255, 255, 255, 0.02);
-      border-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-5px);
-    }
-    .card-top { margin-bottom: 1.5rem; }
-    .card-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 0.75rem; font-weight: 600; }
-    .card-title { font-size: 1.35rem; font-weight: 400; line-height: 1.3; color: var(--text-main); margin-bottom: 0.5rem; }
-    .card-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-serif); font-style: italic; }
-    .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
-    
-    .card-footer-link {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: var(--text-main);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s;
-    }
-    .index-card:hover .card-footer-link { color: var(--accent-gold); gap: 0.6rem; }
-
     /* ── DUAL COLUMN ACADEMIC SPLIT ── */
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .split-column h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; color: var(--text-main); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem; }
-    .timeline-item { margin-bottom: 2rem; position: relative; padding-left: 1.5rem; border-left: 1px solid rgba(255,255,255,0.05); }
-    .timeline-time { font-size: 0.8rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 0.25rem; }
-    .timeline-title { font-size: 1.15rem; font-weight: 500; color: var(--text-main); }
-    .timeline-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic; }
-    .timeline-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
+    .split-column h3 { 
+      font-family: var(--font-heading);
+      font-size: 1.6rem; 
+      font-weight: 500; 
+      margin-bottom: 2.5rem; 
+      color: var(--text-main); 
+      border-bottom: 1px solid var(--border-color); 
+      padding-bottom: 0.5rem; 
+      position: relative;
+    }
+    .split-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background: var(--accent-gold);
+    }
+    
+    .timeline-item { 
+      margin-bottom: 2rem; 
+      position: relative; 
+      padding-left: 1.5rem; 
+      border-left: 1px solid var(--border-color); 
+      transition: var(--transition-kinetic);
+    }
+    
+    .timeline-item:hover {
+      border-left-color: var(--accent-gold);
+      padding-left: 1.8rem;
+    }
+    
+    .timeline-time { 
+      font-family: var(--font-mono);
+      font-size: 0.8rem; 
+      color: var(--accent-gold); 
+      font-weight: 500; 
+      margin-bottom: 0.35rem; 
+    }
+    .timeline-title { 
+      font-family: var(--font-heading);
+      font-size: 1.25rem; 
+      font-weight: 500; 
+      color: var(--text-main); 
+    }
+    .timeline-sub { 
+      font-family: var(--font-mono);
+      font-size: 0.85rem; 
+      color: var(--text-muted); 
+      margin-bottom: 0.5rem; 
+      font-style: italic; 
+    }
+    .timeline-desc { 
+      font-size: 0.95rem; 
+      color: var(--text-muted); 
+      line-height: 1.6; 
+      font-weight: 300; 
+    }
+    
+    /* timeline link styling */
+    .timeline-link {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: var(--transition-kinetic);
+      border-bottom: 1px dotted rgba(255,255,255,0.2);
+    }
+    .timeline-link:hover {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
 
     /* FOOTER */
     footer { 
-      padding: 5rem 0 3rem; 
+      padding: 6rem 0 3rem; 
       text-align: center; 
-      border-top: 1px solid rgba(255,255,255,0.03); 
+      border-top: 1px solid var(--border-color); 
       color: var(--text-muted); 
       font-size: 0.85rem; 
       letter-spacing: 0.05em; 
@@ -367,19 +821,14 @@
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.3s ease;
+      font-family: var(--font-mono);
     }
     .footer-link-item:hover {
       color: var(--accent-gold);
     }
-    
-    /* timeline link styling */
-    .timeline-link {
-      color: var(--text-main);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .timeline-link:hover {
-      color: var(--accent-gold);
+    .footer-copyright {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
     }
 
     /* Yoda Avatar Styling */
@@ -395,7 +844,7 @@
     }
     .hero-avatar-img {
       width: 100%;
-      
+      height: 100%;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid rgba(255, 255, 255, 0.1);
@@ -415,10 +864,134 @@
       .hero-right { order: -1; height: 300px; }
       .device-mockup { transform: none !important; width: 100%; }
       .work-item:hover .device-mockup { transform: none; }
+      .floating-orbit-decor-1, .floating-orbit-decor-2, .floating-orbit-decor-3 { display: none; }
+    }
+
+    /* ── FULL-SCREEN GRID OVERLAY VIEW ── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .grid-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+    
+    .grid-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .overlay-header {
+      background: rgba(5, 7, 15, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .overlay-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .overlay-content {
+      flex: 1;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top, rgba(229,193,88,0.01) 0%, transparent 60%);
+    }
+    
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-kinetic);
+      letter-spacing: 0.05em;
+    }
+    
+    .filter-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+    
+    .filter-btn.active {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: var(--bg-color);
+      font-weight: 500;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(229,193,88,0.25);
+      border-style: solid;
+    }
+    
+    .back-btn {
+      border-style: solid !important;
+      border-color: var(--accent-gold) !important;
+      color: var(--accent-gold) !important;
+      margin-top: 0;
+      background: rgba(229, 193, 88, 0.02) !important;
+    }
+    
+    .back-btn:hover {
+      color: var(--bg-color) !important;
+      border-color: var(--accent-lime) !important;
+      background: var(--accent-lime) !important;
+      box-shadow: 0 0 20px rgba(200, 240, 96, 0.3) !important;
+    }
+
+     .decor-coord{
+      display :none;
     }
   </style>
 </head>
 <body>
+
+  <!-- ── FLOATING ORBITAL DECORATIONS ── -->
+  <div class="sketch-orbit-bg-container">
+    <div class="floating-orbit-decor-1">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <circle cx="100" cy="100" r="85" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1" stroke-dasharray="6 8" fill="none" class="spin-slow" />
+        <ellipse cx="100" cy="100" rx="95" ry="35" stroke="rgba(229, 193, 88, 0.04)" stroke-width="0.75" transform="rotate(45 100 100)" fill="none" class="spin-medium" style="transform-origin: 100px 100px;" />
+      </svg>
+    </div>
+    <div class="floating-orbit-decor-2">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <circle cx="100" cy="100" r="75" stroke="rgba(240, 237, 230, 0.02)" stroke-width="1.2" fill="none" />
+        <circle cx="100" cy="100" r="55" stroke="rgba(200, 240, 96, 0.04)" stroke-width="0.8" stroke-dasharray="4 12" fill="none" class="spin-reverse-slow" />
+      </svg>
+    </div>
+    <div class="floating-orbit-decor-3">
+      <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+        <circle cx="100" cy="100" r="90" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" stroke-dasharray="2 10" fill="none" class="spin-slow" />
+      </svg>
+    </div>
+  </div>
 
   <div class="container">
     
@@ -429,7 +1002,7 @@
           <div class="hero-logo">ak.</div>
           <h1 class="hero-text">
             <span class="line-reveal"><span>Hey, I'm <span class="white">Atharv Khare,</span> I build high-performance <span class="white">data engines</span></span></span>
-            <span class="line-reveal"><span>and research computational <span class="accent">biometric foundations. </span></span></span>
+            <span class="line-reveal"><span>and research computational <span class="accent wavy-highlight">biometric foundations.</span></span></span>
           </h1>
           <p class="hero-sub">IIT Madras  ·  3X Hackathon Winner  ·  CGPA 9.02</p>
         </div>
@@ -441,12 +1014,30 @@
             <div class="line"></div>
           </div>
           <div class="interactive-orbit-zone" id="heroOrbit">
+            <!-- Architectural Background Drawing -->
+            <svg class="hero-architectural-svg" viewBox="0 0 400 400" style="position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); pointer-events: none; z-index: 1;">
+              <!-- Outer compass circle -->
+              <circle cx="200" cy="200" r="180" stroke="rgba(240, 237, 230, 0.04)" stroke-width="1.2" fill="none" />
+              <circle cx="200" cy="200" r="180" stroke="var(--accent-gold)" stroke-width="1" stroke-dasharray="2 16" fill="none" class="spin-slow" />
+              <!-- Concentric inner blueprints -->
+              <circle cx="200" cy="200" r="145" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" fill="none" />
+              <circle cx="200" cy="200" r="145" stroke="rgba(200, 240, 96, 0.15)" stroke-width="0.8" stroke-dasharray="5 35" fill="none" class="spin-reverse-slow" />
+              <!-- Ellipse orbit tracks -->
+              <ellipse cx="200" cy="200" rx="195" ry="65" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" transform="rotate(-30 200 200)" fill="none" />
+              <ellipse cx="200" cy="200" rx="195" ry="65" stroke="var(--accent-gold)" stroke-width="0.8" stroke-dasharray="3 20" transform="rotate(-30 200 200)" fill="none" class="spin-medium" style="transform-origin: 200px 200px;" />
+              <!-- Coordinate Grid Lines -->
+              <line x1="200" y1="10" x2="200" y2="390" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" />
+              <line x1="10" y1="200" x2="390" y2="200" stroke="rgba(240, 237, 230, 0.02)" stroke-width="0.8" />
+              <!-- Angled drafting lines -->
+              <line x1="50" y1="50" x2="350" y2="350" stroke="rgba(240, 237, 230, 0.01)" stroke-width="0.8" />
+              <line x1="50" y1="350" x2="350" y2="50" stroke="rgba(240, 237, 230, 0.01)" stroke-width="0.8" />
+            </svg>
             <div class="main-circle"></div>
             <div class="satellite-lg"></div>
             <div class="satellite-sm"></div>
             <!-- Interactive Yoda Avatar Circle -->
             <div class="hero-avatar-container">
-              <img src="digital-yoda.png" alt="Atharv Khare" class="hero-avatar-img">
+              <img src="digital-yoda.webp" alt="Atharv Khare" class="hero-avatar-img">
               <div class="avatar-dotted-ring"></div>
             </div>
           </div>
@@ -459,7 +1050,7 @@
       <div class="about-grid">
         <div class="about-visual">
           <div class="photo-frame">
-            <img src="fresh/assets/web-origami/me.webp" alt="Atharv Khare" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+            <img src="self.webp" alt="Atharv Khare" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
             <div class="photo-placeholder" style="z-index: 1;">AK</div>
           </div>
           <div class="animated-wave">
@@ -485,11 +1076,37 @@
 
     <!-- ── SELECTED CODE WORK (PROJECTS) ── -->
     <section class="work index-section reveal-on-scroll">
-      <p class="section-label">01 / Engineering Frameworks</p>
+      <div class="section-decor-header">
+        <span class="decor-coord">// COORD_SYS: 01_PROJECT_GRID</span>
+        <h2 class="decor-h2">01 / Engineering Frameworks</h2>
+      </div>
 
+      <!-- Project 1: Sentio -->
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">NEXT.JS 15 + CLAUDE SONNET 4</div>
+          <div class="work-meta">VUE 3 + FASTAPI + NLP / DEEP LEARNING</div>
+          <h2 class="work-title">Sentio</h2>
+          <p class="work-desc">AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Features a RAG-enhanced Socratic assistant, custom Python therapist scrapers, Coherence caching for sub-100ms latency, and Google OAuth via Supabase.</p>
+          <a href="https://sentio-go.vercel.app/" target="_blank" class="work-link">Review Codebase ↗</a>
+        </div>
+        <div class="work-visual-container">
+          <div class="device-mockup">
+            <div class="device-screen">
+              <div class="screen-header">
+                <div class="screen-dots"><span></span><span></span><span></span></div>
+              </div>
+              <div class="screen-body" style="background-image: url('projects/osoecx5jbqnvcnlhitsq.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                Sentio Cognitive Wellness
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Episteme -->
+      <div class="work-item reveal-on-scroll">
+        <div class="work-details">
+          <div class="work-meta">NEXT.JS 15 + CLAUDE 3.5 SONNET + SUPABASE</div>
           <h2 class="work-title">Episteme</h2>
           <p class="work-desc">Socratic Study Engine deploying Bayesian Knowledge Tracing loops, prerequisite DAG structures, and continuous metacognitive optimization agents.</p>
           <a href="https://episteme-chat.vercel.app" target="_blank" class="work-link">Review Codebase ↗</a>
@@ -500,7 +1117,7 @@
               <div class="screen-header">
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="screen-body" style="background-image: url('fresh/assets/proj-img/mind.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+              <div class="screen-body" style="background-image: url('projects/tl0hbwynrqyltj95ubs5.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Bayesian DAG Array Engine
               </div>
             </div>
@@ -508,11 +1125,12 @@
         </div>
       </div>
 
+      <!-- Project 3: GitSyntropy -->
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">LANGGRAPH + FASTAPI + ASTRO</div>
+          <div class="work-meta">LANGGRAPH + FASTAPI + ASTRO + POSTGRESQL</div>
           <h2 class="work-title">GitSyntropy</h2>
-          <p class="work-desc">Multi-agent deployment computing structural compatibility balances and simulated performance matrices from behavioral activity vectors.</p>
+          <p class="work-desc">Multi-agent deployment computing structural compatibility balances and simulated performance matrices from behavioral activity vectors using GitHub data.</p>
           <a href="https://git-syntropy.vercel.app" target="_blank" class="work-link">Launch Simulator ↗</a>
         </div>
         <div class="work-visual-container">
@@ -521,187 +1139,652 @@
               <div class="screen-header">
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="screen-body" style="background-image: url('fresh/assets/proj-img/src.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+              <div class="screen-body" style="background-image: url('projects/xvy7oqnjmu6o5dzubb9k.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Behavioral Trace Graphing
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- See All Button -->
+      <div class="see-all-container">
+        <button onclick="openOverlay('projects', '// COORD_SYS: 01_PROJECT_GRID', 'Engineering Projects')" class="see-all-btn">See all 24 projects <span class="arrow">&#8599;</span></button>
+      </div>
     </section>
 
     <!-- ── RESEARCH & ANALYSIS INDEX ── -->
     <section class="index-section reveal-on-scroll">
-      <p class="section-label">02 / Research &amp; Analytics</p>
+      <div class="section-decor-header">
+        <span class="decor-coord">// COORD_SYS: 02_RESEARCH_INDEX</span>
+        <h2 class="decor-h2">02 / Research &amp; Analytics</h2>
+      </div>
+      
       <div class="index-grid">
-        
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 1: GitSyntropy -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
-            <div class="card-tag">Remote Sensing Paper</div>
-            <h3 class="card-title">TerraHeal</h3>
-            <div class="card-sub">Vegetation Recovery Indexes</div>
-            <p class="card-desc">An ecological evaluation analyzing post-wildfire vegetative recovery anomalies mapping spectral indices like NDVI and NBR.</p>
+            <div class="card-tag">Research Paper</div>
+            <h3 class="card-title">GitSyntropy</h3>
+            <div class="card-sub">Astrology-Inspired Dev Team Matching · 2026</div>
+            <p class="card-desc">A research paper exploring a novel multi-agent algorithm inspired by Vedic astrology principles to optimize development team composition and hiring compatibility using behavioral metadata.</p>
           </div>
-          <a href="https://zenodo.org/records/19630252" target="_blank" class="card-footer-link">View Documentation ↗</a>
+          <div class="tags">
+            <span class="tag">Algorithms</span>
+            <span class="tag">Multi-Agent</span>
+            <span class="tag">Vedic Astrology</span>
+            <span class="tag">Team Optimization</span>
+          </div>
+          <a href="https://zenodo.org/records/20001501" target="_blank" class="card-footer-link">View Paper ↗</a>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 2: TypeState -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
-            <div class="card-tag">Biometric Analysis</div>
+            <div class="card-tag">Research Paper</div>
             <h3 class="card-title">TypeState</h3>
-            <div class="card-sub">Keystroke Processing Array</div>
-            <p class="card-desc">Analyzing flight/dwell timing signatures as continuous identifiers to discover underlying shifts in user cognitive states.</p>
+            <div class="card-sub">Keystroke Dynamics Study · 2025</div>
+            <p class="card-desc">Investigation into keystroke dynamics as a behavioural biometric. Collects and analyses typing patterns (dwell time, flight time, latency) to explore identity verification and cognitive state inference.</p>
           </div>
-          <a href="https://zenodo.org/records/19387975" target="_blank" class="card-footer-link">Explore Dataset ↗</a>
+          <div class="tags">
+            <span class="tag">Biometrics</span>
+            <span class="tag">Python</span>
+            <span class="tag">Data Collection</span>
+            <span class="tag">Signal Processing</span>
+          </div>
+          <a href="https://zenodo.org/records/19387975" target="_blank" class="card-footer-link">View Paper ↗</a>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 3: TerraHeal -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
-            <div class="card-tag">Geospatial Processing</div>
-            <h3 class="card-title">Bhopal Logistics Analysis</h3>
-            <div class="card-sub">5,000 Spatial Matrices</div>
-            <p class="card-desc">Processing regional delivery trends using GeoPandas, designing localized density heatmaps and network routing efficiency maps.</p>
+            <div class="card-tag">Research Paper</div>
+            <h3 class="card-title">TerraHeal</h3>
+            <div class="card-sub">Post-Wildfire Vegetation Recovery · 2025</div>
+            <p class="card-desc">A remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR). Identifies ecological recovery trajectories and burn scar extents.</p>
           </div>
-          <a href="https://bhopal-food-delivery.vercel.app" target="_blank" class="card-footer-link">Review Analysis ↗</a>
+          <div class="tags">
+            <span class="tag">Remote Sensing</span>
+            <span class="tag">NDVI / NBR</span>
+            <span class="tag">Satellite Imagery</span>
+            <span class="tag">Ecology</span>
+          </div>
+          <a href="https://zenodo.org/records/19630252" target="_blank" class="card-footer-link">View Paper ↗</a>
         </div>
-
+      </div>
+      
+      <!-- See All Button -->
+      <div class="see-all-container">
+        <button onclick="openOverlay('research', '// COORD_SYS: 02_RESEARCH_INDEX', 'Research &amp; Analysis')" class="see-all-btn">See all 6 papers <span class="arrow">&#8599;</span></button>
       </div>
     </section>
 
     <!-- ── TECHNICAL WRITING & JOURNAL INDEX ── -->
     <section class="index-section reveal-on-scroll">
-      <p class="section-label">03 / Technical Writing &amp; Journal</p>
+      <div class="section-decor-header">
+        <span class="decor-coord">// COORD_SYS: 03_JOURNAL_LOG</span>
+        <h2 class="decor-h2">03 / Technical Writing &amp; Journal</h2>
+      </div>
+      
       <div class="index-grid">
-
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 1: Keystroke Dynamics as a Biometric -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
-            <div class="card-tag">Deep Learning Mechanics</div>
-            <h3 class="card-title">Attention Topologies</h3>
-            <p class="card-desc">An architectural breakdown of self-attention engines within modern transformers, mapping mathematical sequence weights.</p>
+            <div class="card-tag">Research Adaption</div>
+            <h3 class="card-title">Keystroke Dynamics as a Biometric</h3>
+            <div class="card-sub">TypeState Adaption</div>
+            <p class="card-desc">A reader-friendly adaptation of the TypeState research project, exploring how the way you type (dwell time, flight time, and latency) can serve as a unique behavioural fingerprint for cognitive monitoring.</p>
           </div>
-          <a href="#" class="card-footer-link">Read Entry ↗</a>
+          <div class="tags">
+            <span class="tag">Biometrics</span>
+            <span class="tag">Security</span>
+            <span class="tag">Research</span>
+            <span class="tag">Python</span>
+          </div>
+          <a href="fresh/posts/keystroke-dynamics.html" target="_blank" class="card-footer-link">Read Entry ↗</a>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 2: The Apple Propaganda: Breaking the Illusion -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
-            <div class="card-tag">Product Engineering</div>
-            <h3 class="card-title">Building MarkTex</h3>
-            <p class="card-desc">Documenting from-scratch implementation loops inside browser rendering canvases integrating custom LaTeX math compilers.</p>
+            <div class="card-tag">Tech Opinion</div>
+            <h3 class="card-title">The Apple Propaganda: Breaking the Illusion</h3>
+            <div class="card-sub">Opinion & Tech Analysis</div>
+            <p class="card-desc">An analysis of the 'Apple' mythos - from the wax-coated fruits in our markets to the stagnant innovation of the tech giant in 2026.</p>
           </div>
-          <a href="#" class="card-footer-link">Read Entry ↗</a>
+          <div class="tags">
+            <span class="tag">Opinion</span>
+            <span class="tag">Tech Analysis</span>
+            <span class="tag">Healthy Living</span>
+          </div>
+          <a href="fresh/posts/apple-propaganda.html" target="_blank" class="card-footer-link">Read Entry ↗</a>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 3: Vedic Chronotype Clustering -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
             <div class="card-tag">Algorithmic Philosophy</div>
             <h3 class="card-title">Vedic Chronotype Clustering</h3>
+            <div class="card-sub">Dev Team Matching</div>
             <p class="card-desc">Structuring non-traditional team balance matrix models combining engineering sentiment signals with chronological cycles.</p>
           </div>
-          <a href="#" class="card-footer-link">Read Entry ↗</a>
+          <div class="tags">
+            <span class="tag">Algorithms</span>
+            <span class="tag">Vedic Astrology</span>
+            <span class="tag">Team Balance</span>
+          </div>
+          <a href="fresh/posts/gitsyntropy.html" target="_blank" class="card-footer-link">Read Entry ↗</a>
         </div>
-
+      </div>
+      
+      <!-- See All Button -->
+      <div class="see-all-container">
+        <button onclick="openOverlay('blogs', '// COORD_SYS: 03_JOURNAL_LOG', 'Written Articles')" class="see-all-btn">See all 11 articles <span class="arrow">&#8599;</span></button>
       </div>
     </section>
 
     <!-- ── ACADEMICS, EXPERIENCES & BACKGROUND ── -->
     <section class="index-section reveal-on-scroll">
-      <p class="section-label">04 / Credentials &amp; Architecture</p>
+      <div class="section-decor-header">
+        <span class="decor-coord">// COORD_SYS: 04_ACADEMICS_CREDENTIALS</span>
+        <h2 class="decor-h2">04 / Credentials &amp; Academics</h2>
+      </div>
       
-      <div class="split-grid">
-        <!-- Education Column -->
-        <div class="split-column reveal-on-scroll">
-          <h3>Education Background</h3>
-          
-          <div class="timeline-item">
-            <div class="timeline-time">2023 — 2027</div>
-            <div class="timeline-title">B.S. Data Science &amp; Applications</div>
-            <div class="timeline-sub">Indian Institute of Technology, Madras</div>
-            <div class="timeline-desc">Specialized training in functional algorithmic mathematics, deep inference, and structural data system setups. Maintaining CGPA: 9.02.</div>
+      <!-- Stacked Grid Layout -->
+      <div class="reveal-on-scroll" style="margin-bottom: 4.5rem;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--text-main); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; position: relative; width: fit-content;">Education Background</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          <!-- Card 1: BS Data Science -->
+          <div class="blueprint-card reveal-on-scroll">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top">
+              <div class="card-tag">2023 — 2027 · CGPA 9.02</div>
+              <h3 class="card-title">B.S. Data Science &amp; Applications</h3>
+              <div class="card-sub">Indian Institute of Technology, Madras</div>
+              <p class="card-desc">Specialized training in functional algorithmic mathematics, deep inference, and structural data system setups.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">IIT Madras</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">AI / ML</span>
+            </div>
+            <div style="margin-top: 1.5rem;">
+              <button onclick="openOverlay('education', '// COORD_SYS: 04_ACADEMICS_HISTORY', 'Education Background')" class="see-all-btn" style="padding: 0.5rem 1.2rem; font-size: 0.75rem; margin-top: 0;">See Education Details <span class="arrow">&#8599;</span></button>
+            </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-time">Completed 2025</div>
-            <div class="timeline-title">Diploma in Computer Programming</div>
-            <div class="timeline-sub">IIT Madras</div>
-            <div class="timeline-desc">Graduated with 9.44 CGPA covering advanced web system architecture builds and core algorithm analysis paths.</div>
+          <!-- Card 2: Diploma -->
+          <div class="blueprint-card reveal-on-scroll">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top">
+              <div class="card-tag">Completed 2025 · CGPA 9.44</div>
+              <h3 class="card-title">Diploma in Computer Programming</h3>
+              <div class="card-sub">IIT Madras</div>
+              <p class="card-desc">Graduated with coverage of advanced web system architecture builds and core algorithm analysis paths.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">IIT Madras</span>
+              <span class="tag">Programming</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Web Architecture</span>
+            </div>
+            <div style="margin-top: 1.5rem;">
+              <button onclick="openOverlay('education', '// COORD_SYS: 04_ACADEMICS_HISTORY', 'Education Background')" class="see-all-btn" style="padding: 0.5rem 1.2rem; font-size: 0.75rem; margin-top: 0;">See Education Details <span class="arrow">&#8599;</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qualifications Section Below -->
+      <div class="reveal-on-scroll">
+        <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--text-main); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; position: relative; width: fit-content;">Verified Qualifications</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <!-- Cert 1: NPTEL -->
+          <div class="blueprint-card reveal-on-scroll" style="padding: 1.5rem !important;">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top" style="margin-bottom: 0.8rem;">
+              <div class="card-tag">Credential · Elite Tier</div>
+              <h3 class="card-title" style="font-size: 1.15rem;">Distributed Systems</h3>
+              <div class="card-sub" style="margin-bottom: 0.5rem;">NPTEL · IIT Madras · 2026</div>
+              <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">Verified expertise modeling network virtualization arrays, multi-node setups, and scaling patterns.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing" target="_blank" class="card-footer-link" style="margin-top: 0.5rem; font-size: 0.75rem;">Verify Credential ↗</a>
+          </div>
+
+          <!-- Cert 2: HackerRank -->
+          <div class="blueprint-card reveal-on-scroll" style="padding: 1.5rem !important;">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top" style="margin-bottom: 0.8rem;">
+              <div class="card-tag">Credential · Advanced</div>
+              <h3 class="card-title" style="font-size: 1.15rem;">Advanced SQL</h3>
+              <div class="card-sub" style="margin-bottom: 0.5rem;">HackerRank · 2024</div>
+              <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">Verified expertise handling structural joins, processing database partition windows, and query path optimization loops.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing" target="_blank" class="card-footer-link" style="margin-top: 0.5rem; font-size: 0.75rem;">Verify Credential ↗</a>
+          </div>
+          
+          <!-- Cert 3: DataCamp -->
+          <div class="blueprint-card reveal-on-scroll" style="padding: 1.5rem !important;">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top" style="margin-bottom: 0.8rem;">
+              <div class="card-tag">Credential · Associate</div>
+              <h3 class="card-title" style="font-size: 1.15rem;">Data Science Associate</h3>
+              <div class="card-sub" style="margin-bottom: 0.5rem;">DataCamp · 2025</div>
+              <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">Verified data processing, statistical analysis, and predictive modeling capabilities in Python and SQL.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing" target="_blank" class="card-footer-link" style="margin-top: 0.5rem; font-size: 0.75rem;">Verify Credential ↗</a>
+          </div>
+
+          <!-- Cert 4: GCP Cloud Workshop -->
+          <div class="blueprint-card reveal-on-scroll" style="padding: 1.5rem !important;">
+            <div class="blueprint-grid"></div>
+            <div class="card-bracket bracket-tl"></div>
+            <div class="card-bracket bracket-tr"></div>
+            <div class="card-bracket bracket-bl"></div>
+            <div class="card-bracket bracket-br"></div>
+            
+            <div class="card-top" style="margin-bottom: 0.8rem;">
+              <div class="card-tag">Credential · GCP</div>
+              <h3 class="card-title" style="font-size: 1.15rem;">GCP Cloud Workshop</h3>
+              <div class="card-sub" style="margin-bottom: 0.5rem;">Google Cloud</div>
+              <p class="card-desc" style="font-size: 0.85rem; line-height: 1.5;">Workshop certification covering Google Cloud Platform core services : Compute Engine, Cloud Storage, BigQuery, and Vertex AI.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view" target="_blank" class="card-footer-link" style="margin-top: 0.5rem; font-size: 0.75rem;">Verify Credential ↗</a>
           </div>
         </div>
 
-        <!-- Credentials Column -->
-        <div class="split-column reveal-on-scroll">
-          <h3>Verified Qualifications</h3>
-          
-          <div class="timeline-item">
-            <div class="timeline-time">Credential — HackerRank</div>
-            <div class="timeline-title"><a href="https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing" target="_blank" class="timeline-link">Advanced SQL ↗</a></div>
-            <div class="timeline-desc">Verified expertise in handling structural joins, processing database partition windows, and query path optimization loops.</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">Credential — NPTEL</div>
-            <div class="timeline-title"><a href="https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing" target="_blank" class="timeline-link">Distributed Systems ↗</a></div>
-            <div class="timeline-desc">Achieved Elite Tier validation modeling network virtualization arrays, multi-node setups, and scale patterns.</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">Credential — DataCamp</div>
-            <div class="timeline-title"><a href="https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing" target="_blank" class="timeline-link">Data Science Associate ↗</a></div>
-            <div class="timeline-desc">Verified data processing, statistical analysis, and predictive modeling capabilities in Python and SQL.</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">Credential — Simplilearn</div>
-            <div class="timeline-title"><a href="https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing" target="_blank" class="timeline-link">Machine Learning with Python ↗</a></div>
-            <div class="timeline-desc">Mastered core regression, clustering models, decision tree algorithms, and scikit-learn pipeline operations.</div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">Credential — Simplilearn</div>
-            <div class="timeline-title"><a href="https://drive.google.com/file/d/1eFqV5gONP0AfkhjaOjMjau1mdr9YyKr9/view?usp=sharing" target="_blank" class="timeline-link">Cloud Computing Foundations ↗</a></div>
-            <div class="timeline-desc">Verified knowledge of AWS deployment architectures, cloud storage strategies, and scaling mechanisms.</div>
-          </div>
+        <!-- See All Credentials -->
+        <div style="margin-top: 2rem; text-align: center;">
+          <button onclick="openOverlay('certificates', '// COORD_SYS: 04_CREDENTIALS_GRID', 'Verified Qualifications')" class="see-all-btn">See all 9 credentials <span class="arrow">&#8599;</span></button>
         </div>
       </div>
     </section>
 
     <!-- ── RECOGNITIONS & REWARDS ── -->
     <section class="index-section reveal-on-scroll">
-      <p class="section-label">05 / Honors &amp; Awards</p>
+      <div class="section-decor-header">
+        <span class="decor-coord">// COORD_SYS: 05_HONORS_REWARDS</span>
+        <h2 class="decor-h2">05 / Honors &amp; Awards</h2>
+      </div>
+      
       <div class="index-grid">
-        
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 1: Claude Challenge -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
             <div class="card-tag">Anthropic Club 2026</div>
             <h3 class="card-title">Claude Challenge Winner</h3>
             <p class="card-desc">Secured 2nd Runner Up standing globally in the Spring 2026 Hackathon loop for structural LLM application design.</p>
           </div>
+          <div class="tags">
+            <span class="tag">Anthropic</span>
+            <span class="tag">Claude Hackathon</span>
+            <span class="tag">Prize Winner</span>
+          </div>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 2: Tech Dominion -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
             <div class="card-tag">IIT Madras 2026</div>
             <h3 class="card-title">Tech Dominion — 2nd Place</h3>
             <p class="card-desc">Awarded top engineering platform prize across institutional rapid-prototyping tracks.</p>
           </div>
+          <div class="tags">
+            <span class="tag">IIT Madras</span>
+            <span class="tag">Rapid Prototyping</span>
+            <span class="tag">Platform Prize</span>
+          </div>
         </div>
 
-        <div class="index-card reveal-on-scroll">
+        <!-- Card 3: Anukriti Silver Medal -->
+        <div class="blueprint-card reveal-on-scroll">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
           <div class="card-top">
             <div class="card-tag">Paradox Fest 2025</div>
             <h3 class="card-title">Anukriti Silver Medal</h3>
             <p class="card-desc">Awarded structural podium placement inside the competitive technical computing showcase arena.</p>
           </div>
+          <div class="tags">
+            <span class="tag">Paradox Fest</span>
+            <span class="tag">Silver Medal</span>
+            <span class="tag">Technical Computing</span>
+          </div>
         </div>
-
+      </div>
+      
+      <!-- See All Button -->
+      <div class="see-all-container">
+        <button onclick="openOverlay('achievements', '// COORD_SYS: 05_HONORS_REWARDS', 'Honors &amp; Awards')" class="see-all-btn">See all 7 achievements <span class="arrow">&#8599;</span></button>
       </div>
     </section>
 
+  <!-- ── FULL-SCREEN GRID OVERLAY VIEW ── -->
+  <div class="grid-overlay" id="gridOverlay">
+    <div class="overlay-header">
+      <div class="container">
+        <div class="overlay-nav-bar">
+          <div class="overlay-nav-left">
+            <span class="decor-coord" id="overlayCoord">// COORD_SYS: GRID_VIEW</span>
+            <h2 class="decor-h2" id="overlayTitle" style="margin-bottom: 0;">Category Grid</h2>
+          </div>
+          <button class="see-all-btn back-btn" id="closeOverlayBtn" onclick="closeOverlay()">
+            <span class="back-arrow">←</span> Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="overlay-content">
+      <div class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+        <!-- Filters (Visible only for projects) -->
+        <div class="filter-bar" id="overlayFilterBar" style="display: none; margin-bottom: 2.5rem; gap: 8px; flex-wrap: wrap;">
+          <span class="decor-coord" style="display: inline-block; align-self: center; margin-right: 12px; margin-bottom: 0; opacity: 0.8;">Filter:</span>
+          <button class="filter-btn active" data-filter="all" onclick="filterOverlayProjects('all', this)">All</button>
+          <button class="filter-btn" data-filter="ml-ai" onclick="filterOverlayProjects('ml-ai', this)">ML / AI</button>
+          <button class="filter-btn" data-filter="data-science" onclick="filterOverlayProjects('data-science', this)">Data Science</button>
+          <button class="filter-btn" data-filter="tool" onclick="filterOverlayProjects('tool', this)">Dev Tools</button>
+          <button class="filter-btn" data-filter="platform" onclick="filterOverlayProjects('platform', this)">Platforms</button>
+          <button class="filter-btn" data-filter="edu" onclick="filterOverlayProjects('edu', this)">Education</button>
+          <button class="filter-btn" data-filter="web" onclick="filterOverlayProjects('web', this)">Web</button>
+        </div>
+        
+        <div class="index-grid" id="overlayGrid">
+          <!-- Dynamic cards populated by JS -->
+        </div>
+      </div>
+    </div>
   </div>
+
+  </div> <!-- Close Container -->
 
   <!-- ── CORE ANIMATION KINETIC LOGIC ENGINE ── -->
   <script>
-    // Parallax Interactive Mouse Matrix Tracking for Hero Celestial Cluster
+    /* ─── FULL DATASET FROM PORTFOLIO INDEX ─── */
+    const projects = [
+      { title:"Sentio", sub:"sentio-go.vercel.app", href:"https://sentio-go.vercel.app/", github:"https://github.com/1mystic/Sentio", cat:"platform", catLabel:"Platform",
+        desc:"AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, custom Python therapist scrapers, Coherence caching for sub-100ms latency, and Google OAuth via Supabase.",
+        tags:["Vue 3","FastAPI","NLP/DL","Supabase","Web Scraping"] },
+      { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent.",
+        tags:["Next.js 15","Claude 3.5 Sonnet","Supabase","BKT","Vercel"] },
+      { title:"GitSyntropy", sub:"git-syntropy.vercel.app", href:"https://git-syntropy.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions.",
+        tags:["Python","FastAPI","LangGraph","Claude","Astro","PostgreSQL","TypeScript"] },
+      { title:"Axiom Canvas", sub:"axiom-canvas.onrender.com", href:"https://axiom-canvas.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively, with AI-generated contextual explanations and retrieval-augmented insights layered on top.",
+        tags:["Desmos API","OpenRouter","RAG","JavaScript"] },
+      { title:"DominoML", sub:"domino-ml.onrender.com", href:"https://domino-ml.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Visual drag-and-drop ML pipeline builder built with Flask and SQLite. Users compose, connect, and run machine learning steps via a node-based canvas. Supports Marked.js and MathJax for in-app documentation rendering.",
+        tags:["Flask","SQLite","Drag & Drop","MathJax"] },
+      { title:"Clearview Eco", sub:"clearvieweco.netlify.app", href:"https://clearvieweco.netlify.app", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
+        desc:"Civic tech platform for pollution reporting and verification with geotagged submissions. Uses TensorFlow for pollution detection and a React map interface where users can submit and verify environmental reports in real time.",
+        tags:["TensorFlow","React","Geotagging","Civic Tech"] },
+      { title:"SOHOS ED", sub:"School Optimization & Holistic Operating System", href:null, github:"https://github.com/1mystic/Sohos-ED", cat:"edu", catLabel:"Education",
+        desc:"Data-driven educational consultancy and SaaS platform for 400,000+ Indian budget private schools. Automates NEP 2020/PARAKH compliance via Japanese Tokkatsu methodologies. Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.",
+        tags:["HTML5","JavaScript","Linear Programming","NEP 2020","PDF Generation","localStorage"] },
+      { title:"DineOps", sub:"Restaurant Intelligence & Optimization Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
+        desc:"6-layer restaurant intelligence system combining demand forecasting (SARIMA / LSTM / Transformer ensemble), LP/MILP staffing optimization, stochastic inventory planning, and LLM-driven executive reporting. Fuses weather, news sentiment, and holiday signals into a closed-loop prediction-to-decision pipeline.",
+        tags:["FastAPI","PostgreSQL","SARIMA","LSTM","LangGraph","Optimization","Python"] },
+      { title:"DevLoft", sub:"devloft-tools.netlify.app", href:"https://devloft-tools.netlify.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
+        desc:"19 client-side developer utilities built from real data science workflows : JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-SQL, hash/encode, and more. Zero dependencies, everything runs in the browser.",
+        tags:["React","TypeScript","Vite","Zero-dep"] },
+      { title:"MarkTex", sub:"marktex.wasmer.app", href:"https://marktex.wasmer.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
+        desc:"Full-featured Markdown + LaTeX editor with live preview, annotation mode (pen, shapes, arrows), HTML/CSS injection, and one-click export to PDF or HTML. Includes a quick snippet library for headings, tables, math, and code.",
+        tags:["Wasmer","LaTeX","PDF Export","Annotation"] },
+      { title:"Aura-Delhi", sub:"AI Air Quality Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
+        desc:"Comprehensive air quality monitoring and forecasting platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, PyTorch ML engine for source identification, Prefect data pipeline, and TimescaleDB : deployed on GCP with Kubernetes.",
+        tags:["Next.js","Flutter","FastAPI","PyTorch","GCP","K8s"] },
+      { title:"PyCrumbs", sub:"pycrumbs.netlify.app", href:"https://pycrumbs.netlify.app", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+        desc:"Interactive step-by-step Python learning platform for beginners. Guides learners through Python concepts in small, digestible chunks with hands-on exercises : designed to make the learning curve as smooth as possible.",
+        tags:["React","Netlify","Python Education"] },
+      { title:"Transformer: Text-to-Emoji", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"From-scratch PyTorch implementation of the full encoder-decoder Transformer architecture for translating text phrases to emojis. Includes multi-head attention, sinusoidal positional encoding, AdamW training, greedy decoding, and attention weight visualization.",
+        tags:["PyTorch","Transformer","NLP","From Scratch"] },
+      { title:"VeraMind", sub:"Mental Wellness Platform", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"AI-powered mental wellness web app built with Vue 3 and Python. Helps users identify cognitive biases, track anxiety and mood, complete structured learning modules, and receive AI-driven insights via evidence-based assessments and journaling.",
+        tags:["Vue 3","Python","Vite","AI Insights"] },
+      { title:"Bhopal Food Delivery Analysis", sub:"bhopal-food-delivery.vercel.app", href:"https://bhopal-food-delivery.vercel.app", github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
+        desc:"Geospatial research report on 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Includes order density heatmaps, platform comparison (55:45 split), peak hour analysis, locality-level revenue breakdown, and a downloadable CSV dataset.",
+        tags:["Python","Pandas","GeoPandas","Matplotlib"] },
+      { title:"Whiz.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+        desc:"Full-stack quiz platform with AI-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks : daily reminder emails, monthly activity reports, and downloadable PDF report generation.",
+        tags:["Vue 3","Flask","Celery","Redis","Gemini API"] },
+      { title:"Qwix.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
+        desc:"Multi-role household service marketplace connecting customers, professionals, and admins. Customers book and review services; professionals manage packages and requests; admins oversee the platform with RBAC. Built with Flask, Bootstrap, and payment integration.",
+        tags:["Flask","JavaScript","Bootstrap","Payments","RBAC"] },
+      { title:"GlideML", sub:"glideml.vercel.app", href:"https://glideml.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Visual ML pipeline builder frontend with a fast, intuitive interface for constructing and managing machine learning workflows. Pairs with DominoML as a sleek Vite-powered pipeline design tool.",
+        tags:["React","Vite","TypeScript","ML Pipelines"] },
+      { title:"WikiViz", sub:"AI Studio app", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Interactive visual explorer for Wikipedia content augmented with Gemini AI. Visualizes timelines and statistics extracted from Wikipedia data, with AI-generated summaries and contextual insights. Built with Vite, React, and TypeScript.",
+        tags:["Gemini API","React","TypeScript","Vite","Wikipedia"] },
+      { title:"CloudMorph Lens", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+        desc:"Production-ready deep learning platform for cloud classification and segmentation from satellite imagery. Uses ResNet50 for multi-label classification and U-Net for pixel-level segmentation, with Grad-CAM explainability and a Flask web UI.",
+        tags:["ResNet50","U-Net","Grad-CAM","Flask","CV"] },
+      { title:"Wixplore", sub:"Whiz.it v2", href:null, github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+        desc:"Evolution of Whiz.it combining cultural exploration quizzes with intelligent data processing. Features Python AI agents for data cleaning and profiling, language detection, dataset upload for AI analysis, personalized profiles, and real-time analytics on a serverless Vercel architecture.",
+        tags:["Vue 3","Node.js","Python Agents","Vercel"] },
+      { title:"MindFluence", sub:"mindfluence.netlify.app", href:"https://mindfluence.netlify.app", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
+        desc:"A mind-path navigator app for guided mental exploration and structured decision-making flows. Helps users navigate thought patterns for clarity and self-reflection through interactive guided paths.",
+        tags:["React","Netlify"] },
+      { title:"Origami Simulator", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
+        desc:"Interactive 3D origami simulator with physics-based aerodynamics. Import OBJ/GLTF models, fold step-by-step, and simulate realistic wind, gravity, and air density on folded models. Includes a crease pattern editor, pre-loaded model library, and live simulation stats.",
+        tags:["Three.js","React 18","Tailwind","Physics","Vite"] },
+      { title:"Kanha Student House", sub:"kanha-min.netlify.app", href:"https://kanha-min.netlify.app", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
+        desc:"Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents : a polished minimal landing page.",
+        tags:["React","Netlify","Landing Page"] },
+      { title:"Portfolio : atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
+        desc:"Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.02). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery.",
+        tags:["React","Next.js","GitHub Pages","Vercel"] }
+    ];
+
+    const research = [
+      { title:"TerraHeal", sub:"Post-Wildfire Vegetation Recovery", href:"https://zenodo.org/records/19630252", cat:"paper", catLabel:"Research Paper",
+        desc:"A remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR). Identifies recovery trajectories, affected zone extents, and ecological resilience patterns across burn scar regions.",
+        tags:["Remote Sensing","NDVI","Satellite Imagery","Ecology"] },
+      { title:"TypeState", sub:"Keystroke Dynamics Study", href:"https://zenodo.org/records/19387975", cat:"analysis", catLabel:"Research",
+        desc:"Investigation into keystroke dynamics as a behavioural biometric. Collects and analyses typing patterns : dwell time, flight time, and inter-key latency : to explore identity verification and cognitive state inference from typing behaviour.",
+        tags:["Biometrics","Python","Data Collection","Signal Processing"] },
+      { title:"GitSyntropy", sub:"Astrology-Inspired Dev Team Matching", href:"https://zenodo.org/records/20001501", cat:"paper", catLabel:"Research Paper",
+        desc:"A research paper exploring a novel multi-agent algorithm inspired by Vedic astrology principles to optimize development team composition and hiring compatibility using behavioral metadata.",
+        tags:["Algorithms","Multi-Agent","Vedic Astrology","Team Optimization"] },
+      { title:"Bhopal Food Delivery : Geospatial Study", sub:"bhopal-food-delivery.vercel.app", href:"https://bhopal-food-delivery.vercel.app", cat:"analysis", catLabel:"Analysis",
+        desc:"Comprehensive data-driven study of 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Maps delivery hotspots, platform market share, cuisine preferences, and temporal demand patterns for the city's food delivery ecosystem.",
+        tags:["GeoPandas","Pandas","Matplotlib","Spatial Analysis"] },
+      { title:"Statistics II : Course Analysis", sub:"IIT Madras BS Programme", href:"https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii", cat:"analysis", catLabel:"Analysis",
+        desc:"Detailed statistical analyses and problem sets completed as part of the IIT Madras BS Data Science programme's Statistics II course : covering hypothesis testing, regression, ANOVA, and probability distributions.",
+        tags:["Statistics","Hypothesis Testing","Regression","ANOVA"] },
+      { title:"QSR Demand Forecasting & Affinity Analysis", sub:"Business Data Analysis", href:null, cat:"analysis", catLabel:"Analysis",
+        desc:"Business analytics study focused on quick-service restaurant demand forecasting and product affinity mining. Applies time-series modelling, market basket analysis, and segmentation to derive actionable insights for operational planning.",
+        tags:["Forecasting","Market Basket","Time Series","Segmentation"] }
+    ];
+
+    const blogs = [
+      { title:"Understanding Attention Mechanisms", sub:"Technical deep-dive", href:"fresh/posts/attention-mechanisms.html", cat:"tutorial", catLabel:"Tutorial",
+        desc:"A detailed walkthrough of the self-attention mechanism in Transformers : from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.",
+        tags:["Transformers","NLP","Deep Learning","PyTorch"] },
+      { title:"Building Pipelines with DominoML", sub:"Project spotlight", href:"fresh/posts/domino-ml-pipelines.html", cat:"tutorial", catLabel:"Tutorial",
+        desc:"A guide to constructing end-to-end machine learning pipelines using DominoML's node-based canvas : covering data ingestion, feature engineering, model selection, and evaluation within the visual interface.",
+        tags:["ML Pipelines","Flask","DominoML","Tutorial"] },
+      { title:"Geospatial Analysis with GeoPandas", sub:"Data science article", href:"fresh/posts/geopandas-analysis.html", cat:"blog", catLabel:"Blog",
+        desc:"A practical introduction to geospatial data analysis using GeoPandas and Folium. Walks through coordinate systems, spatial joins, choropleth mapping, and real-world applications using the Bhopal food delivery dataset.",
+        tags:["GeoPandas","Folium","Python","Spatial Data"] },
+      { title:"From Markdown to PDF : Building MarkTex", sub:"Dev journal", href:"fresh/posts/building-marktex.html", cat:"blog", catLabel:"Blog",
+        desc:"The engineering story behind MarkTex : how a frustration with existing editors led to building a full Markdown + LaTeX tool with annotation support, live preview, and PDF export from scratch in a browser environment.",
+        tags:["Markdown","LaTeX","Wasmer","Product"] },
+      { title:"Keystroke Dynamics as a Biometric", sub:"Research-to-blog", href:"fresh/posts/keystroke-dynamics.html", cat:"blog", catLabel:"Blog",
+        desc:"A reader-friendly adaptation of the TypeState research project, exploring how the way you type : not what you type : can serve as a unique behavioural fingerprint for identity verification and cognitive monitoring.",
+        tags:["Biometrics","Security","Research","Python"] },
+      { title:"The Apple Propaganda: Breaking the Illusion", sub:"Opinion & Tech Analysis", href:"fresh/posts/apple-propaganda.html", cat:"blog", catLabel:"Blog",
+        desc:"An analysis of the 'Apple' mythos - from the wax-coated fruits in our markets to the stagnant innovation of the tech giant in 2026.",
+        tags:["Opinion","Tech Analysis","Healthy Living"] },
+      { title:"Understanding LSTM Networks", sub:"Deep Learning", href:"fresh/posts/blog-lstm.html", cat:"tutorial", catLabel:"Tutorial",
+        desc:"A deep dive into Long Short-Term Memory networks. Demystifying the mathematics behind LSTMs and the core idea of cell states.",
+        tags:["Deep Learning","NLP"] },
+      { title:"GitSyntropy Algorithm", sub:"Astrology-Inspired Team Matching", href:"fresh/posts/gitsyntropy.html", cat:"blog", catLabel:"Blog",
+        desc:"A novel algorithm inspired by Vedic astrology to find perfect development teams using GitHub metrics like chronotype clustering and sentiment analysis.",
+        tags:["Algorithms","DevOps","Innovation"] },
+      { title:"Resonance", sub:"Poem", href:"fresh/posts/resonance.html", cat:"blog", catLabel:"Poetry",
+        desc:"A reflection on perseverance, hope, and the journey of self-discovery through poetry.",
+        tags:["Poetry","Creative Writing"] },
+      { title:"Time", sub:"Poem", href:"fresh/posts/time.html", cat:"blog", catLabel:"Poetry",
+        desc:"A philosophical reflection on time's fleeting nature and the importance of cherishing each moment.",
+        tags:["Poetry","Philosophy"] },
+      { title:"Women Empowerment?", sub:"Philosophical Essay", href:"fresh/posts/women-empowerment.html", cat:"blog", catLabel:"Essay",
+        desc:"A philosophical perspective on gender equality, societal conditioning, and the importance of self-evaluation.",
+        tags:["Social Commentary","Philosophy"] }
+    ];
+
+    const certificates = [
+      { title:"HackerRank SQL (Advanced)", sub:"HackerRank · 2024", href:"https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+        desc:"Certified proficiency in advanced SQL : covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.",
+        tags:["SQL","Databases","HackerRank"] },
+      { title:"DataCamp Data Science Associate", sub:"DataCamp · 2025", href:"https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+        desc:"Professional certification validating skills in Python, SQL, statistical analysis, data wrangling, and machine learning fundamentals across a proctored multi-stage assessment.",
+        tags:["Python","SQL","PyTorch","DataCamp","2025"] },
+      { title:"GCP Cloud Workshop", sub:"Google Cloud", href:"https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view", cat:"cert", catLabel:"Certificate",
+        desc:"Workshop certification covering Google Cloud Platform core services : Compute Engine, Cloud Storage, BigQuery, and Vertex AI : with hands-on deployment and data pipeline exercises.",
+        tags:["GCP","Cloud","BigQuery","Vertex AI"] },
+      { title:"Dynamic Programming Workshop", sub:"IIT Madras", href:"https://drive.google.com/file/d/1Ru0ShGa4jEx2j4BsGiIVRf2HTLWhJxtE/view", cat:"cert", catLabel:"Certificate",
+        desc:"Certification from a focused workshop on dynamic programming paradigms : covering memoisation, tabulation, state-space design, and classic DP problem patterns.",
+        tags:["Algorithms","DP","Competitive Programming"] },
+      { title:"Machine Learning Workshop", sub:"IIT Madras", href:"https://drive.google.com/file/d/1RWIVo5YHam_mqswe_A5NlX0VXH5TcLyX/view", cat:"cert", catLabel:"Certificate",
+        desc:"Workshop certificate covering supervised and unsupervised machine learning : linear models, decision trees, clustering, dimensionality reduction, and model evaluation with scikit-learn.",
+        tags:["Machine Learning","scikit-learn","Python"] },
+      { title:"Python Programming", sub:"IIT Madras", href:"https://drive.google.com/file/d/192zatB1EimlnHuJyFu7wcGbvb4QMrDSa/view", cat:"cert", catLabel:"Certificate",
+        desc:"Foundational Python programming certificate covering data types, control flow, functions, object-oriented programming, file I/O, and standard libraries.",
+        tags:["Python","OOP","Programming"] },
+      { title:"NPTEL Distributed Systems & Cloud Computing", sub:"NPTEL · Elite Tier · 2026", href:"https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+        desc:"Elite tier certification in Distributed Systems and Cloud Computing from NPTEL — covering architecture, virtualisation, resource management, and scalable system design.",
+        tags:["Distributed Systems","Cloud Computing","Elite Tier","NPTEL"] },
+      { title:"Machine Learning using Python", sub:"Simplilearn · 2026", href:"https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+        desc:"Comprehensive training in machine learning concepts using Python, covering data preprocessing, regression, classification, clustering, and model deployment.",
+        tags:["Machine Learning","Python","Simplilearn"] },
+      { title:"Cloud Computing Foundations", sub:"Simplilearn · 2026", href:"https://drive.google.com/file/d/1eFqV5gONP0AfkhjaOjMjau1mdr9YyKr9/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+        desc:"Foundational training in cloud computing models, service architectures, virtualization, and deployment strategies across major cloud platforms.",
+        tags:["Cloud Computing","Infrastructure","Simplilearn"] }
+    ];
+
+    const education = [
+      { title:"B.S. Data Science & Applications", sub:"IIT Madras · 2023 – 2027", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Degree",
+        desc:"Bachelor of Science in Data Science & Applications from IIT Madras : one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.02.",
+        tags:["IIT Madras","CGPA 9.02","Data Science","AI/ML","Python","SQL"] },
+      { title:"Diploma in Programming", sub:"IIT Madras · Completed 2025", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Diploma",
+        desc:"Diploma-level qualification in programming from IIT Madras, completed with a 9.44 CGPA. Covered systems thinking, data structures, algorithms, web technologies, and application development.",
+        tags:["IIT Madras","CGPA 9.44","Diploma","Algorithms","Web Dev"] }
+    ];
+
+    const achievements = [
+      { title:"Anthropic Claude Builder Club : 2nd Runner Up", sub:"Spring 2026 Hackathon · April 2026", href:null, cat:"award", catLabel:"Hackathon Win",
+        desc:"Secured 2nd runner-up position in Anthropic's Claude Builder Club Hackathon (Spring 2026), receiving a $300 prize for innovative application of LLM technology.",
+        tags:["Anthropic","Claude","Hackathon","Prize Winner"] },
+      { title:"Hack4Health Hackathon : 3rd Position", sub:"Health-Tech · June 2025", href:null, cat:"award", catLabel:"Hackathon Win",
+        desc:"Won 3rd position at the Hack4Health hackathon for developing technology-driven health solutions in a competitive environment.",
+        tags:["Health-Tech","Hackathon","Third Place"] },
+      { title:"Inter-house Tech Dominion : 2nd Place", sub:"IIT Madras · January 2026", href:null, cat:"award", catLabel:"Hackathon Win",
+        desc:"Achieved 2nd place at the Tech Dominion hackathon at IIT Madras : January 2026 edition. Recognized for rapid prototyping and system design excellence.",
+        tags:["Hackathon","IIT Madras","Second Place"] },
+      { title:"Silver Medal : Anukriti, Paradox IITM", sub:"IIT Madras · 2025", href:null, cat:"medal", catLabel:"Medal",
+        desc:"Silver medal at Anukriti : part of Paradox, IIT Madras's annual technical and cultural fest. Recognised for outstanding performance in the technical arts competition category.",
+        tags:["Silver Medal","Paradox IITM","2025"] },
+      { title:"MR Focused Title : SPSN", sub:"School recognition", href:null, cat:"title", catLabel:"Title",
+        desc:"Awarded the 'Mr Focused' title at SPSN : a recognition of consistent dedication, academic discipline, and focused pursuit of excellence over the course of the school programme.",
+        tags:["Award","Title","School"] },
+      { title:"HackerRank SQL : Advanced Certified", sub:"Verified · 2024", href:"https://www.hackerrank.com/certificates/d366117ff2b9", cat:"cert", catLabel:"Certification",
+        desc:"Passed HackerRank's advanced SQL certification with a verified credential : demonstrating professional-grade database querying skills recognised by recruiters globally.",
+        tags:["SQL","HackerRank","Verified"] },
+      { title:"DataCamp Data Science Associate", sub:"Proctored · 2025", href:null, cat:"cert", catLabel:"Certification",
+        desc:"Earned the DataCamp Data Science Associate certification through a rigorous multi-stage proctored assessment covering Python, SQL, statistics, and machine learning.",
+        tags:["DataCamp","Proctored","Data Science","2025"] }
+    ];
+
+    const dataMap = { projects, research, blogs, certificates, education, achievements };
+
+    /* ─── RENDERING GRAPHICS & OVERLAY LOGIC ─── */
     const orbitZone = document.getElementById('heroOrbit');
+    const decor1 = document.querySelector('.floating-orbit-decor-1');
+    const decor2 = document.querySelector('.floating-orbit-decor-2');
+    const decor3 = document.querySelector('.floating-orbit-decor-3');
     
     document.addEventListener('mousemove', (e) => {
       const cx = window.innerWidth / 2;
@@ -712,42 +1795,146 @@
       if(orbitZone) {
         orbitZone.style.transform = `rotateY(${dx * 18}deg) rotateX(${-dy * 18}deg)`;
       }
+      if(decor1) decor1.style.transform = `translate(${dx * 25}px, ${dy * 25}px)`;
+      if(decor2) decor2.style.transform = `translate(${dx * -20}px, ${dy * -20}px)`;
+      if(decor3) decor3.style.transform = `translate(${dx * 15}px, ${dy * 15}px)`;
     });
 
-    // Intersection Observer Config for Smooth Reveal Steps
     const scrollRevealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          // Micro-stagger implementation for adjacent grids
           setTimeout(() => {
             entry.target.classList.add('active');
           }, idx * 60);
         }
       });
-    }, {
-      threshold: 0.05,
-      rootMargin: "0px 0px -40px 0px"
-    });
+    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
 
     document.querySelectorAll('.reveal-on-scroll').forEach(element => {
       scrollRevealObserver.observe(element);
     });
 
-    // 3D Parallax Tilt Vector Engine for Modular Grid Cards
-    document.querySelectorAll('.index-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const dimensions = card.getBoundingClientRect();
-        const midX = dimensions.left + dimensions.width / 2;
-        const midY = dimensions.top + dimensions.height / 2;
-        const tiltX = (e.clientX - midX) / (dimensions.width / 2);
-        const tiltY = (e.clientY - midY) / (dimensions.height / 2);
-        
-        card.style.transform = `translateY(-6px) rotateX(${-tiltY * 6}deg) rotateY(${tiltX * 6}deg) scale(1.01)`;
+    // Tilt Engine Helper
+    function initCardTilt(selector) {
+      document.querySelectorAll(selector).forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const dimensions = card.getBoundingClientRect();
+          const midX = dimensions.left + dimensions.width / 2;
+          const midY = dimensions.top + dimensions.height / 2;
+          const tiltX = (e.clientX - midX) / (dimensions.width / 2);
+          const tiltY = (e.clientY - midY) / (dimensions.height / 2);
+          
+          card.style.transform = `translateY(-6px) rotateX(${-tiltY * 5}deg) rotateY(${tiltX * 5}deg) scale(1.01)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+        });
       });
+    }
+
+    initCardTilt('.blueprint-card');
+
+    /* ─── DYNAMIC OVERLAY GENERATOR ─── */
+    const overlay = document.getElementById('gridOverlay');
+    const overlayCoord = document.getElementById('overlayCoord');
+    const overlayTitle = document.getElementById('overlayTitle');
+    const overlayGrid = document.getElementById('overlayGrid');
+    const filterBar = document.getElementById('overlayFilterBar');
+    
+    let activeOverlayCategory = '';
+
+    function buildCardHtml(item, index) {
+      const idx = String(index + 1).padStart(2, '0');
+      const subContent = item.href
+        ? `<a href="${item.href}" target="_blank" rel="noopener">${item.sub}</a>`
+        : (item.sub || '');
       
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+      return `
+        <div class="blueprint-card" data-cat="${item.cat || ''}" style="animation: heroFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay:${index * 25}ms; opacity:0; transform:translateY(15px);">
+          <div class="blueprint-grid"></div>
+          <div class="card-bracket bracket-tl"></div>
+          <div class="card-bracket bracket-tr"></div>
+          <div class="card-bracket bracket-bl"></div>
+          <div class="card-bracket bracket-br"></div>
+          
+          <div class="card-top">
+            <div class="card-tag">${item.catLabel || 'VERIFIED'}</div>
+            <h3 class="card-title">${item.title}</h3>
+            <div class="card-sub">${subContent}</div>
+            <p class="card-desc">${item.desc}</p>
+          </div>
+          
+          <div class="tags">
+            ${item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
+          </div>
+          
+          <div style="margin-top: 1.8rem; display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; z-index: 2;">
+            ${item.github ? `<a href="${item.github}" target="_blank" class="card-footer-link" style="margin-top:0;">GitHub ↗</a>` : '<span></span>'}
+            ${item.href ? `<a href="${item.href}" target="_blank" class="card-footer-link" style="margin-top:0; color: var(--accent-lime);">View Link ↗</a>` : ''}
+          </div>
+        </div>`;
+    }
+
+    function openOverlay(category, coord, titleName) {
+      activeOverlayCategory = category;
+      overlayCoord.textContent = coord;
+      overlayTitle.textContent = titleName;
+      
+      // Show/hide filter bar for projects
+      if (category === 'projects') {
+        filterBar.style.display = 'flex';
+        // Reset filters
+        document.querySelectorAll('#overlayFilterBar .filter-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector('#overlayFilterBar .filter-btn[data-filter="all"]').classList.add('active');
+      } else {
+        filterBar.style.display = 'none';
+      }
+      
+      const items = dataMap[category] || [];
+      overlayGrid.innerHTML = items.map((item, idx) => buildCardHtml(item, idx)).join('');
+      
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden'; // Stop background scrolling
+      
+      // Initialize tilts and stagger reveals for the new overlay cards
+      setTimeout(() => {
+        initCardTilt('#overlayGrid .blueprint-card');
+      }, 50);
+    }
+
+    function closeOverlay() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = ''; // Enable background scrolling
+      overlayGrid.innerHTML = '';
+    }
+
+    function filterOverlayProjects(filterValue, btnElement) {
+      document.querySelectorAll('#overlayFilterBar .filter-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+      
+      const cards = overlayGrid.querySelectorAll('.blueprint-card');
+      let visibleIdx = 0;
+      
+      cards.forEach(card => {
+        const isMatch = filterValue === 'all' || card.dataset.cat === filterValue;
+        if (isMatch) {
+          card.style.display = 'flex';
+          card.style.animation = 'none';
+          card.offsetHeight; // trigger reflow
+          card.style.animation = `heroFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards`;
+          card.style.animationDelay = `${visibleIdx * 25}ms`;
+          visibleIdx++;
+        } else {
+          card.style.display = 'none';
+        }
       });
+    }
+
+    // Support escaping overlay with Esc key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) {
+        closeOverlay();
+      }
     });
   </script>
 
