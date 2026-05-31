@@ -2020,6 +2020,19 @@ body.dark-mode .article-title {
     color: var(--text-main);
 }
 
+.blog-article ul,
+.blog-article ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.8rem;
+}
+
+.blog-article li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+}
+
 .lead {
     font-size: 1.3rem !important;
     font-weight: 400;
