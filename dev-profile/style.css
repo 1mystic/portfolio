@@ -116,7 +116,7 @@ img { max-width: 100%; display: block; }
 .shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 28px 32px 0;
+  padding: 110px 32px 0;
   position: relative;
 }
 
@@ -134,9 +134,12 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(12px);
   margin-bottom: 64px;
   font-size: 13px;
-  position: sticky;
+  position: fixed;
   top: 18px;
-  z-index: 50;
+  transform: translateX(-50%);
+  width: calc(100% - 64px);
+  max-width: 1136px;
+  z-index: 100;
 }
 .topbar .brand {
   display: flex;
@@ -380,6 +383,55 @@ img { max-width: 100%; display: block; }
   animation: pulse 1.6s ease-in-out infinite;
 }
 
+/* Simulated training logger styling */
+.term-body .term-train {
+  grid-column: 1 / -1;
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+.term-body .term-train .trn-header {
+  color: var(--lume);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.term-body .term-train .trn-line {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+.term-body .term-train .trn-done {
+  color: var(--amber);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* Terminal Cascade Loading Animations */
+.term-body .ascii,
+.term-body .k,
+.term-body .v,
+.term-body .row-sep,
+.term-body .term-train {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: termCascadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--i, 1) * 0.08s);
+}
+
+@keyframes termCascadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ============================================
    LEAF ACCENTS
    ============================================ */
@@ -561,9 +613,26 @@ img { max-width: 100%; display: block; }
   position: relative;
   overflow: hidden;
 }
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: grayscale(80%) contrast(1.1);
+  position: absolute;
+  top: 0; left: 0;
+}
+.proj:hover .proj-thumb img {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.1);
+}
 .proj-thumb::after {
   content: attr(data-label);
   color: var(--lume-dim);
+  z-index: 1;
+}
+.proj-thumb:has(img)::after {
+  display: none;
 }
 .proj-stack {
   display: flex;
@@ -671,6 +740,7 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 16px;
   transition: border-color 0.25s;
+  min-width: 0; /* Prevent grid child container overflow */
 }
 .card:hover { border-color: var(--border-strong); }
 .card h3 {
@@ -1018,11 +1088,7 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 3/4;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background:
-    repeating-linear-gradient(135deg, rgba(155,207,82,0.05) 0 8px, transparent 8px 16px),
-    var(--bg-elev);
-  display: grid;
-  place-items: center;
+  background: var(--bg-elev);
   transition: border-color 0.25s, transform 0.25s;
   cursor: default;
   position: relative;
@@ -1032,16 +1098,40 @@ img { max-width: 100%; display: block; }
   border-color: var(--lume);
   transform: translateY(-3px);
 }
+.ori-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
+  filter: grayscale(40%) contrast(1.05);
+}
+.ori-item:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0%) contrast(1.1);
+}
+.ori-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(12,13,10,0.92) 0%, rgba(12,13,10,0.5) 60%, transparent 100%);
+  padding: 24px 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+}
 .ori-item span {
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--text-muted);
   letter-spacing: 0.06em;
   text-align: center;
-  padding: 0 8px;
   line-height: 1.4;
+  transition: color 0.25s, text-shadow 0.25s;
 }
-.ori-item:hover span { color: var(--lume); }
+.ori-item:hover span {
+  color: var(--lume);
+  text-shadow: 0 0 8px var(--lume-glow);
+}
 
 
 
@@ -1060,14 +1150,18 @@ footer {
   padding: 0 32px;
 }
 footer .big {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 4.5vw, 54px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   margin: 12px 0 24px;
-  word-break: break-word;
 }
 footer .big a {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3.8vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  word-break: break-word;
   color: var(--lume);
   border-bottom: 2px solid var(--border-strong);
   transition: all 0.25s;
@@ -1170,6 +1264,7 @@ footer .copy {
   .topbar {
     padding: 10px 14px;
     margin-bottom: 40px;
+    position : fixed;
   }
   .topbar nav {
     display: flex;
@@ -1197,7 +1292,23 @@ footer .copy {
 }
 
 @media (max-width: 600px) {
-  .shell { padding: 18px; }
+  .shell { padding: 90px 18px 0; }
+  .topbar-clock {
+    display: none !important;
+  }
+  .pulse{
+     display: none !important;
+  }
+  .topbar nav a[href="#stats"],
+  .topbar nav a[href="#origami"],
+  .topbar nav a[href="#blog"],
+  .topbar nav a[href="#education"] {
+    display: none;
+  }
+  .topbar nav a {
+    font-size: 10px;
+    padding: 5px 9px;
+  }
   .projects { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   .marquee { margin-inline: -18px; margin-bottom: 50px; }
@@ -1230,8 +1341,26 @@ footer .copy {
   
   .certs-grid { grid-template-columns: 1fr; }
   .origami-strip { grid-template-columns: repeat(2, 1fr); }
-  .blog-row { grid-template-columns: 24px 1fr 24px; gap: 10px; padding: 12px 14px; }
+  .blog-row { grid-template-columns: 24px 1fr auto; gap: 10px; padding: 12px 14px; }
   .br-meta { display: none; }
+  
+  /* Work item mobile layout */
+  .work-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+  }
+  .work-item .left {
+    margin-right: 0;
+    width: 100%;
+  }
+  .work-item .left h4, .work-item .left p {
+    white-space: normal;
+  }
+  .work-item .right {
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: 440px) {

@@ -100,14 +100,34 @@ const sectIo = new IntersectionObserver((entries) => {
 }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
 sections.forEach((s) => sectIo.observe(s));
 
-// --- Music toggle (no audio file shipped — we just simulate the icon swap) ---
+// --- Music toggle playing the background song ---
 const musicBtn = document.getElementById('music-toggle');
+let bgAudio = null;
 let playing = false;
+
 musicBtn.addEventListener('click', () => {
   playing = !playing;
   musicBtn.textContent = playing ? '❚❚' : '▶';
   musicBtn.style.color = playing ? 'var(--amber)' : 'var(--lume)';
-  // dispatch a custom event so an audio element could be wired up later
+  
+  if (!bgAudio) {
+    bgAudio = new Audio('../fresh/assets/bgsong.opus');
+    bgAudio.loop = true;
+  }
+  
+  if (playing) {
+    bgAudio.play().catch(err => {
+      console.log('Autoplay restriction or audio failure:', err);
+      // Reset state if blocked
+      playing = false;
+      musicBtn.textContent = '▶';
+      musicBtn.style.color = 'var(--lume)';
+    });
+  } else {
+    bgAudio.pause();
+  }
+  
+  // dispatch a custom event so other modules could listen if needed
   window.dispatchEvent(new CustomEvent('music:toggle', { detail: { playing } }));
 });
 
