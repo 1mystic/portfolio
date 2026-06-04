@@ -1401,6 +1401,9 @@
       width: 580px;
       height: 580px;
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     .scroll-decor.left-decor {
@@ -1433,6 +1436,9 @@
       /* Invert and boost contrast to make dark-on-light images look like bright neon lines on dark page, with transparency via screen blending */
       filter: invert(1) grayscale(1) contrast(300%) brightness(85%);
       mix-blend-mode: screen;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     .scroll-decor .rotate-clockwise {
@@ -1478,7 +1484,7 @@
     }
 
     body.light-theme {
-      /* Creamy galaxy: soft starry sky scrolling over glowing fixed nebulae */
+      /* Creamy galaxy base and scrolling star field */
       background-color: #faf7f2;
       background-image:
         /* Star field (scrolling) */
@@ -1488,13 +1494,7 @@
         radial-gradient(circle at 390px 270px, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
         radial-gradient(circle at 80px 310px, rgba(220, 208, 255, 0.3) 1.8px, transparent 1.8px),
         radial-gradient(circle at 430px 120px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
-        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
-        /* Fixed cosmic nebulae */
-        radial-gradient(circle at 15% 20%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
-        radial-gradient(circle at 85% 15%, rgba(242, 203, 189, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(179, 133, 16, 0.04) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(220, 208, 255, 0.09) 0%, transparent 55%),
-        radial-gradient(circle at 20% 80%, rgba(190, 240, 230, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px);
       background-size:
         500px 450px,
         500px 450px,
@@ -1502,28 +1502,27 @@
         500px 450px,
         500px 450px,
         500px 450px,
-        500px 450px,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%;
+        500px 450px;
       background-position:
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0;
-      background-attachment:
-        scroll, scroll, scroll, scroll, scroll, scroll, scroll,
-        fixed, fixed, fixed, fixed, fixed;
+        0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+      background-attachment: scroll;
+    }
+
+    body.light-theme::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -2; /* Behind page content container */
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(242, 203, 189, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(179, 133, 16, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(220, 208, 255, 0.09) 0%, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(190, 240, 230, 0.08) 0%, transparent 50%);
+      background-size: 100% 100%;
+      pointer-events: none;
+      transform: translate3d(0, 0, 0); /* Force GPU compositing layer */
+      will-change: transform;
     }
 
     body.light-theme .sketch-orbit-bg-container svg circle,
@@ -1644,10 +1643,7 @@
         radial-gradient(circle at 390px 270px, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
         radial-gradient(circle at 80px 310px, rgba(220, 208, 255, 0.3) 1.8px, transparent 1.8px),
         radial-gradient(circle at 430px 120px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
-        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
-        /* Fixed cosmic nebulae */
-        radial-gradient(circle at 50% 0%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
-        radial-gradient(circle at 0% 100%, rgba(212, 163, 115, 0.07) 0%, transparent 50%);
+        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px);
       background-size:
         500px 450px,
         500px 450px,
@@ -1655,22 +1651,24 @@
         500px 450px,
         500px 450px,
         500px 450px,
-        500px 450px,
-        100% 100%,
-        100% 100%;
+        500px 450px;
       background-position:
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0;
-      background-attachment:
-        scroll, scroll, scroll, scroll, scroll, scroll, scroll,
-        fixed, fixed;
+        0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+      background-attachment: scroll;
+    }
+
+    body.light-theme .grid-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(212, 163, 115, 0.07) 0%, transparent 50%);
+      background-size: 100% 100%;
+      pointer-events: none;
+      transform: translate3d(0, 0, 0); /* Force GPU compositing layer */
+      will-change: transform;
     }
     
     body.light-theme .overlay-header {
