@@ -1173,9 +1173,84 @@
      .decor-coord{
       display :none;
     }
+
+    /* ── FIXED SCROLL-ACTIVATED EDGE DECORATIONS ── */
+    .scroll-decor {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1005; /* Keeps them visible on top of overlay (z-index 1000) */
+      opacity: 0;
+      width: 580px;
+      height: 580px;
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scroll-decor.left-decor {
+      top: 30vh;
+      left: 0;
+      transform: translate(-50%, -50%) scale(0.85);
+    }
+
+    .scroll-decor.left-decor.visible {
+      opacity: 0.25;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .scroll-decor.right-decor {
+      top: 80vh;
+      right: 0;
+      
+      transform: translate(50%, -50%) scale(0.85);
+    }
+
+    .scroll-decor.right-decor.visible {
+      opacity: 0.1;
+      transform: translate(50%, -50%) scale(1);
+    }
+
+    .scroll-decor .decor-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Invert and boost contrast to make dark-on-light images look like bright neon lines on dark page, with transparency via screen blending */
+      filter: invert(1) grayscale(1) contrast(300%) brightness(85%);
+      mix-blend-mode: screen;
+    }
+
+    .scroll-decor .rotate-clockwise {
+      animation: scrollDecorRotateClockwise 80s linear infinite;
+    }
+
+    .scroll-decor .rotate-counter-clockwise {
+      animation: scrollDecorRotateCounterClockwise 85s linear infinite;
+    }
+
+    @keyframes scrollDecorRotateClockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes scrollDecorRotateCounterClockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @media (max-width: 860px) {
+      .scroll-decor {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Fixed Scroll-Activated Edge Decors -->
+  <div class="scroll-decor left-decor">
+    <img src="geo-images/truss-wheel.jpg" alt="" class="decor-image rotate-clockwise">
+  </div>
+  <div class="scroll-decor right-decor">
+    <img src="geo-images/radial-ring.png" alt="" class="decor-image rotate-counter-clockwise">
+  </div>
 
   <!-- ── FLOATING ORBITAL DECORATIONS ── -->
   <div class="sketch-orbit-bg-container">
@@ -1864,7 +1939,7 @@
             <h2 class="decor-h2" id="overlayTitle" style="margin-bottom: 0;">Category Grid</h2>
           </div>
           <button class="see-all-btn back-btn" id="closeOverlayBtn" onclick="closeOverlay()">
-            <span class="back-arrow">←</span> Go Back
+            <span class="back-arrow">&lt;</span> Go Back
           </button>
         </div>
       </div>
@@ -2249,6 +2324,25 @@
         }
       });
     }
+
+    // Toggle fixed scroll decors visibility based on scroll position
+    const leftScrollDecor = document.querySelector('.left-decor');
+    const rightScrollDecor = document.querySelector('.right-decor');
+    
+    function handleScroll() {
+      // Fade in after scrolling down 300px from top
+      if (window.scrollY > 300) {
+        leftScrollDecor?.classList.add('visible');
+        rightScrollDecor?.classList.add('visible');
+      } else {
+        leftScrollDecor?.classList.remove('visible');
+        rightScrollDecor?.classList.remove('visible');
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    // Run once on load to establish correct state
+    handleScroll();
 
     // Support escaping overlay with Esc key
     document.addEventListener('keydown', (e) => {
