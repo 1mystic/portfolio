@@ -1288,6 +1288,36 @@
         display: flex;
         justify-content: center;
       }
+
+      /* Overlay Grid Header Responsive Fixes */
+      .overlay-header {
+        padding: 1rem 0 !important;
+      }
+
+      .overlay-nav-bar {
+        padding-right: 3.2rem; /* Avoid overlapping the fixed theme toggle button */
+      }
+
+      .overlay-header .decor-h2 {
+        font-size: clamp(1.2rem, 5vw, 1.62rem) !important;
+      }
+
+      .overlay-header .see-all-btn.back-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.75rem !important;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .overlay-nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding-right: 3.2rem;
+      }
+      .overlay-nav-bar .back-btn {
+        align-self: flex-start;
+      }
     }
 
     /* ── FULL-SCREEN GRID OVERLAY VIEW ── */
@@ -1780,10 +1810,10 @@
 
   <!-- Fixed Scroll-Activated Edge Decors -->
   <div class="scroll-decor left-decor">
-    <img src="geo-images/truss-wheel.png" alt="" class="decor-image rotate-clockwise">
+    <img src="geo-images/truss-wheel.webp" alt="" class="decor-image rotate-clockwise">
   </div>
   <div class="scroll-decor right-decor">
-    <img src="geo-images/radial-ring.png" alt="" class="decor-image rotate-counter-clockwise">
+    <img src="geo-images/radial-ring.webp" alt="" class="decor-image rotate-counter-clockwise">
   </div>
 
   <!-- ── FLOATING ORBITAL DECORATIONS ── -->
@@ -2099,7 +2129,7 @@
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
               <div class="screen-body"
-                style="background-image: url('projects/gitsync-demo.gif'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                style="background-image: url('projects/gitsync-demo.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Behavioral Trace Graphing
               </div>
             </div>
