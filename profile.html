@@ -28,6 +28,7 @@
       --font-mono: 'Fira Code', 'DM Mono', monospace;
       --border-color: rgba(240, 237, 230, 0.08);
       --border-hover: rgba(229, 193, 88, 0.35);
+      --scrollbar-thumb: rgba(229, 193, 88, 0.35); /* Yellowish/amber scrollbar thumb */
       --transition-kinetic: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -39,6 +40,28 @@
 
     html {
       scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+
+    /* Custom Minimal Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border: 2px solid var(--bg-color);
+      border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
     }
 
     body {
@@ -1440,15 +1463,306 @@
       }
     }
 
+    /* ── LIGHT THEME STYLES ── */
+    body.light-theme {
+      --bg-color: #faf7f2; /* Creamy white base */
+      --text-main: #181c26; /* Deep charcoal */
+      --text-muted: #5d6778; /* Slate gray */
+      --accent-gold: #b38510; /* Noble warm gold (adjusted contrast) */
+      --accent-dim: rgba(179, 133, 16, 0.08);
+      --accent-lime: #2e5927; /* Rich forest green (adjusted contrast) */
+      --accent-lime-dim: rgba(46, 89, 39, 0.08);
+      --border-color: rgba(24, 28, 38, 0.09);
+      --border-hover: rgba(179, 133, 16, 0.35);
+      --scrollbar-thumb: rgba(179, 133, 16, 0.4); /* Yellowish/gold scrollbar thumb */
+    }
+
+    body.light-theme {
+      /* Creamy galaxy: soft starry sky scrolling over glowing fixed nebulae */
+      background-color: #faf7f2;
+      background-image:
+        /* Star field (scrolling) */
+        radial-gradient(circle at 25px 45px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
+        radial-gradient(circle at 140px 180px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 280px 90px, rgba(179, 133, 16, 0.15) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 390px 270px, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+        radial-gradient(circle at 80px 310px, rgba(220, 208, 255, 0.3) 1.8px, transparent 1.8px),
+        radial-gradient(circle at 430px 120px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
+        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
+        /* Fixed cosmic nebulae */
+        radial-gradient(circle at 15% 20%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(242, 203, 189, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(179, 133, 16, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(220, 208, 255, 0.09) 0%, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(190, 240, 230, 0.08) 0%, transparent 50%);
+      background-size:
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+      background-attachment:
+        scroll, scroll, scroll, scroll, scroll, scroll, scroll,
+        fixed, fixed, fixed, fixed, fixed;
+    }
+
+    body.light-theme .sketch-orbit-bg-container svg circle,
+    body.light-theme .sketch-orbit-bg-container svg line,
+    body.light-theme .sketch-orbit-bg-container svg polygon,
+    body.light-theme .sketch-orbit-bg-container svg rect {
+      stroke: rgba(24, 28, 38, 0.15) !important;
+    }
+    
+    body.light-theme .sketch-orbit-bg-container svg [stroke*="229, 193, 88"],
+    body.light-theme .sketch-orbit-bg-container svg [stroke*="accent-gold"] {
+      stroke: rgba(179, 133, 16, 0.35) !important;
+    }
+    
+    body.light-theme .sketch-orbit-bg-container svg [stroke*="200, 240, 96"],
+    body.light-theme .sketch-orbit-bg-container svg [stroke*="accent-lime"] {
+      stroke: rgba(46, 89, 39, 0.35) !important;
+    }
+    
+    body.light-theme .hero-architectural-svg circle,
+    body.light-theme .hero-architectural-svg ellipse,
+    body.light-theme .hero-architectural-svg line {
+      stroke: rgba(24, 28, 38, 0.15) !important;
+    }
+    
+    body.light-theme .hero-architectural-svg [stroke*="accent-gold"] {
+      stroke: var(--accent-gold) !important;
+      opacity: 0.8;
+    }
+    
+    body.light-theme .hero-architectural-svg [stroke*="200, 240, 96"] {
+      stroke: var(--accent-lime) !important;
+      opacity: 0.8;
+    }
+
+    body.light-theme .animated-wave svg path {
+      stroke: rgba(179, 133, 16, 0.45) !important;
+    }
+
+    body.light-theme .blueprint-card {
+      background: rgba(255, 255, 255, 0.6) !important;
+      border-color: rgba(24, 28, 38, 0.07) !important;
+      box-shadow: 0 10px 30px rgba(24, 28, 38, 0.02);
+    }
+    
+    body.light-theme .blueprint-card:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(179, 133, 16, 0.3) !important;
+      box-shadow: 0 15px 35px rgba(179, 133, 16, 0.08);
+    }
+
+    body.light-theme .blueprint-grid {
+      background-image: radial-gradient(rgba(24, 28, 38, 0.03) 1.2px, transparent 1.2px);
+    }
+
+    body.light-theme .tag {
+      background: rgba(24, 28, 38, 0.02);
+      border-color: rgba(24, 28, 38, 0.06);
+    }
+
+    body.light-theme .scroll-decor.left-decor.visible {
+      opacity: 0.15;
+    }
+
+    body.light-theme .scroll-decor.right-decor.visible {
+      opacity: 0.1;
+    }
+
+    body.light-theme .scroll-decor .decor-image {
+      filter: grayscale(1) contrast(150%) brightness(50%);
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+    }
+
+    body.light-theme .photo-frame {
+      background: #eae6db;
+      border-color: rgba(24, 28, 38, 0.08);
+    }
+    
+    body.light-theme .photo-frame:hover {
+      border-color: var(--accent-gold);
+    }
+    
+    body.light-theme .photo-placeholder {
+      color: rgba(24, 28, 38, 0.03);
+    }
+    
+    body.light-theme .device-mockup {
+      background: #eae6db;
+      border-color: rgba(24, 28, 38, 0.08);
+      box-shadow: 0 30px 60px rgba(24, 28, 38, 0.08);
+    }
+    
+    body.light-theme .device-screen {
+      background: linear-gradient(145deg, #f7f4eb 0%, #eae6db 100%);
+    }
+    
+    body.light-theme .screen-header {
+      border-bottom-color: rgba(24, 28, 38, 0.05);
+    }
+    
+    body.light-theme .screen-dots span {
+      background: rgba(24, 28, 38, 0.12);
+    }
+    
+    body.light-theme .screen-body {
+      color: rgba(24, 28, 38, 0.2);
+      border-color: rgba(24, 28, 38, 0.03);
+    }
+
+    body.light-theme .grid-overlay {
+      background-color: #faf7f2;
+      background-image:
+        /* Star field (scrolling) */
+        radial-gradient(circle at 25px 45px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
+        radial-gradient(circle at 140px 180px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 280px 90px, rgba(179, 133, 16, 0.15) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 390px 270px, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+        radial-gradient(circle at 80px 310px, rgba(220, 208, 255, 0.3) 1.8px, transparent 1.8px),
+        radial-gradient(circle at 430px 120px, rgba(179, 133, 16, 0.18) 1px, transparent 1px),
+        radial-gradient(circle at 220px 380px, rgba(24, 28, 38, 0.08) 1.2px, transparent 1.2px),
+        /* Fixed cosmic nebulae */
+        radial-gradient(circle at 50% 0%, rgba(229, 193, 88, 0.09) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(212, 163, 115, 0.07) 0%, transparent 50%);
+      background-size:
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        500px 450px,
+        100% 100%,
+        100% 100%;
+      background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+      background-attachment:
+        scroll, scroll, scroll, scroll, scroll, scroll, scroll,
+        fixed, fixed;
+    }
+    
+    body.light-theme .overlay-header {
+      background: rgba(251, 249, 244, 0.85);
+      border-bottom-color: rgba(24, 28, 38, 0.08);
+    }
+    
+    body.light-theme .overlay-content {
+      background: radial-gradient(circle at top, rgba(179, 133, 16, 0.02) 0%, transparent 60%);
+    }
+
+    /* ── THEME TOGGLE SWITCH STYLING ── */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: rgba(11, 16, 29, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      z-index: 1010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-kinetic);
+    }
+
+    body.light-theme .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: rgba(24, 28, 38, 0.08);
+      box-shadow: 0 4px 12px rgba(24, 28, 38, 0.05);
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.05);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 15px rgba(229, 193, 88, 0.15);
+    }
+
+    .theme-toggle-btn .sun-icon {
+      display: none;
+    }
+    
+    .theme-toggle-btn .moon-icon {
+      display: block;
+    }
+
+    body.light-theme .theme-toggle-btn .sun-icon {
+      display: block;
+    }
+    
+    body.light-theme .theme-toggle-btn .moon-icon {
+      display: none;
+    }
+
     @media (max-width: 860px) {
-      .scroll-decor {
-        display: none !important;
+      .theme-toggle-btn {
+        top: 1rem;
+        right: 1.25rem;
+        width: 38px;
+        height: 38px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Theme Toggle Switch -->
+  <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+    <!-- Moon Icon SVG -->
+    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <!-- Sun Icon SVG -->
+    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
 
   <!-- Fixed Scroll-Activated Edge Decors -->
   <div class="scroll-decor left-decor">
@@ -1771,7 +2085,7 @@
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
               <div class="screen-body"
-                style="background-image: url('projects/git-sync.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                style="background-image: url('projects/gitsync-demo.gif'); background-size: cover; background-position: center; border: none; font-size: 0;">
                 Behavioral Trace Graphing
               </div>
             </div>
@@ -2747,6 +3061,24 @@
     window.addEventListener('scroll', handleScroll);
     // Run once on load to establish correct state
     handleScroll();
+
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('themeToggle');
+    
+    // Check local storage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    
+    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+      document.body.classList.add('light-theme');
+    }
+    
+    themeToggleBtn?.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      
+      const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+      localStorage.setItem('theme', currentTheme);
+    });
 
     // Support escaping overlay with Esc key
     document.addEventListener('keydown', (e) => {
