@@ -1152,7 +1152,8 @@
       .floating-orbit-decor-2,
       .floating-orbit-decor-3,
       .floating-orbit-decor-4,
-      .floating-orbit-decor-5 {
+      .floating-orbit-decor-5,
+      .scroll-decor {
         display: none !important;
       }
 
@@ -1447,6 +1448,21 @@
 
     .scroll-decor .rotate-counter-clockwise {
       animation: scrollDecorRotateCounterClockwise 85s linear infinite;
+    }
+
+    @media (max-width: 1200px) {
+      .scroll-decor.left-decor.visible {
+        opacity: 0.12 !important;
+      }
+      .scroll-decor.right-decor.visible {
+        opacity: 0.05 !important;
+      }
+      body.light-theme .scroll-decor.left-decor.visible {
+        opacity: 0.07 !important;
+      }
+      body.light-theme .scroll-decor.right-decor.visible {
+        opacity: 0.04 !important;
+      }
     }
 
     @keyframes scrollDecorRotateClockwise {
