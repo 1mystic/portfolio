@@ -825,7 +825,7 @@
       
       <div class="character-selection-title">Select your guide:</div>
       <div class="character-select-row">
-        <div class="character-card selected" data-char="moss" onclick="selectCharacter('moss')">
+        <div class="character-card" data-char="moss" onclick="selectCharacter('moss')">
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <path d="M50 38 L50 22" stroke-width="4" />
             <path d="M50 22 Q65 12 75 25 Q50 30 50 22" fill="var(--lime-pale)" />
@@ -872,7 +872,7 @@
           <div class="selected-stamp">✓</div>
         </div>
 
-        <div class="character-card" data-char="squishy" onclick="selectCharacter('squishy')">
+        <div class="character-card selected" data-char="squishy" onclick="selectCharacter('squishy')">
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--rose-pale)" />
             <line x1="35" y1="15" x2="50" y2="45" />
@@ -1037,7 +1037,7 @@
     const horizonYPercent = 5; 
     const maxRoadWidth = 90; 
 
-    let selectedChar = 'moss';
+    let selectedChar = 'squishy';
     let sakuraInterval = null;
 
     const MASCOT_SVGS = {
@@ -1267,7 +1267,7 @@
 
       for (let i = activeObjects.length - 1; i >= 0; i--) {
         let obj = activeObjects[i];
-        obj.z += 0.004 * dt; 
+        obj.z += 0.0048 * dt; 
 
         if (obj.z > 1.2) {
           obj.el.remove();
