@@ -463,6 +463,7 @@
 
     .entity {
       position: absolute;
+      left: 0; top: 0;
       transform-origin: bottom center;
     }
 
@@ -488,9 +489,8 @@
       bottom: 15%;
       width: 80px; /* Bigger, bolder mascot runner */
       height: 80px;
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
       z-index: 50;
-      transition: bottom 0.04s linear;
     }
 
     .player-sprite {
@@ -1031,6 +1031,8 @@
     let playerVelocity = 0;
     const gravity = -0.45;
     const jumpStrength = 12;
+    
+    let lastTime = 0; // Track timestamp for delta-time calculations
 
     const horizonYPercent = 5; 
     const maxRoadWidth = 90; 
@@ -1175,7 +1177,8 @@
       setTimeout(() => document.getElementById('sign-squishy').classList.add('visible'), 2600);
       
       sakuraInterval = setInterval(spawnSakura, 600);
-      update();
+      lastTime = 0; // Reset lastTime for delta-time calculations
+      requestAnimationFrame(update);
     }
 
     function getTreeSVG() {
@@ -1215,17 +1218,27 @@
       activeObjects.push({ el: el, type: type, z: 0.01, offset: baseOffset });
     }
 
-    function update() {
+    function update(timestamp) {
       if (isGameOver) return;
 
-      frameCount++;
-      score++;
+      if (!lastTime) lastTime = timestamp;
+      let dt = (timestamp - lastTime) / 16.666; // Normalize to target 60fps (16.67ms)
+      lastTime = timestamp;
+
+      // Cap delta time to prevent massive jumps during browser/tab lag spikes
+      if (dt > 3.0) dt = 3.0;
+
+      let prevIntFrame = Math.floor(frameCount);
+      frameCount += dt;
+      let currIntFrame = Math.floor(frameCount);
+
+      score += dt;
       scoreDisplay.innerText = Math.floor(score / 10).toString().padStart(5, '0');
 
-      // Player Y physics and dynamic landing squash
+      // Player Y physics and dynamic landing squash (scaled by dt)
       if (playerY > 0 || playerVelocity > 0) {
-        playerY += playerVelocity;
-        playerVelocity += gravity;
+        playerY += playerVelocity * dt;
+        playerVelocity += gravity * dt;
         if (playerY <= 0) { 
           playerY = 0; 
           playerVelocity = 0; 
@@ -1241,18 +1254,20 @@
           }, 150);
         }
       }
-      player.style.bottom = `calc(15% + ${playerY}px)`;
+      // Performant translate3d positioning to avoid layout reflows
+      player.style.transform = `translate3d(-50%, -${playerY}px, 0)`;
 
-      if (frameCount % 20 === 0) spawnEntity('line');
-      if (frameCount % 150 === 0) spawnEntity('rock'); 
-      if (frameCount % 60 === 0) spawnEntity('tree');
+      // Spawn entities based on math boundary checks of dt-accumulated frame count
+      if (Math.floor(prevIntFrame / 20) !== Math.floor(currIntFrame / 20)) spawnEntity('line');
+      if (Math.floor(prevIntFrame / 150) !== Math.floor(currIntFrame / 150)) spawnEntity('rock'); 
+      if (Math.floor(prevIntFrame / 60) !== Math.floor(currIntFrame / 60)) spawnEntity('tree');
 
       const hHeight = window.innerHeight * (horizonYPercent / 100);
       const groundDistance = window.innerHeight - hHeight;
 
       for (let i = activeObjects.length - 1; i >= 0; i--) {
         let obj = activeObjects[i];
-        obj.z += 0.004; 
+        obj.z += 0.0048 * dt; 
 
         if (obj.z > 1.2) {
           obj.el.remove();
@@ -1268,17 +1283,18 @@
 
         if (obj.type === 'line') {
           obj.el.style.height = `${50 * depth}px`;
-          obj.el.style.transform = `translate(-50%, -100%)`;
+          obj.el.style.transform = `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -100%)`;
         } else {
-          obj.el.style.transform = `translate(-50%, -100%) scale(${scale})`;
+          obj.el.style.transform = `translate3d(${screenX}px, ${screenY}px, 0) translate(-50%, -100%) scale(${scale})`;
         }
 
-        obj.el.style.top = `${screenY}px`;
-        obj.el.style.left = `${screenX}px`;
+        // We use translate3d instead of top/left layout styling to avoid expensive reflow triggers!
 
         if (obj.type === 'rock') {
-          if (obj.z > 0.90 && obj.z < 1.05) { 
-            if (playerY < 48) { triggerGameOver(); }
+          // Narrowed visual collision window (z in 0.94-0.98) and lower vertical clearance threshold (40px)
+          // This matches the visual overlap much better and makes jumps highly responsive and forgiving.
+          if (obj.z > 0.94 && obj.z < 0.98) { 
+            if (playerY < 40) { triggerGameOver(); }
           }
         }
       }
@@ -1307,10 +1323,12 @@
       frameCount = 0; score = 0; playerY = 0; playerVelocity = 0;
       isGameOver = false;
       player.className = 'player running';
+      player.style.transform = `translate3d(-50%, 0, 0)`; // reset position
       gameOverScreen.style.display = 'none';
       
       sakuraInterval = setInterval(spawnSakura, 600);
-      update();
+      lastTime = 0; // Reset lastTime for delta-time calculations
+      requestAnimationFrame(update);
     }
   </script>
 </body>
