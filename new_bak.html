@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Portfolio Run</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@500;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:           #292524;
+      --sage:          #A8A29E;
+      --paper:         #FAF9F6;
+      --surface:       #FFFFFF;
+      
+      --lime-pale:     #F2FCE2; --lime-border: #84CC16; --lime-text: #4D7C0F;
+      --blue-pale:     #E0F2FE; --blue-border: #38BDF8; --blue-text: #0369A1;
+      --green-pale:    #EAFCEE; --green-border: #22C55E; --green-text: #15803D;
+      --rose-pale:     #FFE4E6; --rose-border: #F43F5E; --rose-text: #BE123C;
+
+      --pixel-font: 'Press Start 2P', monospace;
+      --heading-font: 'Raleway', sans-serif;
+      --body-font: 'DM Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* =========================================
+       E-INK START SCREEN
+       ========================================= */
+    #startScreen {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: var(--paper);
+      background-image: radial-gradient(var(--sage) 2px, transparent 2px);
+      background-size: 80px 80px;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 500;
+      text-align: center;
+    }
+    
+    .start-panel {
+      background: var(--surface);
+      border: 4px solid var(--ink);
+      padding: 40px;
+      box-shadow: 12px 12px 0px var(--ink);
+      max-width: 600px;
+    }
+
+    .start-panel h1 {
+      font-family: var(--pixel-font);
+      font-size: 28px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .start-panel p {
+      font-family: var(--body-font);
+      font-size: 18px;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .start-instructions {
+      font-family: var(--pixel-font);
+      font-size: 10px;
+      color: var(--sage);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .start-btn {
+      font-family: var(--pixel-font);
+      font-size: 16px;
+      padding: 16px 32px;
+      background: var(--surface);
+      color: var(--ink);
+      border: 4px solid var(--ink);
+      cursor: pointer;
+      box-shadow: 6px 6px 0px var(--ink);
+      transition: all 0.2s;
+    }
+    
+    .start-btn:hover {
+      background: var(--ink);
+      color: var(--surface);
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px var(--sage);
+    }
+
+    /* =========================================
+       GAME UI & WORLD
+       ========================================= */
+    #gameWrapper {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      font-family: var(--pixel-font);
+    }
+
+    .world {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      image-rendering: pixelated; 
+    }
+
+    .header {
+      position: absolute;
+      top: 20px; width: 100%;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 0 40px; z-index: 100; pointer-events: none;
+    }
+
+    .score-container {
+      background: var(--surface);
+      border: 4px solid var(--ink);
+      padding: 12px 16px;
+      box-shadow: 6px 6px 0px var(--ink);
+    }
+    
+    .score-board { font-size: 16px; line-height: 1.5; }
+    
+    .controls-hint { 
+      font-size: 12px; 
+      animation: blink 1s infinite; 
+      text-align: right;
+      line-height: 1.5;
+    }
+    
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+    .static-geometry { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+    .object-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
+    .entity { position: absolute; transform-origin: bottom center; }
+    .center-line { width: 4px; background: var(--ink); }
+
+    .pixel-rock { width: 64px; height: 64px; }
+    .pixel-tree { width: 60px; height: 80px; }
+    .player {
+      position: absolute; left: 50%; bottom: 15%;
+      width: 56px; height: 72px; transform: translateX(-50%); z-index: 50;
+    }
+
+    /* =========================================
+       HD SIGN BOARDS
+       ========================================= */
+    .sign-wrapper {
+      position: absolute;
+      z-index: 250; 
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .sign-wrapper.visible {
+      pointer-events: auto;
+      animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes popUp {
+      0% { opacity: 0; transform: translateY(50px) scale(var(--target-scale, 1)); }
+      100% { opacity: 1; transform: translateY(0) scale(var(--target-scale, 1)); }
+    }
+
+    #sign-moss { bottom: 50%; left: 24%; --target-scale: 0.65; }
+    #sign-sigma { bottom: 35%; right: 18%; --target-scale: 0.8; }
+    #sign-byte { bottom: 20%; left: 10%; --target-scale: 0.95; }
+    #sign-squishy { bottom: 5%; right: 5%; --target-scale: 1.1; }
+
+    .sign-container {
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: var(--ink); cursor: pointer;
+      font-family: var(--body-font);
+      image-rendering: auto; 
+    }
+
+    .sign-board {
+      background: var(--surface);
+      border: 4px solid var(--ink);
+      padding: 20px; 
+      display: flex; flex-direction: column; align-items: center;
+      width: 160px; 
+      box-shadow: 6px 6px 0px var(--sage);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .avatar-icon { width: 80px; height: 80px; margin-bottom: 12px; transition: transform 0.4s; stroke-width: 3.5; } 
+    .sign-label { font-family: var(--heading-font); font-weight: 700; font-size: 20px; margin-bottom: 4px; }
+    .sign-desc { font-family: var(--pixel-font); font-size: 8px; color: var(--sage); border-top: 2px dotted var(--sage); padding-top: 10px; width: 100%; text-align: center; transition: color 0.3s; }
+
+    .sign-pole { width: 12px; height: 80px; background: var(--surface); border-left: 4px solid var(--ink); border-right: 4px solid var(--ink); }
+    
+    .sign-base {
+      width: 32px;
+      height: 10px;
+      background: var(--ink);
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      margin-top: -2px; 
+    }
+
+    .sign-container:hover .sign-board { transform: translate(-4px, -4px); }
+    .sign-container:hover .avatar-icon { transform: scale(1.15) rotate(5deg); }
+
+    .moss:hover .sign-board { background: var(--lime-pale); border-color: var(--lime-border); box-shadow: 8px 8px 0px var(--lime-border); color: var(--lime-text); }
+    .moss:hover .sign-desc { color: var(--lime-text); border-color: var(--lime-border); }
+    .moss .avatar-icon circle[fill="var(--surface)"] { fill: #E8F5E9; transition: fill 0.3s; }
+    .moss:hover .avatar-icon *[fill^="#E"] { fill: var(--surface) !important; }
+
+    .sigma:hover .sign-board { background: var(--blue-pale); border-color: var(--blue-border); box-shadow: 8px 8px 0px var(--blue-border); color: var(--blue-text); }
+    .sigma:hover .sign-desc { color: var(--blue-text); border-color: var(--blue-border); }
+    .sigma .avatar-icon rect[fill="var(--surface)"] { fill: #E1F5FE; transition: fill 0.3s; }
+    .sigma:hover .avatar-icon *[fill^="#E"] { fill: var(--surface) !important; }
+
+    .byte:hover .sign-board { background: var(--green-pale); border-color: var(--green-border); box-shadow: 8px 8px 0px var(--green-border); color: var(--green-text); }
+    .byte:hover .sign-desc { color: var(--green-text); border-color: var(--green-border); }
+    .byte .avatar-icon rect[fill="var(--surface)"] { fill: #E8F5E9; transition: fill 0.3s; }
+    .byte:hover .avatar-icon *[fill^="#E"] { fill: var(--surface) !important; }
+
+    .squishy:hover .sign-board { background: var(--rose-pale); border-color: var(--rose-border); box-shadow: 8px 8px 0px var(--rose-border); color: var(--rose-text); }
+    .squishy:hover .sign-desc { color: var(--rose-text); border-color: var(--rose-border); }
+    .squishy .avatar-icon polygon[fill="var(--surface)"] { fill: #FCE4EC; transition: fill 0.3s; }
+    .squishy:hover .avatar-icon *[fill^="#FCE"] { fill: var(--surface) !important; }
+
+    /* =========================================
+       GAME OVER SCREEN
+       ========================================= */
+    .game-over {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(250, 249, 246, 0.90);
+      display: none; flex-direction: column; justify-content: center; align-items: center; 
+      z-index: 200; 
+    }
+    .game-over h2 { font-size: 40px; margin-bottom: 20px; color: var(--ink); }
+
+    /* =========================================
+       RESPONSIVE DESIGN (MOBILE FIXES)
+       ========================================= */
+    @media (max-width: 768px) {
+      .start-panel { width: 90%; padding: 24px; }
+      .start-panel h1 { font-size: 22px; }
+      .start-panel p { font-size: 14px; }
+      .start-instructions { font-size: 9px; margin-top: 20px; margin-bottom: 20px; }
+
+      .header { padding: 0 15px; top: 15px; }
+      
+      .score-container { padding: 8px 12px; border-width: 3px; box-shadow: 4px 4px 0px var(--ink); }
+      .score-board { font-size: 10px; }
+      
+      .controls-hint { font-size: 8px; max-width: 100px; }
+
+      .game-over h2 { font-size: 24px; margin-bottom: 15px; }
+      .start-btn { font-size: 12px; padding: 12px 24px; }
+
+      /* Shrink and restack the signs */
+      .sign-board { width: 90px; padding: 10px; border-width: 3px; box-shadow: 4px 4px 0px var(--sage); }
+      .avatar-icon { width: 45px; height: 45px; margin-bottom: 6px; stroke-width: 3; }
+      .sign-label { font-size: 12px; margin-bottom: 2px; }
+      .sign-desc { font-size: 6px; padding-top: 6px; border-width: 1px; }
+      
+      .sign-pole { height: 40px; width: 6px; border-width: 3px; }
+      .sign-base { width: 20px; height: 6px; border-radius: 2px; }
+
+      /* Push to edges and stagger vertically */
+      #sign-moss { bottom: 65%; left: 2%; --target-scale: 0.6; }
+      #sign-sigma { bottom: 48%; right: 2%; --target-scale: 0.7; }
+      #sign-byte { bottom: 30%; left: 0%; --target-scale: 0.8; }
+      #sign-squishy { bottom: 12%; right: 0%; --target-scale: 0.9; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="startScreen">
+    <div class="start-panel">
+      <h1>PORTFOLIO RUN</h1>
+      <p>A pixelated journey to my work.</p>
+      <div class="start-instructions">
+        > PRESS [W] OR [UP] TO JUMP OBSTACLES<br><br>
+        > CHOOSE AN AVATAR SIGN ON THE SIDES<br>
+        > TO ENTER THE PORTFOLIO
+      </div>
+      <button class="start-btn" onclick="startGame()">START ENGINE</button>
+    </div>
+  </div>
+
+  <div id="gameWrapper">
+    <div class="header">
+      <div class="score-container">
+        <div class="score-board">
+          SCORE: <span id="scoreDisplay">00000</span><br>
+          HI: <span id="hiScoreDisplay">00000</span>
+        </div>
+      </div>
+      <div class="controls-hint">PRESS [W] OR [↑]<br>TO JUMP</div>
+    </div>
+
+    <div class="world" id="world">
+      <svg class="static-geometry" width="100%" height="100%">
+        <line x1="0" y1="5%" x2="100%" y2="5%" stroke="#292524" stroke-width="4"/>
+        <line x1="50%" y1="5%" x2="5%" y2="100%" stroke="#292524" stroke-width="4"/>
+        <line x1="50%" y1="5%" x2="95%" y2="100%" stroke="#292524" stroke-width="4"/>
+      </svg>
+      <div class="object-layer" id="objectsLayer"></div>
+      
+      <div class="player" id="player">
+        <svg width="100%" height="100%" viewBox="0 0 16 16">
+          <rect x="6" y="0" width="6" height="6" fill="#292524"/>
+          <rect x="4" y="6" width="8" height="6" fill="#292524"/>
+          <rect id="legL" x="4" y="12" width="3" height="4" fill="#292524"/>
+          <rect id="legR" x="9" y="12" width="3" height="4" fill="#292524"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="sign-wrapper" id="sign-moss">
+      <a href="classic/portfolio.html" class="sign-container moss">
+        <div class="sign-board">
+          <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 38 L50 22" stroke-width="4" />
+            <path d="M50 22 Q65 12 75 25 Q50 30 50 22" fill="var(--lime-pale)" />
+            <path d="M50 22 Q35 12 25 25 Q50 30 50 22" fill="var(--lime-pale)" />
+            <circle cx="50" cy="65" r="28" fill="var(--surface)" />
+            <circle cx="42" cy="62" r="3.5" fill="currentColor" />
+            <circle cx="58" cy="62" r="3.5" fill="currentColor" />
+            <path d="M47 72 Q50 75 53 72" stroke-width="2.5" />
+            <circle cx="34" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
+            <circle cx="66" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
+          </svg>
+          <div class="sign-label">Moss</div>
+          <div class="sign-desc">THE CLASSIC</div>
+        </div>
+        <div class="sign-pole"></div>
+        <div class="sign-base"></div>
+      </a>
+    </div>
+
+    <div class="sign-wrapper" id="sign-sigma">
+      <a href="minimal/portfolio.html" class="sign-container sigma">
+        <div class="sign-board">
+          <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="25" y="30" width="50" height="50" fill="var(--surface)" stroke-width="3.5" />
+            <path d="M25 30 L25 15 L40 30" fill="currentColor" />
+            <path d="M75 30 L75 15 L60 30" fill="currentColor" />
+            <path d="M38 52 H44" stroke-width="4" />
+            <path d="M56 52 H62" stroke-width="4" />
+            <path d="M48 62 L50 66 L52 62" fill="currentColor" />
+            <line x1="30" y1="70" x2="40" y2="70" stroke="currentColor" stroke-width="2" />
+            <line x1="60" y1="70" x2="70" y2="70" stroke="currentColor" stroke-width="2" />
+          </svg>
+          <div class="sign-label">Sigma</div>
+          <div class="sign-desc">THE MINIMALIST</div>
+        </div>
+        <div class="sign-pole"></div>
+        <div class="sign-base"></div>
+      </a>
+    </div>
+
+    <div class="sign-wrapper" id="sign-byte">
+      <a href="dev-profile/portfolio.html" class="sign-container byte">
+        <div class="sign-board">
+          <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="22" y="28" width="56" height="46" rx="8" fill="var(--surface)" stroke-width="3.5" />
+            <line x1="45" y1="74" x2="45" y2="82" stroke-width="3.5" />
+            <line x1="55" y1="74" x2="55" y2="82" stroke-width="3.5" />
+            <path d="M30 82 H70" stroke-width="3.5" />
+            <circle cx="50" cy="18" r="3.5" fill="currentColor" />
+            <line x1="50" y1="18" x2="50" y2="28" stroke-width="2.5" />
+            <circle cx="38" cy="48" r="4" fill="currentColor" />
+            <circle cx="62" cy="48" r="4" fill="currentColor" />
+            <path d="M46 60 H54" stroke-width="3.5" />
+          </svg>
+          <div class="sign-label">Byte</div>
+          <div class="sign-desc">THE DEVELOPER</div>
+        </div>
+        <div class="sign-pole"></div>
+        <div class="sign-base"></div>
+      </a>
+    </div>
+
+    <div class="sign-wrapper" id="sign-squishy">
+      <a href="squishy/portfolio.html" class="sign-container squishy">
+        <div class="sign-board">
+          <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--surface)" />
+            <line x1="35" y1="15" x2="50" y2="45" />
+            <line x1="65" y1="15" x2="50" y2="45" />
+            <line x1="15" y1="30" x2="50" y2="45" />
+            <line x1="85" y1="30" x2="50" y2="45" />
+            <polygon points="35,50 65,50 50,80" fill="currentColor" opacity="0.1" />
+            <circle cx="50" cy="80" r="5" fill="currentColor" />
+            <circle cx="35" cy="55" r="2" fill="currentColor" />
+            <circle cx="65" cy="55" r="2" fill="currentColor" />
+          </svg>
+          <div class="sign-label">Squishy</div>
+          <div class="sign-desc">THE SOFTIE</div>
+        </div>
+        <div class="sign-pole"></div>
+        <div class="sign-base"></div>
+      </a>
+    </div>
+
+    <div class="game-over" id="gameOverScreen">
+      <h2>GAME OVER</h2>
+      <button class="start-btn" onclick="resetGame()">TRY AGAIN</button>
+    </div>
+  </div>
+
+  <script>
+    const startScreen = document.getElementById('startScreen');
+    const gameWrapper = document.getElementById('gameWrapper');
+    const objectsLayer = document.getElementById('objectsLayer');
+    const player = document.getElementById('player');
+    const legL = document.getElementById('legL');
+    const legR = document.getElementById('legR');
+    const gameOverScreen = document.getElementById('gameOverScreen');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    
+    let isGameOver = true; 
+    let frameCount = 0;
+    let score = 0;
+    let activeObjects = [];
+    
+    let playerY = 0; 
+    let playerVelocity = 0;
+    const gravity = -0.45;
+    const jumpStrength = 12;
+
+    const horizonYPercent = 5; 
+    const maxRoadWidth = 90; 
+
+    // Controls
+    window.addEventListener('keydown', (e) => {
+      if ((e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp' || e.key === ' ') && !isGameOver) {
+        if (playerY === 0) { playerVelocity = jumpStrength; }
+      }
+    });
+
+    // Touch controls for mobile devices
+    window.addEventListener('touchstart', (e) => {
+      // Don't trigger jump if they are tapping a sign or a button
+      if (!isGameOver && e.target.tagName !== 'BUTTON' && e.target.closest('.sign-wrapper') === null) {
+        if (playerY === 0) { playerVelocity = jumpStrength; }
+      }
+    });
+
+    function startGame() {
+      startScreen.style.display = 'none';
+      gameWrapper.style.display = 'block';
+      isGameOver = false;
+      document.getElementById('hiScoreDisplay').innerText = (localStorage.getItem('portHiScore') || 0).toString().padStart(5, '0');
+      
+      // Trigger Sign Animations Staggered
+      setTimeout(() => document.getElementById('sign-moss').classList.add('visible'), 500);
+      setTimeout(() => document.getElementById('sign-sigma').classList.add('visible'), 1500);
+      setTimeout(() => document.getElementById('sign-byte').classList.add('visible'), 2500);
+      setTimeout(() => document.getElementById('sign-squishy').classList.add('visible'), 3500);
+      
+      update();
+    }
+
+    function getTreeSVG() {
+      return `<svg class="pixel-tree" viewBox="0 0 16 16">
+        <rect x="7" y="10" width="2" height="6" fill="#292524"/>
+        <rect x="2" y="2" width="12" height="8" fill="#292524"/>
+        <rect x="4" y="0" width="8" height="2" fill="#292524"/>
+      </svg>`;
+    }
+
+    function getRockSVG() {
+      return `<svg class="pixel-rock" viewBox="0 0 16 16">
+        <rect x="1" y="7" width="14" height="10" fill="white"/>
+        <rect x="3" y="3" width="10" height="6" fill="white"/>
+        <rect x="2" y="8" width="12" height="8" fill="#292524"/>
+        <rect x="4" y="4" width="8" height="4" fill="#292524"/>
+        <rect x="5" y="5" width="2" height="2" fill="white"/>
+        <rect x="4" y="10" width="4" height="2" fill="white"/>
+      </svg>`;
+    }
+
+    function spawnEntity(type) {
+      if (isGameOver) return;
+      const el = document.createElement('div');
+      el.className = 'entity';
+      let baseOffset = 0; 
+
+      if (type === 'line') {
+        el.className += ' center-line';
+        baseOffset = 0;
+      } else if (type === 'rock') {
+        el.innerHTML = getRockSVG();
+        baseOffset = 0; 
+      } else if (type === 'tree') {
+        el.innerHTML = getTreeSVG();
+        baseOffset = (Math.random() > 0.5 ? -1 : 1) * (1.2 + Math.random()); 
+      } 
+
+      objectsLayer.appendChild(el);
+      activeObjects.push({ el: el, type: type, z: 0.01, offset: baseOffset });
+    }
+
+    function update() {
+      if (isGameOver) return;
+
+      frameCount++;
+      score++;
+      scoreDisplay.innerText = Math.floor(score / 10).toString().padStart(5, '0');
+
+      if (playerY === 0) {
+        legL.setAttribute('y', frameCount % 30 < 15 ? '10' : '12');
+        legR.setAttribute('y', frameCount % 30 < 15 ? '12' : '10');
+      } else {
+        legL.setAttribute('y', '10'); legR.setAttribute('y', '10');
+      }
+
+      if (playerY > 0 || playerVelocity > 0) {
+        playerY += playerVelocity;
+        playerVelocity += gravity;
+        if (playerY < 0) { playerY = 0; playerVelocity = 0; }
+      }
+      player.style.transform = `translate(-50%, -${playerY}px)`;
+
+      if (frameCount % 20 === 0) spawnEntity('line');
+      if (frameCount % 150 === 0) spawnEntity('rock'); 
+      if (frameCount % 60 === 0) spawnEntity('tree');
+
+      const hHeight = window.innerHeight * (horizonYPercent / 100);
+      const groundDistance = window.innerHeight - hHeight;
+
+      for (let i = activeObjects.length - 1; i >= 0; i--) {
+        let obj = activeObjects[i];
+        obj.z += 0.004; 
+
+        if (obj.z > 1.2) {
+          obj.el.remove();
+          activeObjects.splice(i, 1);
+          continue;
+        }
+
+        let depth = Math.pow(obj.z, 3); 
+        let screenY = hHeight + (depth * groundDistance);
+        let spreadX = window.innerWidth * (maxRoadWidth / 100) * 0.5; 
+        let screenX = (window.innerWidth / 2) + (obj.offset * spreadX * depth);
+        let scale = Math.max(0.01, depth * 2.5);
+
+        if (obj.type === 'line') {
+          obj.el.style.height = `${50 * depth}px`;
+          obj.el.style.transform = `translate(-50%, -100%)`;
+        } else {
+          obj.el.style.transform = `translate(-50%, -100%) scale(${scale})`;
+        }
+
+        obj.el.style.top = `${screenY}px`;
+        obj.el.style.left = `${screenX}px`;
+
+        if (obj.type === 'rock') {
+          if (obj.z > 0.90 && obj.z < 1.05) { 
+            if (playerY < 45) { triggerGameOver(); }
+          }
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    function triggerGameOver() {
+      isGameOver = true;
+      gameOverScreen.style.display = 'flex';
+      let hiScore = localStorage.getItem('portHiScore') || 0;
+      if (score / 10 > hiScore) {
+        localStorage.setItem('portHiScore', Math.floor(score / 10));
+        document.getElementById('hiScoreDisplay').innerText = Math.floor(score / 10).toString().padStart(5, '0');
+      }
+    }
+
+    function resetGame() {
+      activeObjects.forEach(obj => obj.el.remove());
+      activeObjects = [];
+      frameCount = 0; score = 0; playerY = 0; playerVelocity = 0;
+      isGameOver = false;
+      gameOverScreen.style.display = 'none';
+      update();
+    }
+  </script>
+</body>
+</html>

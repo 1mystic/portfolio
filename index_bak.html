@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Initialize Portfolio</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="fresh/assets/yoda.webp">
+<link rel="apple-touch-icon" href="fresh/assets/yoda.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fira+Code:wght@500;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* SharpPop Color Palette */
+    --ink:           #292524;
+    --sage:          #A8A29E;
+    --paper:         #FAF9F6;
+    --surface:       #FFFFFF;
+    --sunken:        #F5F4F1;
+
+    /* Lime Accent */
+    --lime-pale:     #F2FCE2;
+    --lime-border:   #84CC16;
+    --lime-text:     #4D7C0F;
+
+    /* Rose Accent */
+    --rose-pale:     #FFE4E6;
+    --rose-border:   #F43F5E;
+    --rose-text:     #BE123C;
+
+    /* Blue Alternate (for the minimal card to keep variation) */
+    --blue-pale:     #E0F2FE;
+    --blue-border:   #38BDF8;
+    --blue-text:     #0369A1;
+
+    --mono: 'Fira Code', monospace;
+    --heading: 'Raleway', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body { 
+    background-color: var(--paper); 
+    /* Physics Canvas / Grid of Dots */
+    background-image: radial-gradient(var(--sage) 2px, transparent 2px);
+    background-size: 80px 80px;
+    background-position: center;
+    display: flex; justify-content: center; align-items: center; 
+    height: 100vh; overflow: hidden;
+    font-family: var(--body);
+    position: relative;
+    cursor: crosshair; /* Fallback for sharp custom cursor */
+  }
+
+  /* Decorative Background Shapes (Sharp Geometric now) */
+  .shape {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.9;
+    border-radius: 0px !important; /* Strict sharp corners */
+  }
+  .shape-1 {
+    width: 150px; height: 150px;
+    background: var(--lime-pale);
+    border: 2px solid var(--lime-border);
+    box-shadow: 10px 10px 0px var(--lime-border);
+    top: -40px; right: -40px;
+  }
+  .shape-2 {
+    width: 120px; height: 120px;
+    background: var(--rose-pale);
+    border: 2px dotted var(--rose-border);
+    bottom: -20px; left: -20px;
+    transform: rotate(15deg);
+  }
+
+  .preloader-content {
+    text-align: center;
+    padding: 36px;
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    box-shadow: 12px 12px 0px var(--ink);
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    border-radius: 0px;
+  }
+
+  .preloader-title {
+    font-family: var(--heading); 
+    font-size: 56px; 
+    color: var(--ink); 
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .preloader-sub {
+    font-family: var(--mono); 
+    font-size: 14px; 
+    color: var(--sage); 
+    margin-bottom: 36px; 
+    text-transform: uppercase; 
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  
+  .avatars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+  
+  /* Mindful Grayscale Focus */
+  .avatars-grid:has(.avatar-card:hover) .avatar-card:not(:hover) {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
+
+  .avatar-card {
+    width: 200px; height: 240px;
+    border: 2px solid var(--ink);
+    border-radius: 0px;
+    background: var(--surface);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 24px; position: relative;
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 4px 4px 0px var(--sunken);
+  }
+
+  .avatar-card:hover {
+    transform: translate(-6px, -6px);
+  }
+
+  /* Specific Mascot Colors & Interactions */
+  .avatar-card:nth-child(1):hover { 
+    background: var(--lime-pale); 
+    border-color: var(--lime-border);
+    box-shadow: 10px 10px 0px var(--lime-border);
+    color: var(--lime-text);
+  }
+  .avatar-card:nth-child(2):hover { 
+    background: var(--blue-pale); 
+    border-color: var(--blue-border);
+    box-shadow: 10px 10px 0px var(--blue-border);
+    color: var(--blue-text);
+  }
+  .avatar-card:nth-child(3):hover { 
+    background: #EAFCEE; 
+    border-color: #22C55E;
+    box-shadow: 10px 10px 0px #22C55E;
+    color: #15803D;
+  }
+  .avatar-card:nth-child(4):hover { 
+    background: var(--rose-pale); 
+    border-color: var(--rose-border);
+    box-shadow: 10px 10px 0px var(--rose-border);
+    color: var(--rose-text);
+  }
+
+  .avatar-icon { width: 80px; height: 80px; margin-bottom: 24px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); stroke-width: 3.5; }
+  .avatar-card:hover .avatar-icon { transform: scale(1.15) rotate(5deg); }
+
+  .avatar-label { 
+    font-family: var(--heading); 
+    font-weight: 700; 
+    font-size: 28px; 
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .avatar-desc { 
+    font-family: var(--mono); 
+    font-size: 13px; 
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--sage);
+    border-top: 2px dotted var(--sage);
+    padding-top: 8px;
+    width: 100%;
+    text-align: center;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .avatar-card:nth-child(1):hover .avatar-desc { color: var(--lime-text); border-color: var(--lime-border); }
+  .avatar-card:nth-child(2):hover .avatar-desc { color: var(--blue-text); border-color: var(--blue-border); }
+  .avatar-card:nth-child(3):hover .avatar-desc { color: #15803D; border-color: #22C55E; }
+  .avatar-card:nth-child(4):hover .avatar-desc { color: var(--rose-text); border-color: var(--rose-border); }
+
+  /* Loading Bar Mockup */
+  .loading-bar-container {
+    width: 100%;
+    height: 36px;
+    border: 2px solid var(--ink);
+    border-radius: 0px;
+    background: var(--surface);
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+    box-shadow: 4px 4px 0px var(--sunken);
+  }
+  .loading-bar-fill {
+    height: 100%;
+    width: 100%;
+    background-color: #E8F0EA;
+    background-image: radial-gradient(#8CA693 2px, transparent 2px);
+    background-size: 10px 10px;
+    border-right: 2px solid var(--ink);
+    animation: loadMove 1s linear infinite;
+  }
+  .loading-text {
+    position: absolute;
+    right: 12px;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--surface);
+    padding: 0 8px;
+    border: 2px solid var(--ink);
+  }
+
+  .loader-nav {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+  .loader-nav a {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--sage);
+    text-decoration: none;
+    border: 2px dotted var(--sage);
+    background: transparent;
+    padding: 12px 24px;
+    transition: all 0.2s ease;
+    border-radius: 0px;
+  }
+  .loader-nav a:hover {
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    background: var(--lime-pale);
+    transform: translate(-4px, -4px);
+    box-shadow: 6px 6px 0px var(--lime-border);
+  }
+
+  @keyframes loadMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 10px 0; }
+  }
+
+  @media (max-width: 700px) {
+    .avatars-grid {
+      grid-template-columns: repeat(2, 150px);
+      gap: 12px;
+    }
+    .avatar-card { width: 150px; height: 190px; padding: 12px; }
+    .avatar-icon { width: 60px; height: 60px; margin-bottom: 12px; }
+    .avatar-label { font-size: 20px; }
+    .preloader-title { font-size: 40px; }
+    .preloader-sub { font-size: 12px; margin-bottom: 24px; }
+    .preloader-content { padding: 24px; width: 95%; }
+  }
+
+  /* Tags / Emphasis */
+  .avatar-card.emphasized {
+    position: relative;
+  }
+  .avatar-card.emphasized::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -14px;
+    background: var(--surface);
+    color: var(--sage);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 2px 12px;
+    border: 2px dotted var(--sage);
+    border-radius: 0px; /* SHARP! */
+    z-index: 2;
+    white-space: nowrap;
+    transition: all 0.3s;
+  }
+  .avatar-card:nth-child(2).emphasized:hover::before {
+    background: var(--surface);
+    color: var(--blue-text);
+    border: 2px solid var(--blue-border);
+  }
+  
+  .avatar-card:nth-child(3).emphasized::before {
+    content: 'NEW';
+  }
+  .avatar-card:nth-child(3).emphasized:hover::before {
+    background: var(--surface);
+    color: #15803D;
+    border: 2px solid #22C55E;
+  }
+  
+  .avatar-card:nth-child(4).emphasized::before {
+    content: 'HOT';
+  }
+  .avatar-card:nth-child(4).emphasized:hover::before {
+    background: var(--surface);
+    color: var(--rose-text);
+    border: 2px solid var(--rose-border);
+  }
+  
+  @media (max-width: 700px) {
+    .avatar-card.emphasized::before {
+      top: -12px;
+      font-size: 10px;
+      padding: 2px 8px;
+    }
+  }
+  
+  /* --- Playful Resting Colors --- */
+  
+  /* Give each card a very subtle tinted background instead of pure white */
+  .avatar-card:nth-child(1) { background: #FAFDFA; }
+  .avatar-card:nth-child(2) { background: #F8FCFF; }
+  .avatar-card:nth-child(3) { background: #F7FDF9; }
+  .avatar-card:nth-child(4) { background: #FFF9FA; }
+
+  /* Colorize the mascot bodies slightly in their resting state */
+  .avatar-card:nth-child(1) .avatar-icon circle[fill="var(--surface)"] {
+    fill: #E8F5E9; /* Soft minty green for Moss */
+    transition: fill 0.3s;
+  }
+  .avatar-card:nth-child(2) .avatar-icon rect[fill="var(--surface)"] {
+    fill: #E1F5FE; /* Soft frosty blue for Sigma */
+    transition: fill 0.3s;
+  }
+  .avatar-card:nth-child(3) .avatar-icon rect[fill="var(--surface)"] {
+    fill: #E8F5E9; /* Soft neon green for Byte */
+    transition: fill 0.3s;
+  }
+  .avatar-card:nth-child(4) .avatar-icon polygon[fill="var(--surface)"] {
+    fill: #FCE4EC; /* Soft blush pink for Squishy */
+    transition: fill 0.3s;
+  }
+
+  /* Make the mascot bodies turn bright white when the card background floods with color on hover */
+  .avatar-card:hover .avatar-icon *[fill^="#E"], 
+  .avatar-card:hover .avatar-icon *[fill^="#FCE"] {
+    fill: var(--surface) !important;
+  }
+
+  /* Tint the labels to match their respective themes slightly */
+  .avatar-card:nth-child(1) .avatar-label { color: #3A5D0B; }
+  .avatar-card:nth-child(2) .avatar-label { color: #025382; }
+  .avatar-card:nth-child(3) .avatar-label { color: #1B5E20; }
+  .avatar-card:nth-child(4) .avatar-label { color: #9A0E2F; }
+
+  /* Add a tiny pop of accent color to the corner of the cards */
+  .avatar-card::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid var(--ink);
+    border-top: 2px solid var(--ink);
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+  
+  .avatar-card:nth-child(1)::after { background: var(--lime-border); }
+  .avatar-card:nth-child(2)::after { background: var(--blue-border); }
+  .avatar-card:nth-child(3)::after { background: #22C55E; }
+  .avatar-card:nth-child(4)::after { background: var(--rose-border); }
+
+  /* Expand the corner accent slightly on hover */
+  .avatar-card:hover::after {
+    width: 100%;
+    height: 6px;
+    bottom: -6px;
+    right: -6px;
+    border: none;
+  }
+</style>
+</head>
+<body>
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+
+  <div class="preloader-content">
+    <h1 class="preloader-title">Choose Your Avatar</h1>
+    <p class="preloader-sub">Select your companion to enter the portfolio</p>
+    <div class="avatars-grid">
+      <!-- Navigates directly to the portfolio page -->
+      <a href="classic/portfolio.html" class="avatar-card">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Sprout Stem -->
+          <path d="M50 38 L50 22" stroke-width="4" />
+          <!-- Two cute leaves -->
+          <path d="M50 22 Q65 12 75 25 Q50 30 50 22" fill="var(--lime-pale)" />
+          <path d="M50 22 Q35 12 25 25 Q50 30 50 22" fill="var(--lime-pale)" />
+          <!-- Round Character Body -->
+          <circle cx="50" cy="65" r="28" fill="var(--surface)" />
+          <!-- Eyes -->
+          <circle cx="42" cy="62" r="3.5" fill="currentColor" />
+          <circle cx="58" cy="62" r="3.5" fill="currentColor" />
+          <!-- Cute small mouth -->
+          <path d="M47 72 Q50 75 53 72" stroke-width="2.5" />
+          <!-- Blush -->
+          <circle cx="34" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
+          <circle cx="66" cy="68" r="2.5" fill="var(--rose-pale)" stroke="none" />
+        </svg>
+        <div class="avatar-label">Moss</div>
+        <div class="avatar-desc">The Classic</div>
+      </a>
+      <a href="minimal/portfolio.html" class="avatar-card emphasized">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Body: Sharp Geometric Rectangle -->
+          <rect x="25" y="30" width="50" height="50" fill="var(--surface)" stroke-width="3.5" />
+          <!-- Sharp Ear Tufts -->
+          <path d="M25 30 L25 15 L40 30" fill="currentColor" />
+          <path d="M75 30 L75 15 L60 30" fill="currentColor" />
+          <!-- Tiny Line Eyes (Minimalist) -->
+          <path d="M38 52 H44" stroke-width="4" />
+          <path d="M56 52 H62" stroke-width="4" />
+          <!-- Minimalist Sharp Beak -->
+          <path d="M48 62 L50 66 L52 62" fill="currentColor" />
+          <!-- Blue aesthetic accent lines -->
+          <line x1="30" y1="70" x2="40" y2="70" stroke="currentColor" stroke-width="2" />
+          <line x1="60" y1="70" x2="70" y2="70" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <div class="avatar-label">Sigma</div>
+        <div class="avatar-desc">The Minimalist</div>
+      </a>
+      <a href="dev-profile/portfolio.html" class="avatar-card emphasized">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Robot Head/Screen -->
+          <rect x="22" y="28" width="56" height="46" rx="8" fill="var(--surface)" stroke-width="3.5" />
+          <!-- Neck -->
+          <line x1="45" y1="74" x2="45" y2="82" stroke-width="3.5" />
+          <line x1="55" y1="74" x2="55" y2="82" stroke-width="3.5" />
+          <!-- Stand/Base -->
+          <path d="M30 82 H70" stroke-width="3.5" />
+          <!-- Ears/Antennae -->
+          <circle cx="50" cy="18" r="3.5" fill="currentColor" />
+          <line x1="50" y1="18" x2="50" y2="28" stroke-width="2.5" />
+          <!-- Glowing Eyes -->
+          <circle cx="38" cy="48" r="4" fill="currentColor" />
+          <circle cx="62" cy="48" r="4" fill="currentColor" />
+          <!-- Terminal cursor or smiling mouth -->
+          <path d="M46 60 H54" stroke-width="3.5" />
+        </svg>
+        <div class="avatar-label">Byte</div>
+        <div class="avatar-desc">The Developer</div>
+      </a>
+      <a href="squishy/portfolio.html" class="avatar-card emphasized">
+        <svg class="avatar-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Origami Fox -->
+          <polygon points="50,80 15,30 35,15 50,45 65,15 85,30" fill="var(--surface)" />
+          <line x1="35" y1="15" x2="50" y2="45" />
+          <line x1="65" y1="15" x2="50" y2="45" />
+          <line x1="15" y1="30" x2="50" y2="45" />
+          <line x1="85" y1="30" x2="50" y2="45" />
+          <!-- Fox snout -->
+          <polygon points="35,50 65,50 50,80" fill="currentColor" opacity="0.1" />
+          <circle cx="50" cy="80" r="5" fill="currentColor" />
+          <!-- Eyes -->
+          <circle cx="35" cy="55" r="2" fill="currentColor" />
+          <circle cx="65" cy="55" r="2" fill="currentColor" />
+        </svg>
+        <div class="avatar-label">Squishy</div>
+        <div class="avatar-desc">The Softie</div>
+      </a>
+    </div>
+    
+    <div class="loading-bar-container">
+      <div class="loading-bar-fill" id="timer-fill"></div>
+      <div class="loading-text" id="timer-text">AUTO-SELECT IN 5.0S...</div>
+    </div>
+
+    <div class="loader-nav">
+      <a href="links.html">Social Links</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const timerFill = document.getElementById('timer-fill');
+      const timerText = document.getElementById('timer-text');
+      const duration = 5000; // 5 seconds in milliseconds
+      const startTime = performance.now();
+      
+      function updateTimer() {
+        const now = performance.now();
+        const elapsed = now - startTime;
+        const remaining = Math.max(0, duration - elapsed);
+        const progress = (remaining / duration) * 100;
+        
+        if (timerFill) {
+          timerFill.style.width = `${progress}%`;
+        }
+        if (timerText) {
+          timerText.textContent = `AUTO-SELECT IN ${(remaining / 1000).toFixed(1)}s...`;
+        }
+        
+        if (remaining > 0) {
+          requestAnimationFrame(updateTimer);
+        } else {
+          window.location.href = 'profile.html';
+        }
+      }
+      
+      requestAnimationFrame(updateTimer);
+    });
+  </script>
+</body>
+</html>
