@@ -232,7 +232,7 @@
       position: absolute;
       bottom: -6px;
       left: 0;
-      width: 60px;
+      width: 100%;
       height: 2px;
       background: var(--accent-gold);
       border-radius: 2px;
@@ -1250,16 +1250,46 @@
         transform: translateX(-50%) !important;
       }
 
+      .work-item {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
       .work-details {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: contents;
+      }
+
+      .work-title {
+        order: 1;
+        text-align: center;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .work-meta {
+        order: 2;
+        text-align: center;
+        margin-bottom: 1.5rem !important;
       }
 
       .work-visual-container {
+        order: 3;
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-bottom: 1rem !important;
+      }
+
+      .work-desc {
+        order: 4;
+        text-align: justify !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .work-link {
+        order: 5;
+        align-self: center;
+        margin-bottom: 2rem !important;
       }
 
       .blueprint-card {
@@ -1292,32 +1322,31 @@
       /* Overlay Grid Header Responsive Fixes */
       .overlay-header {
         padding: 1rem 0 !important;
+        margin-bottom: 2rem !important;
       }
 
       .overlay-nav-bar {
-        padding-right: 3.2rem; /* Avoid overlapping the fixed theme toggle button */
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        align-items: flex-start !important;
+        gap: 1.2rem !important;
+        padding-right: 3.2rem !important;
+      }
+
+      .overlay-nav-bar .back-btn {
+        align-self: flex-start !important;
+        margin-bottom: 0.2rem !important;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.75rem !important;
       }
 
       .overlay-header .decor-h2 {
         font-size: clamp(1.2rem, 5vw, 1.62rem) !important;
       }
-
-      .overlay-header .see-all-btn.back-btn {
-        padding: 0.5rem 1rem !important;
-        font-size: 0.75rem !important;
-      }
     }
 
     @media (max-width: 540px) {
-      .overlay-nav-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-        padding-right: 3.2rem;
-      }
-      .overlay-nav-bar .back-btn {
-        align-self: flex-start;
-      }
+      /* Redundant rules removed to prevent overriding mobile column-reverse order */
     }
 
     /* ── FULL-SCREEN GRID OVERLAY VIEW ── */
@@ -2067,8 +2096,8 @@
       <!-- Project 1: Sentio -->
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">VUE 3 + FASTAPI + NLP / DEEP LEARNING</div>
           <h2 class="work-title">Sentio</h2>
+          <div class="work-meta">VUE 3 + FASTAPI + NLP / DEEP LEARNING</div>
           <p class="work-desc">AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time
             journaling bias analysis. Features a RAG-enhanced Socratic assistant, custom Python therapist scrapers,
             Coherence caching for sub-100ms latency, and Google OAuth via Supabase.</p>
@@ -2081,7 +2110,7 @@
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
               <div class="screen-body"
-                style="background-image: url('projects/sentio.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                style="background-image: url('projects/sentio.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; border: none; font-size: 0; background-color: #0b101d;">
                 Sentio Cognitive Wellness
               </div>
             </div>
@@ -2092,8 +2121,8 @@
       <!-- Project 2: GitSyntropy -->
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">PYTHON + FASTAPI + LANGGRAPH + CLAUDE + ASTRO + POSTGRESQL + TYPESCRIPT</div>
           <h2 class="work-title">GitSyntropy</h2>
+          <div class="work-meta">PYTHON + FASTAPI + LANGGRAPH + CLAUDE + ASTRO + POSTGRESQL + TYPESCRIPT</div>
           <p class="work-desc">Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions : with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.</p>
           <a href="https://git-syntropy.vercel.app" target="_blank" class="work-link">Launch Simulator ↗</a>
         </div>
@@ -2104,7 +2133,7 @@
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
               <div class="screen-body"
-                style="background-image: url('projects/git-sync.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                style="background-image: url('projects/git-sync.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; border: none; font-size: 0; background-color: #0b101d;">
                 Behavioral Trace Graphing
               </div>
             </div>
@@ -2115,8 +2144,8 @@
       <!-- Project 3: Mitra -->
       <div class="work-item reveal-on-scroll">
         <div class="work-details">
-          <div class="work-meta">LANGGRAPH + SEMANTIC MEMORY + VECTOR RETRIEVAL + FASTAPI + NEXT.JS</div>
           <h2 class="work-title">Mitra</h2>
+          <div class="work-meta">LANGGRAPH + SEMANTIC MEMORY + VECTOR RETRIEVAL + FASTAPI + NEXT.JS</div>
           <p class="work-desc">Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.</p>
           <a href="https://mitra-theta.vercel.app" target="_blank" class="work-link">Launch Platform ↗</a>
         </div>
@@ -2127,7 +2156,7 @@
                 <div class="screen-dots"><span></span><span></span><span></span></div>
               </div>
               <div class="screen-body"
-                style="background-image: url('projects/mitra.webp'); background-size: cover; background-position: center; border: none; font-size: 0;">
+                style="background-image: url('projects/mitra.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; border: none; font-size: 0; background-color: #0b101d;">
                 AI Internship Discovery
               </div>
             </div>
