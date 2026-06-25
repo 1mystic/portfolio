@@ -260,16 +260,6 @@ const projects = [
     coverIcons: [`vuedotjs/${G}`, `fastapi/${G}`]
   },
   {
-    name: "Episteme",
-    category: "AI / ML",
-    description: "Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
-    tech: ["Next.js 15", "Claude 3.5 Sonnet", "Supabase", "BKT", "Vercel"],
-    demo: "https://episteme-chat.vercel.app",
-    github: "https://github.com/1mystic/episteme-chat",
-    cover: catGradients['AI / ML'],
-    coverIcons: [`nextdotjs/${G}`, `supabase/${G}`]
-  },
-  {
     name: "GitSyntropy",
     category: "AI / ML",
     description: "Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions : with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
@@ -280,6 +270,36 @@ const projects = [
     coverIcons: [`python/${G}`, `fastapi/${G}`]
   },
   {
+    name: "Mitra",
+    category: "AI / ML",
+    description: "Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
+    tech: ["LangGraph", "RAG", "LLM Agents", "Vector Retrieval", "Semantic Memory", "Adaptive Profiling", "Full-Stack AI"],
+    demo: "https://mitra-theta.vercel.app",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`python/${G}`, `huggingface/${G}`]
+  },
+  {
+    name: "EcoView",
+    category: "Web Apps",
+    description: "Production-deployed serverless civic tech platform for real-time pollution reporting, AI classification, and NGO coordination running at $0/month. Implemented a dual-mode ML pipeline distilling a Gemini VLM teacher into an edge-ready, 6MB ONNX model for mobile deployment. Features interactive maps, role-based dashboards, and a points-based verification system.",
+    tech: ["React", "Firebase", "FastAPI", "HuggingFace", "Gemini AI", "ONNX", "Vercel"],
+    demo: "https://eco-view.vercel.app/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Web Apps'],
+    coverIcons: [`react/${G}`, `firebase/${G}`]
+  },
+  {
+    name: "BayesInspector",
+    category: "AI / ML",
+    description: "Client-side probabilistic text classifier that exposes the full Naive Bayes reasoning chain, word by word, as you type. Shows prior, likelihood, and posterior scores for every class, and highlights the words that actually move the prediction. Uses a custom TypeScript inference engine with no ML runtime dependencies and runs entirely in the browser. Features pre-baked Spam, News, and Sentiment model weights.",
+    tech: ["React", "TypeScript", "Vite", "Framer Motion", "Naive Bayes", "Tailwind CSS"],
+    demo: "https://bayes-inspector.pages.dev/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`react/${G}`, `typescript/${G}`]
+  },
+  {
     name: "Axiom Canvas",
     category: "AI / ML",
     description: "Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively, with AI-generated contextual explanations and retrieval-augmented insights layered on top.",
@@ -288,6 +308,26 @@ const projects = [
     github: "https://github.com/1mystic",
     cover: catGradients['AI / ML'],
     coverIcons: [`huggingface/${G}`, `javascript/${G}`]
+  },
+  {
+    name: "Flipkart Gridlock",
+    category: "Data Analysis",
+    description: "Spatio-temporal traffic demand forecasting system achieving a top-tier score (92.39%) in the Flipkart GRiD Hackathon. Comprises a CatBoost & LightGBM ensemble pipeline integrated with an interactive cyberpunk operations dashboard featuring Leaflet maps, live analytics, and a hybrid client-side fallback simulation engine.",
+    tech: ["React", "Vite", "CatBoost", "LightGBM", "Leaflet.js", "FastAPI", "HuggingFace", "Ensemble Learning"],
+    demo: "https://flipkart-gridlock.vercel.app/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Data Analysis'],
+    coverIcons: [`react/${G}`, `python/${G}`]
+  },
+  {
+    name: "Episteme",
+    category: "AI / ML",
+    description: "Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
+    tech: ["Next.js 15", "Claude 3.5 Sonnet", "Supabase", "BKT", "Vercel"],
+    demo: "https://episteme-chat.vercel.app",
+    github: "https://github.com/1mystic/episteme-chat",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`nextdotjs/${G}`, `supabase/${G}`]
   },
   {
     name: "DominoML",
@@ -630,6 +670,15 @@ const experiments = [
 
   // ─── ACHIEVEMENTS ─────────────────────────────────────────────
   {
+    title: 'BDM Best Capstone Project Award',
+    subtitle: 'IIT Madras BS · 2026',
+    description: 'Received the BDM Best Capstone Project Award (Business Data Management) in the IIT Madras BS program for outstanding data-driven project implementation.',
+    howItWorks: 'Evaluated on rigorous data engineering, predictive modeling, business intelligence implementation, and comprehensive project execution using real-world enterprise datasets.',
+    tech: ['Business Data Management', 'Data Modeling', 'IIT Madras', 'Award Winner'],
+    type: 'Achievement',
+    links: [{ url: "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing", label: "View Award" }]
+  },
+  {
     title: 'Anthropic Claude Builder Club : 2nd Runner Up',
     subtitle: 'Spring 2026 Hackathon',
     description: 'Secured 2nd runner-up position in Anthropic\'s Claude Builder Club Hackathon (Spring 2026).',
@@ -691,6 +740,15 @@ const experiments = [
   },
 
   // ─── CERTIFICATIONS ───────────────────────────────────────────
+  {
+    title: 'BDM Best Capstone Project Certificate',
+    subtitle: 'IIT Madras · 2026',
+    description: 'Special capstone excellence certificate awarded for top performance in the Business Data Management course.',
+    howItWorks: 'Achieved outstanding score and rank in the capstone project evaluation, demonstrating professional capabilities in SQL database architecting, machine learning, and data product delivery.',
+    tech: ['Databases', 'Business Analytics', 'IIT Madras'],
+    type: 'Certificate',
+    links: [{ url: "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing", label: "Verify Award Certificate" }]
+  },
   {
     title: 'HackerRank SQL (Advanced)',
     subtitle: 'HackerRank · 2024',

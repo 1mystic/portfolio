@@ -1717,6 +1717,14 @@ footer a:hover { color: var(--accent); }
         </div>
         <ul class="update-list">
           <li class="update-item">
+            <span class="update-date">May 2026</span>
+            <div class="update-body">
+              <span class="update-title">BDM Best Capstone Project Award : Winner</span>
+              <span class="update-sub">IIT Madras · Business Data Management · Best Capstone Project</span>
+              <span class="update-pill pill-win">Won</span>
+            </div>
+          </li>
+          <li class="update-item">
             <span class="update-date">Apr 2026</span>
             <div class="update-body">
               <span class="update-title">Anthropic Claude Builder Club : 2nd Runner Up</span>
@@ -1834,7 +1842,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Projects</span>
-            <span class="band-count">24 entries</span>
+            <span class="band-count">29 entries</span>
           </div>
           <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform : each project is a working deployment or open-source repository.</p>
           <div class="band-tags">
@@ -1892,7 +1900,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Certificates</span>
-            <span class="band-count">9 entries</span>
+            <span class="band-count">10 entries</span>
           </div>
           <p class="band-desc">Verified credentials from HackerRank, DataCamp, Google Cloud, and IIT Madras : covering advanced SQL, data science fundamentals, GCP architecture, dynamic programming, machine learning, and Python programming with graded assessments.</p>
           <div class="band-tags">
@@ -1930,7 +1938,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Achievements</span>
-            <span class="band-count">7 entries</span>
+            <span class="band-count">6 entries</span>
           </div>
           <p class="band-desc">Competition wins and recognition : including 2nd place at IIT Madras Tech Dominion (Jan 2026), 2nd Runner Up at Anthropic's Claude Builder Club, Silver Medal at Paradox IITM 2025, and Hack4Health 3rd position.</p>
           <div class="band-tags">
@@ -1959,7 +1967,7 @@ footer a:hover { color: var(--accent); }
       <button class="filter-btn" data-filter="web">Web</button>
     </div>
     <div class="meta-bar">
-      <p class="item-count">Showing <span id="proj-count">24</span> projects</p>
+      <p class="item-count">Showing <span id="proj-count">29</span> projects</p>
     </div>
     <div class="grid" id="proj-grid"></div>
   </div>
@@ -1978,7 +1986,7 @@ footer a:hover { color: var(--accent); }
 
   <!-- ════ CERTIFICATES ════ -->
   <div class="section-panel" id="panel-certificates">
-    <div class="meta-bar"><p class="item-count"><span>9</span> certificates</p></div>
+    <div class="meta-bar"><p class="item-count"><span>10</span> certificates</p></div>
     <div class="grid" id="certs-grid"></div>
   </div>
 
@@ -1990,7 +1998,7 @@ footer a:hover { color: var(--accent); }
 
   <!-- ════ ACHIEVEMENTS ════ -->
   <div class="section-panel" id="panel-achievements">
-    <div class="meta-bar"><p class="item-count"><span>7</span> achievements</p></div>
+    <div class="meta-bar"><p class="item-count"><span>6</span> achievements</p></div>
     <div class="grid" id="achiev-grid"></div>
   </div>
 
@@ -2012,15 +2020,27 @@ const projects = [
   { title:"Sentio", sub:"sentio-go.vercel.app", href:"https://sentio-go.vercel.app/", github:"https://github.com/1mystic/Sentio", cat:"platform", catLabel:"Platform",
     desc:"AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, custom Python therapist scrapers, Coherence caching for sub-100ms latency, and Google OAuth via Supabase. Built with FastAPI, Vue 3, and Resend.",
     tags:["Vue 3","FastAPI","NLP/DL","Supabase","Web Scraping"] },
-  { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
-    tags:["Next.js 15","Claude 3.5 Sonnet","Supabase","BKT","Vercel"] },
   { title:"GitSyntropy", sub:"git-syntropy.vercel.app", href:"https://git-syntropy.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions : with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
+    desc:"Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions — with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
     tags:["Python","FastAPI","LangGraph","Claude","Astro","PostgreSQL","TypeScript"] },
+  { title:"Mitra", sub:"mitra-theta.vercel.app", href:"https://mitra-theta.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+    desc:"Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
+    tags:["LangGraph","RAG","LLM Agents","Vector Retrieval","Semantic Memory","Adaptive Profiling","Full-Stack AI"] },
+  { title:"EcoView", sub:"eco-view.vercel.app", href:"https://eco-view.vercel.app/", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
+    desc:"Production-deployed serverless civic tech platform for real-time pollution reporting, AI classification, and NGO coordination running at $0/month. Implemented a dual-mode ML pipeline distilling a Gemini VLM teacher into an edge-ready ONNX model (~6MB) for mobile deployment. Features interactive maps, role-based dashboards, and a points-based verification system.",
+    tags:["React","Firebase","FastAPI","HuggingFace","Gemini AI","ONNX","Vercel"] },
+  { title:"BayesInspector", sub:"bayes-inspector.pages.dev", href:"https://bayes-inspector.pages.dev/", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
+    desc:"Client-side probabilistic text classifier that exposes the full Naive Bayes reasoning chain, word by word, as you type. Shows prior, likelihood, and posterior scores for every class, and highlights the words that actually move the prediction. Uses a custom TypeScript inference engine with no ML runtime dependencies and runs entirely in the browser. Features Spam, News, and Sentiment models.",
+    tags:["React","TypeScript","Vite","Framer Motion","Naive Bayes","Tailwind CSS"] },
   { title:"Axiom Canvas", sub:"axiom-canvas.onrender.com", href:"https://axiom-canvas.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
     desc:"Math visualization engine powered by the Desmos API and OpenRouter AI with RAG. Users explore mathematical concepts interactively, with AI-generated contextual explanations and retrieval-augmented insights layered on top.",
     tags:["Desmos API","OpenRouter","RAG","JavaScript"] },
+  { title:"Flipkart Gridlock", sub:"flipkart-gridlock.vercel.app", href:"https://flipkart-gridlock.vercel.app/", github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
+    desc:"Spatio-temporal traffic demand forecasting system achieving a top-tier score (92.39%) in the Flipkart GRiD Hackathon. Comprises a CatBoost & LightGBM ensemble pipeline integrated with an interactive cyberpunk operations dashboard featuring Leaflet maps, live analytics, and a hybrid client-side fallback simulation engine.",
+    tags:["React","Vite","CatBoost","LightGBM","Leaflet.js","FastAPI","HuggingFace","Ensemble Learning"] },
+  { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI",
+    desc:"Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
+    tags:["Next.js 15","Claude 3.5 Sonnet","Supabase","BKT","Vercel"] },
   { title:"DominoML", sub:"domino-ml.onrender.com", href:"https://domino-ml.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
     desc:"Visual drag-and-drop ML pipeline builder built with Flask and SQLite. Users compose, connect, and run machine learning steps via a node-based canvas. Supports Marked.js and MathJax for in-app documentation rendering.",
     tags:["Flask","SQLite","Drag & Drop","MathJax"] },
@@ -2028,22 +2048,22 @@ const projects = [
     desc:"Civic tech platform for pollution reporting and verification with geotagged submissions. Uses TensorFlow for pollution detection and a React map interface where users can submit and verify environmental reports in real time.",
     tags:["TensorFlow","React","Geotagging","Civic Tech"] },
   { title:"SOHOS ED", sub:"School Optimization & Holistic Operating System", href:null, github:"https://github.com/1mystic/Sohos-ED", cat:"edu", catLabel:"Education",
-    desc:"Data-driven educational consultancy and SaaS platform for 400,000+ Indian budget private schools. Automates NEP 2020/PARAKH compliance via Japanese Tokkatsu methodologies. Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.",
+    desc:"Data-driven educational consultancy and SaaS platform for 400,000+ Indian budget private schools. Automates NEP 2020/PARAKH compliance via Japanese Tokkatsu methodologies (Han groups, Chokai, Toban, Soji). Linear programming optimizes budget allocation and generates 6-page school transformation roadmaps.",
     tags:["HTML5","JavaScript","Linear Programming","NEP 2020","PDF Generation","localStorage"] },
   { title:"DineOps", sub:"Restaurant Intelligence & Optimization Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
     desc:"6-layer restaurant intelligence system combining demand forecasting (SARIMA / LSTM / Transformer ensemble), LP/MILP staffing optimization, stochastic inventory planning, and LLM-driven executive reporting. Fuses weather, news sentiment, and holiday signals into a closed-loop prediction-to-decision pipeline.",
     tags:["FastAPI","PostgreSQL","SARIMA","LSTM","LangGraph","Optimization","Python"] },
   { title:"DevLoft", sub:"devloft-tools.netlify.app", href:"https://devloft-tools.netlify.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
-    desc:"19 client-side developer utilities built from real data science workflows : JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-SQL, hash/encode, and more. Zero dependencies, everything runs in the browser.",
+    desc:"19 client-side developer utilities built from real data science workflows — JSON processing, regex testing, LLM cost estimator, statistical calculators, CSV-to-SQL, hash/encode, and more. Zero dependencies, everything runs in the browser.",
     tags:["React","TypeScript","Vite","Zero-dep"] },
   { title:"MarkTex", sub:"marktex.wasmer.app", href:"https://marktex.wasmer.app", github:"https://github.com/1mystic", cat:"tool", catLabel:"Dev Tool",
     desc:"Full-featured Markdown + LaTeX editor with live preview, annotation mode (pen, shapes, arrows), HTML/CSS injection, and one-click export to PDF or HTML. Includes a quick snippet library for headings, tables, math, and code.",
     tags:["Wasmer","LaTeX","PDF Export","Annotation"] },
   { title:"Aura-Delhi", sub:"AI Air Quality Platform", href:null, github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
-    desc:"Comprehensive air quality monitoring and forecasting platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, PyTorch ML engine for source identification, Prefect data pipeline, and TimescaleDB : deployed on GCP with Kubernetes.",
+    desc:"Comprehensive air quality monitoring and forecasting platform for the Delhi-NCR region. Features a Next.js policy dashboard, Flutter citizen app, PyTorch ML engine for source identification, Prefect data pipeline, and TimescaleDB — deployed on GCP with Kubernetes.",
     tags:["Next.js","Flutter","FastAPI","PyTorch","GCP","K8s"] },
   { title:"PyCrumbs", sub:"pycrumbs.netlify.app", href:"https://pycrumbs.netlify.app", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
-    desc:"Interactive step-by-step Python learning platform for beginners. Guides learners through Python concepts in small, digestible chunks with hands-on exercises : designed to make the learning curve as smooth as possible.",
+    desc:"Interactive step-by-step Python learning platform for beginners. Guides learners through Python concepts in small, digestible chunks with hands-on exercises — designed to make the learning curve as smooth as possible.",
     tags:["React","Netlify","Python Education"] },
   { title:"Transformer: Text-to-Emoji", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
     desc:"From-scratch PyTorch implementation of the full encoder-decoder Transformer architecture for translating text phrases to emojis. Includes multi-head attention, sinusoidal positional encoding, AdamW training, greedy decoding, and attention weight visualization.",
@@ -2055,7 +2075,7 @@ const projects = [
     desc:"Geospatial research report on 5,000 Zomato and Swiggy orders across 20 Bhopal localities. Includes order density heatmaps, platform comparison (55:45 split), peak hour analysis, locality-level revenue breakdown, and a downloadable CSV dataset.",
     tags:["Python","Pandas","GeoPandas","Matplotlib"] },
   { title:"Whiz.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
-    desc:"Full-stack quiz platform with AI-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks : daily reminder emails, monthly activity reports, and downloadable PDF report generation.",
+    desc:"Full-stack quiz platform with AI-powered answer feedback (Gemini), score history, bookmarks, leaderboard, and admin RBAC panel. Features Celery and Redis for async tasks — daily reminder emails, monthly activity reports, and downloadable PDF report generation.",
     tags:["Vue 3","Flask","Celery","Redis","Gemini API"] },
   { title:"Qwix.it", sub:"GitHub project", href:null, github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
     desc:"Multi-role household service marketplace connecting customers, professionals, and admins. Customers book and review services; professionals manage packages and requests; admins oversee the platform with RBAC. Built with Flask, Bootstrap, and payment integration.",
@@ -2079,10 +2099,10 @@ const projects = [
     desc:"Interactive 3D origami simulator with physics-based aerodynamics. Import OBJ/GLTF models, fold step-by-step, and simulate realistic wind, gravity, and air density on folded models. Includes a crease pattern editor, pre-loaded model library, and live simulation stats.",
     tags:["Three.js","React 18","Tailwind","Physics","Vite"] },
   { title:"Kanha Student House", sub:"kanha-min.netlify.app", href:"https://kanha-min.netlify.app", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
-    desc:"Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents : a polished minimal landing page.",
+    desc:"Clean marketing website for Kanha Student House PG accommodation. Designed to showcase the property, amenities, and contact information for prospective student residents — a polished minimal landing page.",
     tags:["React","Netlify","Landing Page"] },
-  { title:"Portfolio : atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
-    desc:"Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.02). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
+  { title:"Portfolio — atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
+    desc:"Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.01). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
     tags:["React","Next.js","GitHub Pages","Vercel"] },
 ];
 
@@ -2144,6 +2164,9 @@ const blogs = [
 ];
 
 const certificates = [
+  { title:"BDM Best Capstone Award", sub:"IIT Madras · 2026", href:"https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing", cat:"cert", catLabel:"Certificate",
+    desc:"Best Capstone Project Certificate awarded for outstanding project implementation and data modeling in the Business Data Management course in the IIT Madras BS program.",
+    tags:["SQL","Databases","Business Analytics","IIT Madras"] },
   { title:"HackerRank SQL (Advanced)", sub:"HackerRank · 2024", href:"https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing", cat:"cert", catLabel:"Certificate",
     desc:"Certified proficiency in advanced SQL : covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.",
     tags:["SQL","Databases","HackerRank"] },
@@ -2183,6 +2206,9 @@ const education = [
 ];
 
 const achievements = [
+  { title:"BDM Best Capstone Project Award", sub:"IIT Madras · 2026", href:"https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing", cat:"award", catLabel:"Capstone Award",
+    desc:"Received the Business Data Management (BDM) Best Capstone Project Award at IIT Madras BS for outstanding project execution and predictive analytics modeling.",
+    tags:["Award","IIT Madras","Best Capstone"] },
   { title:"Anthropic Claude Builder Club : 2nd Runner Up", sub:"Spring 2026 Hackathon · April 2026", href:null, cat:"award", catLabel:"Hackathon Win",
     desc:"Secured 2nd runner-up position in Anthropic's Claude Builder Club Hackathon (Spring 2026), receiving a $300 prize for innovative application of LLM technology.",
     tags:["Anthropic","Claude","Hackathon","Prize Winner"] },
@@ -2198,12 +2224,6 @@ const achievements = [
   { title:"MR Focused Title : SPSN", sub:"School recognition", href:null, cat:"title", catLabel:"Title",
     desc:"Awarded the 'Mr Focused' title at SPSN : a recognition of consistent dedication, academic discipline, and focused pursuit of excellence over the course of the school programme.",
     tags:["Award","Title","School"] },
-  { title:"HackerRank SQL : Advanced Certified", sub:"Verified · 2024", href:"https://www.hackerrank.com/certificates/d366117ff2b9", cat:"cert", catLabel:"Certification",
-    desc:"Passed HackerRank's advanced SQL certification with a verified credential : demonstrating professional-grade database querying skills recognised by recruiters globally.",
-    tags:["SQL","HackerRank","Verified"] },
-  { title:"DataCamp Data Science Associate", sub:"Proctored · 2025", href:null, cat:"cert", catLabel:"Certification",
-    desc:"Earned the DataCamp Data Science Associate certification through a rigorous multi-stage proctored assessment covering Python, SQL, statistics, and machine learning.",
-    tags:["DataCamp","Proctored","Data Science","2025"] },
 ];
 
 /* ─── RENDER ────────────────────────────────────────────────── */
