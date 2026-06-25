@@ -1665,10 +1665,10 @@ footer a:hover { color: var(--accent); }
 
   <!-- ── SECTION NAVBAR ── -->
   <nav class="section-nav" id="sectionNav">
-    <button class="nav-btn" data-section="projects">Projects<span class="nav-badge">24</span></button>
+    <button class="nav-btn" data-section="projects">Projects<span class="nav-badge">29</span></button>
     <button class="nav-btn" data-section="research">Research<span class="nav-badge">6</span></button>
-    <button class="nav-btn" data-section="blogs">Writing<span class="nav-badge">11</span></button>
-    <button class="nav-btn" data-section="certificates">Certs<span class="nav-badge">9</span></button>
+    <button class="nav-btn" data-section="blogs">Writing<span class="nav-badge">13</span></button>
+    <button class="nav-btn" data-section="certificates">Certs<span class="nav-badge">10</span></button>
     <button class="nav-btn" data-section="education">Education<span class="nav-badge">2</span></button>
     <button class="nav-btn" data-section="achievements">Awards<span class="nav-badge">7</span></button>
   </nav>
@@ -1685,7 +1685,7 @@ footer a:hover { color: var(--accent); }
       </p>
       <div class="home-stats">
         <div class="stat-cell">
-          <span class="stat-num" data-count="24">24</span>
+          <span class="stat-num" data-count="29">29</span>
           <span class="stat-label">Projects</span>
         </div>
         <div class="stat-cell">
@@ -1693,16 +1693,16 @@ footer a:hover { color: var(--accent); }
           <span class="stat-label">Research works</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="11">11</span>
+          <span class="stat-num" data-count="13">13</span>
           <span class="stat-label">Articles</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="9">9</span>
+          <span class="stat-num" data-count="10">10</span>
           <span class="stat-label">Certificates</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num">9.02</span>
-          <span class="stat-label">CGPA</span>
+          <span class="stat-num" data-count="18">18</span>
+          <span class="stat-label">Deployed</span>
         </div>
       </div>
     </div>
@@ -1717,18 +1717,18 @@ footer a:hover { color: var(--accent); }
         </div>
         <ul class="update-list">
           <li class="update-item">
-            <span class="update-date">May 2026</span>
-            <div class="update-body">
-              <span class="update-title">BDM Best Capstone Project Award : Winner</span>
-              <span class="update-sub">IIT Madras · Business Data Management · Best Capstone Project</span>
-              <span class="update-pill pill-win">Won</span>
-            </div>
-          </li>
-          <li class="update-item">
             <span class="update-date">Apr 2026</span>
             <div class="update-body">
               <span class="update-title">Anthropic Claude Builder Club : 2nd Runner Up</span>
               <span class="update-sub">Spring 2026 Hackathon · April 2026 · $300 Prize</span>
+              <span class="update-pill pill-win">Won</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Jan 2026</span>
+            <div class="update-body">
+              <span class="update-title">BDM Best Capstone Project Award : Winner</span>
+              <span class="update-sub">IIT Madras · Business Data Management · Best Capstone Project</span>
               <span class="update-pill pill-win">Won</span>
             </div>
           </li>
@@ -2128,6 +2128,12 @@ const research = [
 ];
 
 const blogs = [
+  { title:"Reflection on This World", sub:"Philosophical Essay", href:"../fresh/posts/reflection-on-this-world.html", cat:"blog", catLabel:"Essay",
+    desc:"A deep philosophical analysis of modern societal hyper-convenience, capitalism, metric obsession, and the loss of collective wisdom.",
+    tags:["Social Commentary","Philosophy"] },
+  { title:"A Pilgrim of Passing Things", sub:"Poem", href:"../fresh/posts/pilgrim.html", cat:"blog", catLabel:"Poetry",
+    desc:"A prose poem exploring wandering, curiosity, transience, and the beauty hidden within ordinary moments.",
+    tags:["Poetry","Philosophy"] },
   { title:"Understanding Attention Mechanisms", sub:"Technical deep-dive", href:"../fresh/posts/attention-mechanisms.html", cat:"tutorial", catLabel:"Tutorial",
     desc:"A detailed walkthrough of the self-attention mechanism in Transformers : from the mathematical formulation of scaled dot-product attention to multi-head attention, with annotated code and visualizations.",
     tags:["Transformers","NLP","Deep Learning","PyTorch"] },
