@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@500;700&family=Raleway:wght@700;800&family=Fira+Code:wght@500;600&display=swap" rel="stylesheet">
 
+  <script src="/visit-counter.js"></script>
+  
   <style>
     :root {
       --ink:           #292524;
@@ -355,25 +357,6 @@
       border-top: 2px dashed var(--surface-sunken);
       padding-top: 16px;
       margin-top: 8px;
-    }
-
-    .visit-counter {
-      position: fixed;
-      right: 18px;
-      bottom: 16px;
-      z-index: 1200;
-      padding: 8px 12px;
-      border: 2px solid var(--ink);
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 4px 4px 0px var(--ink);
-      font-family: var(--mono-font);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      pointer-events: none;
-      user-select: none;
-      text-transform: uppercase;
     }
 
     /* =========================================
@@ -1034,8 +1017,6 @@
     </div>
   </div>
 
-  <div class="visit-counter" id="visitCounter" aria-live="polite">VISITS --</div>
-
   <script>
     const startScreen = document.getElementById('startScreen');
     const gameWrapper = document.getElementById('gameWrapper');
@@ -1043,10 +1024,8 @@
     const player = document.getElementById('player');
     const gameOverScreen = document.getElementById('gameOverScreen');
     const scoreDisplay = document.getElementById('scoreDisplay');
-    const visitCounter = document.getElementById('visitCounter');
-
-    const VISIT_COUNTER_NAMESPACE = 'atharvk-pages-dev';
-    const VISIT_COUNTER_KEY = 'portfolio-index';
+    const VISIT_COUNTER_NAMESPACE = 'atharvkpagedev';
+    const VISIT_COUNTER_KEY = 'site-visits';
     
     let isGameOver = true; 
     let frameCount = 0;
@@ -1358,18 +1337,17 @@
     }
 
     async function updateVisitCounter() {
-      if (!visitCounter) return;
-
       try {
+        await fetch(`https://api.countapi.xyz/create/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}?value=0`, {
+          cache: 'no-store'
+        });
+
         const response = await fetch(`https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`);
         if (!response.ok) {
           throw new Error('Counter request failed');
         }
-
-        const data = await response.json();
-        visitCounter.textContent = `VISITS ${String(data.value).padStart(5, '0')}`;
       } catch (error) {
-        visitCounter.textContent = 'VISITS --';
+        // Silent fallback: keep the page working even if the counter service is unavailable.
       }
     }
 
