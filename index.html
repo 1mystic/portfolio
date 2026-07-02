@@ -357,6 +357,25 @@
       margin-top: 8px;
     }
 
+    .visit-counter {
+      position: fixed;
+      right: 18px;
+      bottom: 16px;
+      z-index: 1200;
+      padding: 8px 12px;
+      border: 2px solid var(--ink);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 4px 4px 0px var(--ink);
+      font-family: var(--mono-font);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      pointer-events: none;
+      user-select: none;
+      text-transform: uppercase;
+    }
+
     /* =========================================
        GAME UI & WORLD
        ========================================= */
@@ -1015,6 +1034,8 @@
     </div>
   </div>
 
+  <div class="visit-counter" id="visitCounter" aria-live="polite">VISITS --</div>
+
   <script>
     const startScreen = document.getElementById('startScreen');
     const gameWrapper = document.getElementById('gameWrapper');
@@ -1022,6 +1043,10 @@
     const player = document.getElementById('player');
     const gameOverScreen = document.getElementById('gameOverScreen');
     const scoreDisplay = document.getElementById('scoreDisplay');
+    const visitCounter = document.getElementById('visitCounter');
+
+    const VISIT_COUNTER_NAMESPACE = 'atharvk-pages-dev';
+    const VISIT_COUNTER_KEY = 'portfolio-index';
     
     let isGameOver = true; 
     let frameCount = 0;
@@ -1331,6 +1356,24 @@
       lastTime = 0; // Reset lastTime for delta-time calculations
       requestAnimationFrame(update);
     }
+
+    async function updateVisitCounter() {
+      if (!visitCounter) return;
+
+      try {
+        const response = await fetch(`https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`);
+        if (!response.ok) {
+          throw new Error('Counter request failed');
+        }
+
+        const data = await response.json();
+        visitCounter.textContent = `VISITS ${String(data.value).padStart(5, '0')}`;
+      } catch (error) {
+        visitCounter.textContent = 'VISITS --';
+      }
+    }
+
+    updateVisitCounter();
   </script>
 </body>
 </html>
