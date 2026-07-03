@@ -2543,3 +2543,109 @@ body.dark-mode .thumb-general {
     color: #888;
     font-family: var(--font-mono);
 }
+
+/* Read Next Cards - Responsive Adjustments */
+.read-next-section .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+}
+
+@media (min-width: 640px) {
+    .read-next-section .blog-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .read-next-section .blog-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+.read-next-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.read-next-section {
+    margin-top: 3rem;
+}
+
+/* Poetry Styling */
+.poem-section {
+    margin: 3rem 0 2rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.poem-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.poem-text {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--text-main);
+    margin: 1.5rem 0;
+}
+
+.poem-text p {
+    margin: 0.8rem 0;
+    color: var(--text-main);
+    font-size: 1.15rem;
+}
+
+.poem-attribution {
+    font-style: italic;
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    text-align: right;
+}
+
+body.dark-mode .poem-section {
+    border-color: #333;
+}
+
+body.dark-mode .poem-text p {
+    color: var(--text-main);
+}
+
+/* Read Counter (per-post) */
+.read-counter-wrap {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2.5rem;
+}
+
+.read-counter {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color-light);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-transform: uppercase;
+}
+
+.read-counter::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-purple);
+    display: inline-block;
+}
+
+body.dark-mode .read-counter {
+    border-color: #444;
+    color: var(--text-muted);
+}
