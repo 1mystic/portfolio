@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From a 0.752 Kaggle Score to a Metacognition Engine: The Reflecta Story | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="How a stalled Kaggle MCQ competition, a ~25% wrong answer-key rate, and three knowledge-tracing models led to Reflecta, a reflective learning intelligence layer.">
+    <meta name="keywords"
+        content="Atharv Khare, Reflecta, Kaggle, IRT, BKT, SAKT, Knowledge Tracing, Machine Learning, FastAPI, Metacognition">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/posts/reflecta.html">
+    <meta property="og:title" content="From a 0.752 Kaggle Score to a Metacognition Engine: The Reflecta Story | Atharv Khare">
+    <meta property="og:description"
+        content="A technical narrative: what Reflecta is, why it exists, what broke along the way, and what the numbers actually say.">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        .blog-article pre.mermaid {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            padding: 1.75rem 1.25rem;
+        }
+
+        .blog-article pre.mermaid svg {
+            max-width: none !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        @media (max-width: 640px) {
+            .blog-article pre.mermaid {
+                padding: 1.25rem 0.75rem;
+            }
+        }
+
+        .mermaid-expand-btn {
+            position: absolute;
+            top: 0.6rem;
+            right: 0.6rem;
+            width: 2.1rem;
+            height: 2.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            opacity: 0.85;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            z-index: 2;
+        }
+
+        .mermaid-expand-btn:hover {
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
+        .mermaid-expand-btn .material-symbols-outlined {
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .mermaid-expand-btn {
+            background: #222;
+            border-color: #444;
+            color: #eee;
+        }
+
+        .mermaid-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            z-index: 9999;
+            padding: 3rem 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-modal-overlay.active {
+            display: flex;
+        }
+
+        .mermaid-modal-content {
+            position: relative;
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 95vw;
+            max-height: 90vh;
+            overflow: auto;
+        }
+
+        body.dark-mode .mermaid-modal-content {
+            background: #181818;
+        }
+
+        .mermaid-modal-content svg {
+            width: auto !important;
+            height: auto !important;
+            max-width: none !important;
+        }
+
+        .mermaid-modal-close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.75rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        body.dark-mode .mermaid-modal-close {
+            background: #222;
+            border-color: #444;
+            color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">The Kaggle Wall</a></li>
+                        <li><a href="#pivot">The Pivot</a></li>
+                        <li><a href="#research">Three Models, One Honest Failure</a></li>
+                        <li><a href="#architecture">Turning Research into a Product</a></li>
+                        <li><a href="#debugging">Debugging in the Open</a></li>
+                        <li><a href="#engineering">Engineering Practice</a></li>
+                        <li><a href="#missing">What's Still Missing</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Machine Learning</span>
+                        <span class="blog-tag">Project</span>
+                    </div>
+                    <h1 class="article-title">From a 0.752 Kaggle Score to a Metacognition Engine: The Reflecta Story</h1>
+                    <div class="article-meta">
+                        <span>Jul 17, 2026</span> • <span>14 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">A technical narrative for anyone reviewing this project: what it is, why it exists, what broke along the way, and what the numbers actually say.</p>
+
+                    <p>Live: <a href="https://reflecta-j1wz.onrender.com/" target="_blank">reflecta-j1wz.onrender.com</a></p>
+
+                    <h2>1. It started as a Kaggle competition that hit a wall</h2>
+                    <p>The brief was ordinary: predict the top-3 ranked answers for 5-option MCQs, scored by <strong>MAP@3</strong>. Train on 2,000 rows, submit on 500. A retrieval-based lookup got to <strong>0.752</strong> fast, the training set had heavy duplication (7.94 copies per unique question on average), so matching a test question to its training twin and returning the majority label was already most of the signal.</p>
+
+                    <p>Then progress stalled. Four different rank-2/3 strategies were tried, character similarity, a bigram style language model, full-text matching, majority voting across all three, and every one of them landed within <strong>0.004</strong> of each other. That's noise, not signal. Something else was capping the score, and it wasn't a modeling problem.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    A[2000 train rows] --> B[252 unique core questions&lt;br/&gt;7.94x duplication]
+    B --> C[Retrieval lookup&lt;br/&gt;label-majority]
+    C --> D[LB score: 0.752]
+    D --> E{Push rank-2/3&lt;br/&gt;harder?}
+    E -->|4 strategies tried| F[±0.004 - noise]
+    F --> G[Diagnosis: something else&lt;br/&gt;caps the score]
+                    </pre>
+
+                    <h3>The diagnosis: the ceiling wasn't the model, it was the data</h3>
+                    <p>A leave-one-out experiment inside the training set gave label-majority retrieval a <strong>perfect 1.000 MAP@3</strong>, zero label conflicts across 1,970 pairs tested. So the training data was internally consistent. But every test question matched its training twin with <strong>similarity = 1.0</strong> for the highest-leverage questions, meaning text drift couldn't explain the gap either.</p>
+
+                    <p>The only hypothesis left: <strong>for roughly 25% of the training set's unique questions, the answer key itself was wrong or genuinely ambiguous.</strong> A leave-one-question-out model trained on the other 251 questions disagreed with the recorded answer key on 146 of 252 questions (58%), with 58 of those disagreements at high confidence, startlingly close to the ~57 questions the back-calculated error rate implied were actually wrong.</p>
+
+                    <p>This is the finding the whole rest of this project is built on: <strong>a real, human-authored question bank had a ~25% wrong-or-disputed answer key rate, and no amount of retrieval or feature engineering could fix that, because the ceiling wasn't in the algorithm.</strong></p>
+                </section>
+
+                <section id="pivot">
+                    <h2>2. The pivot: stop answering, start understanding the answerer</h2>
+                    <p>Answering MCQs correctly was capped by data quality outside anyone's control. But the underlying capability, telling apart genuine understanding from surface pattern matching, is real and reusable. It's just aimed at the wrong target. Point it at a <strong>learner</strong> instead of an answer key, and you get something genuinely useful: a system that can tell whether a person actually understands a concept, not whether a lookup table agrees with a label.</p>
+
+                    <p>That's Reflecta: a <strong>reflective learning intelligence layer</strong>. You take a short quiz, tell it why you're learning, and it tells you three things a raw score can't:</p>
+
+                    <ol>
+                        <li><strong>Did you understand it, or memorize the phrasing?</strong> Every quiz includes reworded twins of the same question. A big accuracy drop on the reworded version is the same invariance-probing idea from the Kaggle project, now pointed at a human.</li>
+                        <li><strong>Are you calibrated?</strong> Confidence is compared against actual accuracy (Expected Calibration Error) to catch over- and under-confidence.</li>
+                        <li><strong>Does your mastery serve your actual goal?</strong> State your goal in plain English; your per-concept mastery is projected onto what that goal requires, surfacing the highest-leverage gap, not a generic list of weak spots.</li>
+                    </ol>
+
+                    <pre class="mermaid">
+flowchart LR
+    subgraph Legacy["Kaggle: answering the question"]
+        direction LR
+        L1[Retrieval + text similarity] --> L2[0.752 ceiling] --> L3[~25% wrong answer keys&lt;br/&gt;unfixable by algorithm]
+    end
+    subgraph Reflecta["Reflecta: understanding the answerer"]
+        direction LR
+        R1[Same invariance-probing idea] --> R2[Pointed at the learner,&lt;br/&gt;not the answer key] --> R3[Memorization vs understanding&lt;br/&gt;Calibration&lt;br/&gt;Intent -&gt; gap]
+    end
+    L3 -.->|the reusable primitive| R1
+                    </pre>
+                </section>
+
+                <section id="research">
+                    <h2>3. The research: three models, one honest failure, and why that failure matters</h2>
+                    <p>"Mastery" needs a principled definition, not just raw percent-correct, percent-correct conflates how hard the questions were with how able the learner is. Three models were built, in order of complexity, all trained on <strong>real data</strong>: <strong>525,534 interactions</strong> from the ASSISTments 2009 knowledge-tracing dataset, split <strong>by learner</strong> (never by row) so that duplicate-leakage, the exact trap that inflated the Kaggle project's validation scores, can't happen again.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    D[(ASSISTments 2009&lt;br/&gt;525,534 interactions)] --> S[Group-aware split&lt;br/&gt;by learner_id]
+    S --> IRT[IRT - 1PL / Rasch]
+    S --> BKT[BKT - per-skill HMM]
+    S --> SAKT[SAKT - self-attention]
+    IRT --> R1[Val AUC: 0.506]
+    BKT --> R2[Val AUC: 0.763]
+    SAKT --> R3[Val AUC: 0.803]
+    R1 -.->|explains| CS[Cold-start problem]
+    CS --> Fix[Online per-session&lt;br/&gt;MAP ability estimate]
+                    </pre>
+
+                    <h3>3.1 &mdash; IRT (Item Response Theory), and its honest failure</h3>
+                    <p>The classic Rasch model: <code>P(correct) = sigmoid(&theta;_learner &minus; b_item)</code>, fit by maximum likelihood via gradient ascent. On held-out learners it scored <strong>AUC 0.506</strong>, barely above the coin-flip line.</p>
+
+                    <p>That's not a bug. It's the textbook cold-start problem: 1PL IRT has no way to estimate &theta; for a learner it never trained on. The number is reported as-is, not hidden, because it's the most important negative result in the whole project, it's what motivated <strong>online ability estimation</strong>: freeze the item difficulties learned offline, then fit just the new learner's &theta; via MAP with a Gaussian prior, from their live quiz answers. That's what actually estimates mastery for a real learner today.</p>
+
+                    <p>A detail that turned out to matter more than expected: Newton's method forms the Hessian of the log-posterior on every step, and the <strong>Laplace posterior variance of &theta; is exactly &minus;1/Hessian</strong>, already computed, and originally thrown away. That variance is the model's uncertainty about the learner: it starts at the prior (the model knows nothing) and shrinks as consistent evidence arrives. Surfacing it cost one line and became the live "the model is getting surer about you" signal (see §4.5).</p>
+
+                    <h3>3.2 &mdash; BKT (Bayesian Knowledge Tracing), AUC 0.763</h3>
+                    <p>A 2-state HMM per skill, tracking P(knows) over a learner's sequence of attempts, interpretable, and a strong classical baseline, comparable to published numbers on this dataset.</p>
+
+                    <h3>3.3 &mdash; SAKT (Self-Attentive Knowledge Tracing), AUC 0.803</h3>
+                    <p>A from-scratch PyTorch implementation: causal-masked self-attention over the interaction sequence, so the prediction for the next exercise can attend over the whole history, not just the current skill. Custom <code>Dataset</code>, custom training loop, validation AUC tracked per epoch, it beat BKT by 4 points, landing in the range published research reports for this exact dataset.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    E["exercise e_t (query)"] --> ATT["causal-masked self-attention"]
+    X["past interactions, x before t (K,V)"] --> ATT
+    ATT --> FF["add+norm -&gt; FFN -&gt; add+norm"] --> O["sigmoid -&gt; P(correct_t)"]
+                    </pre>
+
+                    <h3>3.4 &mdash; Why the trained SAKT isn't in the live product (yet)</h3>
+                    <p>This is worth stating plainly rather than glossing over: SAKT is trained on <strong>ASSISTments' exercise vocabulary</strong>. The live quiz bank is a different, disjoint item space (curated and Claude-generated questions with their own concept taxonomy). Serving live sessions through the ASSISTments-trained model would mean looking up embeddings for exercise IDs it never saw, silently meaningless output, not just suboptimal. That's the same cold-start/domain-mismatch failure mode as the IRT result above, applied to a different model. Online IRT (§3.1) serves live mastery today because it only needs the quiz bank's authored item difficulties, not a model trained on someone else's item space. The fix, training a KT model on the bank's own exercise space once enough consented product sessions exist, is a tracked roadmap item, not a silent gap.</p>
+                </section>
+
+                <section id="architecture">
+                    <h2>4. Turning research into a product: architecture</h2>
+                    <p>The product layer sits on top of the research: a static SPA client talks to a FastAPI backend, which routes through the ML core (behavior signals, online IRT, an intent-to-gap mapper, and the reflection engine) while offline research (IRT/BKT training on the ASSISTments rows, and SAKT training in PyTorch) stays tracked in MLflow, inspectable by the product's own reports endpoint.</p>
+
+                    <pre class="mermaid">
+flowchart TB
+    subgraph Client["Browser - static SPA, zero build step"]
+        Landing[Landing page] -->|Get started| Shell[App shell: sidebar + screens]
+        Shell --> Quiz[Quiz flow]
+        Shell --> Vitals[Live Cognitive Vitals&lt;br/&gt;reactive face + ability curve]
+        Shell --> Results[Reflection dashboard]
+        Shell --> Lab[Model Lab&lt;br/&gt;offline AUCs from MLflow]
+        Shell --> Reports[Model health / Reports]
+        Shell --> Arch[Live architecture diagram]
+    end
+
+    subgraph API["FastAPI (api/main.py)"]
+        Bank[Question bank&lt;br/&gt;curated + Claude-generated]
+        Analysis[Analysis pipeline]
+        Mon[Monitoring / Reports]
+    end
+
+    subgraph Core["src/reflecta - the ML core"]
+        Behavior[Behavior signals]
+        OIRT[Online IRT]
+        Gap[Intent -&gt; gap mapper]
+        Reflect[Reflection engine]
+    end
+
+    subgraph Offline["Offline research (MLflow-tracked)"]
+        Pipe[IRT + BKT training&lt;br/&gt;on 525k ASSISTments rows]
+        SaktT[SAKT training - PyTorch]
+        MLflow[(MLflow SQLite&lt;br/&gt;+ model registry)]
+    end
+
+    Quiz <-->|REST, answers never&lt;br/&gt;reach the client| API
+    Analysis --> Behavior & OIRT & Gap --> Reflect
+    Bank -->|structured outputs&lt;br/&gt;+ independent verification| Claude[Claude API]
+    Pipe & SaktT --> MLflow
+    MLflow -.->|inspected by| Mon
+                    </pre>
+
+                    <h3>Quizzing on any topic, and not repeating the label-noise mistake</h3>
+                    <p>The curated bank covers "data science interview." For anything else, a topic bank is generated on the fly by Claude, using <strong>structured outputs</strong> (<code>messages.parse()</code> against a Pydantic schema, the API validates the JSON shape itself, not a hand-rolled parser).</p>
+
+                    <p>Here's the part that closes the loop with §1: an LLM-generated answer key is not automatically trustworthy. <strong>A second, independent Claude call re-derives every answer from scratch</strong>, the question and options only, with no hint of what the first call marked correct, and any question where the two calls disagree is dropped before the bank is cached. This is a direct, structural response to the finding that started this whole project: a ~25% wrong-key rate in a human-authored dataset means an LLM-authored one needs the same scrutiny, not blind trust.</p>
+
+                    <pre class="mermaid">
+sequenceDiagram
+    participant U as Learner
+    participant API as FastAPI
+    participant G as Claude (generate)
+    participant V as Claude (verify, blind)
+    participant Cache as data/generated_banks/
+
+    U->>API: "quantum computing basics" (novel goal)
+    API->>Cache: cached bank for this topic?
+    Cache-->>API: miss
+    API->>G: generate MCQs + concepts (Haiku, structured output)
+    G-->>API: draft bank
+    API->>V: re-derive each answer independently (no hint of G's key)
+    V-->>API: verdicts
+    API->>API: drop every question where G and V disagree
+    API->>Cache: cache the surviving, verified bank
+    API-->>U: serve quiz
+                    </pre>
+
+                    <h3>4.5 Watching the model think: live Cognitive Vitals</h3>
+                    <p>The online-IRT estimate updates after every answer, so the product shows it happening live instead of only at the end. A dedicated tick endpoint, <code>POST /api/quiz/answer</code>, grades the answers-so-far server-side and returns the belief state, ability &theta;, the derived certainty (from the free Laplace variance above), running calibration, timing quadrant, a correct-streak, and per-concept mastery, which drives a reactive SVG face and a marker riding the item-response curve. The face reads "overconfident" when you answer fast and sure but wrong, "not transferring" when you ace the original phrasing and miss its reworded twin, "confident" when high mastery meets low uncertainty.</p>
+
+                    <p>The design constraint that made this interesting: the answer key is hidden server-side, so the tick must never leak which option was correct, otherwise the live panel becomes a cheat oracle. It solves this by returning only aggregate belief-state, never per-item correctness, and by reading the pending session with a peek (not a pop), so the learner keeps answering and still submits normally at the end. A regression test asserts the tick response can never contain a <code>correct_letter</code>.</p>
+
+                    <p>A companion Model Lab page closes the loop with §3: it surfaces the offline research track, the real ASSISTments AUCs (IRT 0.506 / BKT 0.763 / SAKT 0.803), dataset size, and training hyperparameters, read live from <code>mlflow.db</code> at request time, degrading to "no models" rather than inventing numbers when the artifacts aren't shipped. The distinction is kept honest and explicit on the page itself: online IRT serves live traffic; the offline models are research that doesn't serve yet (§3.4).</p>
+                </section>
+
+                <section id="debugging">
+                    <h2>5. Debugging in the open: three real bugs, fixed with evidence</h2>
+                    <p>A portfolio project is more credible when it shows the debugging, not just the demo. Three real, user-reported bugs were root-caused and fixed during development, each verified over live HTTP rather than assumed fixed.</p>
+
+                    <p><strong>.env silently ignored.</strong> Settings are read via <code>os.getenv()</code> as dataclass field defaults, evaluated once at module import time, not at first use. Nothing called <code>python-dotenv</code>, so a correctly-set <code>ANTHROPIC_API_KEY</code> in <code>.env</code> was invisible to the app; every setting quietly fell back to its hardcoded default. Fixed by loading <code>.env</code> at the top of <code>config.py</code>, before any <code>os.getenv()</code> executes, order matters here in a way that's easy to get subtly wrong.</p>
+
+                    <p><strong>A goal that was "curated" without any curated content.</strong> "neet biology" was listed in the intent-gap resolver's requirement library, but the actual question bank had zero biology questions in it. The code trusted the resolver's static list alone, so selecting that goal would silently serve data-science questions scored against biology gap requirements, a nonsensical reflection, and worse, a silent one (200 OK, wrong content). The fix requires the goal's concepts to actually overlap with the bank's real content before treating it as "curated," with a regression test asserting the mismatch can't happen again.</p>
+
+                    <p><strong>A &lt;select&gt; with buttons pointing at options that didn't exist.</strong> A segmented question-count control (8 / 12 / 18) wrote into a hidden <code>&lt;select&gt;</code> via <code>select.value = "8"</code>. Per the HTML spec, setting <code>.value</code> to a string with no matching <code>&lt;option&gt;</code> silently resets it to <code>""</code>, not an error, not a console warning. That produced <code>parseInt("", 10)</code> &rarr; <code>NaN</code> &rarr; <code>JSON.stringify(NaN)</code> &rarr; <code>null</code> &rarr; a genuinely confusing 422 ("<code>n_questions</code>: Input should be a valid integer") for every question count except whichever one happened to have a literal <code>&lt;option&gt;</code> in the markup. Fixed by adding the missing options and a defensive fallback, with a markup-invariant test that would have caught it before it shipped.</p>
+
+                    <p>Each of these got a <strong>permanent regression test</strong>, not just a fix, specifically because each is the kind of defect that silently reappears if the invariant it violates isn't written down somewhere a test suite checks.</p>
+                </section>
+
+                <section id="engineering">
+                    <h2>6. Engineering practice, not just a model</h2>
+                    <ul>
+                        <li><strong>Group-aware evaluation, everywhere.</strong> Every reported metric in this project comes from a split where whole learners are held out, the direct lesson from the Kaggle project's leaked 0.92-validation-vs-0.73-leaderboard gap.</li>
+                        <li><strong>MLflow tracking and a local model registry.</strong> Local SQLite backend, zero account, still inspectable via <code>mlflow ui</code> and via the product's own <code>/api/reports</code> endpoint, which reports artifact staleness ("is anything rotting?") and live-session drift.</li>
+                        <li><strong>Privacy by design.</strong> Consent-gated storage, anonymous opaque session IDs (no name, email, or IP), automatic retention expiry, and a right-to-erasure endpoint, <code>DELETE /api/session/{id}</code>.</li>
+                        <li><strong>Production posture.</strong> Multi-stage Docker build, non-root container, gunicorn + uvicorn workers, health/readiness probes, per-IP rate limiting, CORS lockdown in production, structured JSON logs with request IDs.</li>
+                        <li><strong>Tests as documentation of what broke.</strong> Beyond model correctness tests, the test suite includes markup-level regression tests for the exact DOM/browser-semantics bugs described in §5, a class of defect that unit tests on the backend alone can't see.</li>
+                    </ul>
+                </section>
+
+                <section id="missing">
+                    <h2>7. What's honestly still missing</h2>
+                    <p>This project does not claim to be finished, and the audit that produced most of the fixes above is a better source of truth than marketing copy would be:</p>
+
+                    <ul>
+                        <li><strong>SAKT isn't serving live traffic</strong>, see §3.4. Tracked, not silent.</li>
+                        <li><strong>Signals are statistically thin at quiz scale.</strong> A 12-question quiz gives 2 to 3 answers per concept; the calibration and mastery numbers are directionally right but shouldn't be over-trusted at that sample size. Longitudinal tracking (an opaque, client-persisted learner ID that accumulates a readiness trend across repeat quizzes) is a first step toward more data per learner over time, not a full fix.</li>
+                        <li><strong>No real-world usage evidence yet.</strong> The hypothesis, that seeing your memorization index and calibration error changes how you study, is untested at any scale beyond development.</li>
+                    </ul>
+
+                    <p>Live: <a href="https://reflecta-j1wz.onrender.com/" target="_blank">reflecta-j1wz.onrender.com</a></p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="gitsyntropy.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">GitSyntropy: Astrology-Inspired Team Matching</h4>
+                                <p class="text-xs">A novel algorithm to find perfect development teams using GitHub metrics</p>
+                            </div>
+                        </a>
+                        <a href="blog-lstm.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Understanding LSTM Networks</h4>
+                                <p class="text-xs">A deep dive into sequence prediction tasks</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+    <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+        // Save each diagram's raw source before mermaid ever touches the DOM,
+        // so it can be re-parsed from scratch when the theme changes.
+        const diagramSources = new Map();
+        document.querySelectorAll("pre.mermaid").forEach((pre) => {
+            diagramSources.set(pre, pre.textContent);
+        });
+
+        const getTheme = () => (localStorage.getItem("theme") === "dark" ? "dark" : "neutral");
+
+        function configure(theme) {
+            mermaid.initialize({
+                startOnLoad: false,
+                theme,
+                themeVariables: { fontSize: "18px" },
+                flowchart: {
+                    useMaxWidth: false,
+                    htmlLabels: true,
+                    curve: "basis",
+                    nodeSpacing: 55,
+                    rankSpacing: 70,
+                    padding: 18
+                },
+                sequence: {
+                    useMaxWidth: false,
+                    diagramMarginX: 40,
+                    diagramMarginY: 20,
+                    actorMargin: 70,
+                    boxMargin: 12,
+                    boxTextMargin: 8,
+                    noteMargin: 12,
+                    messageMargin: 50,
+                    mirrorActors: false
+                }
+            });
+        }
+
+        // Modal is built once and reused for every diagram.
+        const overlay = document.createElement("div");
+        overlay.className = "mermaid-modal-overlay";
+        overlay.innerHTML = `
+            <button class="mermaid-modal-close" aria-label="Close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="mermaid-modal-content">
+                <div class="mermaid-modal-svg-holder"></div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        const svgHolder = overlay.querySelector(".mermaid-modal-svg-holder");
+        const closeModal = () => {
+            overlay.classList.remove("active");
+            svgHolder.innerHTML = "";
+        };
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) closeModal();
+        });
+        overlay.querySelector(".mermaid-modal-close").addEventListener("click", closeModal);
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeModal();
+        });
+
+        function attachExpandButtons() {
+            document.querySelectorAll("pre.mermaid").forEach((pre) => {
+                const existingBtn = pre.querySelector(".mermaid-expand-btn");
+                if (existingBtn) existingBtn.remove();
+
+                if (!pre.querySelector("svg")) return;
+
+                const btn = document.createElement("button");
+                btn.className = "mermaid-expand-btn";
+                btn.setAttribute("aria-label", "Expand diagram");
+                btn.innerHTML = `<span class="material-symbols-outlined">open_in_full</span>`;
+                btn.addEventListener("click", () => {
+                    const currentSvg = pre.querySelector("svg");
+                    if (!currentSvg) return;
+                    svgHolder.innerHTML = "";
+                    svgHolder.appendChild(currentSvg.cloneNode(true));
+                    overlay.classList.add("active");
+                });
+                pre.appendChild(btn);
+            });
+        }
+
+        async function renderDiagrams() {
+            configure(getTheme());
+            diagramSources.forEach((code, pre) => {
+                pre.removeAttribute("data-processed");
+                pre.innerHTML = code;
+            });
+            try {
+                await mermaid.run({ querySelector: "pre.mermaid", suppressErrors: true });
+            } catch (err) {
+                // A single malformed diagram must not take down every other
+                // diagram's expand button - log it and keep going.
+                console.error("Mermaid render error:", err);
+            } finally {
+                attachExpandButtons();
+            }
+        }
+
+        renderDiagrams();
+
+        const themeToggle = document.getElementById("theme-toggle");
+        if (themeToggle) {
+            // script.js sets body.dark-mode + localStorage on this same click event;
+            // defer so getTheme() reads the updated value.
+            themeToggle.addEventListener("click", () => setTimeout(renderDiagrams, 0));
+        }
+    </script>
+</body>
+
+</html>
