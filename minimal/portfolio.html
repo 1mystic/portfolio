@@ -2329,14 +2329,12 @@ function buildCard(item, index, map) {
   const subContent = item.href
     ? `<a href="${item.href}" target="_blank" rel="noopener">${item.sub}</a>`
     : item.sub;
-  const imgHtml = item.img ? `<div style="margin:8px 0;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);"><img src="${item.img}" alt="${item.title}" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;"></div>` : '';
   return `
     <div class="card" data-cat="${item.cat}" style="animation-delay:${index * 30}ms">
       <div class="card-head">
         <span class="card-index">${idx}</span>
         <span class="cat-pill ${cc}">${item.catLabel}</span>
       </div>
-      ${imgHtml}
       <div>
         <div class="card-title">${item.title}</div>
         <div class="card-sub">${subContent}</div>
