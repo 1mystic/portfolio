@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const stats = [
   { label: 'CGPA', value: 9, suffix: '.01', prefix: '' },
-  { label: 'Projects', value: 25, suffix: '+', prefix: '' },
+  { label: 'Projects', value: 28, suffix: '+', prefix: '' },
   { label: 'Certifications', value: 7, suffix: '+', prefix: '' },
   { label: 'Hackathon Wins', value: 3, suffix: '', prefix: '' },
 ];
@@ -246,6 +246,7 @@ const catGradients = {
   'Web Apps':       'from-blue-950/80 via-cyan-900/40 to-transparent',
   'Tools':          'from-violet-950/80 via-purple-900/40 to-transparent',
   'Data Analysis':  'from-emerald-950/80 via-green-900/40 to-transparent',
+  'Edu Content':    'from-amber-950/80 via-yellow-900/40 to-transparent',
 };
 
 const projects = [
@@ -260,6 +261,26 @@ const projects = [
     coverIcons: [`vuedotjs/${G}`, `fastapi/${G}`]
   },
   {
+    name: "Reflecta",
+    category: "AI / ML",
+    description: "AI-powered learning intelligence platform combining Item Response Theory (IRT), Bayesian Knowledge Tracing (BKT), SAKT, and behavioral analytics over 525k interaction logs to estimate learner mastery and goal readiness. Features FastAPI serving, MLflow tracking, online ability estimation, and LLM-generated assessments with drift tracking on Render.",
+    tech: ["PyTorch", "FastAPI", "MLflow", "IRT", "BKT", "SAKT", "Claude", "Render"],
+    demo: "https://reflecta-j1wz.onrender.com/",
+    github: "https://github.com/1mystic/reflecta",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`pytorch/${G}`, `fastapi/${G}`]
+  },
+  {
+    name: "Plume",
+    category: "Tools",
+    description: "Python CLI tool performing offline pre-flight security analysis (secret/PII detection, file profiling, sentiment analysis) before generating self-destructing LAN or Cloudflare Tunnel sharing links with QR codes. Features deterministic risk scoring, PyPI package (184+ downloads), and zero third-party storage.",
+    tech: ["Python", "FastAPI", "Typer", "Rich", "Pandas", "VADER", "Cloudflare Tunnel", "PyPI"],
+    demo: "https://1mystic.github.io/plumefile/",
+    github: "https://github.com/1mystic/plumefile",
+    cover: catGradients['Tools'],
+    coverIcons: [`python/${G}`, `fastapi/${G}`]
+  },
+  {
     name: "GitSyntropy",
     category: "AI / ML",
     description: "Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions : with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
@@ -270,14 +291,14 @@ const projects = [
     coverIcons: [`python/${G}`, `fastapi/${G}`]
   },
   {
-    name: "Mitra",
+    name: "Comment Sentiment Classification",
     category: "AI / ML",
-    description: "Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
-    tech: ["LangGraph", "RAG", "LLM Agents", "Vector Retrieval", "Semantic Memory", "Adaptive Profiling", "Full-Stack AI"],
-    demo: "https://mitra-theta.vercel.app",
-    github: "https://github.com/1mystic",
+    description: "Stacked ensemble combining TF-IDF (word/character n-grams), LightGBM, Logistic Regression, NB-SVM, and engineered linguistic features to classify obfuscated toxic comments, achieving 0.83499 Macro-F1 and Rank 21/2,744 (Top 0.8%) without deep learning.",
+    tech: ["Python", "TF-IDF", "LightGBM", "Logistic Regression", "NB-SVM", "Ensemble ML", "NLP"],
+    demo: null,
+    github: "https://github.com/1mystic/kaggle-comment-classification",
     cover: catGradients['AI / ML'],
-    coverIcons: [`python/${G}`, `huggingface/${G}`]
+    coverIcons: [`python/${G}`, `scikitlearn/${G}`]
   },
   {
     name: "EcoView",
@@ -288,6 +309,16 @@ const projects = [
     github: "https://github.com/1mystic",
     cover: catGradients['Web Apps'],
     coverIcons: [`react/${G}`, `firebase/${G}`]
+  },
+  {
+    name: "Mitra",
+    category: "AI / ML",
+    description: "Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
+    tech: ["LangGraph", "RAG", "LLM Agents", "Vector Retrieval", "Semantic Memory", "Adaptive Profiling", "Full-Stack AI"],
+    demo: "https://mitra-theta.vercel.app",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`python/${G}`, `huggingface/${G}`]
   },
   {
     name: "BayesInspector",
@@ -518,10 +549,108 @@ const projects = [
     github: "https://github.com/1mystic",
     cover: catGradients['Web Apps'],
     coverIcons: [`react/${G}`, `nextdotjs/${G}`]
+  },
+  {
+    name: "Interactive ML Algorithms",
+    category: "AI / ML",
+    description: "Interactive web suite implementing classical Machine Learning algorithms in vanilla JavaScript with real-time visual step-by-step parameter tuning and mathematical explanations.",
+    tech: ["ML", "JavaScript", "Interactive", "Algorithms"],
+    demo: "https://1mystic.github.io/ML-Algos/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`javascript/${G}`, `python/${G}`]
+  },
+  {
+    name: "Full-Stack AI Engineer Guide",
+    category: "Tools",
+    description: "Step-by-step daily roadmap, skill matrix, and practical project guide designed for fresher Full-Stack AI Engineers mastering LLMs, RAG, agent orchestration, and production serving.",
+    tech: ["AI Engineering", "Roadmap", "Full-Stack AI", "Guide"],
+    demo: "https://daily-guide.pages.dev/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Tools'],
+    coverIcons: [`python/${G}`, `fastapi/${G}`]
+  },
+  {
+    name: "PsychoLectures Hub",
+    category: "Tools",
+    description: "Curated resource repository and lecture notes spanning psychology, cognitive dynamics, and behavioral science specialization for tech builders.",
+    tech: ["Cognitive Science", "Psychology", "Resource Hub"],
+    demo: "https://1mystic.github.io/Psycho-lectures/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Tools'],
+    coverIcons: [`html5/${G}`, `javascript/${G}`]
+  },
+  {
+    name: "Daily Data Science Feed",
+    category: "Data Analysis",
+    description: "Automated daily feed aggregating top research papers, data science updates, ML breakthroughs, and industry insights for practitioners.",
+    tech: ["Data Science", "Daily Feed", "Curated"],
+    demo: "https://feed-daily.pages.dev/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Data Analysis'],
+    coverIcons: [`python/${G}`, `pandas/${G}`]
+  },
+  {
+    name: "IITM BS Data Science Syllabus",
+    category: "Tools",
+    description: "Interactive course directory, subject breakdown, and term roadmap for the IIT Madras Bachelor of Science in Data Science & Applications program.",
+    tech: ["IIT Madras", "Syllabus", "Education"],
+    demo: "https://iitmbs-syllabus.pages.dev/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Tools'],
+    coverIcons: [`html5/${G}`, `css3/${G}`]
+  },
+  {
+    name: "Tools in Data Science (TDS) Summary",
+    category: "Tools",
+    description: "Print-ready summary notes covering essential data science tools, Unix shell CLI commands, Git version control, and data pipeline fundamentals.",
+    tech: ["Data Science Tools", "Cheatsheet", "Print-Ready"],
+    demo: "https://tds-summary.pages.dev/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Tools'],
+    coverIcons: [`git/${G}`, `python/${G}`]
+  },
+  {
+    name: "Machine Learning Practice (MLP) Notes",
+    category: "AI / ML",
+    description: "Print-ready reference notes covering scikit-learn models, hyperparameter tuning, cross-validation, feature preprocessing, and evaluation metrics.",
+    tech: ["Machine Learning", "scikit-learn", "Notes", "Print-Ready"],
+    demo: "https://mlp-summary.pages.dev/#syllabus",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`scikitlearn/${G}`, `python/${G}`]
+  },
+  {
+    name: "Applied AI Engineering Challenges",
+    category: "AI / ML",
+    description: "Interactive collection of practical, hands-on coding challenges for mastering modern AI engineering, prompt design, vector search, and agentic workflows.",
+    tech: ["AI Engineering", "Challenges", "Hands-On"],
+    demo: "https://ai-challenges-by-1mystic.edgeone.app/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['AI / ML'],
+    coverIcons: [`python/${G}`, `fastapi/${G}`]
+  },
+  {
+    name: "Data Science Compendium",
+    category: "Tools",
+    description: "Data science interview mini notes, quick revision summaries, core statistical concepts, and machine learning fundamentals.",
+    tech: ["Data Science", "Interview", "Cheatsheet", "Notes"],
+    demo: "https://data-science-compendium.vercel.app/",
+    github: "https://github.com/1mystic",
+    cover: catGradients['Tools'],
+    coverIcons: [`python/${G}`, `pandas/${G}`]
   }
 ];
 
 const posts = [
+  {
+    title: 'Pen — Simple Write-ups',
+    date: 'May 2026',
+    description: 'Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.',
+    tag: 'Digital Garden',
+    image: 'pen_banner.png',
+    href: 'https://1mystic.github.io/pen/'
+  },
   {
     title: 'Understanding Attention Mechanisms',
     date: 'Apr 2026',
@@ -612,7 +741,78 @@ const posts = [
   }
 ];
 
+const achievements = [
+  {
+    title: 'IIT Madras Merit Prize Certificate',
+    issuer: 'IIT Madras',
+    date: '2026',
+    description: 'Awarded Merit Prize Certificate by IIT Madras in recognition of academic excellence and top performance in the BS Data Science & Applications program.',
+    tag: 'Merit Award',
+    link: 'https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing'
+  },
+  {
+    title: 'Kaggle Comment Category Prediction : Top 0.8%',
+    issuer: 'Kaggle',
+    date: '2026',
+    description: 'Achieved Rank 21 out of 2,744 participants (Top 0.8%) in toxic comment sentiment classification using stacked ensembles.',
+    tag: 'Competition',
+    link: 'https://github.com/1mystic/kaggle-comment-classification'
+  },
+  {
+    title: 'BDM Best Capstone Project Award',
+    issuer: 'IIT Madras',
+    date: '2026',
+    description: 'Received the BDM Best Capstone Project Award (Business Data Management) in the IIT Madras BS program for outstanding data-driven project implementation.',
+    tag: 'Academic',
+    link: 'https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing'
+  },
+  {
+    title: 'Anthropic Claude Builder Club : 2nd Runner Up',
+    issuer: 'Anthropic',
+    date: '2026',
+    description: 'Secured 2nd runner-up position in Anthropic\'s Claude Builder Club Hackathon (Spring 2026).',
+    tag: 'Hackathon'
+  },
+  {
+    title: 'Hack4Health Hackathon : 3rd Position',
+    issuer: 'Hack4Health',
+    date: '2025',
+    description: 'Won 3rd position at the Hack4Health hackathon for developing technology-driven health solutions in a competitive environment.',
+    tag: 'Hackathon'
+  },
+  {
+    title: 'Inter-house Tech Dominion : 2nd Place',
+    issuer: 'IIT Madras',
+    date: '2026',
+    description: 'Achieved 2nd place at the Tech Dominion hackathon at IIT Madras : January 2026 edition.',
+    tag: 'Hackathon'
+  },
+  {
+    title: 'Silver Medal : Anukriti, Paradox IITM',
+    issuer: 'IIT Madras',
+    date: '2025',
+    description: 'Silver medal at Anukriti : part of Paradox, IIT Madras\'s annual technical and cultural fest.',
+    tag: 'Award'
+  },
+  {
+    title: 'MR Focused Title : SPSN',
+    issuer: 'SPSN',
+    date: '2023',
+    description: 'Awarded the \'Mr Focused\' title at SPSN for consistent dedication and academic discipline.',
+    tag: 'School'
+  }
+];
+
 const experiments = [
+  {
+    title: 'MLP Project Statistical Analysis',
+    subtitle: 'Statistical Distribution & Feature Analysis Study',
+    description: 'Statistical analysis and feature distribution study on Machine Learning Practice (MLP) project data, evaluating feature correlations, baseline model error bounds, and statistical metrics.',
+    howItWorks: 'Evaluates feature distributions, pairwise correlation matrices, variance thresholding, and baseline error bounds across the dataset to provide empirical guidance for downstream model selection.',
+    tech: ['Statistical Analysis', 'Python', 'MLP', 'EDA'],
+    type: 'Analysis',
+    links: [{ url: "https://mlp-proj-t126.edgeone.app/", label: "View Analysis" }]
+  },
   // ─── RESEARCH & ANALYSIS ──────────────────────────────────────
   {
     title: 'TerraHeal',
@@ -669,6 +869,15 @@ const experiments = [
   },
 
   // ─── ACHIEVEMENTS ─────────────────────────────────────────────
+  {
+    title: 'Kaggle Comment Category Prediction : Top 0.8%',
+    subtitle: 'Rank 21 / 2,744 · 2026',
+    description: 'Achieved Rank 21 out of 2,744 participants (Top 0.8%) in toxic comment sentiment classification using stacked ensembles.',
+    howItWorks: 'Built a stacked ensemble combining TF-IDF, LightGBM, Logistic Regression, and NB-SVM with engineered linguistic features without deep learning.',
+    tech: ['Kaggle', 'Top 0.8%', 'Ensemble ML', 'NLP', 'Rank 21'],
+    type: 'Achievement',
+    links: [{ url: "https://github.com/1mystic/kaggle-comment-classification", label: "View Kaggle Repo" }]
+  },
   {
     title: 'BDM Best Capstone Project Award',
     subtitle: 'IIT Madras BS · 2026',

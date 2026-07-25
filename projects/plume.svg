@@ -1,0 +1,101 @@
+<svg viewBox="0 0 1200 620" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" role="img" aria-label="Plume: scan a file, then let it fly. An offline secret and PII scanner that shares files over a self-destructing QR link.">
+  <title>Plume - scan a file, then let it fly</title>
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0a500" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#f0a500" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffc04d"/>
+      <stop offset="1" stop-color="#f0a500"/>
+    </linearGradient>
+  </defs>
+
+  <!-- board -->
+  <rect x="8" y="8" width="1184" height="604" rx="20" fill="#17171a" stroke="#2a2a30" stroke-width="1.5"/>
+
+  <!-- ============ brand tile (cols 1-2, row 1) ============ -->
+  <g transform="translate(28,28)">
+    <rect x="0" y="0" width="756" height="272" rx="14" fill="#1f1f24" stroke="#2a2a30"/>
+    <rect x="0" y="0" width="756" height="272" rx="14" fill="url(#glow)"/>
+    <!-- feather -->
+    <g transform="translate(44,58)">
+      <path d="M14 82 C 6 42, 42 6, 90 8 C 92 46, 64 78, 22 82 Z" fill="url(#amber)" opacity="0.95"/>
+      <path d="M20 78 L 80 20" stroke="#1f1f24" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M34 74 L 64 44 M42 76 L 74 42 M28 62 L 54 36" stroke="#1f1f24" stroke-width="2.6" stroke-linecap="round" opacity="0.85"/>
+    </g>
+    <text x="170" y="112" font-family="ui-sans-serif, system-ui, Segoe UI, Roboto, sans-serif" font-size="74" font-weight="800" fill="#ffffff" letter-spacing="1">plume</text>
+    <text x="174" y="150" font-size="19" fill="#ffc04d">scan a file, then let it fly.</text>
+    <text x="44" y="212" font-size="16" fill="#9a9a9a">Find the secrets in a file, then share it over a link</text>
+    <text x="44" y="238" font-size="16" fill="#9a9a9a">that self-destructs. No accounts. No cloud. Offline.</text>
+  </g>
+
+  <!-- ============ QR tile (col 3, row 1) ============ -->
+  <g transform="translate(804,28)">
+    <rect x="0" y="0" width="368" height="272" rx="14" fill="#1f1f24" stroke="#2a2a30"/>
+    <text x="184" y="42" text-anchor="middle" fill="#7a7a7a" font-size="13" letter-spacing="1">SCAN TO OPEN ON ANY DEVICE</text>
+    <g transform="translate(94,66)" fill="#ededed">
+      <rect x="0" y="0" width="48" height="48" fill="none" stroke="#ededed" stroke-width="8"/>
+      <rect x="16" y="16" width="16" height="16"/>
+      <rect x="132" y="0" width="48" height="48" fill="none" stroke="#ededed" stroke-width="8"/>
+      <rect x="148" y="16" width="16" height="16"/>
+      <rect x="0" y="132" width="48" height="48" fill="none" stroke="#ededed" stroke-width="8"/>
+      <rect x="16" y="148" width="16" height="16"/>
+      <g fill="#ffc04d">
+        <rect x="68" y="8" width="16" height="16"/><rect x="100" y="8" width="16" height="16"/>
+        <rect x="68" y="40" width="16" height="16"/><rect x="112" y="40" width="16" height="16"/>
+        <rect x="8" y="68" width="16" height="16"/><rect x="40" y="68" width="16" height="16"/>
+        <rect x="84" y="68" width="16" height="16"/><rect x="128" y="68" width="16" height="16"/>
+        <rect x="160" y="68" width="16" height="16"/>
+        <rect x="24" y="100" width="16" height="16"/><rect x="68" y="100" width="16" height="16"/>
+        <rect x="112" y="100" width="16" height="16"/><rect x="152" y="100" width="16" height="16"/>
+        <rect x="8" y="128" width="16" height="16"/><rect x="100" y="128" width="16" height="16"/>
+        <rect x="144" y="128" width="16" height="16"/>
+        <rect x="68" y="148" width="16" height="16"/><rect x="112" y="160" width="16" height="16"/>
+        <rect x="84" y="112" width="16" height="16"/><rect x="160" y="144" width="16" height="16"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ============ risk tile (col 1, row 2) ============ -->
+  <g transform="translate(28,320)">
+    <rect x="0" y="0" width="368" height="272" rx="14" fill="#1f1f24" stroke="#2a2a30"/>
+    <rect x="0" y="0" width="6" height="272" rx="3" fill="#e03131"/>
+    <text x="28" y="40" fill="#7a7a7a" font-size="13" letter-spacing="1">PRE-FLIGHT SCAN</text>
+    <text x="28" y="82" fill="#e03131" font-size="22" font-weight="700">[!!] risk: HIGH</text>
+    <text x="28" y="116" fill="#ffc04d" font-size="16">suggested expiry: 2m</text>
+    <text x="28" y="150" fill="#9a9a9a" font-size="14">3 credential-like secrets found</text>
+    <line x1="28" y1="168" x2="340" y2="168" stroke="#2a2a30"/>
+    <text x="28" y="196" font-size="13.5"><tspan fill="#e03131">critical</tspan><tspan fill="#ededed" dx="10">AWS access key id</tspan><tspan fill="#7a7a7a" dx="10">L14</tspan></text>
+    <text x="28" y="222" font-size="13.5"><tspan fill="#e03131">critical</tspan><tspan fill="#ededed" dx="10">Private key block</tspan><tspan fill="#7a7a7a" dx="10">L07</tspan></text>
+    <text x="28" y="248" font-size="13.5"><tspan fill="#f0a500">high    </tspan><tspan fill="#ededed" dx="10">Credit card number</tspan><tspan fill="#7a7a7a" dx="6">L06</tspan></text>
+  </g>
+
+  <!-- ============ link tile (col 2, row 2) ============ -->
+  <g transform="translate(416,320)">
+    <rect x="0" y="0" width="368" height="272" rx="14" fill="#1f1f24" stroke="#2a2a30"/>
+    <text x="28" y="40" fill="#7a7a7a" font-size="13" letter-spacing="1">SHARE LINK</text>
+    <text x="28" y="86" font-size="15"><tspan fill="#7a7a7a">code</tspan></text>
+    <text x="28" y="112" font-size="21" font-weight="700" fill="#ffc04d">amber-otter-42</text>
+    <text x="28" y="152" font-size="15"><tspan fill="#7a7a7a">link</tspan></text>
+    <text x="28" y="178" font-size="14.5" fill="#ffc04d">http://192.168.1.7:8737/</text>
+    <text x="28" y="200" font-size="14.5" fill="#ffc04d">amber-otter-42</text>
+    <!-- lifebar -->
+    <text x="28" y="238" font-size="13" fill="#7a7a7a">self-destructs in 02:00</text>
+    <rect x="28" y="248" width="312" height="9" rx="4.5" fill="#2a2a30"/>
+    <rect x="28" y="248" width="86" height="9" rx="4.5" fill="url(#amber)"/>
+  </g>
+
+  <!-- ============ features tile (col 3, row 2) ============ -->
+  <g transform="translate(804,320)">
+    <rect x="0" y="0" width="368" height="272" rx="14" fill="#1f1f24" stroke="#2a2a30"/>
+    <text x="28" y="40" fill="#7a7a7a" font-size="13" letter-spacing="1">WHY PLUME</text>
+    <g font-size="16" fill="#ededed">
+      <circle cx="34" cy="80" r="5" fill="#ffc04d"/><text x="52" y="85">offline secret + PII scan</text>
+      <circle cx="34" cy="122" r="5" fill="#ffc04d"/><text x="52" y="127">self-destructing link</text>
+      <circle cx="34" cy="164" r="5" fill="#ffc04d"/><text x="52" y="169">LAN or free public tunnel</text>
+      <circle cx="34" cy="206" r="5" fill="#ffc04d"/><text x="52" y="211">data profile + sentiment</text>
+      <circle cx="34" cy="248" r="5" fill="#ffc04d"/><text x="52" y="253">no accounts, no cloud</text>
+    </g>
+  </g>
+</svg>

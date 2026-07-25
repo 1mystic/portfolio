@@ -1719,6 +1719,14 @@ footer a:hover { color: var(--accent); }
         </div>
         <ul class="update-list">
           <li class="update-item">
+            <span class="update-date">May 2026</span>
+            <div class="update-body">
+              <span class="update-title">IIT Madras Merit Prize Certificate : Awarded</span>
+              <span class="update-sub">IIT Madras · BS Data Science · Academic Excellence Award</span>
+              <span class="update-pill pill-win">Award</span>
+            </div>
+          </li>
+          <li class="update-item">
             <span class="update-date">Apr 2026</span>
             <div class="update-body">
               <span class="update-title">Anthropic Claude Builder Club : 2nd Runner Up</span>
@@ -1785,6 +1793,30 @@ footer a:hover { color: var(--accent); }
         </div>
         <ul class="update-list">
           <li class="update-item">
+            <span class="update-date">May 2026</span>
+            <div class="update-body">
+              <span class="update-title">Reflecta : Learning Intelligence Platform</span>
+              <span class="update-sub">PyTorch · FastAPI · MLflow · BKT/SAKT · Render</span>
+              <span class="update-pill pill-ship">Shipped</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">May 2026</span>
+            <div class="update-body">
+              <span class="update-title">Plume : Offline Intelligent File Sharing CLI</span>
+              <span class="update-sub">Python CLI · Typer · Cloudflare Tunnel · PyPI</span>
+              <span class="update-pill pill-ship">Shipped</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Apr 2026</span>
+            <div class="update-body">
+              <span class="update-title">Comment Sentiment Classification : Top 0.8%</span>
+              <span class="update-sub">Kaggle Rank 21/2,744 · Stacked Ensemble ML &amp; NLP</span>
+              <span class="update-pill pill-ship">Rank 21</span>
+            </div>
+          </li>
+          <li class="update-item">
             <span class="update-date">Apr 2026</span>
             <div class="update-body">
               <span class="update-title">Episteme : Socratic Study Engine</span>
@@ -1844,7 +1876,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Projects</span>
-            <span class="band-count">29 entries</span>
+            <span class="band-count">40 entries</span>
           </div>
           <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform : each project is a working deployment or open-source repository.</p>
           <div class="band-tags">
@@ -1864,7 +1896,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Research &amp; Analysis</span>
-            <span class="band-count">6 entries</span>
+            <span class="band-count">7 entries</span>
           </div>
           <p class="band-desc">Formal research papers and rigorous data analyses : from remote sensing studies of post-wildfire vegetation recovery (TerraHeal) to geospatial mapping of 5,000 food delivery orders across Bhopal. Research-grade methodology applied to real-world questions.</p>
           <div class="band-tags">
@@ -1883,7 +1915,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Written Blogs</span>
-            <span class="band-count">11 entries</span>
+            <span class="band-count">14 entries</span>
           </div>
           <p class="band-desc">Technical writing and dev journals : from deep-dives into Transformer attention mechanisms and GeoPandas spatial analysis, to engineering stories behind tools like MarkTex and keystroke biometrics. Writing that bridges rigour and readability.</p>
           <div class="band-tags">
@@ -1969,20 +2001,20 @@ footer a:hover { color: var(--accent); }
       <button class="filter-btn" data-filter="web">Web</button>
     </div>
     <div class="meta-bar">
-      <p class="item-count">Showing <span id="proj-count">29</span> projects</p>
+      <p class="item-count">Showing <span id="proj-count">40</span> projects</p>
     </div>
     <div class="grid" id="proj-grid"></div>
   </div>
 
   <!-- ════ RESEARCH ════ -->
   <div class="section-panel" id="panel-research">
-    <div class="meta-bar"><p class="item-count"><span>6</span> research works</p></div>
+    <div class="meta-bar"><p class="item-count"><span>7</span> research works</p></div>
     <div class="grid" id="research-grid"></div>
   </div>
 
   <!-- ════ BLOGS ════ -->
   <div class="section-panel" id="panel-blogs">
-    <div class="meta-bar"><p class="item-count"><span>11</span> articles &amp; posts</p></div>
+    <div class="meta-bar"><p class="item-count"><span>14</span> articles &amp; posts</p></div>
     <div class="grid" id="blogs-grid"></div>
   </div>
 
@@ -2000,7 +2032,7 @@ footer a:hover { color: var(--accent); }
 
   <!-- ════ ACHIEVEMENTS ════ -->
   <div class="section-panel" id="panel-achievements">
-    <div class="meta-bar"><p class="item-count"><span>6</span> achievements</p></div>
+    <div class="meta-bar"><p class="item-count"><span>8</span> achievements</p></div>
     <div class="grid" id="achiev-grid"></div>
   </div>
 
@@ -2022,15 +2054,27 @@ const projects = [
   { title:"Sentio", sub:"sentio-go.vercel.app", href:"https://sentio-go.vercel.app/", github:"https://github.com/1mystic/Sentio", cat:"platform", catLabel:"Platform",
     desc:"AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, custom Python therapist scrapers, Coherence caching for sub-100ms latency, and Google OAuth via Supabase. Built with FastAPI, Vue 3, and Resend.",
     tags:["Vue 3","FastAPI","NLP/DL","Supabase","Web Scraping"] },
+  { title:"Reflecta", sub:"reflecta-j1wz.onrender.com", href:"https://reflecta-j1wz.onrender.com/", github:"https://github.com/1mystic/reflecta", cat:"ml-ai", catLabel:"ML / AI", img:"../projects/reflecta.webp",
+    desc:"AI-powered learning intelligence platform combining Item Response Theory (IRT), Bayesian Knowledge Tracing (BKT), SAKT, and behavioral analytics over 525k interaction logs to estimate learner mastery and goal readiness. Features FastAPI serving, MLflow tracking, online ability estimation, and LLM-generated assessments with drift tracking on Render.",
+    tags:["PyTorch","FastAPI","MLflow","IRT","BKT","SAKT","Claude","Render"] },
+  { title:"Plume", sub:"1mystic.github.io/plumefile", href:"https://1mystic.github.io/plumefile/", github:"https://github.com/1mystic/plumefile", cat:"tool", catLabel:"Dev Tool", img:"../projects/plume-web.webp",
+    desc:"Python CLI tool performing offline pre-flight security analysis (secret/PII detection, file profiling, sentiment analysis) before generating self-destructing LAN or Cloudflare Tunnel sharing links with QR codes. Features deterministic risk scoring, PyPI package (184+ downloads), and zero third-party storage.",
+    tags:["Python","FastAPI","Typer","Rich","Pandas","VADER","Cloudflare Tunnel","PyPI"] },
   { title:"GitSyntropy", sub:"git-syntropy.vercel.app", href:"https://git-syntropy.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
     desc:"Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling. Derives signals from commit timing, PR activity, and adaptive assessment across 8 behavioral dimensions — with Monte Carlo hire simulation and Claude-synthesized streaming narrative reports.",
     tags:["Python","FastAPI","LangGraph","Claude","Astro","PostgreSQL","TypeScript"] },
-  { title:"Mitra", sub:"mitra-theta.vercel.app", href:"https://mitra-theta.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
-    desc:"Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
-    tags:["LangGraph","RAG","LLM Agents","Vector Retrieval","Semantic Memory","Adaptive Profiling","Full-Stack AI"] },
+  { title:"Comment Sentiment Classification", sub:"Kaggle Rank 21/2,744 (Top 0.8%)", href:null, github:"https://github.com/1mystic/kaggle-comment-classification", cat:"ml-ai", catLabel:"ML / AI",
+    desc:"Stacked ensemble combining TF-IDF (word/char n-grams), LightGBM, Logistic Regression, NB-SVM, and engineered linguistic features to classify obfuscated toxic comments, achieving 0.83499 Macro-F1 and Rank 21/2,744 (Top 0.8%) without deep learning.",
+    tags:["Python","TF-IDF","LightGBM","Logistic Regression","NB-SVM","Ensemble ML","NLP"] },
   { title:"EcoView", sub:"eco-view.vercel.app", href:"https://eco-view.vercel.app/", github:"https://github.com/1mystic", cat:"platform", catLabel:"Platform",
     desc:"Production-deployed serverless civic tech platform for real-time pollution reporting, AI classification, and NGO coordination running at $0/month. Implemented a dual-mode ML pipeline distilling a Gemini VLM teacher into an edge-ready ONNX model (~6MB) for mobile deployment. Features interactive maps, role-based dashboards, and a points-based verification system.",
     tags:["React","Firebase","FastAPI","HuggingFace","Gemini AI","ONNX","Vercel"] },
+  { title:"Mitra", sub:"mitra-theta.vercel.app", href:"https://mitra-theta.vercel.app", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI", img:"../projects/mitra.webp",
+    desc:"Built a multi-agent career platform that personalizes internship discovery, resume analysis, interview preparation, and skill-roadmap generation using LangGraph orchestration, semantic memory, vector retrieval, and adaptive user profiling. Designed an extensible architecture integrating LLM agents, recommendation systems, and long-term user memory for personalized career guidance.",
+    tags:["LangGraph","RAG","LLM Agents","Vector Retrieval","Semantic Memory","Adaptive Profiling","Full-Stack AI"] },
+  { title:"Flipkart Gridlock", sub:"flipkart-gridlock.vercel.app", href:"https://flipkart-gridlock.vercel.app/", github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
+    desc:"Spatio-temporal traffic demand forecasting system achieving a top-tier score (92.39%) in the Flipkart GRiD Hackathon. Comprises a CatBoost & LightGBM ensemble pipeline integrated with an interactive cyberpunk operations dashboard featuring Leaflet maps, live analytics, and a hybrid client-side fallback simulation engine.",
+    tags:["React","Vite","CatBoost","LightGBM","Leaflet.js","FastAPI","HuggingFace","Ensemble Learning"] },
   { title:"BayesInspector", sub:"bayes-inspector.pages.dev", href:"https://bayes-inspector.pages.dev/", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
     desc:"Client-side probabilistic text classifier that exposes the full Naive Bayes reasoning chain, word by word, as you type. Shows prior, likelihood, and posterior scores for every class, and highlights the words that actually move the prediction. Uses a custom TypeScript inference engine with no ML runtime dependencies and runs entirely in the browser. Features Spam, News, and Sentiment models.",
     tags:["React","TypeScript","Vite","Framer Motion","Naive Bayes","Tailwind CSS"] },
@@ -2040,7 +2084,7 @@ const projects = [
   { title:"Flipkart Gridlock", sub:"flipkart-gridlock.vercel.app", href:"https://flipkart-gridlock.vercel.app/", github:"https://github.com/1mystic", cat:"data-science", catLabel:"Data Science",
     desc:"Spatio-temporal traffic demand forecasting system achieving a top-tier score (92.39%) in the Flipkart GRiD Hackathon. Comprises a CatBoost & LightGBM ensemble pipeline integrated with an interactive cyberpunk operations dashboard featuring Leaflet maps, live analytics, and a hybrid client-side fallback simulation engine.",
     tags:["React","Vite","CatBoost","LightGBM","Leaflet.js","FastAPI","HuggingFace","Ensemble Learning"] },
-  { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI",
+  { title:"Episteme", sub:"episteme-chat.vercel.app", href:"https://episteme-chat.vercel.app", github:"https://github.com/1mystic/episteme-chat", cat:"ml-ai", catLabel:"ML / AI", img:"../projects/episteme.webp",
     desc:"Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself. Features 7 research-grade algorithms including Bayesian Knowledge Tracing, prerequisite DAGs, Ebbinghaus gap prioritization, and a Metacognitive Agent. Built with Next.js 15, Claude Sonnet 4, and Supabase.",
     tags:["Next.js 15","Claude 3.5 Sonnet","Supabase","BKT","Vercel"] },
   { title:"DominoML", sub:"domino-ml.onrender.com", href:"https://domino-ml.onrender.com", github:"https://github.com/1mystic", cat:"ml-ai", catLabel:"ML / AI",
@@ -2106,9 +2150,39 @@ const projects = [
   { title:"Portfolio — atharvk.me", sub:"atharvk.me · 3 versions", href:"https://www.atharvk.me", github:"https://github.com/1mystic", cat:"web", catLabel:"Web App",
     desc:"Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.01). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
     tags:["React","Next.js","GitHub Pages","Vercel"] },
+  { title:"Interactive ML Algorithms", sub:"1mystic.github.io/ML-Algos", href:"https://1mystic.github.io/ML-Algos/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Interactive web suite implementing classical Machine Learning algorithms in vanilla JavaScript with real-time visual step-by-step parameter tuning and mathematical explanations.",
+    tags:["ML","JavaScript","Interactive","Algorithms"] },
+  { title:"Full-Stack AI Engineer Guide", sub:"daily-guide.pages.dev", href:"https://daily-guide.pages.dev/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Step-by-step daily roadmap, skill matrix, and practical project guide designed for fresher Full-Stack AI Engineers mastering LLMs, RAG, agent orchestration, and production serving.",
+    tags:["AI Engineering","Roadmap","Full-Stack AI","Guide"] },
+  { title:"PsychoLectures Hub", sub:"1mystic.github.io/Psycho-lectures", href:"https://1mystic.github.io/Psycho-lectures/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Curated resource repository and lecture notes spanning psychology, cognitive dynamics, and behavioral science specialization for tech builders.",
+    tags:["Cognitive Science","Psychology","Resource Hub"] },
+  { title:"Daily Data Science Feed", sub:"feed-daily.pages.dev", href:"https://feed-daily.pages.dev/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Automated daily feed aggregating top research papers, data science updates, ML breakthroughs, and industry insights for practitioners.",
+    tags:["Data Science","Daily Feed","Curated"] },
+  { title:"IITM BS Data Science Syllabus", sub:"iitmbs-syllabus.pages.dev", href:"https://iitmbs-syllabus.pages.dev/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Interactive course directory, subject breakdown, and term roadmap for the IIT Madras Bachelor of Science in Data Science & Applications program.",
+    tags:["IIT Madras","Syllabus","Education"] },
+  { title:"Tools in Data Science (TDS) Summary", sub:"tds-summary.pages.dev", href:"https://tds-summary.pages.dev/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Print-ready summary notes covering essential data science tools, Unix shell CLI commands, Git version control, and data pipeline fundamentals.",
+    tags:["Data Science Tools","Cheatsheet","Print-Ready"] },
+  { title:"Machine Learning Practice (MLP) Notes", sub:"mlp-summary.pages.dev", href:"https://mlp-summary.pages.dev/#syllabus", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Print-ready reference notes covering scikit-learn models, hyperparameter tuning, cross-validation, feature preprocessing, and evaluation metrics.",
+    tags:["Machine Learning","scikit-learn","Notes","Print-Ready"] },
+  { title:"Applied AI Engineering Challenges", sub:"ai-challenges-by-1mystic.edgeone.app", href:"https://ai-challenges-by-1mystic.edgeone.app/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Interactive collection of practical, hands-on coding challenges for mastering modern AI engineering, prompt design, vector search, and agentic workflows.",
+    tags:["AI Engineering","Challenges","Hands-On"] },
+  { title:"Data Science Compendium", sub:"data-science-compendium.vercel.app", href:"https://data-science-compendium.vercel.app/", github:"https://github.com/1mystic", cat:"edu", catLabel:"Education",
+    desc:"Data science interview mini notes, quick revision summaries, core statistical concepts, and machine learning fundamentals.",
+    tags:["Data Science","Interview","Cheatsheet","Notes"] },
 ];
 
 const research = [
+  { title:"MLP Project Statistical Analysis", sub:"mlp-proj-t126.edgeone.app", href:"https://mlp-proj-t126.edgeone.app/", cat:"analysis", catLabel:"Analysis",
+    desc:"Statistical analysis and feature distribution study on Machine Learning Practice (MLP) project data, evaluating feature correlations, baseline model error bounds, and statistical metrics.",
+    tags:["Statistical Analysis","Python","MLP","EDA"] },
   { title:"TerraHeal", sub:"Post-Wildfire Vegetation Recovery", href:"https://zenodo.org/records/19630252", cat:"paper", catLabel:"Research Paper",
     desc:"A remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR). Identifies recovery trajectories, affected zone extents, and ecological resilience patterns across burn scar regions.",
     tags:["Remote Sensing","NDVI","Satellite Imagery","Ecology"] },
@@ -2130,6 +2204,9 @@ const research = [
 ];
 
 const blogs = [
+  { title:"Pen — Simple Write-ups", sub:"1mystic.github.io/pen", href:"https://1mystic.github.io/pen/", cat:"blog", catLabel:"Essay",
+    desc:"Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.",
+    tags:["Essays","Writing","Digital Garden"] },
   { title:"Reflection on This World", sub:"Philosophical Essay", href:"../fresh/posts/reflection-on-this-world.html", cat:"blog", catLabel:"Essay",
     desc:"A deep philosophical analysis of modern societal hyper-convenience, capitalism, metric obsession, and the loss of collective wisdom.",
     tags:["Social Commentary","Philosophy"] },
@@ -2214,6 +2291,12 @@ const education = [
 ];
 
 const achievements = [
+  { title:"IIT Madras Merit Prize Certificate", sub:"IIT Madras · Academic Excellence", href:"https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing", cat:"award", catLabel:"Merit Award",
+    desc:"Awarded Merit Prize Certificate by IIT Madras in recognition of academic excellence and top performance in the BS Data Science & Applications program.",
+    tags:["Merit Award","IIT Madras","Academic Excellence"] },
+  { title:"Kaggle Comment Category Prediction : Top 0.8%", sub:"Rank 21 / 2,744 · 2026", href:"https://github.com/1mystic/kaggle-comment-classification", cat:"award", catLabel:"Competition Rank",
+    desc:"Achieved Rank 21 out of 2,744 participants (Top 0.8%) in toxic comment sentiment classification using stacked ensembles (TF-IDF, LightGBM, NB-SVM, Logistic Regression) and custom feature engineering.",
+    tags:["Kaggle","Top 0.8%","Ensemble ML","NLP","Rank 21"] },
   { title:"BDM Best Capstone Project Award", sub:"IIT Madras · 2026", href:"https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing", cat:"award", catLabel:"Capstone Award",
     desc:"Received the Business Data Management (BDM) Best Capstone Project Award at IIT Madras BS for outstanding project execution and predictive analytics modeling.",
     tags:["Award","IIT Madras","Best Capstone"] },
@@ -2246,12 +2329,14 @@ function buildCard(item, index, map) {
   const subContent = item.href
     ? `<a href="${item.href}" target="_blank" rel="noopener">${item.sub}</a>`
     : item.sub;
+  const imgHtml = item.img ? `<div style="margin:8px 0;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);"><img src="${item.img}" alt="${item.title}" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;"></div>` : '';
   return `
-    <div class="card" data-cat="${item.cat}" style="animation-delay:${index * 28}ms">
+    <div class="card" data-cat="${item.cat}" style="animation-delay:${index * 30}ms">
       <div class="card-head">
         <span class="card-index">${idx}</span>
         <span class="cat-pill ${cc}">${item.catLabel}</span>
       </div>
+      ${imgHtml}
       <div>
         <div class="card-title">${item.title}</div>
         <div class="card-sub">${subContent}</div>
