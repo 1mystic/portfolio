@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atharv Khare — Unified Work Stream & Stack</title>
+  <meta name="description" content="Modern dark developer stream, tech stack, and portfolio benchmark stack for Atharv Khare.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── MODERN FLAT BLACK / CHARCOAL / PASTEL PALETTE ─── */
+    :root {
+      --bg: #090a0c;
+      --bg-panel: #111317;
+      --bg-card: #14171d;
+      --bg-card-hover: #1b1f27;
+      --border: #222630;
+      --border-light: #2d3340;
+      --border-bright: #434c5e;
+
+      /* Flat Pastel Accents */
+      --cyan: #38bdf8;
+      --cyan-dim: #0284c7;
+      --gold: #fbbf24;
+      --gold-dark: #b45309;
+      --green: #34d399;
+      --purple: #c084fc;
+      --pink: #f472b6;
+      --orange: #fb923c;
+      --blue: #60a5fa;
+
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --text-dark: #334155;
+
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'Newsreader', serif;
+      --font-display: 'Space Grotesk', var(--font-mono);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── CUSTOM SLEEK SCROLLBAR ─── */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cyan);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    /* ─── MAIN CONTAINER WITH GENEROUS SPACIOUS BREATHING ROOM ─── */
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 24px 100px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 56px; /* Generous gap between all sections */
+    }
+
+    /* ─── BENCHMARK HERO DASHBOARD ─── */
+    .benchmark-hero {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 38px;
+      position: relative;
+      transition: border-color 0.2s ease;
+    }
+
+    .benchmark-hero:hover {
+      border-color: var(--border-light);
+    }
+
+    .bench-main-row {
+      display: grid;
+      grid-template-columns: 240px 1fr 180px;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    /* Left: Giant Bold Display Metric */
+    .metric-big {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 68px;
+      font-weight: 800;
+      color: var(--cyan);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .metric-sub {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .metric-action {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 6px;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .metric-action:hover {
+      color: var(--gold-light);
+      transform: translateX(2px);
+    }
+
+    /* Center: Scaled Flat Stacked Benchmark Bars */
+    .bench-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .visual-top-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-dim);
+    }
+
+    .stacked-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      width: 100%;
+    }
+
+    .gold-bar-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+      margin-bottom: 8px;
+      padding-right: 40px;
+    }
+
+    .gold-bar {
+      height: 7px;
+      border-radius: 2px;
+    }
+    .gb-1 { width: 160px; background: #453315; }
+    .gb-2 { width: 162px; background: #6b4d1b; }
+    .gb-3 { width: 162px; background: #9c6c20; }
+    .gb-4 { width: 162px; background: #c98e29; }
+    .gb-5 { width: 152px; background: #eab84d; }
+    .gb-6 { width: 162px; background: #fce89f; }
+
+    .teal-stepped-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .teal-bar {
+      height: 6px;
+      border-radius: 2px;
+    }
+    .tb-1 { width: 90%; background: #162a33; }
+    .tb-2 { width: 92%; background: #1e3945; }
+    .tb-3 { width: 95%; background: #264a59; }
+    .tb-4 { width: 98%; background: #2e5c70; }
+    .tb-5 { width: 100%; background: #38718a; }
+    .tb-6 { width: 96%; background: #458ba8; }
+
+    /* Micro-wave vector line */
+    .micro-wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 16px;
+      margin-top: 4px;
+    }
+
+    .mw-bar {
+      width: 4px;
+      background: var(--border-bright);
+      border-radius: 1px;
+    }
+
+    /* Right: Stepped Vector Block Logo */
+    .vector-logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: default;
+    }
+
+    .stepped-pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .p-step {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 1px;
+    }
+    .ps-1 { width: 10px; }
+    .ps-2 { width: 20px; }
+    .ps-3 { width: 32px; }
+    .ps-4 { width: 48px; }
+    .ps-5 { width: 64px; }
+    .ps-6 { width: 80px; }
+
+    .logo-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* ─── SYSTEM TELEMETRY DOTTED ROW ─── */
+    .telemetry-row {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      font-size: 12px;
+    }
+
+    .telemetry-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .telemetry-title {
+      color: var(--text-dim);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+      font-size: 11px;
+    }
+
+    .telemetry-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .telemetry-item .dots {
+      color: var(--border-light);
+      flex: 1;
+      margin: 0 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      letter-spacing: 1px;
+    }
+
+    .telemetry-item .val {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ─── SECTION HEADINGS ─── */
+    .section-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Spacious gap between title and content block */
+    }
+
+    .section-head {
+      margin-bottom: 2px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 27px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title .section-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      padding: 2px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    /* ─── TECH STACK PILL CARDS (With Rich Hover Lift & Glow) ─── */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+      gap: 12px;
+    }
+
+    .tech-pill-card {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tech-pill-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-bright);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .tech-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .tech-pill-card:hover .tech-icon {
+      transform: scale(1.1);
+    }
+
+    /* ─── COMPETITIONS & BENCHMARKS TABLE CARD (With Smooth Row Hover) ─── */
+    .table-card {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s ease;
+    }
+
+    .table-card:hover {
+      border-color: var(--border-light);
+    }
+
+    .table-row-head {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 80px;
+      gap: 18px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 10px 10px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 80px;
+      gap: 18px;
+      align-items: center;
+      padding: 12px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      transition: all 0.15s ease;
+      cursor: default;
+    }
+
+    .table-row:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .comp-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .comp-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .comp-res {
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .comp-score {
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .comp-date {
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    /* ─── GITHUB ACTIVITY MATRIX (Interactive Tile Hover) ─── */
+    .github-activity-box {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      transition: border-color 0.2s ease;
+    }
+
+    .github-activity-box:hover {
+      border-color: var(--border-light);
+    }
+
+    .gh-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .gh-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .gh-user:hover span:last-child {
+      color: var(--cyan);
+    }
+
+    .gh-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .gh-matrix {
+      display: grid;
+      grid-template-columns: repeat(52, 1fr);
+      gap: 3px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .gh-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .gh-sq {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 2px;
+      transition: transform 0.15s ease, outline 0.15s ease;
+      cursor: pointer;
+    }
+
+    .gh-sq:hover {
+      transform: scale(1.3);
+      outline: 1px solid #fff;
+      z-index: 10;
+    }
+
+    .sq-0 { background: #14171d; }
+    .sq-1 { background: #0e4429; }
+    .sq-2 { background: #006d32; }
+    .sq-3 { background: #26a641; }
+    .sq-4 { background: #39d353; }
+
+    .gh-legend {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 10px;
+    }
+
+    .gh-legend .sq {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    /* ─── BIGGER ROUNDED DOTTED BORDER FILTER PILLS ─── */
+    .filter-section {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--cyan);
+    }
+
+    .search-prompt {
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .pill-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Rounded Dotted Border Pill Buttons */
+    .pill-btn {
+      background: var(--bg-card);
+      border: 1.5px dotted var(--border-light);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .pill-btn .bracket {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .pill-btn .count {
+      color: var(--text-dim);
+      font-size: 11px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1px 7px;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+
+    .pill-btn:hover {
+      border: 1.5px dotted var(--cyan);
+      color: #fff;
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .pill-btn.active {
+      background: #192433;
+      border: 2px dotted var(--cyan);
+      color: var(--cyan);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+    }
+
+    .pill-btn.active .bracket {
+      color: var(--cyan);
+    }
+
+    .pill-btn.active .count {
+      color: #fff;
+      background: var(--border);
+      border-color: var(--cyan-dim);
+    }
+
+    /* ─── STACKED CARDS STREAM (With Subtle Lift & Shadow) ─── */
+    .stream-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .stack-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      cursor: default;
+    }
+
+    .stack-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .card-title-line {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .card-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    /* FLAT PASTEL CATEGORY BADGES */
+    .badge-pill {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-project  { background: #142838; color: var(--cyan); border: 1.5px solid #1e4560; }
+    .badge-research { background: #352614; color: var(--gold); border: 1.5px solid #6b4d1b; }
+    .badge-article  { background: #2a1d3b; color: var(--purple); border: 1.5px solid #55347a; }
+    .badge-award    { background: #362f13; color: var(--gold-light); border: 1.5px solid #735e1d; }
+    .badge-cert     { background: #142f24; color: var(--green); border: 1.5px solid #205c43; }
+    .badge-degree   { background: #331926; color: var(--pink); border: 1.5px solid #632d48; }
+    .badge-edu      { background: #15293d; color: var(--blue); border: 1.5px solid #244b70; }
+
+    .card-body {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag-item {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: border-color 0.15s ease;
+      cursor: default;
+    }
+
+    .tag-item:hover {
+      border-color: var(--border-bright);
+    }
+
+    .tag-item img {
+      width: 13px;
+      height: 13px;
+      object-fit: contain;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .action-btn {
+      color: var(--cyan);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .action-btn:hover {
+      color: var(--gold);
+      transform: translateX(2px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-panel);
+      border-top: 1.5px solid var(--border);
+      padding: 28px 28px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-keys {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-keys a {
+      color: var(--text-muted);
+      transition: color 0.15s ease, transform 0.15s ease;
+      display: inline-block;
+    }
+
+    .footer-keys a:hover {
+      color: var(--cyan);
+      transform: translateY(-1px);
+    }
+
+    .footer-keys .bracket {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 56px 24px;
+      color: var(--text-dim);
+      font-size: 14px;
+      font-weight: 600;
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      background: var(--bg-panel);
+    }
+
+    @media (max-width: 768px) {
+      .container { gap: 40px; padding: 30px 16px 60px; }
+      .bench-main-row { grid-template-columns: 1fr; gap: 20px; }
+      .telemetry-row { grid-template-columns: 1fr; }
+      .table-row-head, .table-row { grid-template-columns: 1fr; gap: 6px; }
+      .table-row-head { display: none; }
+      .gold-bar-stack { align-items: flex-start; padding-right: 0; }
+      .stack-card { padding: 18px 20px; }
+      .metric-value { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- ─── 01. BENCHMARK HERO PANEL ─── -->
+    <section class="benchmark-hero">
+      <div class="bench-main-row">
+        <!-- Metric Display -->
+        <div class="metric-big">
+          <div class="metric-label">RUN AVERAGE · 0s ago</div>
+          <div class="metric-value">46</div>
+          <div class="metric-sub">46 total records · 9.02 cgpa</div>
+          <div class="metric-action" onclick="resetFilters()">[r] reset filter</div>
+        </div>
+
+        <!-- Center Flat Stacked Bars -->
+        <div class="bench-visual">
+          <div class="visual-top-axis">
+            <span>tok/s</span>
+            <span>28.1</span>
+          </div>
+          
+          <div class="stacked-bars">
+            <!-- Gold Stepped Bars -->
+            <div class="gold-bar-stack">
+              <div class="gold-bar gb-1"></div>
+              <div class="gold-bar gb-2"></div>
+              <div class="gold-bar gb-3"></div>
+              <div class="gold-bar gb-4"></div>
+              <div class="gold-bar gb-5"></div>
+              <div class="gold-bar gb-6"></div>
+            </div>
+
+            <!-- Teal Stepped Bars -->
+            <div class="visual-top-axis" style="margin-top:2px;">
+              <span>prime</span>
+              <span>100% of corpus</span>
+            </div>
+            <div class="teal-stepped-bars">
+              <div class="teal-bar tb-1"></div>
+              <div class="teal-bar tb-2"></div>
+              <div class="teal-bar tb-3"></div>
+              <div class="teal-bar tb-4"></div>
+              <div class="teal-bar tb-5"></div>
+              <div class="teal-bar tb-6"></div>
+            </div>
+          </div>
+
+          <!-- Micro-wave vector line -->
+          <div class="micro-wave">
+            <div class="mw-bar" style="height:4px;"></div>
+            <div class="mw-bar" style="height:7px;"></div>
+            <div class="mw-bar" style="height:10px;"></div>
+            <div class="mw-bar" style="height:14px;"></div>
+            <div class="mw-bar" style="height:16px;"></div>
+            <div class="mw-bar" style="height:11px;"></div>
+            <div class="mw-bar" style="height:8px;"></div>
+            <div class="mw-bar" style="height:5px;"></div>
+            <div class="mw-bar" style="height:3px;"></div>
+            <div class="mw-bar" style="height:8px;"></div>
+            <div class="mw-bar" style="height:12px;"></div>
+            <div class="mw-bar" style="height:7px;"></div>
+            <div class="mw-bar" style="height:4px;"></div>
+          </div>
+        </div>
+
+        <!-- Right: Stepped Vector Block Logo -->
+        <div class="vector-logo-block">
+          <div class="stepped-pyramid">
+            <div class="p-step ps-1"></div>
+            <div class="p-step ps-2"></div>
+            <div class="p-step ps-3"></div>
+            <div class="p-step ps-4"></div>
+            <div class="p-step ps-5"></div>
+            <div class="p-step ps-6"></div>
+          </div>
+          <div class="logo-name">Atharv Khare</div>
+          <div class="logo-sub">AI &amp; Data Science</div>
+        </div>
+      </div>
+
+      <!-- Telemetry Strip -->
+      <div class="telemetry-row">
+        <div class="telemetry-col">
+          <div class="telemetry-title">CORE FOCUS</div>
+          <div class="telemetry-item"><span>LLM Agents / RAG</span><span class="dots">....................</span><span class="val">LangGraph</span></div>
+          <div class="telemetry-item"><span>Classical ML</span><span class="dots">....................</span><span class="val">Ensembles</span></div>
+          <div class="telemetry-item"><span>Backend Serving</span><span class="dots">....................</span><span class="val">FastAPI</span></div>
+        </div>
+
+        <div class="telemetry-col">
+          <div class="telemetry-title">ACADEMICS</div>
+          <div class="telemetry-item"><span>B.S. Data Science</span><span class="dots">....................</span><span class="val">9.02 CGPA</span></div>
+          <div class="telemetry-item"><span>Prog Diploma</span><span class="dots">....................</span><span class="val">9.44 CGPA</span></div>
+          <div class="telemetry-item"><span>IIT Madras</span><span class="dots">....................</span><span class="val" style="color:var(--green);">✔ Active</span></div>
+        </div>
+
+        <div class="telemetry-col">
+          <div class="telemetry-title">CORPUS METRICS</div>
+          <div class="telemetry-item"><span>Projects &amp; Tools</span><span class="dots">....................</span><span class="val">14 records</span></div>
+          <div class="telemetry-item"><span>Research &amp; Papers</span><span class="dots">....................</span><span class="val">06 records</span></div>
+          <div class="telemetry-item"><span>Competitions</span><span class="dots">....................</span><span class="val">Top 0.8%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 02. STACK I USE ─── -->
+    <section class="section-wrap">
+      <div class="section-head">
+        <h2 class="section-title">Stack I use <span class="section-tag">Core Toolkit</span></h2>
+        <p class="section-subtitle">Languages, frameworks, and infrastructure across ML pipelines and full-stack systems</p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- 1. LangGraph -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangGraph" class="tech-icon" loading="lazy">
+          <span>LangGraph</span>
+        </div>
+        <!-- 2. LangChain -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangChain" class="tech-icon" loading="lazy">
+          <span>LangChain</span>
+        </div>
+        <!-- 3. scikit-learn -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/scikitlearn/f7931e" alt="scikit-learn" class="tech-icon" loading="lazy">
+          <span>scikit-learn</span>
+        </div>
+        <!-- 4. Vue 3 -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/vuedotjs/4fc08d" alt="Vue.js" class="tech-icon" loading="lazy">
+          <span>Vue 3</span>
+        </div>
+        <!-- 5. FastAPI -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/fastapi/05998b" alt="FastAPI" class="tech-icon" loading="lazy">
+          <span>FastAPI</span>
+        </div>
+        <!-- 6. Flask -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/flask/ffffff" alt="Flask" class="tech-icon" loading="lazy">
+          <span>Flask</span>
+        </div>
+        <!-- 7. Python -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/python/3776ab" alt="Python" class="tech-icon" loading="lazy">
+          <span>Python</span>
+        </div>
+        <!-- 8. Claude API -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/anthropic/d97757" alt="Claude API" class="tech-icon" loading="lazy">
+          <span>Claude API</span>
+        </div>
+        <!-- 9. Supabase -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/supabase/3ecf8e" alt="Supabase" class="tech-icon" loading="lazy">
+          <span>Supabase</span>
+        </div>
+        <!-- 10. PostgreSQL -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/postgresql/4169e1" alt="PostgreSQL" class="tech-icon" loading="lazy">
+          <span>PostgreSQL</span>
+        </div>
+        <!-- 11. PyTorch -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/pytorch/ee4c2c" alt="PyTorch" class="tech-icon" loading="lazy">
+          <span>PyTorch</span>
+        </div>
+        <!-- 12. React -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/react/61dafb" alt="React" class="tech-icon" loading="lazy">
+          <span>React</span>
+        </div>
+        <!-- 13. Next.js -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="Next.js" class="tech-icon" loading="lazy">
+          <span>Next.js</span>
+        </div>
+        <!-- 14. TypeScript -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/typescript/3178c6" alt="TypeScript" class="tech-icon" loading="lazy">
+          <span>TypeScript</span>
+        </div>
+        <!-- 15. GCP Cloud -->
+        <div class="tech-pill-card">
+          <img src="https://cdn.simpleicons.org/googlecloud/4285f4" alt="GCP" class="tech-icon" loading="lazy">
+          <span>GCP Cloud</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 03. COMPETITIONS & MODEL LAB (Structured Benchmark Table) ─── -->
+    <section class="section-wrap">
+      <div class="section-head">
+        <h2 class="section-title">Competitions &amp; Model Lab <span class="section-tag">Benchmarks</span></h2>
+        <p class="section-subtitle">Kaggle competition results, hackathon awards, and paper-to-code implementations</p>
+      </div>
+
+      <div class="table-card">
+        <div class="table-row-head">
+          <span>Competition / System</span>
+          <span>Result</span>
+          <span>Score / Tier</span>
+          <span>Date</span>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="comp-name">Kaggle Comment Category Prediction</div>
+            <div class="comp-sub">Stacked ensemble (TF-IDF, LightGBM, NB-SVM, Logistic Reg) without deep learning</div>
+          </div>
+          <div class="comp-res">Rank 21 / 2,744 (Top 0.8%)</div>
+          <div class="comp-score">0.83499 Macro-F1</div>
+          <div class="comp-date">2026</div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="comp-name">Flipkart GRiD Hackathon: Gridlock</div>
+            <div class="comp-sub">Spatio-temporal traffic demand forecasting with CatBoost/LightGBM &amp; Leaflet simulation</div>
+          </div>
+          <div class="comp-res">Top Tier Finalist</div>
+          <div class="comp-score">92.397% Demand Acc</div>
+          <div class="comp-date">2025</div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="comp-name">Best Capstone Project Award · IIT Madras BS</div>
+            <div class="comp-sub">Business Data Management predictive analytics, SQL pipelines &amp; business modeling</div>
+          </div>
+          <div class="comp-res" style="color:var(--gold);">Best Capstone Award</div>
+          <div class="comp-score">Academic Honor</div>
+          <div class="comp-date">2026</div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="comp-name">Anthropic Claude Builder Club Hackathon</div>
+            <div class="comp-sub">AI-native application engineering with Anthropic Claude APIs ($300 prize)</div>
+          </div>
+          <div class="comp-res" style="color:var(--purple);">2nd Runner Up</div>
+          <div class="comp-score">$300 Prize Win</div>
+          <div class="comp-date">2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 04. GITHUB CONTRIBUTION ACTIVITY ─── -->
+    <section class="section-wrap">
+      <div class="github-activity-box">
+        <div class="gh-header">
+          <div class="gh-user" onclick="window.open('https://github.com/1mystic', '_blank')">
+            <span class="gh-status-dot"></span>
+            <span>@1mystic on GitHub</span>
+          </div>
+          <div style="color:var(--green); font-weight:800;">
+            1,420+ contributions in 2026
+          </div>
+        </div>
+
+        <div class="gh-matrix" id="ghMatrix">
+          <!-- Dynamically populated 52-week grid -->
+        </div>
+
+        <div class="gh-legend">
+          <span>Less</span>
+          <span class="sq sq-0"></span>
+          <span class="sq sq-1"></span>
+          <span class="sq sq-2"></span>
+          <span class="sq sq-3"></span>
+          <span class="sq sq-4"></span>
+          <span>More</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 05. BIGGER ROUNDED DOTTED BORDER FILTER PILLS ─── -->
+    <section class="filter-section">
+      <div class="search-box">
+        <span class="search-prompt">&gt;</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="filter stream by keyword, tech, or title (e.g. PyTorch, RAG, Ensemble, Kaggle)...">
+      </div>
+
+      <div class="pill-group" id="filterBar">
+        <button class="pill-btn active" data-filter="all">
+          <span class="bracket">[a]</span>ll <span class="count" id="c-all">45</span>
+        </button>
+        <button class="pill-btn" data-filter="project">
+          <span class="bracket">[p]</span>rojects <span class="count" id="c-project">14</span>
+        </button>
+        <button class="pill-btn" data-filter="research">
+          <span class="bracket">[r]</span>esearch <span class="count" id="c-research">6</span>
+        </button>
+        <button class="pill-btn" data-filter="article">
+          <span class="bracket">[w]</span>riting <span class="count" id="c-article">8</span>
+        </button>
+        <button class="pill-btn" data-filter="award">
+          <span class="bracket">[m]</span>erits <span class="count" id="c-award">7</span>
+        </button>
+        <button class="pill-btn" data-filter="cert">
+          <span class="bracket">[c]</span>erts <span class="count" id="c-cert">9</span>
+        </button>
+        <button class="pill-btn" data-filter="degree">
+          <span class="bracket">[e]</span>ducation <span class="count" id="c-degree">2</span>
+        </button>
+        <button class="pill-btn" data-filter="edu">
+          <span class="bracket">[d]</span>edu-content <span class="count" id="c-edu">9</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─── 06. UNIFIED STACK STREAM ─── -->
+    <section class="stream-list" id="streamList">
+      <!-- Injected by JS -->
+    </section>
+
+  </main>
+
+  <!-- ─── 07. FOOTER ─── -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-keys">
+        <a href="https://github.com/1mystic" target="_blank"><span class="bracket">[g]</span>ithub</a>
+        <a href="https://www.linkedin.com/in/atharv-khare-8991a2280/" target="_blank"><span class="bracket">[l]</span>inkedin</a>
+        <a href="mailto:atharvkhare25@gmail.com"><span class="bracket">[e]</span>mail</a>
+        <a href="https://kaggle.com/1mystic" target="_blank"><span class="bracket">[k]</span>aggle</a>
+        <a href="https://zenodo.org" target="_blank"><span class="bracket">[z]</span>enodo</a>
+        <a href="socials.html"><span class="bracket">[s]</span>ocials</a>
+      </div>
+      <div>
+        <span style="color:var(--text-dim); font-weight:700;">« engine done — 23.95 tok/s »</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ─── OFFICIAL TECH ICON SLUGS & COLORS ─── */
+    const techIconMap = {
+      'LangGraph': { slug: 'langchain', color: '#1c3c3c' },
+      'LangChain': { slug: 'langchain', color: '#1c3c3c' },
+      'scikit-learn': { slug: 'scikitlearn', color: '#f7931e' },
+      'Vue 3': { slug: 'vuedotjs', color: '#4fc08d' },
+      'FastAPI': { slug: 'fastapi', color: '#05998b' },
+      'Flask': { slug: 'flask', color: '#ffffff' },
+      'Python': { slug: 'python', color: '#3776ab' },
+      'Claude': { slug: 'anthropic', color: '#d97757' },
+      'Claude 3.5': { slug: 'anthropic', color: '#d97757' },
+      'Claude API': { slug: 'anthropic', color: '#d97757' },
+      'Supabase': { slug: 'supabase', color: '#3ecf8e' },
+      'PostgreSQL': { slug: 'postgresql', color: '#4169e1' },
+      'PyTorch': { slug: 'pytorch', color: '#ee4c2c' },
+      'React': { slug: 'react', color: '#61dafb' },
+      'Next.js': { slug: 'nextdotjs', color: '#ffffff' },
+      'Next.js 15': { slug: 'nextdotjs', color: '#ffffff' },
+      'TypeScript': { slug: 'typescript', color: '#3178c6' },
+      'JavaScript': { slug: 'javascript', color: '#f7df1e' },
+      'ONNX': { slug: 'onnx', color: '#005ced' },
+      'Docker': { slug: 'docker', color: '#2496ed' },
+      'Kaggle': { slug: 'kaggle', color: '#20beff' },
+      'SQL': { slug: 'postgresql', color: '#336791' },
+      'Vite': { slug: 'vite', color: '#646cff' },
+      'SQLite': { slug: 'sqlite', color: '#003b57' },
+      'Astro': { slug: 'astro', color: '#ff5d01' },
+      'GCP': { slug: 'googlecloud', color: '#4285f4' },
+      'Oracle': { slug: 'oracle', color: '#f80000' },
+      'Leaflet.js': { slug: 'leaflet', color: '#199900' },
+      'HTML5': { slug: 'html5', color: '#e34f26' },
+      'GitHub': { slug: 'github', color: '#ffffff' },
+    };
+
+    /* ─── COMPLETE CORPUS DATASET ─── */
+    const dataset = [
+      // PROJECTS
+      { title: "Sentio", sub: "sentio-go.vercel.app", type: "project", catLabel: "Project", href: "https://sentio-go.vercel.app/", github: "https://github.com/1mystic/Sentio",
+        desc: "AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, therapist scrapers, Coherence caching for sub-100ms latency, and Supabase OAuth.",
+        tags: ["Vue 3", "FastAPI", "NLP/DL", "Supabase", "Web Scraping"] },
+      { title: "Reflecta", sub: "reflecta-j1wz.onrender.com", type: "project", catLabel: "Project", href: "https://reflecta-j1wz.onrender.com/", github: "https://github.com/1mystic/reflecta",
+        desc: "AI-powered learning intelligence platform combining Item Response Theory (IRT), Bayesian Knowledge Tracing (BKT), SAKT, and behavioral analytics over 525k interaction logs to estimate learner mastery and goal readiness.",
+        tags: ["PyTorch", "FastAPI", "MLflow", "IRT", "BKT", "SAKT", "Claude"] },
+      { title: "Plume", sub: "1mystic.github.io/plumefile", type: "project", catLabel: "Project", href: "https://1mystic.github.io/plumefile/", github: "https://github.com/1mystic/plumefile",
+        desc: "Python CLI tool performing offline pre-flight security analysis (secret/PII detection, file profiling, sentiment analysis) before generating self-destructing LAN or Cloudflare sharing links with QR codes.",
+        tags: ["Python", "FastAPI", "Typer", "Rich", "Pandas", "PyPI"] },
+      { title: "GitSyntropy", sub: "git-syntropy.vercel.app", type: "project", catLabel: "Project", href: "https://git-syntropy.vercel.app", github: "https://github.com/1mystic",
+        desc: "Multi-agent system that scores team compatibility and simulates hiring impact using GitHub behavioral data and psychometric profiling across 8 behavioral dimensions.",
+        tags: ["Python", "FastAPI", "LangGraph", "Claude", "Astro", "TypeScript"] },
+      { title: "Comment Sentiment Classification", sub: "Kaggle Rank 21/2,744 (Top 0.8%)", type: "project", catLabel: "Project", href: null, github: "https://github.com/1mystic/kaggle-comment-classification",
+        desc: "Stacked ensemble combining TF-IDF (word/char n-grams), LightGBM, Logistic Regression, NB-SVM, and engineered linguistic features to classify obfuscated toxic comments, achieving 0.83499 Macro-F1 without deep learning.",
+        tags: ["Python", "TF-IDF", "LightGBM", "Logistic Regression", "NB-SVM", "Kaggle"] },
+      { title: "EcoView", sub: "eco-view.vercel.app", type: "project", catLabel: "Project", href: "https://eco-view.vercel.app/", github: "https://github.com/1mystic",
+        desc: "Serverless civic tech platform for real-time pollution reporting, AI classification, and NGO coordination. Distilled Gemini VLM into an edge-ready ONNX model (~6MB) for mobile deployment.",
+        tags: ["React", "Firebase", "FastAPI", "Gemini AI", "ONNX"] },
+      { title: "Mitra", sub: "mitra-theta.vercel.app", type: "project", catLabel: "Project", href: "https://mitra-theta.vercel.app", github: "https://github.com/1mystic",
+        desc: "Multi-agent career platform that personalizes internship discovery, resume analysis, interview prep, and skill roadmaps using LangGraph, semantic memory, vector retrieval, and adaptive user profiling.",
+        tags: ["LangGraph", "RAG", "LLM Agents", "Vector Memory", "Full-Stack AI"] },
+      { title: "Flipkart Gridlock", sub: "flipkart-gridlock.vercel.app", type: "project", catLabel: "Project", href: "https://flipkart-gridlock.vercel.app/", github: "https://github.com/1mystic",
+        desc: "Spatio-temporal traffic demand forecasting system (score 92.39%) in Flipkart GRiD. CatBoost & LightGBM ensemble pipeline integrated with interactive Leaflet cyberpunk operations dashboard.",
+        tags: ["React", "Vite", "CatBoost", "LightGBM", "Leaflet.js"] },
+      { title: "BayesInspector", sub: "bayes-inspector.pages.dev", type: "project", catLabel: "Project", href: "https://bayes-inspector.pages.dev/", github: "https://github.com/1mystic",
+        desc: "Client-side probabilistic text classifier exposing the full Naive Bayes reasoning chain word-by-word as you type. Uses a custom TypeScript inference engine with pre-baked model weights.",
+        tags: ["React", "TypeScript", "Vite", "Naive Bayes"] },
+      { title: "Axiom Canvas", sub: "axiom-canvas.onrender.com", type: "project", catLabel: "Project", href: "https://axiom-canvas.onrender.com", github: "https://github.com/1mystic",
+        desc: "Math visualization engine powered by Desmos API and OpenRouter AI with RAG for interactive concept exploration.",
+        tags: ["Desmos API", "OpenRouter", "RAG", "JavaScript"] },
+      { title: "Episteme", sub: "episteme-chat.vercel.app", type: "project", catLabel: "Project", href: "https://episteme-chat.vercel.app", github: "https://github.com/1mystic/episteme-chat",
+        desc: "Socratic Study Engine AI that refuses to answer your questions, and instead helps you answer them yourself via Bayesian Knowledge Tracing and Metacognitive agents.",
+        tags: ["Next.js 15", "Claude 3.5", "Supabase", "BKT"] },
+      { title: "DominoML", sub: "domino-ml.onrender.com", type: "project", catLabel: "Project", href: "https://domino-ml.onrender.com", github: "https://github.com/1mystic",
+        desc: "Visual drag-and-drop ML pipeline builder built with Flask and SQLite. Compose, connect, and run machine learning steps via a node-based canvas.",
+        tags: ["Flask", "SQLite", "Drag & Drop", "MathJax"] },
+      { title: "SOHOS ED", sub: "School Optimization Platform", type: "project", catLabel: "Project", href: null, github: "https://github.com/1mystic/Sohos-ED",
+        desc: "Data-driven educational SaaS for budget private schools automating NEP 2020 compliance via Japanese Tokkatsu methodologies and linear programming.",
+        tags: ["JavaScript", "Linear Programming", "NEP 2020", "PDF Gen"] },
+      { title: "DineOps", sub: "Restaurant Intelligence System", type: "project", catLabel: "Project", href: null, github: "https://github.com/1mystic",
+        desc: "6-layer restaurant intelligence system combining demand forecasting (SARIMA/LSTM ensemble), LP staffing optimization, and LLM-driven executive reporting.",
+        tags: ["FastAPI", "PostgreSQL", "SARIMA", "LSTM", "Optimization"] },
+
+      // RESEARCH
+      { title: "MLP Project Statistical Analysis", sub: "mlp-proj-t126.edgeone.app", type: "research", catLabel: "Research", href: "https://mlp-proj-t126.edgeone.app/",
+        desc: "Statistical analysis and feature distribution study on Machine Learning Practice dataset evaluating feature correlations, baseline error bounds, and statistical metrics.",
+        tags: ["Statistical Analysis", "Python", "MLP", "EDA"] },
+      { title: "TerraHeal", sub: "Post-Wildfire Vegetation Recovery", type: "research", catLabel: "Research Paper", href: "https://zenodo.org/records/19630252",
+        desc: "Remote sensing study analysing post-wildfire vegetation recovery using satellite imagery and spectral indices (NDVI, NBR) published on Zenodo.",
+        tags: ["Remote Sensing", "NDVI", "Satellite Imagery", "Ecology"] },
+      { title: "TypeState", sub: "Keystroke Dynamics Biometrics", type: "research", catLabel: "Research Paper", href: "https://zenodo.org/records/19387975",
+        desc: "Investigation into keystroke dynamics as a behavioral biometric. Analyzes dwell time, flight time, and latency for authentication and cognitive inference.",
+        tags: ["Biometrics", "Python", "Signal Processing", "Security"] },
+      { title: "GitSyntropy", sub: "Vedic Astrology Team Matching", type: "research", catLabel: "Research Paper", href: "https://zenodo.org/records/20001501",
+        desc: "Research paper exploring novel multi-agent algorithm inspired by Vedic astrology principles to optimize development team hiring compatibility.",
+        tags: ["Algorithms", "Multi-Agent", "Vedic Astrology", "Optimization"] },
+      { title: "Bhopal Food Delivery Geospatial Study", sub: "bhopal-food-delivery.vercel.app", type: "research", catLabel: "Geospatial Study", href: "https://bhopal-food-delivery.vercel.app",
+        desc: "Data-driven study of 5,000 delivery orders across 20 Bhopal localities mapping demand hotspots, platform share, and spatial cuisine trends.",
+        tags: ["GeoPandas", "Pandas", "Matplotlib", "Spatial Analysis"] },
+      { title: "Statistics II Coursework Analysis", sub: "IIT Madras BS Programme", type: "research", catLabel: "Analysis", href: "https://sites.google.com/ds.study.iitm.ac.in/atharvkhare/courses/statistics-ii",
+        desc: "Detailed statistical analyses and problem sets covering hypothesis testing, regression modeling, ANOVA, and probability distributions at IIT Madras.",
+        tags: ["Statistics", "Hypothesis Testing", "ANOVA", "Regression"] },
+
+      // ARTICLES & WRITING
+      { title: "Pen — Simple Write-ups", sub: "1mystic.github.io/pen", type: "article", catLabel: "Essay", href: "https://1mystic.github.io/pen/",
+        desc: "Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.",
+        tags: ["Essays", "Writing", "Digital Garden"] },
+      { title: "Reflection on This World", sub: "Philosophical Essay", type: "article", catLabel: "Essay", href: "fresh/posts/reflection-on-this-world.html",
+        desc: "Deep philosophical analysis of modern societal hyper-convenience, capitalism, metric obsession, and loss of collective wisdom.",
+        tags: ["Social Commentary", "Philosophy"] },
+      { title: "Understanding Attention Mechanisms", sub: "Technical Walkthrough", type: "article", catLabel: "Tutorial", href: "fresh/posts/attention-mechanisms.html",
+        desc: "Detailed walkthrough of self-attention in Transformers — from mathematical formulation of scaled dot-product attention to multi-head PyTorch implementation.",
+        tags: ["Transformers", "NLP", "PyTorch", "Deep Learning"] },
+      { title: "Building Pipelines with DominoML", sub: "Project Spotlight", type: "article", catLabel: "Tutorial", href: "fresh/posts/domino-ml-pipelines.html",
+        desc: "Guide to constructing end-to-end machine learning pipelines using DominoML's node-based visual interface.",
+        tags: ["ML Pipelines", "Flask", "DominoML", "Tutorial"] },
+      { title: "Geospatial Analysis with GeoPandas", sub: "Data Science Article", type: "article", catLabel: "Article", href: "fresh/posts/geopandas-analysis.html",
+        desc: "Practical introduction to geospatial data analysis using GeoPandas, spatial joins, and choropleth maps with real-world delivery data.",
+        tags: ["GeoPandas", "Folium", "Python", "Spatial Data"] },
+      { title: "From Markdown to PDF: Building MarkTex", sub: "Dev Journal", type: "article", catLabel: "Article", href: "fresh/posts/building-marktex.html",
+        desc: "Engineering story behind building MarkTex — full Markdown + LaTeX editor with annotation support and in-browser PDF generation.",
+        tags: ["Markdown", "LaTeX", "Wasmer", "Product"] },
+      { title: "Keystroke Dynamics as a Biometric", sub: "Research Adaptation", type: "article", catLabel: "Article", href: "fresh/posts/keystroke-dynamics.html",
+        desc: "Reader-friendly adaptation of TypeState research exploring typing patterns as behavioral fingerprints for security.",
+        tags: ["Biometrics", "Security", "Research"] },
+      { title: "GitSyntropy Algorithm Article", sub: "Team Matching Story", type: "article", catLabel: "Article", href: "fresh/posts/gitsyntropy.html",
+        desc: "Deep dive into Vedic astrology inspired team matching using GitHub chronotype metrics.",
+        tags: ["Algorithms", "DevOps", "Innovation"] },
+
+      // AWARDS
+      { title: "IIT Madras Merit Prize Certificate", sub: "IIT Madras · Academic Excellence", type: "award", catLabel: "Merit Award", href: "https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing",
+        desc: "Awarded Merit Prize Certificate by IIT Madras for academic excellence and top performance in BS Data Science & Applications.",
+        tags: ["Merit Award", "IIT Madras", "Academic Excellence"] },
+      { title: "Kaggle Comment Category Prediction — Top 0.8%", sub: "Rank 21 / 2,744", type: "award", catLabel: "Rank 21", href: "https://github.com/1mystic/kaggle-comment-classification",
+        desc: "Achieved Rank 21/2,744 (Top 0.8%) in toxic comment sentiment classification using stacked ensembles without deep learning.",
+        tags: ["Kaggle", "Top 0.8%", "Ensemble ML", "Rank 21"] },
+      { title: "BDM Best Capstone Project Award", sub: "IIT Madras · 2026", type: "award", catLabel: "Best Capstone", href: "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing",
+        desc: "Received Business Data Management Best Capstone Project Award at IIT Madras BS for predictive modeling and data engineering.",
+        tags: ["Award", "IIT Madras", "Best Capstone"] },
+      { title: "Anthropic Claude Builder Club — 2nd Runner Up", sub: "Spring 2026 Hackathon", type: "award", catLabel: "Hackathon Win", href: null,
+        desc: "2nd runner-up in Anthropic Claude Builder Club Hackathon ($300 prize) for innovative LLM system integration.",
+        tags: ["Anthropic", "Claude", "Hackathon", "Prize Winner"] },
+      { title: "Hack4Health Hackathon — 3rd Position", sub: "Health-Tech · 2025", type: "award", catLabel: "Hackathon Win", href: null,
+        desc: "3rd position in Hack4Health hackathon for clinical status tracking and healthcare predictive tools.",
+        tags: ["Health-Tech", "Hackathon", "Third Place"] },
+      { title: "Inter-house Tech Dominion — 2nd Place", sub: "IIT Madras · 2026", type: "award", catLabel: "Hackathon Win", href: null,
+        desc: "2nd place in Tech Dominion hackathon at IIT Madras for rapid prototyping and system design.",
+        tags: ["Hackathon", "IIT Madras", "Second Place"] },
+      { title: "Silver Medal: Anukriti, Paradox IITM", sub: "IIT Madras · 2025", type: "award", catLabel: "Medal", href: null,
+        desc: "Silver medal at Anukriti (Paradox IITM) for mathematical and digital visualization challenges.",
+        tags: ["Silver Medal", "Paradox IITM", "2025"] },
+
+      // CERTIFICATES
+      { title: "Oracle Certified Associate — Agentic AI Foundations", sub: "Oracle · 2026", type: "cert", catLabel: "Certificate", href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59",
+        desc: "Oracle Certified Foundations Associate validating core competencies in Agentic AI architectures, autonomous agents, LLM tool-calling orchestration, and multi-agent workflows.",
+        tags: ["Agentic AI", "Oracle", "LLMs", "AI Agents", "2026"] },
+      { title: "BDM Best Capstone Award Certificate", sub: "IIT Madras · 2026", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing",
+        desc: "Official certificate awarded for best capstone project execution in Business Data Management at IIT Madras.",
+        tags: ["SQL", "Databases", "IIT Madras"] },
+      { title: "HackerRank SQL (Advanced)", sub: "HackerRank · 2024", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1He-058ls2cu3woRSCwbm9UXCUt-brQzN/view?usp=sharing",
+        desc: "Advanced SQL certification covering window functions, complex joins, subqueries, and query optimization.",
+        tags: ["SQL", "Databases", "HackerRank"] },
+      { title: "DataCamp Data Science Associate", sub: "DataCamp · 2025", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing",
+        desc: "Multi-stage assessment validating Python, SQL, statistical analysis, and ML fundamentals.",
+        tags: ["Python", "SQL", "DataCamp"] },
+      { title: "GCP Cloud Workshop", sub: "Google Cloud", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1QvVS0EJSL60TOnbs5ZFTpgE1jcJlfh-X/view",
+        desc: "Hands-on GCP certification covering Compute Engine, BigQuery, Cloud Storage, and Vertex AI.",
+        tags: ["GCP", "Cloud", "BigQuery"] },
+      { title: "Dynamic Programming Workshop", sub: "IIT Madras", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1Ru0ShGa4jEx2j4BsGiIVRf2HTLWhJxtE/view",
+        desc: "Focused algorithm certification in dynamic programming state space design, memoization, and tabulation.",
+        tags: ["Algorithms", "DP", "Competitive Prog"] },
+      { title: "Machine Learning Workshop", sub: "IIT Madras", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1RWIVo5YHam_mqswe_A5NlX0VXH5TcLyX/view",
+        desc: "Supervised and unsupervised ML models, linear regression, decision trees, K-means, and scikit-learn metrics.",
+        tags: ["Machine Learning", "scikit-learn", "Python"] },
+      { title: "Python Programming Certificate", sub: "IIT Madras", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/192zatB1EimlnHuJyFu7wcGbvb4QMrDSa/view",
+        desc: "Python programming logic, OOP concepts, file I/O, and mathematical standard library integrations.",
+        tags: ["Python", "OOP", "Programming"] },
+      { title: "NPTEL Distributed Systems & Cloud Computing", sub: "NPTEL · Elite Tier · 2026", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing",
+        desc: "Elite tier certification in Distributed Systems architecture, cloud virtualization, and consensus algorithms.",
+        tags: ["Distributed Systems", "Cloud", "NPTEL"] },
+      { title: "Machine Learning using Python", sub: "Simplilearn · 2026", type: "cert", catLabel: "Certificate", href: "https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing",
+        desc: "Training in machine learning preprocessing, classification, clustering models, and Python serving.",
+        tags: ["Machine Learning", "Python", "Simplilearn"] },
+
+      // EDUCATION
+      { title: "B.S. Data Science & Applications", sub: "IIT Madras · 2023 – 2027", type: "degree", catLabel: "Degree", href: "https://study.iitm.ac.in",
+        desc: "Bachelor of Science in Data Science & Applications from IIT Madras. Currently maintaining CGPA of 9.02.",
+        tags: ["IIT Madras", "CGPA 9.02", "Data Science", "AI/ML"] },
+      { title: "Diploma in Programming", sub: "IIT Madras · Completed 2025", type: "degree", catLabel: "Diploma", href: "https://study.iitm.ac.in",
+        desc: "Diploma in Programming from IIT Madras completed with 9.44 CGPA in algorithms and web systems.",
+        tags: ["IIT Madras", "CGPA 9.44", "Diploma", "Algorithms"] },
+
+      // EDUCATIONAL CONTENT
+      { title: "Interactive ML Algorithms", sub: "1mystic.github.io/ML-Algos", type: "edu", catLabel: "Edu Content", href: "https://1mystic.github.io/ML-Algos/", github: "https://github.com/1mystic",
+        desc: "Interactive web suite implementing classical Machine Learning algorithms in vanilla JS with visual parameter tuning.",
+        tags: ["ML", "JavaScript", "Interactive", "Algorithms"] },
+      { title: "Full-Stack AI Engineer Guide", sub: "daily-guide.pages.dev", type: "edu", catLabel: "Edu Content", href: "https://daily-guide.pages.dev/", github: "https://github.com/1mystic",
+        desc: "Daily roadmap, skill matrix, and practical project guide for fresher Full-Stack AI Engineers mastering LLMs & RAG.",
+        tags: ["AI Engineering", "Roadmap", "Full-Stack AI"] },
+      { title: "PsychoLectures Hub", sub: "1mystic.github.io/Psycho-lectures", type: "edu", catLabel: "Edu Content", href: "https://1mystic.github.io/Psycho-lectures/", github: "https://github.com/1mystic",
+        desc: "Curated resource repository and lecture notes spanning psychology, cognitive dynamics, and behavioral science.",
+        tags: ["Cognitive Science", "Psychology", "Resource Hub"] },
+      { title: "Daily Data Science Feed", sub: "feed-daily.pages.dev", type: "edu", catLabel: "Edu Content", href: "https://feed-daily.pages.dev/", github: "https://github.com/1mystic",
+        desc: "Automated daily feed aggregating research papers, data science updates, ML breakthroughs, and industry insights.",
+        tags: ["Data Science", "Daily Feed", "Curated"] },
+      { title: "IITM BS Data Science Syllabus", sub: "iitmbs-syllabus.pages.dev", type: "edu", catLabel: "Edu Content", href: "https://iitmbs-syllabus.pages.dev/", github: "https://github.com/1mystic",
+        desc: "Interactive course directory, subject breakdown, and term roadmap for the IIT Madras BS Data Science program.",
+        tags: ["IIT Madras", "Syllabus", "Education"] },
+      { title: "Tools in Data Science (TDS) Summary", sub: "tds-summary.pages.dev", type: "edu", catLabel: "Edu Content", href: "https://tds-summary.pages.dev/", github: "https://github.com/1mystic",
+        desc: "Print-ready summary notes covering essential data science tools, Unix shell CLI commands, Git, and data pipelines.",
+        tags: ["Data Science Tools", "Cheatsheet", "Print-Ready"] },
+      { title: "Machine Learning Practice (MLP) Notes", sub: "mlp-summary.pages.dev", type: "edu", catLabel: "Edu Content", href: "https://mlp-summary.pages.dev/#syllabus", github: "https://github.com/1mystic",
+        desc: "Print-ready reference notes covering scikit-learn models, hyperparameter tuning, cross-validation, and metrics.",
+        tags: ["Machine Learning", "scikit-learn", "Print-Ready"] },
+      { title: "Applied AI Engineering Challenges", sub: "ai-challenges-by-1mystic.edgeone.app", type: "edu", catLabel: "Edu Content", href: "https://ai-challenges-by-1mystic.edgeone.app/", github: "https://github.com/1mystic",
+        desc: "Practical hands-on coding challenges for mastering modern AI engineering, prompt design, vector search, and agents.",
+        tags: ["AI Engineering", "Challenges", "Hands-On"] },
+      { title: "Data Science Compendium", sub: "data-science-compendium.vercel.app", type: "edu", catLabel: "Edu Content", href: "https://data-science-compendium.vercel.app/", github: "https://github.com/1mystic",
+        desc: "Data science interview mini notes, quick revision summaries, core statistical concepts, and ML fundamentals.",
+        tags: ["Data Science", "Interview", "Cheatsheet"] }
+    ];
+
+    /* ─── RENDERING & FILTER LOGIC ─── */
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    const streamList = document.getElementById('streamList');
+    const searchInput = document.getElementById('searchInput');
+    const filterBar = document.getElementById('filterBar');
+
+    const badgeClasses = {
+      project: 'badge-project',
+      research: 'badge-research',
+      article: 'badge-article',
+      award: 'badge-award',
+      cert: 'badge-cert',
+      degree: 'badge-degree',
+      edu: 'badge-edu'
+    };
+
+    function updatePillCounts() {
+      const counts = { all: dataset.length, project: 0, research: 0, article: 0, award: 0, cert: 0, degree: 0, edu: 0 };
+      dataset.forEach(d => {
+        if (counts[d.type] !== undefined) counts[d.type]++;
+      });
+      Object.keys(counts).forEach(k => {
+        const el = document.getElementById(`c-${k}`);
+        if (el) el.textContent = counts[k];
+      });
+    }
+
+    function renderTag(t) {
+      const info = techIconMap[t];
+      if (info) {
+        return `<span class="tag-item" style="border-color:${info.color}40;"><img src="https://cdn.simpleicons.org/${info.slug}/${info.color.replace('#','')}" alt="${t}" loading="lazy"> ${t}</span>`;
+      }
+      return `<span class="tag-item">[${t}]</span>`;
+    }
+
+    function renderStream() {
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = dataset.filter(item => {
+        const matchesFilter = (currentFilter === 'all') || (item.type === currentFilter);
+        const matchesSearch = !q || 
+          item.title.toLowerCase().includes(q) || 
+          (item.desc && item.desc.toLowerCase().includes(q)) || 
+          (item.tags && item.tags.some(t => t.toLowerCase().includes(q))) ||
+          (item.sub && item.sub.toLowerCase().includes(q));
+
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        streamList.innerHTML = `
+          <div class="empty-state">
+            &gt; No records match query "${searchQuery}" under filter [${currentFilter}].
+          </div>`;
+        return;
+      }
+
+      streamList.innerHTML = filtered.map(item => {
+        const badgeClass = badgeClasses[item.type] || 'badge-project';
+        const tagsHtml = item.tags ? item.tags.map(t => renderTag(t)).join('') : '';
+        const ghHtml = item.github ? `<a href="${item.github}" target="_blank" class="action-btn">[ → github ]</a>` : '';
+        const demoHtml = item.href ? `<a href="${item.href}" target="_blank" class="action-btn">[ ↗ link ]</a>` : '';
+
+        return `
+          <div class="stack-card">
+            <div class="card-top">
+              <div class="card-title-line">
+                <div class="card-title">${item.title}</div>
+                <div class="card-sub">${item.sub || ''}</div>
+              </div>
+              <span class="badge-pill ${badgeClass}">${item.catLabel || item.type}</span>
+            </div>
+            <div class="card-body">${item.desc}</div>
+            <div class="card-bottom">
+              <div class="card-tags">${tagsHtml}</div>
+              <div class="card-actions">
+                ${ghHtml}
+                ${demoHtml}
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function resetFilters() {
+      searchQuery = '';
+      currentFilter = 'all';
+      searchInput.value = '';
+      document.querySelectorAll('.pill-group .pill-btn').forEach(b => b.classList.remove('active'));
+      const allBtn = document.querySelector('.pill-btn[data-filter="all"]');
+      if (allBtn) allBtn.classList.add('active');
+      renderStream();
+    }
+
+    function initGitHubMatrix() {
+      const matrix = document.getElementById('ghMatrix');
+      if (!matrix) return;
+      let html = '';
+      for (let w = 0; w < 52; w++) {
+        html += '<div class="gh-col">';
+        for (let d = 0; d < 7; d++) {
+          const rand = Math.random();
+          let sqClass = 'sq-0';
+          if (rand > 0.45 && rand < 0.70) sqClass = 'sq-1';
+          else if (rand >= 0.70 && rand < 0.85) sqClass = 'sq-2';
+          else if (rand >= 0.85 && rand < 0.95) sqClass = 'sq-3';
+          else if (rand >= 0.95) sqClass = 'sq-4';
+          html += `<div class="gh-sq ${sqClass}"></div>`;
+        }
+        html += '</div>';
+      }
+      matrix.innerHTML = html;
+    }
+
+    // SEARCH INPUT LISTENER
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderStream();
+    });
+
+    // FILTER PILL CLICK LISTENER
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pill-btn');
+      if (!btn) return;
+
+      document.querySelectorAll('.pill-group .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      currentFilter = btn.dataset.filter;
+      renderStream();
+    });
+
+    // KEYBOARD SHORTCUTS FOR FILTERS ([a], [p], [r], [w], [m], [c], [e], [d])
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement === searchInput) return;
+
+      const key = e.key.toLowerCase();
+      const keyMap = {
+        'a': 'all',
+        'p': 'project',
+        'r': 'research',
+        'w': 'article',
+        'm': 'award',
+        'c': 'cert',
+        'e': 'degree',
+        'd': 'edu'
+      };
+
+      if (keyMap[key]) {
+        const targetBtn = document.querySelector(`.pill-btn[data-filter="${keyMap[key]}"]`);
+        if (targetBtn) targetBtn.click();
+      }
+    });
+
+    // INIT
+    updatePillCounts();
+    renderStream();
+    initGitHubMatrix();
+  </script>
+</body>
+</html>

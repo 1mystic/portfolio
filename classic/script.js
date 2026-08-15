@@ -950,6 +950,15 @@ const experiments = [
 
   // ─── CERTIFICATIONS ───────────────────────────────────────────
   {
+    title: 'Oracle Agentic AI Certified Foundations',
+    subtitle: 'Oracle · 2026',
+    description: 'Oracle Certified Foundations Associate validating core competencies in Agentic AI architectures and autonomous agents.',
+    howItWorks: 'Validates deep architectural knowledge of Agentic AI workflows, tool-calling LLMs, autonomous planning agents, memory stores, and enterprise AI orchestration.',
+    tech: ['Agentic AI', 'Oracle', 'LLMs', 'AI Agents', '2026'],
+    type: 'Certificate',
+    links: [{ url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59", label: "Verify Oracle Badge" }]
+  },
+  {
     title: 'BDM Best Capstone Project Certificate',
     subtitle: 'IIT Madras · 2026',
     description: 'Special capstone excellence certificate awarded for top performance in the Business Data Management course.',
