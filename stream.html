@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Atharv Khare — Unified Work Stream & Stack</title>
-  <meta name="description" content="Modern dark developer stream, tech stack, and portfolio benchmark stack for Atharv Khare.">
+  <meta name="description" content="Modern dark developer stream, tech stack, audio benchmark visualizer, and portfolio stack for Atharv Khare.">
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'><rect width='64' height='64' rx='14' fill='%23090a0c'/><path d='M14 18h36M18 28h28M24 38h16M29 48h6' stroke='%2338bdf8' stroke-width='4' stroke-linecap='round'/></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +28,7 @@
       --cyan: #38bdf8;
       --cyan-dim: #0284c7;
       --gold: #fbbf24;
+      --gold-light: #fde68a;
       --gold-dark: #b45309;
       --green: #34d399;
       --purple: #c084fc;
@@ -49,8 +54,8 @@
 
     /* ─── CUSTOM SLEEK SCROLLBAR ─── */
     ::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
       background: var(--bg);
@@ -73,6 +78,7 @@
       flex-direction: column;
       font-size: 14px;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a {
@@ -86,16 +92,16 @@
       color: var(--gold);
     }
 
-    /* ─── MAIN CONTAINER WITH GENEROUS SPACIOUS BREATHING ROOM ─── */
+    /* ─── MAIN CONTAINER ─── */
     .container {
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
-      padding: 50px 24px 100px;
+      padding: 48px 24px 100px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 56px; /* Generous gap between all sections */
+      gap: 52px;
     }
 
     /* ─── BENCHMARK HERO DASHBOARD ─── */
@@ -103,7 +109,7 @@
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 32px 38px;
+      padding: 30px 34px;
       position: relative;
       transition: border-color 0.2s ease;
     }
@@ -114,16 +120,17 @@
 
     .bench-main-row {
       display: grid;
-      grid-template-columns: 240px 1fr 180px;
-      gap: 36px;
+      grid-template-columns: 240px 1fr 170px;
+      gap: 28px;
       align-items: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     /* Left: Giant Bold Display Metric */
     .metric-big {
       display: flex;
       flex-direction: column;
+      gap: 4px;
     }
 
     .metric-label {
@@ -132,31 +139,56 @@
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 4px;
+    }
+
+    .metric-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
     }
 
     .metric-value {
-      font-size: 68px;
+      font-size: 64px;
       font-weight: 800;
       color: var(--cyan);
-      line-height: 1;
+      line-height: 0.95;
       letter-spacing: -0.05em;
     }
 
+    .metric-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
     .metric-sub {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
-      margin-top: 8px;
+      white-space: nowrap;
+    }
+
+    .metric-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 6px;
+      flex-wrap: wrap;
     }
 
     .metric-action {
       color: var(--gold);
       font-size: 12px;
       font-weight: 700;
-      margin-top: 6px;
       cursor: pointer;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       transition: all 0.15s ease;
       user-select: none;
     }
@@ -166,19 +198,57 @@
       transform: translateX(2px);
     }
 
-    /* Center: Scaled Flat Stacked Benchmark Bars */
+    .audio-play-btn {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      user-select: none;
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .audio-play-btn:hover {
+      background: rgba(52, 211, 153, 0.18);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .audio-play-btn.playing {
+      background: rgba(244, 114, 182, 0.15);
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    /* Center: Audio-Reactive Stacked Visualizer */
     .bench-visual {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      width: 100%;
+      min-width: 0;
     }
 
     .visual-top-axis {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-size: 11.5px;
       font-weight: 700;
       color: var(--text-dim);
+      gap: 8px;
+    }
+
+    .visual-top-axis span:last-child {
+      color: var(--cyan);
+      font-feature-settings: 'tnum';
     }
 
     .stacked-bars {
@@ -191,53 +261,60 @@
     .gold-bar-stack {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
       gap: 3px;
-      margin-bottom: 8px;
-      padding-right: 40px;
+      margin-bottom: 6px;
+      width: 100%;
     }
 
     .gold-bar {
       height: 7px;
       border-radius: 2px;
+      transition: width 0.15s ease, opacity 0.15s ease;
+      max-width: 100%;
     }
-    .gb-1 { width: 160px; background: #453315; }
-    .gb-2 { width: 162px; background: #6b4d1b; }
-    .gb-3 { width: 162px; background: #9c6c20; }
-    .gb-4 { width: 162px; background: #c98e29; }
-    .gb-5 { width: 152px; background: #eab84d; }
-    .gb-6 { width: 162px; background: #fce89f; }
+    .gb-1 { width: 55%; background: #453315; }
+    .gb-2 { width: 65%; background: #6b4d1b; }
+    .gb-3 { width: 75%; background: #9c6c20; }
+    .gb-4 { width: 85%; background: #c98e29; }
+    .gb-5 { width: 78%; background: #eab84d; }
+    .gb-6 { width: 92%; background: #fce89f; }
 
     .teal-stepped-bars {
       display: flex;
       flex-direction: column;
       gap: 3px;
+      width: 100%;
     }
 
     .teal-bar {
       height: 6px;
       border-radius: 2px;
+      transition: width 0.15s ease, opacity 0.15s ease;
     }
-    .tb-1 { width: 90%; background: #162a33; }
-    .tb-2 { width: 92%; background: #1e3945; }
-    .tb-3 { width: 95%; background: #264a59; }
-    .tb-4 { width: 98%; background: #2e5c70; }
+    .tb-1 { width: 85%; background: #162a33; }
+    .tb-2 { width: 88%; background: #1e3945; }
+    .tb-3 { width: 92%; background: #264a59; }
+    .tb-4 { width: 96%; background: #2e5c70; }
     .tb-5 { width: 100%; background: #38718a; }
-    .tb-6 { width: 96%; background: #458ba8; }
+    .tb-6 { width: 94%; background: #458ba8; }
 
-    /* Micro-wave vector line */
+    /* Micro-wave equalizer line */
     .micro-wave {
       display: flex;
       align-items: flex-end;
-      gap: 3px;
-      height: 16px;
+      gap: 4px;
+      height: 18px;
       margin-top: 4px;
+      width: 100%;
+      justify-content: space-between;
     }
 
     .mw-bar {
-      width: 4px;
+      flex: 1;
+      max-width: 6px;
       background: var(--border-bright);
       border-radius: 1px;
+      transition: height 0.1s ease, background-color 0.15s ease;
     }
 
     /* Right: Stepped Vector Block Logo */
@@ -247,27 +324,28 @@
       align-items: center;
       text-align: center;
       cursor: default;
+      flex-shrink: 0;
     }
 
     .stepped-pyramid {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      margin-bottom: 8px;
+      gap: 3px;
+      margin-bottom: 6px;
     }
 
     .p-step {
-      height: 4px;
+      height: 3.5px;
       background: #e2e8f0;
       border-radius: 1px;
     }
     .ps-1 { width: 10px; }
     .ps-2 { width: 20px; }
     .ps-3 { width: 32px; }
-    .ps-4 { width: 48px; }
-    .ps-5 { width: 64px; }
-    .ps-6 { width: 80px; }
+    .ps-4 { width: 46px; }
+    .ps-5 { width: 62px; }
+    .ps-6 { width: 78px; }
 
     .logo-name {
       font-size: 13.5px;
@@ -283,13 +361,13 @@
       margin-top: 2px;
     }
 
-    /* ─── SYSTEM TELEMETRY DOTTED ROW ─── */
+    /* ─── SYSTEM TELEMETRY STRIP (Fixed Overflow & Dynamic Dots) ─── */
     .telemetry-row {
       border-top: 1px solid var(--border);
-      padding-top: 20px;
+      padding-top: 18px;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
       font-size: 12px;
     }
 
@@ -297,42 +375,54 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      min-width: 0;
     }
 
     .telemetry-title {
       color: var(--text-dim);
       font-weight: 800;
       letter-spacing: 0.1em;
-      margin-bottom: 3px;
-      font-size: 11px;
+      margin-bottom: 2px;
+      font-size: 10.5px;
+      text-transform: uppercase;
     }
 
     .telemetry-item {
       display: flex;
+      align-items: baseline;
       justify-content: space-between;
+      min-width: 0;
+      font-size: 12px;
+    }
+
+    .telemetry-item .label {
       color: var(--text-muted);
       font-weight: 500;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .telemetry-item .dots {
-      color: var(--border-light);
-      flex: 1;
-      margin: 0 8px;
-      overflow: hidden;
-      white-space: nowrap;
-      letter-spacing: 1px;
+      flex: 1 1 auto;
+      border-bottom: 1px dotted var(--border-light);
+      margin: 0 6px 3px;
+      min-width: 10px;
+      height: 0;
     }
 
     .telemetry-item .val {
       color: var(--text);
       font-weight: 700;
+      flex-shrink: 0;
+      white-space: nowrap;
+      text-align: right;
     }
 
     /* ─── SECTION HEADINGS ─── */
     .section-wrap {
       display: flex;
       flex-direction: column;
-      gap: 20px; /* Spacious gap between title and content block */
+      gap: 18px;
     }
 
     .section-head {
@@ -341,13 +431,14 @@
 
     .section-title {
       font-family: var(--font-serif);
-      font-size: 27px;
+      font-size: 26px;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.01em;
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .section-title .section-tag {
@@ -366,10 +457,10 @@
     .section-subtitle {
       font-size: 13.5px;
       color: var(--text-dim);
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
-    /* ─── TECH STACK PILL CARDS (With Rich Hover Lift & Glow) ─── */
+    /* ─── TECH STACK PILL CARDS ─── */
     .tech-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
@@ -380,7 +471,7 @@
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      padding: 12px 16px;
+      padding: 12px 15px;
       display: flex;
       align-items: center;
       gap: 11px;
@@ -413,12 +504,12 @@
       transform: scale(1.1);
     }
 
-    /* ─── COMPETITIONS & BENCHMARKS TABLE CARD (With Smooth Row Hover) ─── */
+    /* ─── COMPETITIONS & BENCHMARKS TABLE CARD ─── */
     .table-card {
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      padding: 24px 28px;
+      padding: 22px 26px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -431,23 +522,23 @@
 
     .table-row-head {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 80px;
-      gap: 18px;
+      grid-template-columns: 2fr 1.1fr 1fr 75px;
+      gap: 16px;
       font-size: 11px;
       font-weight: 800;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0 10px 10px;
+      padding: 0 8px 10px;
       border-bottom: 1.5px solid var(--border);
     }
 
     .table-row {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 80px;
-      gap: 18px;
+      grid-template-columns: 2fr 1.1fr 1fr 75px;
+      gap: 16px;
       align-items: center;
-      padding: 12px 10px;
+      padding: 11px 8px;
       border-radius: 6px;
       font-size: 13px;
       transition: all 0.15s ease;
@@ -459,7 +550,7 @@
     }
 
     .comp-name {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       color: #fff;
     }
@@ -485,12 +576,12 @@
       color: var(--text-dim);
     }
 
-    /* ─── GITHUB ACTIVITY MATRIX (Interactive Tile Hover) ─── */
+    /* ─── GITHUB ACTIVITY MATRIX ─── */
     .github-activity-box {
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      padding: 24px 28px;
+      padding: 22px 26px;
       transition: border-color 0.2s ease;
     }
 
@@ -504,6 +595,8 @@
       align-items: center;
       margin-bottom: 16px;
       font-size: 13px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .gh-user {
@@ -533,6 +626,7 @@
       gap: 3px;
       overflow-x: auto;
       padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
     }
 
     .gh-col {
@@ -577,30 +671,30 @@
       border-radius: 2px;
     }
 
-    /* ─── BIGGER ROUNDED DOTTED BORDER FILTER PILLS ─── */
+    /* ─── RESPONSIVE STICKY FILTER BAR (Mobile Swipeable Rail) ─── */
     .filter-section {
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 20px 24px;
+      padding: 16px 20px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       position: sticky;
-      top: 16px;
+      top: 14px;
       z-index: 50;
       backdrop-filter: blur(14px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
     }
 
     .search-box {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: var(--bg);
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      padding: 10px 16px;
+      padding: 9px 14px;
       transition: border-color 0.2s ease;
     }
 
@@ -632,7 +726,7 @@
     .pill-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
@@ -641,17 +735,19 @@
       background: var(--bg-card);
       border: 1.5px dotted var(--border-light);
       color: var(--text-muted);
-      padding: 8px 18px;
+      padding: 7px 15px;
       border-radius: 9999px;
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .pill-btn .bracket {
@@ -664,7 +760,7 @@
       font-size: 11px;
       background: var(--bg);
       border: 1px solid var(--border);
-      padding: 1px 7px;
+      padding: 1px 6px;
       border-radius: 9999px;
       font-weight: 700;
     }
@@ -679,7 +775,7 @@
 
     .pill-btn.active {
       background: #192433;
-      border: 2px dotted var(--cyan);
+      border: 1.5px dotted var(--cyan);
       color: var(--cyan);
       box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
     }
@@ -694,7 +790,7 @@
       border-color: var(--cyan-dim);
     }
 
-    /* ─── STACKED CARDS STREAM (With Subtle Lift & Shadow) ─── */
+    /* ─── STACKED CARDS STREAM ─── */
     .stream-list {
       display: flex;
       flex-direction: column;
@@ -724,13 +820,14 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 18px;
+      gap: 16px;
     }
 
     .card-title-line {
       display: flex;
       flex-direction: column;
       gap: 3px;
+      min-width: 0;
     }
 
     .card-title {
@@ -738,12 +835,14 @@
       font-weight: 800;
       color: #fff;
       letter-spacing: -0.01em;
+      word-break: break-word;
     }
 
     .card-sub {
       font-size: 12px;
       font-weight: 600;
       color: var(--text-dim);
+      word-break: break-word;
     }
 
     /* FLAT PASTEL CATEGORY BADGES */
@@ -778,7 +877,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 6px;
+      margin-top: 4px;
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
@@ -839,7 +938,7 @@
     footer {
       background: var(--bg-panel);
       border-top: 1.5px solid var(--border);
-      padding: 28px 28px;
+      padding: 26px 24px;
       font-size: 12.5px;
       font-weight: 600;
       color: var(--text-dim);
@@ -852,12 +951,12 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 16px;
     }
 
     .footer-keys {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
@@ -879,7 +978,7 @@
 
     .empty-state {
       text-align: center;
-      padding: 56px 24px;
+      padding: 50px 20px;
       color: var(--text-dim);
       font-size: 14px;
       font-weight: 600;
@@ -888,68 +987,169 @@
       background: var(--bg-panel);
     }
 
-    @media (max-width: 768px) {
-      .container { gap: 40px; padding: 30px 16px 60px; }
-      .bench-main-row { grid-template-columns: 1fr; gap: 20px; }
-      .telemetry-row { grid-template-columns: 1fr; }
-      .table-row-head, .table-row { grid-template-columns: 1fr; gap: 6px; }
-      .table-row-head { display: none; }
-      .gold-bar-stack { align-items: flex-start; padding-right: 0; }
-      .stack-card { padding: 18px 20px; }
-      .metric-value { font-size: 52px; }
+    /* ─── MOBILE RESPONSIVE TWEAKS ─── */
+    @media (max-width: 860px) {
+      .container {
+        gap: 36px;
+        padding: 20px 14px 60px;
+      }
+
+      .benchmark-hero {
+        padding: 18px 16px;
+      }
+
+      .bench-main-row {
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .metric-value {
+        font-size: 48px;
+      }
+
+      .metric-sub {
+        font-size: 11.5px;
+      }
+
+      .bench-visual {
+        grid-column: span 2;
+        order: 3;
+        margin-top: 4px;
+      }
+
+      .telemetry-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-top: 14px;
+      }
+
+      .table-row-head {
+        display: none;
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 6px;
+      }
+
+      .table-card {
+        padding: 16px 14px;
+      }
+
+      .stack-card {
+        padding: 16px 14px;
+      }
+
+      /* Horizontal swipeable filter pill rail */
+      .filter-section {
+        padding: 12px 14px;
+        top: 8px;
+        gap: 10px;
+      }
+
+      .pill-group {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .pill-group::-webkit-scrollbar {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bench-main-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .vector-logo-block {
+        display: none; /* Clean minimalism on very small phones to let the metric shine */
+      }
+
+      .bench-visual {
+        grid-column: span 1;
+      }
+
+      .metric-value-row {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Hidden Background Music Element (lo-fi ambient track) -->
+  <audio id="bgAudio" src="fresh/assets/bgsong.opus" loop preload="none"></audio>
+
   <main class="container">
 
-    <!-- ─── 01. BENCHMARK HERO PANEL ─── -->
+    <!-- ─── 01. BENCHMARK HERO PANEL (Audio-Reactive Visualizer) ─── -->
     <section class="benchmark-hero">
       <div class="bench-main-row">
+        
         <!-- Metric Display -->
         <div class="metric-big">
           <div class="metric-label">RUN AVERAGE · 0s ago</div>
-          <div class="metric-value">46</div>
-          <div class="metric-sub">46 total records · 9.02 cgpa</div>
-          <div class="metric-action" onclick="resetFilters()">[r] reset filter</div>
+          <div class="metric-value-row">
+            <div class="metric-value" id="dispTotalRecords">56</div>
+            <span class="metric-tag">9.02 CGPA · 56 RECORDS</span>
+          </div>
+          <div class="metric-sub">56 verified records · active corpus</div>
+          
+          <div class="metric-controls">
+            <span class="metric-action" onclick="resetFilters()">[r] reset</span>
+            <button class="audio-play-btn" id="audioToggleBtn" onclick="toggleAudio()">
+              <span id="audioIcon">▶</span> <span id="audioLabel">play synth</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Center Flat Stacked Bars -->
+        <!-- Center: Audio-Reactive Stacked Visualizer -->
         <div class="bench-visual">
           <div class="visual-top-axis">
-            <span>tok/s</span>
-            <span>28.1</span>
+            <span id="audioStatusText">tok/s · standby</span>
+            <span id="audioHzRate">28.10 tok/s</span>
           </div>
           
           <div class="stacked-bars">
             <!-- Gold Stepped Bars -->
             <div class="gold-bar-stack">
-              <div class="gold-bar gb-1"></div>
-              <div class="gold-bar gb-2"></div>
-              <div class="gold-bar gb-3"></div>
-              <div class="gold-bar gb-4"></div>
-              <div class="gold-bar gb-5"></div>
-              <div class="gold-bar gb-6"></div>
+              <div class="gold-bar gb-1" id="gbar-1"></div>
+              <div class="gold-bar gb-2" id="gbar-2"></div>
+              <div class="gold-bar gb-3" id="gbar-3"></div>
+              <div class="gold-bar gb-4" id="gbar-4"></div>
+              <div class="gold-bar gb-5" id="gbar-5"></div>
+              <div class="gold-bar gb-6" id="gbar-6"></div>
             </div>
 
             <!-- Teal Stepped Bars -->
             <div class="visual-top-axis" style="margin-top:2px;">
               <span>prime</span>
-              <span>100% of corpus</span>
+              <span>100% corpus benchmark</span>
             </div>
             <div class="teal-stepped-bars">
-              <div class="teal-bar tb-1"></div>
-              <div class="teal-bar tb-2"></div>
-              <div class="teal-bar tb-3"></div>
-              <div class="teal-bar tb-4"></div>
-              <div class="teal-bar tb-5"></div>
-              <div class="teal-bar tb-6"></div>
+              <div class="teal-bar tb-1" id="tbar-1"></div>
+              <div class="teal-bar tb-2" id="tbar-2"></div>
+              <div class="teal-bar tb-3" id="tbar-3"></div>
+              <div class="teal-bar tb-4" id="tbar-4"></div>
+              <div class="teal-bar tb-5" id="tbar-5"></div>
+              <div class="teal-bar tb-6" id="tbar-6"></div>
             </div>
           </div>
 
-          <!-- Micro-wave vector line -->
-          <div class="micro-wave">
+          <!-- Micro-wave vector equalizer line -->
+          <div class="micro-wave" id="microWaveBox">
             <div class="mw-bar" style="height:4px;"></div>
             <div class="mw-bar" style="height:7px;"></div>
             <div class="mw-bar" style="height:10px;"></div>
@@ -979,29 +1179,30 @@
           <div class="logo-name">Atharv Khare</div>
           <div class="logo-sub">AI &amp; Data Science</div>
         </div>
+
       </div>
 
-      <!-- Telemetry Strip -->
+      <!-- Telemetry Strip (Dotted Line Fill, No Text Overflow) -->
       <div class="telemetry-row">
         <div class="telemetry-col">
           <div class="telemetry-title">CORE FOCUS</div>
-          <div class="telemetry-item"><span>LLM Agents / RAG</span><span class="dots">....................</span><span class="val">LangGraph</span></div>
-          <div class="telemetry-item"><span>Classical ML</span><span class="dots">....................</span><span class="val">Ensembles</span></div>
-          <div class="telemetry-item"><span>Backend Serving</span><span class="dots">....................</span><span class="val">FastAPI</span></div>
+          <div class="telemetry-item"><span class="label">LLM Agents / RAG</span><span class="dots"></span><span class="val">LangGraph</span></div>
+          <div class="telemetry-item"><span class="label">Classical ML</span><span class="dots"></span><span class="val">Ensembles</span></div>
+          <div class="telemetry-item"><span class="label">Backend Serving</span><span class="dots"></span><span class="val">FastAPI</span></div>
         </div>
 
         <div class="telemetry-col">
           <div class="telemetry-title">ACADEMICS</div>
-          <div class="telemetry-item"><span>B.S. Data Science</span><span class="dots">....................</span><span class="val">9.02 CGPA</span></div>
-          <div class="telemetry-item"><span>Prog Diploma</span><span class="dots">....................</span><span class="val">9.44 CGPA</span></div>
-          <div class="telemetry-item"><span>IIT Madras</span><span class="dots">....................</span><span class="val" style="color:var(--green);">✔ Active</span></div>
+          <div class="telemetry-item"><span class="label">B.S. Data Science</span><span class="dots"></span><span class="val">9.02 CGPA</span></div>
+          <div class="telemetry-item"><span class="label">Prog Diploma</span><span class="dots"></span><span class="val">9.44 CGPA</span></div>
+          <div class="telemetry-item"><span class="label">IIT Madras</span><span class="dots"></span><span class="val" style="color:var(--green);">✔ Active</span></div>
         </div>
 
         <div class="telemetry-col">
           <div class="telemetry-title">CORPUS METRICS</div>
-          <div class="telemetry-item"><span>Projects &amp; Tools</span><span class="dots">....................</span><span class="val">14 records</span></div>
-          <div class="telemetry-item"><span>Research &amp; Papers</span><span class="dots">....................</span><span class="val">06 records</span></div>
-          <div class="telemetry-item"><span>Competitions</span><span class="dots">....................</span><span class="val">Top 0.8%</span></div>
+          <div class="telemetry-item"><span class="label">Projects &amp; Tools</span><span class="dots"></span><span class="val">14 records</span></div>
+          <div class="telemetry-item"><span class="label">Research &amp; Papers</span><span class="dots"></span><span class="val">06 records</span></div>
+          <div class="telemetry-item"><span class="label">Competitions</span><span class="dots"></span><span class="val">Top 0.8%</span></div>
         </div>
       </div>
     </section>
@@ -1014,77 +1215,62 @@
       </div>
 
       <div class="tech-grid">
-        <!-- 1. LangGraph -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangGraph" class="tech-icon" loading="lazy">
           <span>LangGraph</span>
         </div>
-        <!-- 2. LangChain -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangChain" class="tech-icon" loading="lazy">
           <span>LangChain</span>
         </div>
-        <!-- 3. scikit-learn -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/scikitlearn/f7931e" alt="scikit-learn" class="tech-icon" loading="lazy">
           <span>scikit-learn</span>
         </div>
-        <!-- 4. Vue 3 -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/vuedotjs/4fc08d" alt="Vue.js" class="tech-icon" loading="lazy">
           <span>Vue 3</span>
         </div>
-        <!-- 5. FastAPI -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/fastapi/05998b" alt="FastAPI" class="tech-icon" loading="lazy">
           <span>FastAPI</span>
         </div>
-        <!-- 6. Flask -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/flask/ffffff" alt="Flask" class="tech-icon" loading="lazy">
           <span>Flask</span>
         </div>
-        <!-- 7. Python -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/python/3776ab" alt="Python" class="tech-icon" loading="lazy">
           <span>Python</span>
         </div>
-        <!-- 8. Claude API -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/anthropic/d97757" alt="Claude API" class="tech-icon" loading="lazy">
           <span>Claude API</span>
         </div>
-        <!-- 9. Supabase -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/supabase/3ecf8e" alt="Supabase" class="tech-icon" loading="lazy">
           <span>Supabase</span>
         </div>
-        <!-- 10. PostgreSQL -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/postgresql/4169e1" alt="PostgreSQL" class="tech-icon" loading="lazy">
           <span>PostgreSQL</span>
         </div>
-        <!-- 11. PyTorch -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/pytorch/ee4c2c" alt="PyTorch" class="tech-icon" loading="lazy">
           <span>PyTorch</span>
         </div>
-        <!-- 12. React -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/react/61dafb" alt="React" class="tech-icon" loading="lazy">
           <span>React</span>
         </div>
-        <!-- 13. Next.js -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="Next.js" class="tech-icon" loading="lazy">
           <span>Next.js</span>
         </div>
-        <!-- 14. TypeScript -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/typescript/3178c6" alt="TypeScript" class="tech-icon" loading="lazy">
           <span>TypeScript</span>
         </div>
-        <!-- 15. GCP Cloud -->
         <div class="tech-pill-card">
           <img src="https://cdn.simpleicons.org/googlecloud/4285f4" alt="GCP" class="tech-icon" loading="lazy">
           <span>GCP Cloud</span>
@@ -1092,7 +1278,7 @@
       </div>
     </section>
 
-    <!-- ─── 03. COMPETITIONS & MODEL LAB (Structured Benchmark Table) ─── -->
+    <!-- ─── 03. COMPETITIONS & MODEL LAB ─── -->
     <section class="section-wrap">
       <div class="section-head">
         <h2 class="section-title">Competitions &amp; Model Lab <span class="section-tag">Benchmarks</span></h2>
@@ -1178,16 +1364,16 @@
       </div>
     </section>
 
-    <!-- ─── 05. BIGGER ROUNDED DOTTED BORDER FILTER PILLS ─── -->
+    <!-- ─── 05. RESPONSIVE STICKY FILTER PILL BAR ─── -->
     <section class="filter-section">
       <div class="search-box">
         <span class="search-prompt">&gt;</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="filter stream by keyword, tech, or title (e.g. PyTorch, RAG, Ensemble, Kaggle)...">
+        <input type="text" id="searchInput" class="search-input" placeholder="filter stream by title, topic, or tech...">
       </div>
 
       <div class="pill-group" id="filterBar">
         <button class="pill-btn active" data-filter="all">
-          <span class="bracket">[a]</span>ll <span class="count" id="c-all">45</span>
+          <span class="bracket">[a]</span>ll <span class="count" id="c-all">56</span>
         </button>
         <button class="pill-btn" data-filter="project">
           <span class="bracket">[p]</span>rojects <span class="count" id="c-project">14</span>
@@ -1202,7 +1388,7 @@
           <span class="bracket">[m]</span>erits <span class="count" id="c-award">7</span>
         </button>
         <button class="pill-btn" data-filter="cert">
-          <span class="bracket">[c]</span>erts <span class="count" id="c-cert">9</span>
+          <span class="bracket">[c]</span>erts <span class="count" id="c-cert">10</span>
         </button>
         <button class="pill-btn" data-filter="degree">
           <span class="bracket">[e]</span>ducation <span class="count" id="c-degree">2</span>
@@ -1224,15 +1410,15 @@
   <footer>
     <div class="footer-content">
       <div class="footer-keys">
-        <a href="https://github.com/1mystic" target="_blank"><span class="bracket">[g]</span>ithub</a>
-        <a href="https://www.linkedin.com/in/atharv-khare-8991a2280/" target="_blank"><span class="bracket">[l]</span>inkedin</a>
+        <a href="https://github.com/1mystic" target="_blank" rel="noopener noreferrer"><span class="bracket">[g]</span>ithub</a>
+        <a href="https://www.linkedin.com/in/atharv-khare-8991a2280/" target="_blank" rel="noopener noreferrer"><span class="bracket">[l]</span>inkedin</a>
         <a href="mailto:atharvkhare25@gmail.com"><span class="bracket">[e]</span>mail</a>
-        <a href="https://kaggle.com/1mystic" target="_blank"><span class="bracket">[k]</span>aggle</a>
-        <a href="https://zenodo.org" target="_blank"><span class="bracket">[z]</span>enodo</a>
+        <a href="https://kaggle.com/1mystic" target="_blank" rel="noopener noreferrer"><span class="bracket">[k]</span>aggle</a>
+        <a href="https://zenodo.org" target="_blank" rel="noopener noreferrer"><span class="bracket">[z]</span>enodo</a>
         <a href="socials.html"><span class="bracket">[s]</span>ocials</a>
       </div>
       <div>
-        <span style="color:var(--text-dim); font-weight:700;">« engine done — 23.95 tok/s »</span>
+        <span style="color:var(--text-dim); font-weight:700;">« engine done — 28.10 tok/s »</span>
       </div>
     </div>
   </footer>
@@ -1272,9 +1458,9 @@
       'GitHub': { slug: 'github', color: '#ffffff' },
     };
 
-    /* ─── COMPLETE CORPUS DATASET ─── */
+    /* ─── COMPLETE CORPUS DATASET (56 Verified Records) ─── */
     const dataset = [
-      // PROJECTS
+      // PROJECTS (14)
       { title: "Sentio", sub: "sentio-go.vercel.app", type: "project", catLabel: "Project", href: "https://sentio-go.vercel.app/", github: "https://github.com/1mystic/Sentio",
         desc: "AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, therapist scrapers, Coherence caching for sub-100ms latency, and Supabase OAuth.",
         tags: ["Vue 3", "FastAPI", "NLP/DL", "Supabase", "Web Scraping"] },
@@ -1318,7 +1504,7 @@
         desc: "6-layer restaurant intelligence system combining demand forecasting (SARIMA/LSTM ensemble), LP staffing optimization, and LLM-driven executive reporting.",
         tags: ["FastAPI", "PostgreSQL", "SARIMA", "LSTM", "Optimization"] },
 
-      // RESEARCH
+      // RESEARCH (6)
       { title: "MLP Project Statistical Analysis", sub: "mlp-proj-t126.edgeone.app", type: "research", catLabel: "Research", href: "https://mlp-proj-t126.edgeone.app/",
         desc: "Statistical analysis and feature distribution study on Machine Learning Practice dataset evaluating feature correlations, baseline error bounds, and statistical metrics.",
         tags: ["Statistical Analysis", "Python", "MLP", "EDA"] },
@@ -1338,7 +1524,7 @@
         desc: "Detailed statistical analyses and problem sets covering hypothesis testing, regression modeling, ANOVA, and probability distributions at IIT Madras.",
         tags: ["Statistics", "Hypothesis Testing", "ANOVA", "Regression"] },
 
-      // ARTICLES & WRITING
+      // ARTICLES & WRITING (8)
       { title: "Pen — Simple Write-ups", sub: "1mystic.github.io/pen", type: "article", catLabel: "Essay", href: "https://1mystic.github.io/pen/",
         desc: "Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.",
         tags: ["Essays", "Writing", "Digital Garden"] },
@@ -1364,7 +1550,7 @@
         desc: "Deep dive into Vedic astrology inspired team matching using GitHub chronotype metrics.",
         tags: ["Algorithms", "DevOps", "Innovation"] },
 
-      // AWARDS
+      // AWARDS & MERITS (7)
       { title: "IIT Madras Merit Prize Certificate", sub: "IIT Madras · Academic Excellence", type: "award", catLabel: "Merit Award", href: "https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing",
         desc: "Awarded Merit Prize Certificate by IIT Madras for academic excellence and top performance in BS Data Science & Applications.",
         tags: ["Merit Award", "IIT Madras", "Academic Excellence"] },
@@ -1387,7 +1573,7 @@
         desc: "Silver medal at Anukriti (Paradox IITM) for mathematical and digital visualization challenges.",
         tags: ["Silver Medal", "Paradox IITM", "2025"] },
 
-      // CERTIFICATES
+      // CERTIFICATES (10)
       { title: "Oracle Certified Associate — Agentic AI Foundations", sub: "Oracle · 2026", type: "cert", catLabel: "Certificate", href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59",
         desc: "Oracle Certified Foundations Associate validating core competencies in Agentic AI architectures, autonomous agents, LLM tool-calling orchestration, and multi-agent workflows.",
         tags: ["Agentic AI", "Oracle", "LLMs", "AI Agents", "2026"] },
@@ -1419,7 +1605,7 @@
         desc: "Training in machine learning preprocessing, classification, clustering models, and Python serving.",
         tags: ["Machine Learning", "Python", "Simplilearn"] },
 
-      // EDUCATION
+      // EDUCATION (2)
       { title: "B.S. Data Science & Applications", sub: "IIT Madras · 2023 – 2027", type: "degree", catLabel: "Degree", href: "https://study.iitm.ac.in",
         desc: "Bachelor of Science in Data Science & Applications from IIT Madras. Currently maintaining CGPA of 9.02.",
         tags: ["IIT Madras", "CGPA 9.02", "Data Science", "AI/ML"] },
@@ -1427,7 +1613,7 @@
         desc: "Diploma in Programming from IIT Madras completed with 9.44 CGPA in algorithms and web systems.",
         tags: ["IIT Madras", "CGPA 9.44", "Diploma", "Algorithms"] },
 
-      // EDUCATIONAL CONTENT
+      // EDUCATIONAL CONTENT (9)
       { title: "Interactive ML Algorithms", sub: "1mystic.github.io/ML-Algos", type: "edu", catLabel: "Edu Content", href: "https://1mystic.github.io/ML-Algos/", github: "https://github.com/1mystic",
         desc: "Interactive web suite implementing classical Machine Learning algorithms in vanilla JS with visual parameter tuning.",
         tags: ["ML", "JavaScript", "Interactive", "Algorithms"] },
@@ -1484,6 +1670,8 @@
         const el = document.getElementById(`c-${k}`);
         if (el) el.textContent = counts[k];
       });
+      const dispTotal = document.getElementById('dispTotalRecords');
+      if (dispTotal) dispTotal.textContent = dataset.length;
     }
 
     function renderTag(t) {
@@ -1518,8 +1706,8 @@
       streamList.innerHTML = filtered.map(item => {
         const badgeClass = badgeClasses[item.type] || 'badge-project';
         const tagsHtml = item.tags ? item.tags.map(t => renderTag(t)).join('') : '';
-        const ghHtml = item.github ? `<a href="${item.github}" target="_blank" class="action-btn">[ → github ]</a>` : '';
-        const demoHtml = item.href ? `<a href="${item.href}" target="_blank" class="action-btn">[ ↗ link ]</a>` : '';
+        const ghHtml = item.github ? `<a href="${item.github}" target="_blank" rel="noopener noreferrer" class="action-btn">[ → github ]</a>` : '';
+        const demoHtml = item.href ? `<a href="${item.href}" target="_blank" rel="noopener noreferrer" class="action-btn">[ ↗ link ]</a>` : '';
 
         return `
           <div class="stack-card">
@@ -1570,6 +1758,122 @@
         html += '</div>';
       }
       matrix.innerHTML = html;
+    }
+
+    /* ─── AUDIO SYNTH VISUALIZER ANIMATION LOOP ─── */
+    const bgAudio = document.getElementById('bgAudio');
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioLabel = document.getElementById('audioLabel');
+    const audioStatusText = document.getElementById('audioStatusText');
+    const audioHzRate = document.getElementById('audioHzRate');
+    let isAudioPlaying = false;
+    let animFrameId = null;
+
+    const baseGoldWidths = [55, 65, 75, 85, 78, 92];
+    const baseTealWidths = [85, 88, 92, 96, 100, 94];
+
+    function toggleAudio() {
+      if (!bgAudio) return;
+
+      if (!isAudioPlaying) {
+        bgAudio.play().then(() => {
+          isAudioPlaying = true;
+          audioToggleBtn.classList.add('playing');
+          audioIcon.textContent = '⏸';
+          audioLabel.textContent = 'pause synth';
+          audioStatusText.textContent = 'playing · ambient lofi 128k';
+          startVisualizerLoop();
+        }).catch(err => {
+          console.log('Audio play blocked or unavailable', err);
+          isAudioPlaying = true;
+          audioToggleBtn.classList.add('playing');
+          audioIcon.textContent = '⏸';
+          audioLabel.textContent = 'pause synth';
+          audioStatusText.textContent = 'synth active · 44.1 kHz';
+          startVisualizerLoop();
+        });
+      } else {
+        bgAudio.pause();
+        isAudioPlaying = false;
+        audioToggleBtn.classList.remove('playing');
+        audioIcon.textContent = '▶';
+        audioLabel.textContent = 'play synth';
+        audioStatusText.textContent = 'tok/s · standby';
+        audioHzRate.textContent = '28.10 tok/s';
+        stopVisualizerLoop();
+      }
+    }
+
+    function startVisualizerLoop() {
+      let tick = 0;
+      const mwBars = document.querySelectorAll('#microWaveBox .mw-bar');
+
+      function animate() {
+        if (!isAudioPlaying) return;
+        tick += 0.08;
+
+        // Dynamic tok/s fluctuation
+        const liveTok = (28.10 + Math.sin(tick * 1.5) * 4.2 + Math.cos(tick * 0.8) * 2.1).toFixed(2);
+        audioHzRate.textContent = `${liveTok} tok/s`;
+
+        // Animate Gold Stepped Bars
+        for (let i = 1; i <= 6; i++) {
+          const el = document.getElementById(`gbar-${i}`);
+          if (el) {
+            const delta = Math.sin(tick * 2 + i) * 14 + Math.cos(tick * 1.2 + i * 0.5) * 8;
+            const w = Math.min(98, Math.max(35, baseGoldWidths[i - 1] + delta));
+            el.style.width = `${w}%`;
+          }
+        }
+
+        // Animate Teal Stepped Bars
+        for (let i = 1; i <= 6; i++) {
+          const el = document.getElementById(`tbar-${i}`);
+          if (el) {
+            const delta = Math.cos(tick * 1.8 + i) * 8;
+            const w = Math.min(100, Math.max(65, baseTealWidths[i - 1] + delta));
+            el.style.width = `${w}%`;
+          }
+        }
+
+        // Animate Micro-wave Equalizer Bars
+        mwBars.forEach((bar, idx) => {
+          const h = 3 + Math.abs(Math.sin(tick * 2.5 + idx * 0.4) * 14);
+          bar.style.height = `${h}px`;
+          if (h > 11) {
+            bar.style.backgroundColor = 'var(--cyan)';
+          } else {
+            bar.style.backgroundColor = 'var(--border-bright)';
+          }
+        });
+
+        animFrameId = requestAnimationFrame(animate);
+      }
+
+      animFrameId = requestAnimationFrame(animate);
+    }
+
+    function stopVisualizerLoop() {
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+      
+      // Reset Gold Bars to base
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById(`gbar-${i}`);
+        if (el) el.style.width = `${baseGoldWidths[i - 1]}%`;
+      }
+      // Reset Teal Bars to base
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById(`tbar-${i}`);
+        if (el) el.style.width = `${baseTealWidths[i - 1]}%`;
+      }
+      // Reset Micro-wave bars
+      const initialHeights = [4, 7, 10, 14, 16, 11, 8, 5, 3, 8, 12, 7, 4];
+      const mwBars = document.querySelectorAll('#microWaveBox .mw-bar');
+      mwBars.forEach((bar, idx) => {
+        bar.style.height = `${initialHeights[idx] || 6}px`;
+        bar.style.backgroundColor = 'var(--border-bright)';
+      });
     }
 
     // SEARCH INPUT LISTENER
