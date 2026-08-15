@@ -1645,6 +1645,14 @@
       const allBtn = document.querySelector('.pill-btn[data-filter="all"]');
       if (allBtn) allBtn.classList.add('active');
       renderStream();
+
+      // Reset / Rewind Audio Synth track
+      if (bgAudio) {
+        bgAudio.currentTime = 0;
+        if (isAudioPlaying) {
+          bgAudio.play().catch(e => console.log('Audio replay err', e));
+        }
+      }
     }
 
     function initGitHubMatrix() {
