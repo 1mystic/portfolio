@@ -271,7 +271,7 @@
       transition: height 0.1s ease, background-color 0.15s ease;
     }
 
-    /* Right: Stepped Vector Block Logo */
+    /* Right: Vector Dot Matrix Portrait */
     .vector-logo-block {
       display: flex;
       flex-direction: column;
@@ -281,25 +281,30 @@
       flex-shrink: 0;
     }
 
-    .stepped-pyramid {
+    .avatar-portrait-wrap {
+      position: relative;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 3px;
+      justify-content: center;
       margin-bottom: 6px;
     }
 
-    .p-step {
-      height: 3.5px;
-      background: #e2e8f0;
-      border-radius: 1px;
+    .avatar-portrait {
+      width: 72px;
+      height: 72px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-light);
+      background: var(--bg-card);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: block;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
-    .ps-1 { width: 10px; }
-    .ps-2 { width: 20px; }
-    .ps-3 { width: 32px; }
-    .ps-4 { width: 46px; }
-    .ps-5 { width: 62px; }
-    .ps-6 { width: 78px; }
+
+    .avatar-portrait:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.22);
+    }
 
     .logo-name {
       font-size: 13.5px;
@@ -950,16 +955,28 @@
 
       .benchmark-hero {
         padding: 20px 18px;
-        gap: 18px;
+        gap: 16px;
       }
 
       .bench-main-row {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .bench-visual {
+        grid-column: span 2;
+        order: 3;
+        margin-top: 4px;
       }
 
       .metric-value {
-        font-size: 52px;
+        font-size: 48px;
+      }
+
+      .avatar-portrait {
+        width: 62px;
+        height: 62px;
       }
 
       .telemetry-row {
@@ -1073,15 +1090,10 @@
           </div>
         </div>
 
-        <!-- Right: Stepped Vector Block Logo -->
+        <!-- Right: Dot Matrix Avatar Portrait -->
         <div class="vector-logo-block">
-          <div class="stepped-pyramid">
-            <div class="p-step ps-1"></div>
-            <div class="p-step ps-2"></div>
-            <div class="p-step ps-3"></div>
-            <div class="p-step ps-4"></div>
-            <div class="p-step ps-5"></div>
-            <div class="p-step ps-6"></div>
+          <div class="avatar-portrait-wrap">
+            <img src="avatar-dots.svg" alt="Atharv Khare" class="avatar-portrait" width="72" height="72">
           </div>
           <div class="logo-name">Atharv Khare</div>
           <div class="logo-sub">AI &amp; Data Science</div>
@@ -1320,9 +1332,9 @@
         <a href="https://github.com/1mystic" target="_blank" rel="noopener noreferrer"><span class="bracket">[g]</span>ithub</a>
         <a href="https://www.linkedin.com/in/atharv-khare-8991a2280/" target="_blank" rel="noopener noreferrer"><span class="bracket">[l]</span>inkedin</a>
         <a href="mailto:atharvkhare25@gmail.com"><span class="bracket">[e]</span>mail</a>
-        <a href="https://kaggle.com/1mystic" target="_blank" rel="noopener noreferrer"><span class="bracket">[k]</span>aggle</a>
-        <a href="https://zenodo.org" target="_blank" rel="noopener noreferrer"><span class="bracket">[z]</span>enodo</a>
+        <a href="https://www.kaggle.com/atharvkhare" target="_blank" rel="noopener noreferrer"><span class="bracket">[k]</span>aggle</a>
         <a href="socials.html"><span class="bracket">[s]</span>ocials</a>
+        <a href="/"><span class="bracket">[h]</span>ome</a>
       </div>
       <div>
         <span style="color:var(--text-dim); font-weight:700;">« engine done — 28.10 tok/s »</span>
