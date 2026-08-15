@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Atharv Khare — Unified Work Stream & Stack</title>
+  <title>Atharv Khare Unified Work Stream & Stack</title>
   <meta name="description" content="Modern dark developer stream, tech stack, audio benchmark visualizer, and portfolio stack for Atharv Khare.">
   
   <!-- FAVICON -->
@@ -94,23 +94,25 @@
 
     /* ─── MAIN CONTAINER ─── */
     .container {
-      max-width: 1100px;
+      max-width: 1060px;
       width: 100%;
       margin: 0 auto;
-      padding: 48px 24px 100px;
+      padding: 44px 20px 90px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 52px;
+      gap: 48px;
     }
 
-    /* ─── BENCHMARK HERO DASHBOARD ─── */
+    /* ─── BENCHMARK HERO (Clean, Uncluttered, Elegant) ─── */
     .benchmark-hero {
       background: var(--bg-panel);
       border: 1.5px solid var(--border);
       border-radius: 12px;
-      padding: 30px 34px;
-      position: relative;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
       transition: border-color 0.2s ease;
     }
 
@@ -120,17 +122,16 @@
 
     .bench-main-row {
       display: grid;
-      grid-template-columns: 240px 1fr 170px;
-      gap: 28px;
+      grid-template-columns: 210px 1fr 160px;
+      gap: 32px;
       align-items: center;
-      margin-bottom: 24px;
     }
 
-    /* Left: Giant Bold Display Metric */
+    /* Left: Giant Clean Metric */
     .metric-big {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
     .metric-label {
@@ -138,32 +139,15 @@
       font-weight: 700;
       color: var(--text-dim);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .metric-value-row {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
+      letter-spacing: 0.08em;
     }
 
     .metric-value {
-      font-size: 64px;
+      font-size: 60px;
       font-weight: 800;
       color: var(--cyan);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-    }
-
-    .metric-tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--green);
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.25);
-      padding: 2px 7px;
-      border-radius: 4px;
-      white-space: nowrap;
+      line-height: 1;
+      letter-spacing: -0.04em;
     }
 
     .metric-sub {
@@ -171,14 +155,14 @@
       font-weight: 600;
       color: var(--text-muted);
       white-space: nowrap;
+      margin-top: 2px;
     }
 
     .metric-controls {
       display: flex;
       gap: 10px;
       align-items: center;
-      margin-top: 6px;
-      flex-wrap: wrap;
+      margin-top: 8px;
     }
 
     .metric-action {
@@ -200,7 +184,7 @@
 
     .audio-play-btn {
       color: var(--green);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
@@ -210,7 +194,7 @@
       user-select: none;
       background: rgba(52, 211, 153, 0.08);
       border: 1px solid rgba(52, 211, 153, 0.25);
-      padding: 3px 9px;
+      padding: 3px 8px;
       border-radius: 4px;
       font-family: var(--font-mono);
     }
@@ -227,11 +211,11 @@
       color: var(--pink);
     }
 
-    /* Center: Audio-Reactive Stacked Visualizer */
+    /* Center: Single Clean Audio-Reactive Spectrum */
     .bench-visual {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
       min-width: 0;
     }
@@ -243,7 +227,6 @@
       font-size: 11.5px;
       font-weight: 700;
       color: var(--text-dim);
-      gap: 8px;
     }
 
     .visual-top-axis span:last-child {
@@ -251,67 +234,38 @@
       font-feature-settings: 'tnum';
     }
 
-    .stacked-bars {
+    .visual-bars-container {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       width: 100%;
     }
 
-    .gold-bar-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      margin-bottom: 6px;
-      width: 100%;
-    }
-
-    .gold-bar {
-      height: 7px;
-      border-radius: 2px;
-      transition: width 0.15s ease, opacity 0.15s ease;
-      max-width: 100%;
-    }
-    .gb-1 { width: 55%; background: #453315; }
-    .gb-2 { width: 65%; background: #6b4d1b; }
-    .gb-3 { width: 75%; background: #9c6c20; }
-    .gb-4 { width: 85%; background: #c98e29; }
-    .gb-5 { width: 78%; background: #eab84d; }
-    .gb-6 { width: 92%; background: #fce89f; }
-
-    .teal-stepped-bars {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      width: 100%;
-    }
-
-    .teal-bar {
+    .layered-bar {
       height: 6px;
       border-radius: 2px;
       transition: width 0.15s ease, opacity 0.15s ease;
     }
-    .tb-1 { width: 85%; background: #162a33; }
-    .tb-2 { width: 88%; background: #1e3945; }
-    .tb-3 { width: 92%; background: #264a59; }
-    .tb-4 { width: 96%; background: #2e5c70; }
-    .tb-5 { width: 100%; background: #38718a; }
-    .tb-6 { width: 94%; background: #458ba8; }
+    .lb-1 { width: 50%; background: #453315; }
+    .lb-2 { width: 64%; background: #6b4d1b; }
+    .lb-3 { width: 78%; background: #9c6c20; }
+    .lb-4 { width: 88%; background: #c98e29; }
+    .lb-5 { width: 82%; background: #eab84d; }
+    .lb-6 { width: 95%; background: #fce89f; }
 
     /* Micro-wave equalizer line */
     .micro-wave {
       display: flex;
       align-items: flex-end;
-      gap: 4px;
-      height: 18px;
-      margin-top: 4px;
+      gap: 3px;
+      height: 14px;
+      margin-top: 2px;
       width: 100%;
-      justify-content: space-between;
     }
 
     .mw-bar {
       flex: 1;
-      max-width: 6px;
+      height: 3px;
       background: var(--border-bright);
       border-radius: 1px;
       transition: height 0.1s ease, background-color 0.15s ease;
@@ -361,13 +315,13 @@
       margin-top: 2px;
     }
 
-    /* ─── SYSTEM TELEMETRY STRIP (Fixed Overflow & Dynamic Dots) ─── */
+    /* ─── SYSTEM TELEMETRY STRIP ─── */
     .telemetry-row {
       border-top: 1px solid var(--border);
       padding-top: 18px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 28px;
       font-size: 12px;
     }
 
@@ -381,7 +335,7 @@
     .telemetry-title {
       color: var(--text-dim);
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       margin-bottom: 2px;
       font-size: 10.5px;
       text-transform: uppercase;
@@ -945,7 +899,7 @@
     }
 
     .footer-content {
-      max-width: 1100px;
+      max-width: 1060px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -995,28 +949,17 @@
       }
 
       .benchmark-hero {
-        padding: 18px 16px;
+        padding: 20px 18px;
+        gap: 18px;
       }
 
       .bench-main-row {
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        align-items: center;
-        margin-bottom: 18px;
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
 
       .metric-value {
-        font-size: 48px;
-      }
-
-      .metric-sub {
-        font-size: 11.5px;
-      }
-
-      .bench-visual {
-        grid-column: span 2;
-        order: 3;
-        margin-top: 4px;
+        font-size: 52px;
       }
 
       .telemetry-row {
@@ -1066,25 +1009,6 @@
         font-size: 22px;
       }
     }
-
-    @media (max-width: 480px) {
-      .bench-main-row {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .vector-logo-block {
-        display: none; /* Clean minimalism on very small phones to let the metric shine */
-      }
-
-      .bench-visual {
-        grid-column: span 1;
-      }
-
-      .metric-value-row {
-        flex-wrap: wrap;
-      }
-    }
   </style>
 </head>
 <body>
@@ -1094,75 +1018,58 @@
 
   <main class="container">
 
-    <!-- ─── 01. BENCHMARK HERO PANEL (Audio-Reactive Visualizer) ─── -->
+    <!-- ─── 01. BENCHMARK HERO PANEL (Clean, Uncluttered Dashboard) ─── -->
     <section class="benchmark-hero">
       <div class="bench-main-row">
         
-        <!-- Metric Display -->
+        <!-- Left: Metric Display -->
         <div class="metric-big">
-          <div class="metric-label">RUN AVERAGE · 0s ago</div>
-          <div class="metric-value-row">
-            <div class="metric-value" id="dispTotalRecords">56</div>
-            <span class="metric-tag">9.02 CGPA · 56 RECORDS</span>
-          </div>
-          <div class="metric-sub">56 verified records · active corpus</div>
+          <div class="metric-label">TOTAL WORK RECORDS</div>
+          <div class="metric-value" id="dispTotalRecords">56</div>
+          <div class="metric-sub">Data Science · IIT Madras</div>
           
           <div class="metric-controls">
-            <span class="metric-action" onclick="resetFilters()">[r] reset</span>
+            <span class="metric-action" onclick="resetFilters()">[x] reset</span>
             <button class="audio-play-btn" id="audioToggleBtn" onclick="toggleAudio()">
               <span id="audioIcon">▶</span> <span id="audioLabel">play synth</span>
             </button>
           </div>
         </div>
 
-        <!-- Center: Audio-Reactive Stacked Visualizer -->
+        <!-- Center: Single Clean Audio-Reactive Spectrum -->
         <div class="bench-visual">
           <div class="visual-top-axis">
             <span id="audioStatusText">tok/s · standby</span>
             <span id="audioHzRate">28.10 tok/s</span>
           </div>
           
-          <div class="stacked-bars">
-            <!-- Gold Stepped Bars -->
-            <div class="gold-bar-stack">
-              <div class="gold-bar gb-1" id="gbar-1"></div>
-              <div class="gold-bar gb-2" id="gbar-2"></div>
-              <div class="gold-bar gb-3" id="gbar-3"></div>
-              <div class="gold-bar gb-4" id="gbar-4"></div>
-              <div class="gold-bar gb-5" id="gbar-5"></div>
-              <div class="gold-bar gb-6" id="gbar-6"></div>
-            </div>
-
-            <!-- Teal Stepped Bars -->
-            <div class="visual-top-axis" style="margin-top:2px;">
-              <span>prime</span>
-              <span>100% corpus benchmark</span>
-            </div>
-            <div class="teal-stepped-bars">
-              <div class="teal-bar tb-1" id="tbar-1"></div>
-              <div class="teal-bar tb-2" id="tbar-2"></div>
-              <div class="teal-bar tb-3" id="tbar-3"></div>
-              <div class="teal-bar tb-4" id="tbar-4"></div>
-              <div class="teal-bar tb-5" id="tbar-5"></div>
-              <div class="teal-bar tb-6" id="tbar-6"></div>
-            </div>
+          <div class="visual-bars-container">
+            <div class="layered-bar lb-1" id="lbar-1"></div>
+            <div class="layered-bar lb-2" id="lbar-2"></div>
+            <div class="layered-bar lb-3" id="lbar-3"></div>
+            <div class="layered-bar lb-4" id="lbar-4"></div>
+            <div class="layered-bar lb-5" id="lbar-5"></div>
+            <div class="layered-bar lb-6" id="lbar-6"></div>
           </div>
 
           <!-- Micro-wave vector equalizer line -->
           <div class="micro-wave" id="microWaveBox">
-            <div class="mw-bar" style="height:4px;"></div>
-            <div class="mw-bar" style="height:7px;"></div>
-            <div class="mw-bar" style="height:10px;"></div>
-            <div class="mw-bar" style="height:14px;"></div>
-            <div class="mw-bar" style="height:16px;"></div>
-            <div class="mw-bar" style="height:11px;"></div>
-            <div class="mw-bar" style="height:8px;"></div>
-            <div class="mw-bar" style="height:5px;"></div>
-            <div class="mw-bar" style="height:3px;"></div>
-            <div class="mw-bar" style="height:8px;"></div>
-            <div class="mw-bar" style="height:12px;"></div>
-            <div class="mw-bar" style="height:7px;"></div>
-            <div class="mw-bar" style="height:4px;"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
+            <div class="mw-bar"></div>
           </div>
         </div>
 
@@ -1182,7 +1089,7 @@
 
       </div>
 
-      <!-- Telemetry Strip (Dotted Line Fill, No Text Overflow) -->
+      <!-- Bottom: Clean Telemetry Strip -->
       <div class="telemetry-row">
         <div class="telemetry-col">
           <div class="telemetry-title">CORE FOCUS</div>
@@ -1770,8 +1677,7 @@
     let isAudioPlaying = false;
     let animFrameId = null;
 
-    const baseGoldWidths = [55, 65, 75, 85, 78, 92];
-    const baseTealWidths = [85, 88, 92, 96, 100, 94];
+    const baseWidths = [50, 64, 78, 88, 82, 95];
 
     function toggleAudio() {
       if (!bgAudio) return;
@@ -1817,31 +1723,21 @@
         const liveTok = (28.10 + Math.sin(tick * 1.5) * 4.2 + Math.cos(tick * 0.8) * 2.1).toFixed(2);
         audioHzRate.textContent = `${liveTok} tok/s`;
 
-        // Animate Gold Stepped Bars
+        // Animate Stepped Bars
         for (let i = 1; i <= 6; i++) {
-          const el = document.getElementById(`gbar-${i}`);
+          const el = document.getElementById(`lbar-${i}`);
           if (el) {
             const delta = Math.sin(tick * 2 + i) * 14 + Math.cos(tick * 1.2 + i * 0.5) * 8;
-            const w = Math.min(98, Math.max(35, baseGoldWidths[i - 1] + delta));
-            el.style.width = `${w}%`;
-          }
-        }
-
-        // Animate Teal Stepped Bars
-        for (let i = 1; i <= 6; i++) {
-          const el = document.getElementById(`tbar-${i}`);
-          if (el) {
-            const delta = Math.cos(tick * 1.8 + i) * 8;
-            const w = Math.min(100, Math.max(65, baseTealWidths[i - 1] + delta));
+            const w = Math.min(98, Math.max(35, baseWidths[i - 1] + delta));
             el.style.width = `${w}%`;
           }
         }
 
         // Animate Micro-wave Equalizer Bars
         mwBars.forEach((bar, idx) => {
-          const h = 3 + Math.abs(Math.sin(tick * 2.5 + idx * 0.4) * 14);
+          const h = 3 + Math.abs(Math.sin(tick * 2.5 + idx * 0.45) * 11);
           bar.style.height = `${h}px`;
-          if (h > 11) {
+          if (h > 9) {
             bar.style.backgroundColor = 'var(--cyan)';
           } else {
             bar.style.backgroundColor = 'var(--border-bright)';
@@ -1857,21 +1753,15 @@
     function stopVisualizerLoop() {
       if (animFrameId) cancelAnimationFrame(animFrameId);
       
-      // Reset Gold Bars to base
+      // Reset Bars to base
       for (let i = 1; i <= 6; i++) {
-        const el = document.getElementById(`gbar-${i}`);
-        if (el) el.style.width = `${baseGoldWidths[i - 1]}%`;
-      }
-      // Reset Teal Bars to base
-      for (let i = 1; i <= 6; i++) {
-        const el = document.getElementById(`tbar-${i}`);
-        if (el) el.style.width = `${baseTealWidths[i - 1]}%`;
+        const el = document.getElementById(`lbar-${i}`);
+        if (el) el.style.width = `${baseWidths[i - 1]}%`;
       }
       // Reset Micro-wave bars
-      const initialHeights = [4, 7, 10, 14, 16, 11, 8, 5, 3, 8, 12, 7, 4];
       const mwBars = document.querySelectorAll('#microWaveBox .mw-bar');
-      mwBars.forEach((bar, idx) => {
-        bar.style.height = `${initialHeights[idx] || 6}px`;
+      mwBars.forEach((bar) => {
+        bar.style.height = '3px';
         bar.style.backgroundColor = 'var(--border-bright)';
       });
     }
@@ -1894,11 +1784,17 @@
       renderStream();
     });
 
-    // KEYBOARD SHORTCUTS FOR FILTERS ([a], [p], [r], [w], [m], [c], [e], [d])
+    // KEYBOARD SHORTCUTS FOR FILTERS ([a], [p], [r], [w], [m], [c], [e], [d], [x] for reset)
     document.addEventListener('keydown', (e) => {
       if (document.activeElement === searchInput) return;
 
       const key = e.key.toLowerCase();
+
+      if (key === 'x') {
+        resetFilters();
+        return;
+      }
+
       const keyMap = {
         'a': 'all',
         'p': 'project',
