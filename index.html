@@ -801,6 +801,604 @@
         box-shadow: 4px 4px 0px var(--ink);
       }
     }
+  
+/* =========================================================
+   DESKTOP WELCOME VIEW — imported from the second design
+   Only active above 1024px. Original game/gameplay CSS is untouched.
+   ========================================================= */
+.desktop-welcome {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 40px;
+  z-index: 505;
+}
+
+.desktop-welcome .start-screen-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1380px;
+  gap: 48px;
+  position: relative;
+  z-index: 510;
+  margin: 0 auto;
+}
+
+.desktop-welcome .start-left-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 24px;
+  padding-left: 32px;
+  border-left: 2px dashed var(--sage);
+}
+
+.desktop-welcome .brand-title {
+  font-family: var(--pixel-font);
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.desktop-welcome .brand-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.desktop-welcome .brand-nav a {
+  font-family: var(--pixel-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: #8B7E74;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, border-bottom-color 0.2s;
+}
+
+.desktop-welcome .brand-nav a.active,
+.desktop-welcome .brand-nav a:hover {
+  color: var(--ink);
+  border-bottom: 2.5px dotted var(--ink);
+  padding-bottom: 3px;
+}
+
+.desktop-welcome .skills-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.desktop-welcome .pixel-line.skills-header {
+  white-space: nowrap;
+  margin-bottom: 3rem;
+  font-size: 28px;
+}
+
+.desktop-welcome .pixel-line {
+  font-family: var(--pixel-font);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.desktop-welcome .p-rose { color: #d4736aba; }
+.desktop-welcome .p-green { color: #6A9B72; }
+.desktop-welcome .p-blue { color: #6A9EC0; }
+.desktop-welcome .p-sage { color: #6a9b72af; }
+.desktop-welcome .p-slate { color: #8B9DAF; }
+.desktop-welcome .p-divider { color: #C4B8AE; font-weight: normal; }
+.desktop-welcome .p-gray { color: #A09890; }
+.desktop-welcome .p-dark { color: var(--ink); }
+.desktop-welcome .p-brown { color: #8B7E74; }
+
+.desktop-welcome .section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.desktop-welcome .section-label {
+  font-family: var(--pixel-font);
+  font-size: 20px;
+  font-weight: 700;
+  color: #6b5e54;
+}
+
+.desktop-welcome .dotted-divider-line {
+  width: 100%;
+  max-width: 520px;
+  border-bottom: 2.5px dotted #D7CCC8;
+  margin: 4px 0 10px;
+}
+
+.desktop-welcome .start-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+}
+
+.desktop-welcome .start-panel {
+  background: transparent;
+  border: 3px solid var(--ink);
+  padding: 24px 22px 20px;
+  box-shadow: 10px 10px 0px var(--ink);
+  width: 100%;
+  position: relative;
+  margin-top: 0;
+  text-align: center;
+}
+
+.desktop-welcome .start-title-container {
+  position: relative;
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.desktop-welcome .start-title-tape {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  background: repeating-linear-gradient(
+    -45deg,
+    #EEDEB6 0px, #EEDEB6 8px,
+    #DFD0A7 8px, #DFD0A7 16px
+  );
+  border-left: 1.5px dashed rgba(0,0,0,0.1);
+  border-right: 1.5px dashed rgba(0,0,0,0.1);
+  padding: 4px 16px;
+  font-family: var(--mono-font);
+  font-size: 10px;
+  color: #7A602F;
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  white-space: nowrap;
+}
+
+.desktop-welcome .start-panel h1 {
+  font-family: var(--pixel-font);
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.desktop-welcome .start-panel p.subtitle {
+  font-family: var(--body-font);
+  font-size: 13px;
+  color: #5D4037;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.desktop-welcome .character-selection-title {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  font-weight: 600;
+  color: #8B7E74;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.desktop-welcome .character-select-row {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 12px;
+  justify-content: center;
+  margin: 0 auto 16px;
+  max-width: 260px;
+}
+
+.desktop-welcome .character-card {
+  width: 120px;
+  height: 140px;
+  border: 3px solid var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 4px 4px 0px var(--ink);
+}
+
+.desktop-welcome .character-card svg {
+  width: 60px;
+  height: 60px;
+  stroke-width: 3.5;
+  transition: transform 0.3s;
+}
+
+.desktop-welcome .character-card span {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.desktop-welcome .character-card:hover {
+  transform: translateY(-4px);
+}
+
+.desktop-welcome .character-card[data-char="moss"]:hover svg,
+.desktop-welcome .character-card[data-char="moss"].selected svg {
+  animation: desktopMossSquish 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+}
+
+.desktop-welcome .character-card[data-char="sigma"]:hover svg,
+.desktop-welcome .character-card[data-char="sigma"].selected svg {
+  animation: desktopSigmaCatHop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+}
+
+.desktop-welcome .character-card[data-char="byte"]:hover svg,
+.desktop-welcome .character-card[data-char="byte"].selected svg {
+  animation: desktopByteBotWobble 0.6s ease-in-out infinite alternate;
+}
+
+.desktop-welcome .character-card[data-char="squishy"]:hover svg,
+.desktop-welcome .character-card[data-char="squishy"].selected svg {
+  animation: desktopSquishyFoxPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+}
+
+@keyframes desktopMossSquish {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.18, 0.82) translateY(3px) rotate(-3deg); }
+  100% { transform: scale(0.92, 1.12) translateY(-10px) rotate(3deg); }
+}
+
+@keyframes desktopSigmaCatHop {
+  0% { transform: scale(1) translateY(0) rotate(0deg); }
+  50% { transform: scale(1.1) translateY(-12px) rotate(6deg); }
+  100% { transform: scale(0.95) translateY(-2px) rotate(-4deg); }
+}
+
+@keyframes desktopByteBotWobble {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-10deg) translateY(-5px); }
+  75% { transform: rotate(10deg) translateY(-5px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+@keyframes desktopSquishyFoxPop {
+  0% { transform: scale(1) translateY(0); }
+  40% { transform: scale(1.22, 0.82) translateY(4px); }
+  80% { transform: scale(0.88, 1.18) translateY(-12px) rotate(-5deg); }
+  100% { transform: scale(1.06) translateY(-6px) rotate(3deg); }
+}
+
+.desktop-welcome .character-card[data-char="moss"]:hover,
+.desktop-welcome .character-card[data-char="moss"].selected {
+  background: var(--lime-pale);
+  border-color: var(--lime-border);
+  box-shadow: 6px 6px 0px var(--lime-border);
+  color: var(--lime-text);
+}
+
+.desktop-welcome .character-card[data-char="sigma"]:hover,
+.desktop-welcome .character-card[data-char="sigma"].selected {
+  background: var(--blue-pale);
+  border-color: var(--blue-border);
+  box-shadow: 6px 6px 0px var(--blue-border);
+  color: var(--blue-text);
+}
+
+.desktop-welcome .character-card[data-char="byte"]:hover,
+.desktop-welcome .character-card[data-char="byte"].selected {
+  background: var(--green-pale);
+  border-color: var(--green-border);
+  box-shadow: 6px 6px 0px var(--green-border);
+  color: var(--green-text);
+}
+
+.desktop-welcome .character-card[data-char="squishy"]:hover,
+.desktop-welcome .character-card[data-char="squishy"].selected {
+  background: var(--rose-pale);
+  border-color: var(--rose-border);
+  box-shadow: 6px 6px 0px var(--rose-border);
+  color: var(--rose-text);
+}
+
+.desktop-welcome .character-card .selected-stamp {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #C94A4A;
+  border-radius: 50%;
+  color: #C94A4A;
+  font-family: var(--heading-font);
+  font-weight: 900;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-15deg);
+  opacity: 0;
+  transition: opacity 0.2s;
+  background: var(--surface);
+}
+
+.desktop-welcome .character-card.selected .selected-stamp {
+  opacity: 1;
+}
+
+.desktop-welcome .start-actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.desktop-welcome .start-btn {
+  font-family: var(--pixel-font);
+  font-size: 13px;
+  padding: 14px 24px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  cursor: pointer;
+  box-shadow: 6px 6px 0px var(--ink);
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.desktop-welcome .start-btn:hover {
+  background: var(--ink);
+  color: var(--surface);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--sage);
+}
+
+.desktop-welcome .direct-enter-btn {
+  font-family: var(--heading-font) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  background: repeating-linear-gradient(
+    -45deg,
+    #EEDEB6 0px, #EEDEB6 8px,
+    #DFD0A7 8px, #DFD0A7 16px
+  ) !important;
+  color: var(--ink) !important;
+  border: 4px solid var(--ink) !important;
+  box-shadow: 6px 6px 0px var(--ink) !important;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.desktop-welcome .direct-enter-btn:hover {
+  background: var(--ink) !important;
+  color: var(--surface) !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 8px 8px 0px var(--sage) !important;
+}
+
+.desktop-welcome .start-instructions {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  color: var(--sage);
+  line-height: 1.5;
+  text-transform: uppercase;
+  border-top: 2px dashed var(--surface-sunken);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.desktop-welcome .achievements-section {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.desktop-welcome .achievements-title {
+  font-family: var(--pixel-font);
+  font-size: 22px;
+  font-weight: 700;
+  color: #6b5e54;
+  letter-spacing: 0.02em;
+}
+
+.desktop-welcome .achievement-ticket-container,
+.desktop-welcome .achievement-ticket {
+  background: #FDF5F0;
+  border: 2.5px dashed #895f5b;
+  border-radius: 12px;
+  padding: 14px 0;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.04);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.desktop-welcome .achievement-ticket-container {
+  padding: 26px;
+  margin-top: 6px;
+}
+
+.desktop-welcome .achievement-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: desktopMarqueeScroll 22s linear infinite;
+}
+
+.desktop-welcome .achievement-ticket-container:hover .achievement-marquee-track {
+  animation-play-state: paused;
+}
+
+.desktop-welcome .marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+  white-space: nowrap;
+  font-family: var(--pixel-font);
+  font-size: 14.5px;
+  color: #D4726A;
+}
+
+.desktop-welcome .marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktop-welcome .marquee-item .sep {
+  color: #9E9E9E;
+  font-weight: normal;
+  margin-left: 12px;
+}
+
+@keyframes desktopMarqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Decorative Totoro illustrations from the second welcome view */
+.desktop-totoro {
+  position: absolute;
+  z-index: 520;
+  pointer-events: auto;
+}
+
+.desktop-totoro.tl {
+  top: 10px;
+  left: 10px;
+  width: 76px;
+  height: 76px;
+}
+
+.desktop-totoro.tr {
+  top: 10px;
+  right: 10px;
+  width: 110px;
+  height: 110px;
+}
+
+.desktop-totoro.br {
+  bottom: 10px;
+  right: 10px;
+  width: 180px;
+  height: 180px;
+}
+
+.desktop-totoro .totoro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (min-width: 1025px) {
+  .desktop-welcome,
+  .desktop-welcome * {
+    --desktop-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' shape-rendering='crispEdges'%3E%3Cpath d='M3 2h3v3h3v3h3v3h3v3h3v3h3v3h-6v5h-3v-5h-3v-3h-3v-3h-3z' fill='%23FAF7F0'/%3E%3Cpath d='M4 4h2v3h3v3h3v3h3v3h3v1h-5v5h-1v-5h-3v-3h-3v-3h-2z' fill='%23292524'/%3E%3C/svg%3E");
+    cursor: var(--desktop-cursor) 3 2, auto;
+  }
+
+  .desktop-welcome a,
+  .desktop-welcome button {
+    cursor: var(--desktop-cursor) 3 2, pointer;
+  }
+
+  .desktop-welcome .interest-link {
+    color: inherit;
+    opacity: 0.78;
+    text-decoration: none;
+    transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .desktop-welcome .interest-link.p-sage { color: #6a9b72af; }
+  .desktop-welcome .interest-link.p-rose { color: #d4736aba; }
+  .desktop-welcome .interest-link.p-slate { color: #8B9DAF; }
+
+  .desktop-welcome .interest-link:hover,
+  .desktop-welcome .interest-link:focus-visible {
+    opacity: 1;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .desktop-welcome,
+  .desktop-welcome * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'%3E%3Cpath d='M3 2v27l8-8 6 10 5-3-6-11h12z' fill='%23292524'/%3E%3Cpath d='M7 7v13l4-4 5 9 2-1-5-10h10z' fill='%23FAF7F0'/%3E%3C/svg%3E") 3 2, auto;
+  }
+
+  .desktop-welcome a,
+  .desktop-welcome button {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'%3E%3Cpath d='M3 2v27l8-8 6 10 5-3-6-11h12z' fill='%23292524'/%3E%3Cpath d='M7 7v13l4-4 5 9 2-1-5-10h10z' fill='%23FAF7F0'/%3E%3C/svg%3E") 3 2, pointer;
+  }
+
+  #startScreen > .entrance-header,
+  #startScreen > .start-panel {
+    display: none !important;
+  }
+
+  #startScreen {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .desktop-welcome {
+    display: flex;
+  }
+
+  .desktop-totoro {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-welcome,
+  .desktop-totoro {
+    display: none !important;
+  }
+}
+
+/* The desktop welcome composition sits outside #startScreen so it must
+   be hidden explicitly once the actual game begins. This prevents the
+   welcome artwork from remaining underneath the game/game-over UI. */
+body.game-active .desktop-welcome,
+body.game-active .desktop-totoro {
+  display: none !important;
+}
+
   </style>
 </head>
 <body>
@@ -903,7 +1501,210 @@
     </div>
   </div>
 
-  <div id="gameWrapper">
+    <!-- Desktop welcome view: visible only above 1024px. Original welcome/game markup remains untouched below. -->
+    <div class="desktop-welcome" aria-label="Desktop portfolio welcome screen">
+<div class="start-screen-container">
+<!-- LEFT HERO COLUMN -->
+<div class="start-left-col">
+<h1 class="brand-title">ATHARV KHARE</h1>
+<nav aria-label="Main Navigation" class="brand-nav">
+<a class="active" href="profile.html">PORTFOLIO</a>
+<a href="fresh/blog.html">BLOGS</a>
+<a href="Atharv-Khare.pdf" rel="noopener" target="_blank">RESUME</a>
+<a href="socials.html">SOCIALs</a>
+</nav>
+<div class="skills-block">
+<div class="pixel-line skills-header">
+<span class="p-brown">Data Science</span>
+<span class="p-divider">|</span>
+<span class="p-brown">ML</span>
+<span class="p-divider">|</span>
+<span class="p-brown">BA</span>
+</div>
+<div class="section-block">
+<div class="section-label">Bit of</div>
+<div class="dotted-divider-line"></div>
+<div class="pixel-line">
+<a class="p-sage interest-link" href="https://www.researchgate.net/profile/Atharv-Khare-2?ev=hdr_xprf" rel="noopener noreferrer" target="_blank">RESEARCH</a>
+<span class="p-divider">|</span>
+<a class="p-rose interest-link" href="https://www.instagram.com/1._.mystic/" rel="noopener noreferrer" target="_blank">ORIGAMI</a>
+</div>
+</div>
+<div class="section-block">
+<div class="section-label">Lot of</div>
+<div class="dotted-divider-line"></div>
+<div class="pixel-line">
+<a class="p-rose interest-link" href="https://myanimelist.net/profile/mitzig" rel="noopener noreferrer" target="_blank">ANIME</a>
+<span class="p-divider">|</span>
+<a class="p-slate interest-link" href="https://atharvk.pages.dev/fresh/blog" rel="noopener noreferrer" target="_blank">THINKING</a>
+</div>
+</div>
+</div>
+<!-- ACHIEVEMENTS SECTION (MOVED TO LEFT COLUMN FOR PERFECT BALANCE) -->
+<div class="achievements-section">
+<h2 class="achievements-title">Achievements</h2>
+<div class="achievement-ticket-container" title="Hover to pause marquee">
+<div class="achievement-marquee-track">
+<!-- Content Loop 1 -->
+<div class="marquee-content font-pixel">
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">1. Best BDM Capstone Award</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">2. 3x Hackathon Winner</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">3. Oracle Certified AI Engineer Associate</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">4. Open Source Contributor</span> <span class="sep">|</span></span>
+</div>
+<!-- Content Loop 2 for Seamless Infinite Scroll -->
+<div class="marquee-content font-pixel">
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">1. Best BDM Capstone Award</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">2. 3x Hackathon Winner</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">3. Oracle Certified AI Engineer Associate</span> <span class="sep">|</span></span>
+<span class="marquee-item"><span class="p-brown font-pixel" style="font-weight:bold; ">4. Open Source Contributor</span> <span class="sep">|</span></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT HERO COLUMN -->
+<div class="start-right-col">
+<div class="start-panel">
+<div class="start-title-container">
+<div class="start-title-tape">ARCHIVE RUNNER // 旅</div>
+<h1>PORTFOLIO RUN</h1>
+</div>
+<p class="subtitle">Select a companion guide and start the engine, or enter directly.</p>
+<div class="character-selection-title">Select your guide:</div>
+<div class="character-select-row">
+<div aria-label="Select Moss character" class="character-card" data-char="moss" onclick="selectCharacter('moss')" role="button" tabindex="0">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 100 100">
+<path d="M50 38 L50 22" stroke-width="4"></path>
+<path d="M50 22 Q65 12 75 25 Q50 30 50 22" fill="var(--lime-pale)"></path>
+<path d="M50 22 Q35 12 25 25 Q50 30 50 22" fill="var(--lime-pale)"></path>
+<circle cx="50" cy="65" fill="#FFFFFF" r="28"></circle>
+<circle cx="42" cy="62" fill="currentColor" r="3.5"></circle>
+<circle cx="58" cy="62" fill="currentColor" r="3.5"></circle>
+<path d="M47 72 Q50 75 53 72" stroke-width="2.5"></path>
+<circle cx="34" cy="68" fill="var(--rose-pale)" r="2.5" stroke="none"></circle>
+<circle cx="66" cy="68" fill="var(--rose-pale)" r="2.5" stroke="none"></circle>
+</svg>
+<span>Moss</span>
+<div class="selected-stamp">✓</div>
+</div>
+<div aria-label="Select Sigma character" class="character-card" data-char="sigma" onclick="selectCharacter('sigma')" role="button" tabindex="0">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 100 100">
+<rect fill="var(--blue-pale)" height="50" stroke-width="3.5" width="50" x="25" y="30"></rect>
+<path d="M25 30 L25 15 L40 30" fill="currentColor"></path>
+<path d="M75 30 L75 15 L60 30" fill="currentColor"></path>
+<path d="M38 52 H44" stroke-width="4"></path>
+<path d="M56 52 H62" stroke-width="4"></path>
+<path d="M48 62 L50 66 L52 62" fill="currentColor"></path>
+<line stroke="currentColor" stroke-width="2" x1="30" x2="40" y1="70" y2="70"></line>
+<line stroke="currentColor" stroke-width="2" x1="60" x2="70" y1="70" y2="70"></line>
+</svg>
+<span>Sigma</span>
+<div class="selected-stamp">✓</div>
+</div>
+<div aria-label="Select Byte character" class="character-card" data-char="byte" onclick="selectCharacter('byte')" role="button" tabindex="0">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 100 100">
+<rect fill="var(--green-pale)" height="46" rx="8" stroke-width="3.5" width="56" x="22" y="28"></rect>
+<line stroke-width="3.5" x1="45" x2="45" y1="74" y2="82"></line>
+<line stroke-width="3.5" x1="55" x2="55" y1="74" y2="82"></line>
+<path d="M30 82 H70" stroke-width="3.5"></path>
+<circle cx="50" cy="18" fill="currentColor" r="3.5"></circle>
+<line stroke-width="2.5" x1="50" x2="50" y1="18" y2="28"></line>
+<circle cx="38" cy="48" fill="currentColor" r="4"></circle>
+<circle cx="62" cy="48" fill="currentColor" r="4"></circle>
+<path d="M46 60 H54" stroke-width="3.5"></path>
+</svg>
+<span>Byte</span>
+<div class="selected-stamp">✓</div>
+</div>
+<div aria-label="Select Squishy character" class="character-card selected" data-char="squishy" onclick="selectCharacter('squishy')" role="button" tabindex="0">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 100 100">
+<polygon fill="var(--rose-pale)" points="50,80 15,30 35,15 50,45 65,15 85,30"></polygon>
+<line x1="35" x2="50" y1="15" y2="45"></line>
+<line x1="65" x2="50" y1="15" y2="45"></line>
+<line x1="15" x2="50" y1="30" y2="45"></line>
+<line x1="85" x2="50" y1="30" y2="45"></line>
+<polygon fill="currentColor" opacity="0.1" points="35,50 65,50 50,80"></polygon>
+<circle cx="50" cy="80" fill="currentColor" r="5"></circle>
+<circle cx="35" cy="55" fill="currentColor" r="2"></circle>
+<circle cx="65" cy="55" fill="currentColor" r="2"></circle>
+</svg>
+<span>Squishy</span>
+<div class="selected-stamp">✓</div>
+</div>
+</div>
+<div class="start-actions-row">
+<button class="start-btn" onclick="startGame()">START RUN</button>
+<button class="start-btn direct-enter-btn" onclick="directEnterPortfolio()">DIRECT ENTER</button>
+</div>
+<div class="start-instructions">
+            [W] / [Space] to jump obstacles. Click margins bookmarks to exit run and navigate.
+          </div>
+</div>
+</div>
+</div>
+    </div>
+
+
+  
+<div class="desktop-totoro tl" title="Top-Left Totoro Illustration">
+<svg class="totoro-img" fill="none" stroke="#292524" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 100 100">
+<!-- Ears & Peeking Face -->
+<path d="M30 60 C30 35 35 20 42 20 C48 20 48 35 48 50" fill="#9E9E9E"></path>
+<path d="M52 50 C52 35 52 20 58 20 C65 20 70 35 70 60" fill="#9E9E9E"></path>
+<ellipse cx="50" cy="70" fill="#757575" rx="35" ry="25"></ellipse>
+<circle cx="38" cy="65" fill="#FFFFFF" r="4"></circle>
+<circle cx="38" cy="65" fill="#292524" r="2"></circle>
+<circle cx="62" cy="65" fill="#FFFFFF" r="4"></circle>
+<circle cx="62" cy="65" fill="#292524" r="2"></circle>
+<path d="M47 68 L50 71 L53 68" fill="#292524"></path>
+<line x1="20" x2="32" y1="67" y2="67"></line>
+<line x1="22" x2="32" y1="72" y2="70"></line>
+<line x1="80" x2="68" y1="67" y2="67"></line>
+<line x1="78" x2="68" y1="72" y2="70"></line>
+</svg>
+</div>
+<div class="desktop-totoro tr" title="Top-Right Soot Sprite / Dust Cloud Illustration">
+<svg class="totoro-img" fill="none" viewbox="0 0 100 100">
+<path d="M50 20 Q70 15 85 30 Q95 50 85 70 Q70 90 50 85 Q25 85 15 65 Q10 40 30 25 Z" fill="#D2E4D6" opacity="0.6"></path>
+<circle cx="60" cy="45" fill="#292524" r="16"></circle>
+<circle cx="55" cy="42" fill="#FFFFFF" r="5"></circle>
+<circle cx="56" cy="42" fill="#292524" r="2"></circle>
+<circle cx="66" cy="42" fill="#FFFFFF" r="5"></circle>
+<circle cx="65" cy="42" fill="#292524" r="2"></circle>
+<path d="M44 45 L38 43 M46 33 L42 27 M60 29 L60 23 M74 35 L80 31 M76 49 L82 51 M70 59 L74 65 M56 61 L54 67 M46 55 L40 59" stroke="#292524" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="desktop-totoro br" title="Bottom-Right Totoro Illustration">
+<svg class="totoro-img" fill="none" stroke="#292524" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 140 140">
+<!-- Leaf on Head -->
+<path d="M70 12 Q80 2 95 10 Q85 24 70 20 Z" fill="#66BB6A"></path>
+<line stroke="#2E7D32" stroke-width="2" x1="70" x2="88" y1="20" y2="10"></line>
+<!-- Ears -->
+<path d="M42 38 C40 18 48 10 54 10 C60 10 60 25 58 38" fill="#9E9E9E"></path>
+<path d="M82 38 C80 25 80 10 86 10 C92 10 100 18 98 38" fill="#9E9E9E"></path>
+<!-- Body -->
+<ellipse cx="70" cy="85" fill="#757575" rx="55" ry="48"></ellipse>
+<!-- Belly -->
+<ellipse cx="70" cy="92" fill="#FAF7F0" rx="40" ry="34"></ellipse>
+<!-- Arrows on Belly -->
+<path d="M56 75 L62 68 L68 75" stroke-width="2.5"></path>
+<path d="M68 75 L74 68 L80 75" stroke-width="2.5"></path>
+<path d="M78 75 L84 68 L90 75" stroke-width="2.5"></path>
+<!-- Eyes & Nose -->
+<circle cx="50" cy="52" fill="#FFFFFF" r="6"></circle>
+<circle cx="50" cy="52" fill="#292524" r="2.5"></circle>
+<circle cx="90" cy="52" fill="#FFFFFF" r="6"></circle>
+<circle cx="90" cy="52" fill="#292524" r="2.5"></circle>
+<polygon fill="#292524" points="66,55 74,55 70,60"></polygon>
+<!-- Whiskers -->
+<line stroke-width="2" x1="20" x2="40" y1="58" y2="58"></line>
+<line stroke-width="2" x1="22" x2="42" y1="65" y2="63"></line>
+<line stroke-width="2" x1="120" x2="100" y1="58" y2="58"></line>
+<line stroke-width="2" x1="118" x2="98" y1="65" y2="63"></line>
+</svg>
+</div>
+<div id="gameWrapper">
     <div id="sakuraContainer"></div>
     
     <div class="header">
@@ -1172,6 +1973,7 @@
       
       startScreen.style.display = 'none';
       gameWrapper.style.display = 'block';
+      document.body.classList.add('game-active');
       isGameOver = false;
       document.getElementById('hiScoreDisplay').innerText = (localStorage.getItem('portHiScore') || 0).toString().padStart(5, '0');
       
