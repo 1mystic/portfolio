@@ -1389,6 +1389,26 @@
   .desktop-totoro {
     display: none !important;
   }
+
+  .character-card[data-char="moss"]:hover svg,
+  .character-card[data-char="moss"].selected svg {
+    animation: desktopMossSquish 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+  }
+
+  .character-card[data-char="sigma"]:hover svg,
+  .character-card[data-char="sigma"].selected svg {
+    animation: desktopSigmaCatHop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+  }
+
+  .character-card[data-char="byte"]:hover svg,
+  .character-card[data-char="byte"].selected svg {
+    animation: desktopByteBotWobble 0.6s ease-in-out infinite alternate;
+  }
+
+  .character-card[data-char="squishy"]:hover svg,
+  .character-card[data-char="squishy"].selected svg {
+    animation: desktopSquishyFoxPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+  }
 }
 
 /* The desktop welcome composition sits outside #startScreen so it must
