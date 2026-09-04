@@ -831,6 +831,32 @@
   margin: 0 auto;
 }
 
+.desktop-welcome .rain-container {
+  position: absolute;
+  inset: 0;
+  z-index: 507;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.desktop-welcome .raindrop {
+  --drift: -12px;
+  position: absolute;
+  top: -12%;
+  width: 1px;
+  height: 14px;
+  border-radius: 1px;
+  background: linear-gradient(to bottom, rgba(60, 58, 55, 0.25), rgba(60, 58, 55, 1));
+  animation-name: rain-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rain-fall {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(var(--drift), 120vh, 0); }
+}
+
 .desktop-welcome .start-left-col {
   flex: 1;
   display: flex;
@@ -1523,6 +1549,7 @@ body.game-active .desktop-totoro {
 
     <!-- Desktop welcome view: visible only above 1024px. Original welcome/game markup remains untouched below. -->
     <div class="desktop-welcome" aria-label="Desktop portfolio welcome screen">
+<div class="rain-container" aria-hidden="true" id="welcomeRain"></div>
 <div class="start-screen-container">
 <!-- LEFT HERO COLUMN -->
 <div class="start-left-col">
@@ -2148,6 +2175,26 @@ body.game-active .desktop-totoro {
     }
 
     updateVisitCounter();
+
+    (function initWelcomeRain() {
+      const container = document.getElementById('welcomeRain');
+      if (!container) return;
+
+      const DROP_COUNT = 110;
+      for (let i = 0; i < DROP_COUNT; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'raindrop';
+        // Most drops fall near-vertical; every few gets a stronger top-right slant.
+        const drift = Math.random() < 0.3 ? -(28 + Math.random() * 22) : -(4 + Math.random() * 10);
+        drop.style.setProperty('--drift', `${drift}px`);
+        drop.style.left = `${Math.random() * 108}%`;
+        drop.style.height = `${8 + Math.random() * 12}px`;
+        drop.style.animationDuration = `${1.6 + Math.random() * 1.3}s`;
+        drop.style.animationDelay = `${-Math.random() * 3}s`;
+        drop.style.opacity = `${0.7 + Math.random() * 0.3}`;
+        container.appendChild(drop);
+      }
+    })();
   </script>
 </body>
 </html>
