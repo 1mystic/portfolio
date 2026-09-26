@@ -1,0 +1,840 @@
+{
+  "$schema": "Asset Manifest v1.0",
+  "totalFiles": 131,
+  "categories": {
+    "projects": {
+      "description": "Project cover images and demonstration media",
+      "count": 26,
+      "items": [
+        {
+          "filename": "Bayes-inspector.webp",
+          "path": "projects/Bayes-inspector.webp",
+          "format": "webp",
+          "sizeBytes": 57390
+        },
+        {
+          "filename": "ecoview.webp",
+          "path": "projects/ecoview.webp",
+          "format": "webp",
+          "sizeBytes": 37590
+        },
+        {
+          "filename": "episteme.webp",
+          "path": "projects/episteme.webp",
+          "format": "webp",
+          "sizeBytes": 68372
+        },
+        {
+          "filename": "git-sync.webp",
+          "path": "projects/git-sync.webp",
+          "format": "webp",
+          "sizeBytes": 38522
+        },
+        {
+          "filename": "gitsync-demo.gif",
+          "path": "projects/gitsync-demo.gif",
+          "format": "gif",
+          "sizeBytes": 18447134
+        },
+        {
+          "filename": "gitsync-demo.webp",
+          "path": "projects/gitsync-demo.webp",
+          "format": "webp",
+          "sizeBytes": 902244
+        },
+        {
+          "filename": "gitsync-demo_opt.gif",
+          "path": "projects/gitsync-demo_opt.gif",
+          "format": "gif",
+          "sizeBytes": 4283531
+        },
+        {
+          "filename": "gridlock.webp",
+          "path": "projects/gridlock.webp",
+          "format": "webp",
+          "sizeBytes": 189772
+        },
+        {
+          "filename": "mitra.webp",
+          "path": "projects/mitra.webp",
+          "format": "webp",
+          "sizeBytes": 29536
+        },
+        {
+          "filename": "plume-web.webp",
+          "path": "projects/plume-web.webp",
+          "format": "webp",
+          "sizeBytes": 39640
+        },
+        {
+          "filename": "plume.svg",
+          "path": "projects/plume.svg",
+          "format": "svg",
+          "sizeBytes": 6995
+        },
+        {
+          "filename": "reflecta.webp",
+          "path": "projects/reflecta.webp",
+          "format": "webp",
+          "sizeBytes": 61214
+        },
+        {
+          "filename": "sentio.webp",
+          "path": "projects/sentio.webp",
+          "format": "webp",
+          "sizeBytes": 45138
+        },
+        {
+          "filename": "axiom.webp",
+          "path": "fresh/assets/proj-img/axiom.webp",
+          "format": "webp",
+          "sizeBytes": 65680
+        },
+        {
+          "filename": "clearv.webp",
+          "path": "fresh/assets/proj-img/clearv.webp",
+          "format": "webp",
+          "sizeBytes": 138930
+        },
+        {
+          "filename": "clv.webp",
+          "path": "fresh/assets/proj-img/clv.webp",
+          "format": "webp",
+          "sizeBytes": 53698
+        },
+        {
+          "filename": "domino-ml.webp",
+          "path": "fresh/assets/proj-img/domino-ml.webp",
+          "format": "webp",
+          "sizeBytes": 49464
+        },
+        {
+          "filename": "envi.webp",
+          "path": "fresh/assets/proj-img/envi.webp",
+          "format": "webp",
+          "sizeBytes": 36280
+        },
+        {
+          "filename": "glitch.webp",
+          "path": "fresh/assets/proj-img/glitch.webp",
+          "format": "webp",
+          "sizeBytes": 48146
+        },
+        {
+          "filename": "mind.webp",
+          "path": "fresh/assets/proj-img/mind.webp",
+          "format": "webp",
+          "sizeBytes": 38680
+        },
+        {
+          "filename": "pylearn.webp",
+          "path": "fresh/assets/proj-img/pylearn.webp",
+          "format": "webp",
+          "sizeBytes": 36688
+        },
+        {
+          "filename": "qwix.webp",
+          "path": "fresh/assets/proj-img/qwix.webp",
+          "format": "webp",
+          "sizeBytes": 43370
+        },
+        {
+          "filename": "src.webp",
+          "path": "fresh/assets/proj-img/src.webp",
+          "format": "webp",
+          "sizeBytes": 20556
+        },
+        {
+          "filename": "stat.webp",
+          "path": "fresh/assets/proj-img/stat.webp",
+          "format": "webp",
+          "sizeBytes": 22964
+        },
+        {
+          "filename": "whizit.webp",
+          "path": "fresh/assets/proj-img/whizit.webp",
+          "format": "webp",
+          "sizeBytes": 39984
+        },
+        {
+          "filename": "wix.webp",
+          "path": "fresh/assets/proj-img/wix.webp",
+          "format": "webp",
+          "sizeBytes": 39818
+        }
+      ]
+    },
+    "decorations": {
+      "description": "Geometric decorative vectors, radial rings, textures, and banners",
+      "count": 20,
+      "items": [
+        {
+          "filename": "radial-ring.png",
+          "path": "geo-images/radial-ring.png",
+          "format": "png",
+          "sizeBytes": 249965
+        },
+        {
+          "filename": "radial-ring.webp",
+          "path": "geo-images/radial-ring.webp",
+          "format": "webp",
+          "sizeBytes": 112444
+        },
+        {
+          "filename": "radial-tri.png",
+          "path": "geo-images/radial-tri.png",
+          "format": "png",
+          "sizeBytes": 797451
+        },
+        {
+          "filename": "radial-tri.webp",
+          "path": "geo-images/radial-tri.webp",
+          "format": "webp",
+          "sizeBytes": 20488
+        },
+        {
+          "filename": "sqaure.jpg",
+          "path": "geo-images/sqaure.jpg",
+          "format": "jpg",
+          "sizeBytes": 141373
+        },
+        {
+          "filename": "sqaure.png",
+          "path": "geo-images/sqaure.png",
+          "format": "png",
+          "sizeBytes": 106963
+        },
+        {
+          "filename": "sqaure.webp",
+          "path": "geo-images/sqaure.webp",
+          "format": "webp",
+          "sizeBytes": 48648
+        },
+        {
+          "filename": "truss-wheel.jpg",
+          "path": "geo-images/truss-wheel.jpg",
+          "format": "jpg",
+          "sizeBytes": 170138
+        },
+        {
+          "filename": "truss-wheel.png",
+          "path": "geo-images/truss-wheel.png",
+          "format": "png",
+          "sizeBytes": 352865
+        },
+        {
+          "filename": "truss-wheel.webp",
+          "path": "geo-images/truss-wheel.webp",
+          "format": "webp",
+          "sizeBytes": 137536
+        },
+        {
+          "filename": "whirpool.jpg",
+          "path": "geo-images/whirpool.jpg",
+          "format": "jpg",
+          "sizeBytes": 182857
+        },
+        {
+          "filename": "whirpool.png",
+          "path": "geo-images/whirpool.png",
+          "format": "png",
+          "sizeBytes": 652670
+        },
+        {
+          "filename": "whirpool.webp",
+          "path": "geo-images/whirpool.webp",
+          "format": "webp",
+          "sizeBytes": 223944
+        },
+        {
+          "filename": "geo.png",
+          "path": "geo.png",
+          "format": "png",
+          "sizeBytes": 8472
+        },
+        {
+          "filename": "geo2.avif",
+          "path": "geo2.avif",
+          "format": "avif",
+          "sizeBytes": 38222
+        },
+        {
+          "filename": "rough.avif",
+          "path": "fresh/assets/rough.avif",
+          "format": "avif",
+          "sizeBytes": 71918
+        },
+        {
+          "filename": "leaf-top.webp",
+          "path": "fresh/assets/leaf-top.webp",
+          "format": "webp",
+          "sizeBytes": 27644
+        },
+        {
+          "filename": "leaf-bottom.webp",
+          "path": "fresh/assets/leaf-bottom.webp",
+          "format": "webp",
+          "sizeBytes": 42096
+        },
+        {
+          "filename": "jute-bg.webp",
+          "path": "fresh/jute-bg.webp",
+          "format": "webp",
+          "sizeBytes": 80640
+        },
+        {
+          "filename": "jute.png",
+          "path": "dev-profile/assets/jute.png",
+          "format": "png",
+          "sizeBytes": 486758
+        }
+      ]
+    },
+    "origami": {
+      "description": "Photographs of original complex origami models and folds",
+      "count": 64,
+      "items": [
+        {
+          "filename": "#2 bettle H.webp",
+          "path": "fresh/assets/web-origami/#2 bettle H.webp",
+          "format": "webp",
+          "sizeBytes": 27122
+        },
+        {
+          "filename": "#5 beetle H.webp",
+          "path": "fresh/assets/web-origami/#5 beetle H.webp",
+          "format": "webp",
+          "sizeBytes": 31988
+        },
+        {
+          "filename": "#6 beetle in hanf.webp",
+          "path": "fresh/assets/web-origami/#6 beetle in hanf.webp",
+          "format": "webp",
+          "sizeBytes": 56812
+        },
+        {
+          "filename": "1Beetle-H.webp",
+          "path": "fresh/assets/web-origami/1Beetle-H.webp",
+          "format": "webp",
+          "sizeBytes": 25044
+        },
+        {
+          "filename": "1pegasus.webp",
+          "path": "fresh/assets/web-origami/1pegasus.webp",
+          "format": "webp",
+          "sizeBytes": 28728
+        },
+        {
+          "filename": "2 done.webp",
+          "path": "fresh/assets/web-origami/2 done.webp",
+          "format": "webp",
+          "sizeBytes": 25212
+        },
+        {
+          "filename": "2-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/2-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 30012
+        },
+        {
+          "filename": "20210420_100944.webp",
+          "path": "fresh/assets/web-origami/20210420_100944.webp",
+          "format": "webp",
+          "sizeBytes": 56878
+        },
+        {
+          "filename": "20220323_104640.webp",
+          "path": "fresh/assets/web-origami/20220323_104640.webp",
+          "format": "webp",
+          "sizeBytes": 302048
+        },
+        {
+          "filename": "20220414_095311.webp",
+          "path": "fresh/assets/web-origami/20220414_095311.webp",
+          "format": "webp",
+          "sizeBytes": 86726
+        },
+        {
+          "filename": "20230128_121931.webp",
+          "path": "fresh/assets/web-origami/20230128_121931.webp",
+          "format": "webp",
+          "sizeBytes": 173238
+        },
+        {
+          "filename": "20230316_184801.webp",
+          "path": "fresh/assets/web-origami/20230316_184801.webp",
+          "format": "webp",
+          "sizeBytes": 190340
+        },
+        {
+          "filename": "20230317_114637.webp",
+          "path": "fresh/assets/web-origami/20230317_114637.webp",
+          "format": "webp",
+          "sizeBytes": 223494
+        },
+        {
+          "filename": "20230317_130343.webp",
+          "path": "fresh/assets/web-origami/20230317_130343.webp",
+          "format": "webp",
+          "sizeBytes": 193054
+        },
+        {
+          "filename": "20230425_092623.webp",
+          "path": "fresh/assets/web-origami/20230425_092623.webp",
+          "format": "webp",
+          "sizeBytes": 53566
+        },
+        {
+          "filename": "20230425_180347.webp",
+          "path": "fresh/assets/web-origami/20230425_180347.webp",
+          "format": "webp",
+          "sizeBytes": 180850
+        },
+        {
+          "filename": "20230427_131158.webp",
+          "path": "fresh/assets/web-origami/20230427_131158.webp",
+          "format": "webp",
+          "sizeBytes": 135364
+        },
+        {
+          "filename": "20230517_093943.webp",
+          "path": "fresh/assets/web-origami/20230517_093943.webp",
+          "format": "webp",
+          "sizeBytes": 317550
+        },
+        {
+          "filename": "20230526_175123.webp",
+          "path": "fresh/assets/web-origami/20230526_175123.webp",
+          "format": "webp",
+          "sizeBytes": 701532
+        },
+        {
+          "filename": "20230526_175151.webp",
+          "path": "fresh/assets/web-origami/20230526_175151.webp",
+          "format": "webp",
+          "sizeBytes": 219256
+        },
+        {
+          "filename": "20230526_183630.webp",
+          "path": "fresh/assets/web-origami/20230526_183630.webp",
+          "format": "webp",
+          "sizeBytes": 21180
+        },
+        {
+          "filename": "20230602_102454.webp",
+          "path": "fresh/assets/web-origami/20230602_102454.webp",
+          "format": "webp",
+          "sizeBytes": 84588
+        },
+        {
+          "filename": "20230602_102517.webp",
+          "path": "fresh/assets/web-origami/20230602_102517.webp",
+          "format": "webp",
+          "sizeBytes": 161278
+        },
+        {
+          "filename": "20230602_102649.webp",
+          "path": "fresh/assets/web-origami/20230602_102649.webp",
+          "format": "webp",
+          "sizeBytes": 90088
+        },
+        {
+          "filename": "20230705_103629-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230705_103629-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 35042
+        },
+        {
+          "filename": "20230706_092047-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230706_092047-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 37012
+        },
+        {
+          "filename": "20230720_173329.webp",
+          "path": "fresh/assets/web-origami/20230720_173329.webp",
+          "format": "webp",
+          "sizeBytes": 423962
+        },
+        {
+          "filename": "20230720_174054.webp",
+          "path": "fresh/assets/web-origami/20230720_174054.webp",
+          "format": "webp",
+          "sizeBytes": 627064
+        },
+        {
+          "filename": "20230723_112644-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230723_112644-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 64048
+        },
+        {
+          "filename": "20230726_084918-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230726_084918-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 25410
+        },
+        {
+          "filename": "20230813_113328bw-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230813_113328bw-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 32366
+        },
+        {
+          "filename": "20230813_113605-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230813_113605-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 28312
+        },
+        {
+          "filename": "20230908_190209-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/20230908_190209-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 23096
+        },
+        {
+          "filename": "3-PhotoRoom.webp",
+          "path": "fresh/assets/web-origami/3-PhotoRoom.webp",
+          "format": "webp",
+          "sizeBytes": 19924
+        },
+        {
+          "filename": "Darkness Dragon main 2.webp",
+          "path": "fresh/assets/web-origami/Darkness Dragon main 2.webp",
+          "format": "webp",
+          "sizeBytes": 35204
+        },
+        {
+          "filename": "IMG-20201223-WA0004.webp",
+          "path": "fresh/assets/web-origami/IMG-20201223-WA0004.webp",
+          "format": "webp",
+          "sizeBytes": 107334
+        },
+        {
+          "filename": "IMG-20201223-WA0007.webp",
+          "path": "fresh/assets/web-origami/IMG-20201223-WA0007.webp",
+          "format": "webp",
+          "sizeBytes": 225968
+        },
+        {
+          "filename": "IMG-20201223-WA0009.webp",
+          "path": "fresh/assets/web-origami/IMG-20201223-WA0009.webp",
+          "format": "webp",
+          "sizeBytes": 120808
+        },
+        {
+          "filename": "IMG-20210525-WA0000.webp",
+          "path": "fresh/assets/web-origami/IMG-20210525-WA0000.webp",
+          "format": "webp",
+          "sizeBytes": 48192
+        },
+        {
+          "filename": "IMG_20220609_090207_593.webp",
+          "path": "fresh/assets/web-origami/IMG_20220609_090207_593.webp",
+          "format": "webp",
+          "sizeBytes": 16816
+        },
+        {
+          "filename": "Polish_20230425_145034667.webp",
+          "path": "fresh/assets/web-origami/Polish_20230425_145034667.webp",
+          "format": "webp",
+          "sizeBytes": 55160
+        },
+        {
+          "filename": "Polish_20230510_180251220.webp",
+          "path": "fresh/assets/web-origami/Polish_20230510_180251220.webp",
+          "format": "webp",
+          "sizeBytes": 84124
+        },
+        {
+          "filename": "Polish_20230516_214538855.webp",
+          "path": "fresh/assets/web-origami/Polish_20230516_214538855.webp",
+          "format": "webp",
+          "sizeBytes": 45524
+        },
+        {
+          "filename": "Polish_20230520_130842102.webp",
+          "path": "fresh/assets/web-origami/Polish_20230520_130842102.webp",
+          "format": "webp",
+          "sizeBytes": 62370
+        },
+        {
+          "filename": "Polish_20230702_123230551.webp",
+          "path": "fresh/assets/web-origami/Polish_20230702_123230551.webp",
+          "format": "webp",
+          "sizeBytes": 176152
+        },
+        {
+          "filename": "SUn wukong 1.webp",
+          "path": "fresh/assets/web-origami/SUn wukong 1.webp",
+          "format": "webp",
+          "sizeBytes": 219416
+        },
+        {
+          "filename": "V3.webp",
+          "path": "fresh/assets/web-origami/V3.webp",
+          "format": "webp",
+          "sizeBytes": 237970
+        },
+        {
+          "filename": "Yoda cleaned.webp",
+          "path": "fresh/assets/web-origami/Yoda cleaned.webp",
+          "format": "webp",
+          "sizeBytes": 28274
+        },
+        {
+          "filename": "imgonline-com-ua-ReplaceColor-o1idOtH105d.webp",
+          "path": "fresh/assets/web-origami/imgonline-com-ua-ReplaceColor-o1idOtH105d.webp",
+          "format": "webp",
+          "sizeBytes": 31568
+        },
+        {
+          "filename": "me.webp",
+          "path": "fresh/assets/web-origami/me.webp",
+          "format": "webp",
+          "sizeBytes": 22680
+        },
+        {
+          "filename": "msg1521241230-6606.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6606.webp",
+          "format": "webp",
+          "sizeBytes": 32200
+        },
+        {
+          "filename": "msg1521241230-6608.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6608.webp",
+          "format": "webp",
+          "sizeBytes": 17576
+        },
+        {
+          "filename": "msg1521241230-6611.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6611.webp",
+          "format": "webp",
+          "sizeBytes": 27170
+        },
+        {
+          "filename": "msg1521241230-6612.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6612.webp",
+          "format": "webp",
+          "sizeBytes": 62210
+        },
+        {
+          "filename": "msg1521241230-6613.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6613.webp",
+          "format": "webp",
+          "sizeBytes": 155116
+        },
+        {
+          "filename": "msg1521241230-6614.webp",
+          "path": "fresh/assets/web-origami/msg1521241230-6614.webp",
+          "format": "webp",
+          "sizeBytes": 56162
+        },
+        {
+          "filename": "peg 2.webp",
+          "path": "fresh/assets/web-origami/peg 2.webp",
+          "format": "webp",
+          "sizeBytes": 45396
+        },
+        {
+          "filename": "peg3.webp",
+          "path": "fresh/assets/web-origami/peg3.webp",
+          "format": "webp",
+          "sizeBytes": 38506
+        },
+        {
+          "filename": "saber t 1.webp",
+          "path": "fresh/assets/web-origami/saber t 1.webp",
+          "format": "webp",
+          "sizeBytes": 22386
+        },
+        {
+          "filename": "saber t 2.webp",
+          "path": "fresh/assets/web-origami/saber t 2.webp",
+          "format": "webp",
+          "sizeBytes": 19830
+        },
+        {
+          "filename": "saber t 3.webp",
+          "path": "fresh/assets/web-origami/saber t 3.webp",
+          "format": "webp",
+          "sizeBytes": 22206
+        },
+        {
+          "filename": "sunwukong 2.webp",
+          "path": "fresh/assets/web-origami/sunwukong 2.webp",
+          "format": "webp",
+          "sizeBytes": 41454
+        },
+        {
+          "filename": "sunwukong 3.webp",
+          "path": "fresh/assets/web-origami/sunwukong 3.webp",
+          "format": "webp",
+          "sizeBytes": 323434
+        },
+        {
+          "filename": "wyv2.webp",
+          "path": "fresh/assets/web-origami/wyv2.webp",
+          "format": "webp",
+          "sizeBytes": 52250
+        }
+      ]
+    },
+    "certificates": {
+      "description": "Award, credential, and workshop badges",
+      "count": 5,
+      "items": [
+        {
+          "filename": "DP.webp",
+          "path": "fresh/cert/DP.webp",
+          "format": "webp",
+          "sizeBytes": 60826
+        },
+        {
+          "filename": "GCP.webp",
+          "path": "fresh/cert/GCP.webp",
+          "format": "webp",
+          "sizeBytes": 57180
+        },
+        {
+          "filename": "ML.webp",
+          "path": "fresh/cert/ML.webp",
+          "format": "webp",
+          "sizeBytes": 60500
+        },
+        {
+          "filename": "python.webp",
+          "path": "fresh/cert/python.webp",
+          "format": "webp",
+          "sizeBytes": 17882
+        },
+        {
+          "filename": "sql.webp",
+          "path": "fresh/cert/sql.webp",
+          "format": "webp",
+          "sizeBytes": 51840
+        }
+      ]
+    },
+    "documents": {
+      "description": "Resume PDFs, research paper archives, and academic documents",
+      "count": 3,
+      "items": [
+        {
+          "filename": "Atharv-Khare.pdf",
+          "path": "Atharv-Khare.pdf",
+          "format": "pdf",
+          "sizeBytes": 137547
+        },
+        {
+          "filename": "Atharv_Khare.pdf",
+          "path": "fresh/assets/Atharv_Khare.pdf",
+          "format": "pdf",
+          "sizeBytes": 209518
+        },
+        {
+          "filename": "TerraHeal.pdf",
+          "path": "fresh/assets/TerraHeal.pdf",
+          "format": "pdf",
+          "sizeBytes": 370785
+        }
+      ]
+    },
+    "audio": {
+      "description": "Background ambient synthesizer and audio stream assets",
+      "count": 1,
+      "items": [
+        {
+          "filename": "bgsong.opus",
+          "path": "fresh/assets/bgsong.opus",
+          "format": "opus",
+          "sizeBytes": 408897
+        }
+      ]
+    },
+    "brand_and_avatars": {
+      "description": "Profile portraits, vector avatars, and favicon marks",
+      "count": 8,
+      "items": [
+        {
+          "filename": "digital-yoda.webp",
+          "path": "digital-yoda.webp",
+          "format": "webp",
+          "sizeBytes": 324348
+        },
+        {
+          "filename": "digital-yoda.png",
+          "path": "digital-yoda.png",
+          "format": "png",
+          "sizeBytes": 2141661
+        },
+        {
+          "filename": "yoda_bw.webp",
+          "path": "yoda_bw.webp",
+          "format": "webp",
+          "sizeBytes": 266698
+        },
+        {
+          "filename": "self.webp",
+          "path": "self.webp",
+          "format": "webp",
+          "sizeBytes": 12026
+        },
+        {
+          "filename": "self-stream.webp",
+          "path": "self-stream.webp",
+          "format": "webp",
+          "sizeBytes": 8924
+        },
+        {
+          "filename": "totoro.webp",
+          "path": "totoro.webp",
+          "format": "webp",
+          "sizeBytes": 16316
+        },
+        {
+          "filename": "avatar-dots.svg",
+          "path": "avatar-dots.svg",
+          "format": "svg",
+          "sizeBytes": 102058
+        },
+        {
+          "filename": "yoda.webp",
+          "path": "fresh/assets/yoda.webp",
+          "format": "webp",
+          "sizeBytes": 30544
+        }
+      ]
+    },
+    "blog_media": {
+      "description": "Images embedded in blog posts and articles",
+      "count": 4,
+      "items": [
+        {
+          "filename": "focused-title.jpg",
+          "path": "fresh/assets/images/focused-title.jpg",
+          "format": "jpg",
+          "sizeBytes": 105324
+        },
+        {
+          "filename": "focused-title.webp",
+          "path": "fresh/assets/images/focused-title.webp",
+          "format": "webp",
+          "sizeBytes": 74634
+        },
+        {
+          "filename": "hackathon_win.webp",
+          "path": "fresh/assets/images/hackathon_win.webp",
+          "format": "webp",
+          "sizeBytes": 57908
+        },
+        {
+          "filename": "silver_medal_iitm.webp",
+          "path": "fresh/assets/images/silver_medal_iitm.webp",
+          "format": "webp",
+          "sizeBytes": 163310
+        }
+      ]
+    }
+  }
+}

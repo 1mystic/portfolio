@@ -1112,7 +1112,7 @@
 
         <div class="telemetry-col">
           <div class="telemetry-title">ACADEMICS</div>
-          <div class="telemetry-item"><span class="label">B.S. Data Science</span><span class="dots"></span><span class="val">9.02 CGPA</span></div>
+          <div class="telemetry-item"><span class="label">B.S. Data Science</span><span class="dots"></span><span class="val">9.15 CGPA</span></div>
           <div class="telemetry-item"><span class="label">Prog Diploma</span><span class="dots"></span><span class="val">9.44 CGPA</span></div>
           <div class="telemetry-item"><span class="label">IIT Madras</span><span class="dots"></span><span class="val" style="color:var(--green);">✔ Active</span></div>
         </div>
@@ -1342,9 +1342,12 @@
     </div>
   </footer>
 
+  <script src="data/portfolio-data.js"></script>
   <script>
     /* ─── OFFICIAL TECH ICON SLUGS & COLORS ─── */
-    const techIconMap = {
+    const techIconMap = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.techIconMap)
+      ? window.PORTFOLIO_DATA.techIconMap
+      : {
       'LangGraph': { slug: 'langchain', color: '#1c3c3c' },
       'LangChain': { slug: 'langchain', color: '#1c3c3c' },
       'scikit-learn': { slug: 'scikitlearn', color: '#f7931e' },
@@ -1378,7 +1381,9 @@
     };
 
     /* ─── COMPLETE CORPUS DATASET (56 Verified Records) ─── */
-    const dataset = [
+    const dataset = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getStreamDataset)
+      ? window.PORTFOLIO_DATA.getStreamDataset()
+      : [
       // PROJECTS (14)
       { title: "Sentio", sub: "sentio-go.vercel.app", type: "project", catLabel: "Project", href: "https://sentio-go.vercel.app/", github: "https://github.com/1mystic/Sentio",
         desc: "AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, therapist scrapers, Coherence caching for sub-100ms latency, and Supabase OAuth.",
@@ -1526,8 +1531,8 @@
 
       // EDUCATION (2)
       { title: "B.S. Data Science & Applications", sub: "IIT Madras · 2023 – 2027", type: "degree", catLabel: "Degree", href: "https://study.iitm.ac.in",
-        desc: "Bachelor of Science in Data Science & Applications from IIT Madras. Currently maintaining CGPA of 9.02.",
-        tags: ["IIT Madras", "CGPA 9.02", "Data Science", "AI/ML"] },
+        desc: "Bachelor of Science in Data Science & Applications from IIT Madras. Currently maintaining CGPA of 9.15.",
+        tags: ["IIT Madras", "CGPA 9.15", "Data Science", "AI/ML"] },
       { title: "Diploma in Programming", sub: "IIT Madras · Completed 2025", type: "degree", catLabel: "Diploma", href: "https://study.iitm.ac.in",
         desc: "Diploma in Programming from IIT Madras completed with 9.44 CGPA in algorithms and web systems.",
         tags: ["IIT Madras", "CGPA 9.44", "Diploma", "Algorithms"] },

@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /source-data/
-Disallow: /.git/
-
-Sitemap: https://1mystic.github.io/portfolio/sitemap.xml

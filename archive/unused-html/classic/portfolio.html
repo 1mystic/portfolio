@@ -685,6 +685,228 @@ timeline  = "2 weeks"</code></pre>
     </div>
     
     <!-- Include Dynamic Interactions -->
+    <script src="../data/portfolio-data.js"></script>
+    <script>
+      // Load data from unified source
+      const projects = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getProjects)
+        ? window.PORTFOLIO_DATA.getProjects({ basePath: '../' })
+        : [];
+
+      const stats = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.stats)
+        ? window.PORTFOLIO_DATA.stats
+        : {};
+
+      const research = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getResearch)
+        ? window.PORTFOLIO_DATA.getResearch({ basePath: '../' })
+        : [];
+
+      const certificates = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getCertificates)
+        ? window.PORTFOLIO_DATA.getCertificates()
+        : [];
+
+      const education = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getEducation)
+        ? window.PORTFOLIO_DATA.getEducation()
+        : [];
+
+      const achievements = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getAchievements)
+        ? window.PORTFOLIO_DATA.getAchievements()
+        : [];
+
+      const educationalResources = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getEduResources)
+        ? window.PORTFOLIO_DATA.getEduResources({ basePath: '../' })
+        : [];
+
+      const blogs = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getBlogs)
+        ? window.PORTFOLIO_DATA.getBlogs({ basePath: '../' })
+        : [];
+
+      const techIconMap = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.techIconMap)
+        ? window.PORTFOLIO_DATA.techIconMap
+        : {};
+
+      // Populate hero stats
+      function populateHeroStats() {
+        const statElements = document.querySelectorAll('.hero-stat-val');
+        statElements.forEach(el => {
+          const key = el.dataset.value;
+          if (key && stats[key] !== undefined) {
+            el.textContent = stats[key];
+          }
+        });
+      }
+
+      // Populate projects by category
+      function populateProjects() {
+        const catMap = {
+          'ml-ai': 'projects-col-aiml',
+          'webapps': 'projects-col-webapps',
+          'tools': 'projects-col-tools',
+          'data-science': 'projects-col-dataanalysis',
+          'platform': 'projects-col-aiml',
+          'web': 'projects-col-webapps',
+          'tool': 'projects-col-tools',
+          'edu': 'projects-col-dataanalysis'
+        };
+
+        Object.values(catMap).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.innerHTML = '';
+        });
+
+        projects.forEach(p => {
+          const catKey = p.cat || 'ml-ai';
+          const containerId = catMap[catKey] || 'projects-col-aiml';
+          const container = document.getElementById(containerId);
+          if (!container) return;
+
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.innerHTML = `
+            <div class="project-card-header">
+              <div class="project-card-category">${p.catLabel || catKey}</div>
+              <h3 class="project-card-title">${p.title}</h3>
+            </div>
+            <div class="project-card-tech">
+              ${(p.tags || []).slice(0, 4).map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+            <p class="project-card-desc">${p.desc || ''}</p>
+            <div class="project-card-links">
+              ${p.href ? `<a href="${p.href}" target="_blank" rel="noopener noreferrer">Live Demo →</a>` : ''}
+              ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub →</a>` : ''}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      // Populate achievements grid
+      function populateAchievements() {
+        const grid = document.getElementById('achievements-grid');
+        if (!grid) return;
+
+        grid.innerHTML = achievements.map(a => `
+          <div class="achievement-card break-inside-avoid">
+            <div class="achievement-badge">${a.catLabel || 'Award'}</div>
+            <h3 class="achievement-title">${a.title}</h3>
+            <p class="achievement-sub">${a.sub}</p>
+            <p class="achievement-desc">${a.desc || ''}</p>
+            ${a.href ? `<a href="${a.href}" target="_blank" rel="noopener noreferrer" class="achievement-link">View →</a>` : ''}
+          </div>
+        `).join('');
+      }
+
+      // Populate research/experiments grid
+      function populateResearch() {
+        const grid = document.getElementById('experiments-grid');
+        if (!grid) return;
+
+        const allResearch = [...research, ...educationalResources.map(e => ({
+          ...e,
+          type: 'edu',
+          catLabel: e.catLabel || 'Education'
+        }))];
+
+        grid.innerHTML = allResearch.map(r => `
+          <div class="experiment-card break-inside-avoid">
+            <div class="experiment-type-badge ${r.type === 'edu' ? 'edu' : 'research'}">${r.catLabel || r.type}</div>
+            <h3 class="experiment-title">${r.title}</h3>
+            <p class="experiment-sub">${r.sub || ''}</p>
+            <p class="experiment-desc">${r.desc || ''}</p>
+            <div class="experiment-tags">
+              ${(r.tags || []).slice(0, 3).map(t => `<span class="experiment-tag">${t}</span>`).join('')}
+            </div>
+            ${r.href ? `<a href="${r.href}" target="_blank" rel="noopener noreferrer" class="experiment-link">View →</a>` : ''}
+          </div>
+        `).join('');
+      }
+
+      // Populate writing carousel and blog list
+      function populateWriting() {
+        const carouselTrack = document.getElementById('writing-carousel-track');
+        const dotsContainer = document.getElementById('writing-carousel-dots');
+        const blogList = document.getElementById('writing-blog-list');
+
+        if (carouselTrack && blogs.length > 0) {
+          carouselTrack.innerHTML = blogs.slice(0, 6).map((b, i) => `
+            <div class="writing-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
+              <div class="h-full bg-[hsl(0_0%_10%)] border border-border rounded-xl p-6 flex flex-col">
+                <span class="text-xs font-mono text-gold/60 uppercase tracking-wider mb-2">${b.catLabel || 'Essay'}</span>
+                <h3 class="text-lg font-semibold mb-2">${b.title}</h3>
+                <p class="text-sm text-muted-foreground flex-1 mb-4">${b.desc || ''}</p>
+                <a href="${b.href}" class="text-sm text-gold hover:underline font-medium">Read →</a>
+              </div>
+            </div>
+          `).join('');
+
+          dotsContainer.innerHTML = blogs.slice(0, 6).map((_, i) => `
+            <button class="w-2 h-2 rounded-full transition-colors ${i === 0 ? 'bg-gold' : 'bg-muted-foreground/30'}" 
+                    data-slide="${i}" aria-label="Slide ${i + 1}"></button>
+          `).join('');
+        }
+
+        if (blogList) {
+          blogList.innerHTML = blogs.map(b => `
+            <div class="blog-list-item py-4 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex-1">
+                <span class="text-xs font-mono text-gold/60 uppercase tracking-wider">${b.catLabel || 'Essay'}</span>
+                <h3 class="font-semibold mt-1 mb-1">${b.title}</h3>
+                <p class="text-sm text-muted-foreground">${b.desc || ''}</p>
+              </div>
+              <a href="${b.href}" class="text-sm text-gold hover:underline font-medium whitespace-nowrap">Read →</a>
+            </div>
+          `).join('');
+        }
+      }
+
+      // Populate skills treemap
+      function populateSkills() {
+        const treemap = document.getElementById('skills-treemap');
+        if (!treemap) return;
+
+        const skills = [
+          { name: 'Python', category: 'Core', projects: 15, color: 'hsl(40 45% 55%)', size: 5 },
+          { name: 'Machine Learning', category: 'ML', projects: 10, color: 'hsl(40 50% 65%)', size: 4 },
+          { name: 'React / Next.js', category: 'Web', projects: 8, color: 'hsl(200 40% 55%)', size: 3 },
+          { name: 'Flask / FastAPI', category: 'Web', projects: 7, color: 'hsl(210 40% 50%)', size: 3 },
+          { name: 'SQL & Databases', category: 'Data', projects: 8, color: 'hsl(160 35% 48%)', size: 3 },
+          { name: 'Data Analysis', category: 'Data', projects: 9, color: 'hsl(155 35% 45%)', size: 3 },
+          { name: 'Vue.js', category: 'Web', projects: 4, color: 'hsl(200 45% 60%)', size: 2 },
+          { name: 'RAG & LLMs', category: 'ML', projects: 3, color: 'hsl(35 40% 52%)', size: 2 },
+          { name: 'JavaScript / TS', category: 'Web', projects: 10, color: 'hsl(205 40% 52%)', size: 2 },
+          { name: 'GCP & DevOps', category: 'Ops', projects: 3, color: 'hsl(150 30% 45%)', size: 2 },
+          { name: 'Java', category: 'Core', projects: 3, color: 'hsl(38 40% 48%)', size: 1 },
+          { name: 'Research', category: 'Ops', projects: 4, color: 'hsl(280 30% 52%)', size: 1 },
+        ];
+
+        treemap.innerHTML = skills.map(s => `
+          <div class="skill-tile flex items-center gap-2 px-3 py-2 rounded-md border border-border bg-surface cursor-pointer hover:border-gold transition-colors"
+               style="background: linear-gradient(90deg, ${s.color}20, transparent); min-width: ${80 + s.size * 20}px;">
+            <div class="w-2 h-2 rounded-full shrink-0" style="background: ${s.color}"></div>
+            <span class="text-sm font-medium truncate">${s.name}</span>
+            <span class="text-xs text-muted-foreground/60 shrink-0">${s.projects}</span>
+          </div>
+        `).join('');
+      }
+
+      // Initialize all on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          populateHeroStats();
+          populateProjects();
+          populateAchievements();
+          populateResearch();
+          populateWriting();
+          populateSkills();
+        });
+      } else {
+        populateHeroStats();
+        populateProjects();
+        populateAchievements();
+        populateResearch();
+        populateWriting();
+        populateSkills();
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1656,7 +1656,7 @@ footer a:hover { color: var(--accent); }
         </div>
         <div class="header-meta">
           IIT Madras : BS Data Science<br>
-          CGPA 9.02 &nbsp;·&nbsp; 3X Hackathon Winner<br>
+          CGPA 9.15 &nbsp;·&nbsp; 3X Hackathon Winner<br>
           <a href="../socials.html" target="_blank">Profile-Links</a>
           &nbsp;·&nbsp;
           <a href="https://github.com/1mystic" target="_blank">github/1mystic</a>
@@ -1667,12 +1667,12 @@ footer a:hover { color: var(--accent); }
 
   <!-- ── SECTION NAVBAR ── -->
   <nav class="section-nav" id="sectionNav">
-    <button class="nav-btn" data-section="projects">Projects<span class="nav-badge">29</span></button>
-    <button class="nav-btn" data-section="research">Research<span class="nav-badge">6</span></button>
-    <button class="nav-btn" data-section="blogs">Writing<span class="nav-badge">13</span></button>
-    <button class="nav-btn" data-section="certificates">Certs<span class="nav-badge">10</span></button>
-    <button class="nav-btn" data-section="education">Education<span class="nav-badge">2</span></button>
-    <button class="nav-btn" data-section="achievements">Awards<span class="nav-badge">7</span></button>
+    <button class="nav-btn" data-section="projects">Projects<span class="nav-badge" data-count="projects">41</span></button>
+    <button class="nav-btn" data-section="research">Research<span class="nav-badge" data-count="research">7</span></button>
+    <button class="nav-btn" data-section="blogs">Writing<span class="nav-badge" data-count="blogs">21</span></button>
+    <button class="nav-btn" data-section="certificates">Certs<span class="nav-badge" data-count="certificates">11</span></button>
+    <button class="nav-btn" data-section="education">Education<span class="nav-badge" data-count="education">2</span></button>
+    <button class="nav-btn" data-section="achievements">Awards<span class="nav-badge" data-count="achievements">8</span></button>
   </nav>
 
   <!-- ════ HOME ════ -->
@@ -1685,25 +1685,25 @@ footer a:hover { color: var(--accent); }
       <p class="home-intro">
         <strong>Data scientist, builder, and research aspirant</strong> at IIT Madras. I work at the intersection of <span class="highlight-green">machine learning</span>, systems design, and applied data science, building tools that make analysis tangible and research legible. This index collects everything across <span class="highlight-red">projects, papers, writing,</span> and credentials.
       </p>
-      <div class="home-stats">
+      <div class="home-stats" id="home-stats">
         <div class="stat-cell">
-          <span class="stat-num" data-count="29">29</span>
+          <span class="stat-num" data-stat="projectsShipped">41</span>
           <span class="stat-label">Projects</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="6">6</span>
+          <span class="stat-num" data-stat="researchCount">7</span>
           <span class="stat-label">Research works</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="13">13</span>
+          <span class="stat-num" data-stat="blogsCount">21</span>
           <span class="stat-label">Articles</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="10">10</span>
+          <span class="stat-num" data-stat="certificatesCount">11</span>
           <span class="stat-label">Certificates</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-num" data-count="18">18</span>
+          <span class="stat-num" data-stat="deployedApps">18</span>
           <span class="stat-label">Deployed</span>
         </div>
       </div>
@@ -1876,7 +1876,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Projects</span>
-            <span class="band-count">40 entries</span>
+            <span class="band-count" data-count="projects">41 entries</span>
           </div>
           <p class="band-desc">End-to-end engineering work spanning ML/AI systems, developer tooling, data science platforms, education apps, and web applications. From a visual ML pipeline builder to a keystroke dynamics platform : each project is a working deployment or open-source repository.</p>
           <div class="band-tags">
@@ -1891,12 +1891,12 @@ footer a:hover { color: var(--accent); }
         <div class="band-arrow">→</div>
       </div>
 
-      <div class="home-band" data-goto="research">
+<div class="home-band" data-goto="research">
         <div class="band-num">02</div>
         <div class="band-body">
           <div class="band-header">
-            <span class="band-title">Research &amp; Analysis</span>
-            <span class="band-count">7 entries</span>
+            <span class="band-title">Research & Analysis</span>
+            <span class="band-count" data-count="research">7 entries</span>
           </div>
           <p class="band-desc">Formal research papers and rigorous data analyses : from remote sensing studies of post-wildfire vegetation recovery (TerraHeal) to geospatial mapping of 5,000 food delivery orders across Bhopal. Research-grade methodology applied to real-world questions.</p>
           <div class="band-tags">
@@ -1915,7 +1915,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Written Blogs</span>
-            <span class="band-count">14 entries</span>
+            <span class="band-count" data-count="blogs">21 entries</span>
           </div>
           <p class="band-desc">Technical writing and dev journals : from deep-dives into Transformer attention mechanisms and GeoPandas spatial analysis, to engineering stories behind tools like MarkTex and keystroke biometrics. Writing that bridges rigour and readability.</p>
           <div class="band-tags">
@@ -1934,7 +1934,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Certificates</span>
-            <span class="band-count">10 entries</span>
+            <span class="band-count" data-count="certificates">11 entries</span>
           </div>
           <p class="band-desc">Verified credentials from HackerRank, DataCamp, Google Cloud, and IIT Madras : covering advanced SQL, data science fundamentals, GCP architecture, dynamic programming, machine learning, and Python programming with graded assessments.</p>
           <div class="band-tags">
@@ -1953,12 +1953,12 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Education</span>
-            <span class="band-count">2 qualifications</span>
+            <span class="band-count" data-count="education">2 qualifications</span>
           </div>
-          <p class="band-desc">B.S. Data Science &amp; Applications from IIT Madras (CGPA 9.02, 2023–2027) and a Diploma in Programming (CGPA 9.44, completed 2025) : covering mathematics, statistics, machine learning, algorithms, databases, and applied AI.</p>
+          <p class="band-desc">B.S. Data Science &amp; Applications from IIT Madras (CGPA 9.15, 2023–2027) and a Diploma in Programming (CGPA 9.44, completed 2025) : covering mathematics, statistics, machine learning, algorithms, databases, and applied AI.</p>
           <div class="band-tags">
             <span class="band-tag">IIT Madras</span>
-            <span class="band-tag">CGPA 9.02</span>
+            <span class="band-tag">CGPA 9.15</span>
             <span class="band-tag">Data Science</span>
             <span class="band-tag">AI / ML</span>
             <span class="band-tag">Diploma</span>
@@ -1972,7 +1972,7 @@ footer a:hover { color: var(--accent); }
         <div class="band-body">
           <div class="band-header">
             <span class="band-title">Achievements</span>
-            <span class="band-count">6 entries</span>
+            <span class="band-count" data-count="achievements">8 entries</span>
           </div>
           <p class="band-desc">Competition wins and recognition : including 2nd place at IIT Madras Tech Dominion (Jan 2026), 2nd Runner Up at Anthropic's Claude Builder Club, Silver Medal at Paradox IITM 2025, and Hack4Health 3rd position.</p>
           <div class="band-tags">
@@ -2048,9 +2048,12 @@ footer a:hover { color: var(--accent); }
 
 </div>
 
+<script src="../data/portfolio-data.js"></script>
 <script>
 /* ─── DATA ─────────────────────────────────────────────────── */
-const projects = [
+const projects = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getProjects)
+  ? window.PORTFOLIO_DATA.getProjects({ basePath: '../' })
+  : [
   { title:"Sentio", sub:"sentio-go.vercel.app", href:"https://sentio-go.vercel.app/", github:"https://github.com/1mystic/Sentio", cat:"platform", catLabel:"Platform",
     desc:"AI-driven cognitive wellness platform leveraging NLP and Deep Learning for real-time journaling bias analysis. Engineered a RAG-enhanced Socratic assistant, custom Python therapist scrapers, Coherence caching for sub-100ms latency, and Google OAuth via Supabase. Built with FastAPI, Vue 3, and Resend.",
     tags:["Vue 3","FastAPI","NLP/DL","Supabase","Web Scraping"] },
@@ -2179,7 +2182,9 @@ const projects = [
     tags:["Data Science","Interview","Cheatsheet","Notes"] },
 ];
 
-const research = [
+const research = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getResearch)
+  ? window.PORTFOLIO_DATA.getResearch()
+  : [
   { title:"MLP Project Statistical Analysis", sub:"mlp-proj-t126.edgeone.app", href:"https://mlp-proj-t126.edgeone.app/", cat:"analysis", catLabel:"Analysis",
     desc:"Statistical analysis and feature distribution study on Machine Learning Practice (MLP) project data, evaluating feature correlations, baseline model error bounds, and statistical metrics.",
     tags:["Statistical Analysis","Python","MLP","EDA"] },
@@ -2203,7 +2208,9 @@ const research = [
     tags:["Forecasting","Market Basket","Time Series","Segmentation"] },
 ];
 
-const blogs = [
+const blogs = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getBlogs)
+  ? window.PORTFOLIO_DATA.getBlogs({ basePath: '../' })
+  : [
   { title:"Pen — Simple Write-ups", sub:"1mystic.github.io/pen", href:"https://1mystic.github.io/pen/", cat:"blog", catLabel:"Essay",
     desc:"Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.",
     tags:["Essays","Writing","Digital Garden"] },
@@ -2248,7 +2255,9 @@ const blogs = [
     tags:["Social Commentary","Philosophy"] },
 ];
 
-const certificates = [
+const certificates = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getCertificates)
+  ? window.PORTFOLIO_DATA.getCertificates()
+  : [
   { title:"Oracle Agentic AI Certified Foundations", sub:"Oracle · 2026", href:"https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59", cat:"cert", catLabel:"Certificate",
     desc:"Oracle Certified Foundations Associate validating core concepts of Agentic AI architectures, autonomous agents, LLM tool orchestration, and multi-agent workflows.",
     tags:["Agentic AI","Oracle","LLMs","AI Agents","2026"] },
@@ -2284,16 +2293,20 @@ const certificates = [
     tags:["Cloud Computing","Infrastructure","Simplilearn"] },
 ];
 
-const education = [
+const education = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getEducation)
+  ? window.PORTFOLIO_DATA.getEducation()
+  : [
   { title:"B.S. Data Science & Applications", sub:"IIT Madras · 2023 – 2027", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Degree",
-    desc:"Bachelor of Science in Data Science & Applications from IIT Madras : one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.02.",
-    tags:["IIT Madras","CGPA 9.02","Data Science","AI/ML","Python","SQL"] },
+    desc:"Bachelor of Science in Data Science & Applications from IIT Madras : one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.15.",
+    tags:["IIT Madras","CGPA 9.15","Data Science","AI/ML","Python","SQL"] },
   { title:"Diploma in Programming", sub:"IIT Madras · Completed 2025", href:"https://study.iitm.ac.in", cat:"degree", catLabel:"Diploma",
     desc:"Diploma-level qualification in programming from IIT Madras, completed with a 9.44 CGPA. Covered systems thinking, data structures, algorithms, web technologies, and application development.",
     tags:["IIT Madras","CGPA 9.44","Diploma","Algorithms","Web Dev"] },
 ];
 
-const achievements = [
+const achievements = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getAchievements)
+  ? window.PORTFOLIO_DATA.getAchievements()
+  : [
   { title:"IIT Madras Merit Prize Certificate", sub:"IIT Madras · Academic Excellence", href:"https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing", cat:"award", catLabel:"Merit Award",
     desc:"Awarded Merit Prize Certificate by IIT Madras in recognition of academic excellence and top performance in the BS Data Science & Applications program.",
     tags:["Merit Award","IIT Madras","Academic Excellence"] },
@@ -2715,6 +2728,48 @@ document.getElementById('proj-grid').addEventListener('click', e => {
 const footerLeft = document.querySelector('footer p');
 if (footerLeft) {
   footerLeft.title = 'Keys: 1-6 jump sections · / search · 0 home';
+}
+
+// Load stats from unified data source
+const stats = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.stats)
+  ? window.PORTFOLIO_DATA.stats
+  : {};
+
+function populateMinimalStats() {
+  const statElements = document.querySelectorAll('.stat-num[data-stat]');
+  statElements.forEach(el => {
+    const key = el.dataset.stat;
+    if (stats[key] !== undefined) {
+      el.textContent = stats[key];
+    }
+  });
+
+  // Also populate band counts
+  const bandCounts = document.querySelectorAll('.band-count[data-count]');
+  bandCounts.forEach(el => {
+    const key = el.dataset.count;
+    if (stats[key] !== undefined) {
+      el.textContent = stats[key] + (el.textContent.includes('qualifications') ? ' qualifications' : ' entries');
+    } else if (key === 'research') {
+      el.textContent = stats.researchCount + ' entries';
+    } else if (key === 'blogs') {
+      el.textContent = stats.blogsCount + ' entries';
+    } else if (key === 'certificates') {
+      el.textContent = stats.certificatesCount + ' entries';
+    } else if (key === 'education') {
+      el.textContent = stats.educationCount + ' qualifications';
+    } else if (key === 'achievements') {
+      el.textContent = stats.achievementsCount + ' entries';
+    } else if (key === 'projects') {
+      el.textContent = stats.projectsShipped + ' entries';
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', populateMinimalStats);
+} else {
+  populateMinimalStats();
 }
 </script>
 </body>
