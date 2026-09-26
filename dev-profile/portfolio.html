@@ -132,7 +132,10 @@
   .dd-track strong{display:block;font-size:.84rem;}
   .dd-track span{color:var(--muted);font-size:.72rem;}
   @media (max-width:640px){
-    .dropdown{position:fixed;top:auto;bottom:calc(76px + env(safe-area-inset-bottom,0));right:12px;left:12px;min-width:0;max-width:none;transform:translateY(12px) scale(.98);}
+    /* BUGFIX: on small screens the menus must hang just below the navbar,
+       not float near the bottom of the screen. Header stack ≈ 36px top pad
+       + 42px pill + 24px bottom pad, so anchor the sheet right under it. */
+    .dropdown{position:fixed;top:calc(104px + env(safe-area-inset-top,0));bottom:auto;right:12px;left:12px;min-width:0;max-width:none;transform:translateY(-12px) scale(.98);transform-origin:top center;}
     .nav-wrap.open .dropdown{transform:translateY(0) scale(1);}
   }
 
