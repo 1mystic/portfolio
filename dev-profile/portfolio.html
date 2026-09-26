@@ -450,13 +450,14 @@
   .awards-layout{display:grid;grid-template-columns:1.05fr 1.5fr;gap:80px;align-items:center;}
   .award-list{display:flex;flex-direction:column;border-top:1px solid rgba(245,245,242,.16);}
   .award-row{
-    display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:18px;
+    display:grid;grid-template-columns:104px 1fr auto;align-items:center;gap:18px;
     padding:22px 0;border-bottom:1px solid rgba(245,245,242,.12);
     transition:padding .3s ease,background .3s ease;
     border-radius:16px;
   }
   .award-row:hover{padding-left:16px;padding-right:16px;background:rgba(199,242,77,.07);}
-  .award-year,.award-tag{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+  .award-year,.award-tag{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;line-height:1.55;overflow-wrap:anywhere;min-width:0;}
+  .award-name{min-width:0;}
   .award-name{font-size:1.08rem;font-weight:500;}
   .award-row:hover .award-name{color:var(--lime);}
   .award-mark{width:52px;height:52px;border-radius:16px;border:1px solid rgba(245,245,242,.12);display:grid;place-items:center;color:var(--lime);font-size:1.05rem;transition:background .3s ease,transform .3s ease,border-color .3s ease;}
@@ -633,7 +634,7 @@
     .blog-row .meta{display:none;}
     .work-more{padding:16px;gap:14px;}
     .work-more .go{display:none;}
-    .award-row{grid-template-columns:54px 1fr auto;gap:12px;}
+    .award-row{grid-template-columns:78px 1fr auto;gap:12px;}
     .award-name{font-size:.96rem;}
     .award-tag{display:none;}
     .award-stamp{width:210px;}
