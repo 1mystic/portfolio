@@ -18,7 +18,7 @@ href="data:image/svg+xml,
 font-family='Lora,serif' font-size='44' fill='%232c3127' font-weight='600'%3EA%3C/text%3E
 %3C/svg%3E">
 
-<script src="/visit-counter.js"></script>
+<script src="/visit-counter.js" defer></script>
 
   <style>
     /* --- CSS Variables: Earthy & Minimalist --- */
@@ -294,9 +294,6 @@ font-family='Lora,serif' font-size='44' fill='%232c3127' font-weight='600'%3EA%3
     ];
 
     const container = document.getElementById('links-container');
-    const visitCounter = document.getElementById('visitCounter');
-    const VISIT_COUNTER_NAMESPACE = 'atharvkpagedev';
-    const VISIT_COUNTER_KEY = 'site-visits';
 
     // Generating links and applying a staggered animation effect
     linksData.forEach((link, index) => {
@@ -325,31 +322,6 @@ font-family='Lora,serif' font-size='44' fill='%232c3127' font-weight='600'%3EA%3
       container.appendChild(a);
     });
 
-    async function updateVisitCounter() {
-      if (!visitCounter) return;
-
-      try {
-        await fetch(`https://api.countapi.xyz/create/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}?value=0`, {
-          cache: 'no-store'
-        });
-
-        const response = await fetch(
-          `https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}?cachebust=${Date.now()}`,
-          { cache: 'no-store' }
-        );
-
-        if (!response.ok) {
-          throw new Error('Counter request failed');
-        }
-
-        const data = await response.json();
-        visitCounter.textContent = `visits ${String(data.value).padStart(5, '0')}`;
-      } catch (error) {
-        visitCounter.textContent = 'visits --';
-      }
-    }
-
-    updateVisitCounter();
   </script>
 </body>
 </html>

@@ -32,8 +32,6 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
-<script src="/visit-counter.js"></script>
-
 <body>
     <img class="jute-bg" src="assets/rough.avif" alt="">
     <audio id="bg-music" style="display : none" controls loop>
@@ -120,8 +118,20 @@
     <script>
       // Load blogs from unified data source
       const blogs = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getBlogs)
-        ? window.PORTFOLIO_DATA.getBlogs({ basePath: '' })
+        ? window.PORTFOLIO_DATA.getBlogs({ basePath: '../' })
         : [];
+
+      function slugFromHref(href) {
+        return String(href || '')
+          .split('/')
+          .pop()
+          .split('?')[0]
+          .split('#')[0]
+          .replace(/\.html?$/i, '')
+          .toLowerCase()
+          .replace(/[^a-z0-9-_]/g, '')
+          .slice(0, 80);
+      }
 
       function populateBlogGrid() {
         const grid = document.getElementById('blog-grid');
@@ -138,6 +148,7 @@
 
           const tagHtml = (b.tags || []).map(t => `<span class="blog-tag">${t}</span>`).join('');
           const metaHtml = [b.date, b.readTime].filter(Boolean).map(v => `<span>${v}</span>`).join('');
+          const slug = slugFromHref(b.href);
 
           return `
             <a href="${b.href}" class="blog-card">
@@ -148,12 +159,73 @@
                 <div class="blog-tags">${tagHtml}</div>
                 <h3 class="blog-card-title">${b.title}</h3>
                 <p class="blog-excerpt">${b.desc || ''}</p>
-                <div class="blog-meta-footer">${metaHtml}</div>
+                <div class="blog-meta-footer">${metaHtml}<span class="reads-count" data-reads-for="${slug}">… reads</span></div>
               </div>
             </a>
           `;
         }).join('');
+
+        loadReadCounts();
       }
+
+      // Per-card read counts. Primary: batch endpoint on the Pages
+      // Function (read-only, never increments). Fallback: public
+      // Abacus counter, fetched a few at a time to respect its rate limit.
+      async function loadReadCounts() {
+        const els = Array.from(document.querySelectorAll('[data-reads-for]'));
+        if (!els.length) return;
+        const slugs = [...new Set(els.map(el => el.dataset.readsFor).filter(Boolean))];
+        if (!slugs.length) return;
+
+        const paint = (counts) => {
+          els.forEach(el => {
+            const v = counts[el.dataset.readsFor];
+            if (typeof v === 'number' && isFinite(v) && v >= 0) {
+              el.textContent = `${v.toLocaleString()} reads`;
+            }
+          });
+        };
+
+        try {
+          const res = await fetch(`/api/reads?slugs=${slugs.map(encodeURIComponent).join(',')}`, { cache: 'no-store' });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.counts) {
+              paint(data.counts);
+              return;
+            }
+          }
+          throw new Error('reads endpoint unavailable');
+        } catch (e) {
+          const CONCURRENCY = 5;
+          const counts = {};
+          for (let i = 0; i < slugs.length; i += CONCURRENCY) {
+            const batch = slugs.slice(i, i + CONCURRENCY);
+            const results = await Promise.all(batch.map(async (slug) => {
+              try {
+                const r = await fetch(`https://abacus.jasoncameron.dev/get/atharvk-pages-dev/post-${slug}`, { cache: 'no-store' });
+                if (!r.ok) return null;
+                const d = await r.json();
+                return (d && typeof d.value === 'number') ? d.value : 0;
+              } catch (err) {
+                return null;
+              }
+            }));
+            batch.forEach((slug, j) => { if (results[j] !== null) counts[slug] = results[j]; });
+          }
+          paint(counts);
+        }
+      }
+
+      // Silent site-visit ping (once per session, never increments reads).
+      (function recordSiteVisit() {
+        try {
+          if (sessionStorage.getItem('site-visit-hit')) return;
+          fetch('/api/visit', { method: 'POST', cache: 'no-store' })
+            .catch(() => fetch('https://abacus.jasoncameron.dev/hit/atharvk-pages-dev/site-visits', { cache: 'no-store' }).catch(() => {}))
+            .finally(() => { try { sessionStorage.setItem('site-visit-hit', '1'); } catch (e) {} });
+        } catch (e) {}
+      })();
 
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', populateBlogGrid);

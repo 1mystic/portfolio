@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:wght@500;700&family=Raleway:wght@700;800&family=Fira+Code:wght@500;600&display=swap" rel="stylesheet">
 
-  <script src="/visit-counter.js"></script>
+  <script src="/visit-counter.js" defer></script>
   
   <style>
     :root {
@@ -1846,8 +1846,6 @@ body.game-active .desktop-totoro {
     const player = document.getElementById('player');
     const gameOverScreen = document.getElementById('gameOverScreen');
     const scoreDisplay = document.getElementById('scoreDisplay');
-    const VISIT_COUNTER_NAMESPACE = 'atharvkpagedev';
-    const VISIT_COUNTER_KEY = 'site-visits';
     
     let isGameOver = true; 
     let frameCount = 0;
@@ -2158,23 +2156,6 @@ body.game-active .desktop-totoro {
       lastTime = 0; // Reset lastTime for delta-time calculations
       requestAnimationFrame(update);
     }
-
-    async function updateVisitCounter() {
-      try {
-        await fetch(`https://api.countapi.xyz/create/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}?value=0`, {
-          cache: 'no-store'
-        });
-
-        const response = await fetch(`https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`);
-        if (!response.ok) {
-          throw new Error('Counter request failed');
-        }
-      } catch (error) {
-        // Silent fallback: keep the page working even if the counter service is unavailable.
-      }
-    }
-
-    updateVisitCounter();
 
     (function initWelcomeRain() {
       const container = document.getElementById('welcomeRain');
