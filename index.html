@@ -1411,9 +1411,148 @@
 }
 
 @media (max-width: 1024px) {
-  .desktop-welcome,
-  .desktop-totoro {
+  .desktop-totoro.tl,
+  .desktop-totoro.tr {
     display: none !important;
+  }
+
+  .desktop-totoro.br {
+    display: block;
+    position: fixed;
+    width: 120px;
+    height: 202px;
+    bottom: -37px;
+    right: -6px;
+    pointer-events: none;
+  }
+
+  #startScreen > .entrance-header,
+  #startScreen > .start-panel {
+    display: none !important;
+  }
+
+  .desktop-welcome {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 36px 24px 56px;
+  }
+
+  .desktop-welcome .start-screen-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .desktop-welcome .start-left-col {
+    flex: none;
+    gap: 20px;
+    padding: 4px 0 4px 18px;
+    min-width: 0;
+  }
+
+  .desktop-welcome .brand-title {
+    font-size: calc((100vw - 72px) / 12.8);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .desktop-welcome .brand-nav {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 3.4vw;
+    margin-bottom: 4px;
+  }
+
+  .desktop-welcome .brand-nav a { font-size: calc((100vw - 72px) / 34); }
+
+  .desktop-welcome .skills-block { gap: 22px; margin-top: 8px; }
+
+  .desktop-welcome .pixel-line.skills-header {
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap: 2.4vw;
+    margin-bottom: 14px;
+    font-size: calc((100vw - 72px) / 21);
+    line-height: 1.4;
+  }
+
+  .desktop-welcome .pixel-line {
+    font-size: calc((100vw - 72px) / 24);
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .desktop-welcome .section-block { gap: 6px; margin-top: 0; }
+
+  .desktop-welcome .section-label { font-size: 15px; }
+
+  .desktop-welcome .dotted-divider-line { max-width: 100%; margin: 2px 0 8px; }
+
+  .desktop-welcome .achievements-section { max-width: 100%; margin-top: 4px; gap: 10px; }
+
+  .desktop-welcome .achievements-title { font-size: 17px; }
+
+  .desktop-welcome .achievement-ticket-container { padding: 16px 0; margin-top: 0; }
+
+  .desktop-welcome .marquee-content { font-size: 12px; gap: 14px; }
+
+  .desktop-welcome .start-right-col {
+    max-width: 100%;
+    align-items: stretch;
+    padding: 0 8px 0 0;
+  }
+
+  .desktop-welcome .start-panel {
+    padding: 28px 18px 22px;
+    box-shadow: 6px 6px 0px var(--ink);
+  }
+
+  .desktop-welcome .start-panel h1 { font-size: 20px; }
+
+  .desktop-welcome .start-panel p.subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .desktop-welcome .character-select-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 270px;
+    margin-bottom: 22px;
+  }
+
+  .desktop-welcome .character-card {
+    width: 100%;
+    height: 128px;
+    padding: 8px;
+    box-shadow: 3px 3px 0px var(--ink);
+  }
+
+  .desktop-welcome .character-card svg { width: 64px; height: 64px; }
+
+  .desktop-welcome .character-card span { font-size: 13px; margin-top: 6px; }
+
+  .desktop-welcome .character-card .selected-stamp {
+    width: 20px;
+    height: 20px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .desktop-welcome .start-actions-row {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .desktop-welcome .start-btn { padding: 11px 16px; font-size: 11px; box-shadow: 4px 4px 0 var(--ink); }
+
+  .desktop-welcome .direct-enter-btn {
+    padding: 11px 16px !important;
+    font-size: 12px !important;
+    box-shadow: 4px 4px 0 var(--ink) !important;
   }
 
   .character-card[data-char="moss"]:hover svg,
