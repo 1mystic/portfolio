@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Prompts I Give LLMs to Check Their Competency | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Four deceptively simple prompts I use to test frontier LLMs, and what their failures reveal about grounding, reasoning, memory and creativity, by Atharv Khare.">
+    <meta name="keywords"
+        content="Atharv Khare, Blog, LLMs, AI Evaluation, Prompting, Reasoning, GPT, Claude, Gemini">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/fresh/posts/simple-llm-prompts.html">
+    <meta property="og:title" content="Simple Prompts I Give LLMs to Check Their Competency | Atharv Khare">
+    <meta property="og:description"
+        content="Benchmarks say the frontier models are the best in the world. Four stubborn little tasks of mine complicate the story.">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">Four Simple Tasks</a></li>
+                        <li><a href="#prompts">The Prompts</a></li>
+                        <li><a href="#results">How the Models Did</a></li>
+                        <li><a href="#dimensions">What Each Prompt Tests</a></li>
+                        <li><a href="#takeaway">The Takeaway</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Blog</span>
+                        <span class="blog-tag">AI</span>
+                    </div>
+                    <h1 class="article-title">Simple Prompts I Give LLMs to Check Their Competency</h1>
+                    <div class="article-meta">
+                        <span>Oct 1, 2026</span> • <span>4 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">Benchmarks say the frontier models are the best in the world. Four stubborn little tasks of mine complicate the story.</p>
+
+                    <p>I have four relatively simple tasks that I keep coming back to whenever I want to check what a language model can actually do. Currently all four fail to meet my expectations. I've tested the latest models, including Opus 5.5, which ranks at the top of several leaderboards, and GPT-6 Astra, but neither has delivered the results I expect.</p>
+                </section>
+
+                <section id="prompts">
+                    <h2>The Four Prompts</h2>
+                    <ol>
+                        <li><strong>Find the static panel art for a specific episode of an anime.</strong> Surprisingly, Gemini 3.8 Flash via regular Gemini chat is the only one that succeeds in giving a usable response, though even it fails to find the right timestamp.</li>
+                        <li><strong>Chess, Elo 1200, mid-game.</strong> Given the current board position (image attached), generate a tree of the best moves for my side, accounting for all possible opponent responses.</li>
+                        <li><strong>Build me a daydream.</strong> I'm feeling detached from this world. Generate an original fantasy novel world with a well established system, rich lore, and immersive worldbuilding that I can daydream about. Remember, I've already thought of over 100 possibilities, so it needs to be something genuinely fresh and unconventional.</li>
+                        <li><strong>Solve this latest JEE Advanced physics problem in a mathematical sequence.</strong> Not just the answer, but the solution developed through one specific theory and methodology, with steps suitable for a research paper proposing a new method.</li>
+                    </ol>
+                </section>
+
+                <section id="results">
+                    <h2>How the Models Did</h2>
+                    <p><strong>1. The anime panel.</strong> Almost every model gives timestamps based on international streaming metadata, which is often wrong. They then try to search the web or online communities, where they again hallucinate when identifying the correct episode and timestamp for a particular video version, especially when multiple video files exist for the same stream. As a result, none of them can provide the correct timestamp, wasting 30 to 40 minutes of my time. However, Gemini 3.6 to 3.8 Flash models perform surprisingly well. They directly tell me that a panel appears during the scene transition from scene X to Y, which is super helpful because I can immediately locate it based on my memory of the episode.</p>
+
+                    <p><strong>2. The chess tree.</strong> Opus 5.5 and GPT-6 Astra, in high thinking and effort mode, can identify the first few best moves perfectly. The next 3 to 4 moves are often ideal, book moves, or good moves. However, no model can generate a completely accurate tree of the best moves. Weaker models frequently suggest poor moves, mistakes, or outright blunders. Stockfish is still the way to go.</p>
+
+                    <p><strong>3. The fantasy world.</strong> Gemini models are good at adding creative aspects, especially when drawing on my past chat history and personal memory. However, that is where their strengths largely end. GPT models are good at providing detailed responses, but their outputs tend to be generic. Claude can be thorough, with some creativity, but its responses often feel cringe-worthy and lack intellectual stimulation. Chinese models and open weight models produce unusual outputs that are often not usable in the given context. Overall, no model consistently generates usable creative output. However, exploring the diverse outputs of 5 to 6 models might help us, as we are the ones doing the actual imagining, finding sparks of inspiration and thinking of new ideas.</p>
+
+                    <p><strong>4. The physics problem.</strong> Frontier models can solve most questions correctly. However, when asked to use a specific theory or methodology, or to provide steps for a research paper proposing a new method to solve a problem, their performance is terrible, with frequent hallucinations. They can be useful for validating correctness, but they struggle with meaningful cross domain connections and developing genuinely novel methodologies.</p>
+                </section>
+
+                <section id="dimensions">
+                    <h2>What Each Prompt Actually Tests</h2>
+                    <p>Taken together, the four prompts probe a fairly complete slice of model competency: tool calling and reasoning (the chess tree), web search and curation (the anime panel), writing quality and creativity (the fantasy world), and deterministic logical sequencing plus methodological discipline (the physics problem).</p>
+
+                    <p>The pattern in the failures is consistent. Models do well at retrieving and recombining what they have seen, and at validating correctness after the fact. They break down at precise grounding (which exact version, which exact timestamp), at exhaustive deterministic search (the full move tree), at sustained originality under constraints (a world unlike the hundred I already imagined), and at inventing genuinely novel methods rather than replaying known ones.</p>
+                </section>
+
+                <section id="takeaway">
+                    <h2>The Takeaway</h2>
+                    <p>None of this means the models are useless. Stockfish still wins at chess, Gemini still finds my panels, and a spread of five or six models is still a good spark machine for ideas. But leaderboards measure what is easy to measure. My four little prompts measure whether the model can do the thing I actually need, and on that test, even the best models of 2026 still fall short.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="attention-mechanisms.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Understanding Attention Mechanisms</h4>
+                                <p class="text-xs">From scaled dot-product attention to multi-head attention</p>
+                            </div>
+                        </a>
+                        <a href="blog-lstm.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Understanding LSTM Networks</h4>
+                                <p class="text-xs">Demystifying cell states and the mathematics behind LSTMs</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+</body>
+
+</html>

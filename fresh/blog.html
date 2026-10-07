@@ -81,6 +81,36 @@
             <p class="blog-subtitle">Technical Deep Dives, Tutorials, and Musings</p>
         </section>
 
+        <!-- FILTER / SORT TOOLBAR -->
+        <section class="blog-toolbar" aria-label="Filter and sort posts">
+            <div class="blog-toolbar-row">
+                <label class="blog-search">
+                    <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                    <input id="blog-search" type="search" placeholder="Search titles, topics, ideas..."
+                        autocomplete="off" aria-label="Search posts">
+                </label>
+                <div class="blog-sort">
+                    <button id="sort-btn" class="sort-btn" type="button" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="sort-menu">
+                        <span class="material-symbols-outlined" aria-hidden="true">swap_vert</span>
+                        <span id="sort-label">Newest first</span>
+                        <span class="material-symbols-outlined chev" aria-hidden="true">expand_more</span>
+                    </button>
+                    <ul id="sort-menu" class="sort-menu" role="menu" hidden></ul>
+                </div>
+            </div>
+            <div class="chip-group" id="type-chips" role="group" aria-label="Filter by type">
+                <span class="chip-label">Type</span>
+            </div>
+            <div class="chip-group" id="topic-chips" role="group" aria-label="Filter by topic">
+                <span class="chip-label">Topic</span>
+            </div>
+            <div class="blog-toolbar-meta">
+                <span id="result-count" aria-live="polite"></span>
+                <button id="reset-filters" class="reset-btn" type="button" hidden>Reset filters</button>
+            </div>
+        </section>
+
         <!-- BLOG GRID -->
         <section class="blog-grid" id="blog-grid">
           <!-- Blog cards will be populated dynamically from unified data source -->
@@ -116,8 +146,8 @@
 <!-- Reusing script if strictly needed, mostly for loader/strip text -->
     <script src="../data/portfolio-data.js"></script>
     <script>
-      // Load blogs from unified data source
-      const blogs = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getBlogs)
+      // Load blogs from unified data source (basePath '../' because this page lives in /fresh/)
+      const rawBlogs = (window.PORTFOLIO_DATA && window.PORTFOLIO_DATA.getBlogs)
         ? window.PORTFOLIO_DATA.getBlogs({ basePath: '../' })
         : [];
 
@@ -133,67 +163,251 @@
           .slice(0, 80);
       }
 
-      function populateBlogGrid() {
-        const grid = document.getElementById('blog-grid');
-        if (!grid) return;
+      // Normalise once: dedupe by href, precompute sortable fields.
+      const seenHrefs = new Set();
+      const blogs = rawBlogs.filter(b => {
+        if (!b.href || seenHrefs.has(b.href)) return false;
+        seenHrefs.add(b.href);
+        return true;
+      }).map((b, i) => {
+        const time = Date.parse(b.date);
+        const mins = parseInt(b.readTime, 10);
+        return {
+          ...b,
+          _i: i,
+          _type: b.catLabel || 'Blog',
+          _time: isNaN(time) ? null : time,
+          _mins: isNaN(mins) ? null : mins,
+          _slug: /^https?:/i.test(b.href) ? '' : slugFromHref(b.href),
+          _hay: [b.title, b.desc, (b.tags || []).join(' '), b.catLabel].join(' ').toLowerCase()
+        };
+      });
 
-        grid.innerHTML = blogs.map(b => {
-          const thumbClass = {
-            'Essay': 'thumb-essay',
-            'Tutorial': 'thumb-tech',
-            'Poetry': 'thumb-poetry',
-            'Blog': 'thumb-general',
-            'Article': 'thumb-general'
-          }[b.catLabel] || 'thumb-general';
-
-          const tagHtml = (b.tags || []).map(t => `<span class="blog-tag">${t}</span>`).join('');
-          const metaHtml = [b.date, b.readTime].filter(Boolean).map(v => `<span>${v}</span>`).join('');
-          const slug = slugFromHref(b.href);
-
-          return `
-            <a href="${b.href}" class="blog-card">
-              <div class="blog-thumb ${thumbClass}">
-                <span>${b.badge || b.catLabel || 'ESSAY'}</span>
-              </div>
-              <div class="blog-content">
-                <div class="blog-tags">${tagHtml}</div>
-                <h3 class="blog-card-title">${b.title}</h3>
-                <p class="blog-excerpt">${b.desc || ''}</p>
-                <div class="blog-meta-footer">${metaHtml}<span class="reads-count" data-reads-for="${slug}">… reads</span></div>
-              </div>
-            </a>
-          `;
-        }).join('');
-
-        loadReadCounts();
+      // Missing values (no date, no read time, no count) always sort last,
+      // in both ascending and descending order.
+      function by(get, dir) {
+        return (a, b) => {
+          const x = get(a), y = get(b);
+          const nx = x === null || x === undefined, ny = y === null || y === undefined;
+          if (nx || ny) return nx === ny ? 0 : (nx ? 1 : -1);
+          return dir * (x - y);
+        };
       }
 
-      // Per-card read counts. Primary: batch endpoint on the Pages
-      // Function (read-only, never increments). Fallback: public
-      // Abacus counter, fetched a few at a time to respect its rate limit.
+      const SORTS = {
+        newest:  { label: 'Newest first',  fn: by(b => b._time, -1) },
+        oldest:  { label: 'Oldest first',  fn: by(b => b._time, 1) },
+        quick:   { label: 'Quickest read', fn: by(b => b._mins, 1) },
+        long:    { label: 'Longest read',  fn: by(b => b._mins, -1) },
+        az:      { label: 'Title A to Z',  fn: (a, b) => a.title.localeCompare(b.title) },
+        popular: { label: 'Most read',     fn: by(b => readsMap[b._slug], -1) }
+      };
+
+      const readsMap = {};
+      const state = { type: 'All', topic: '', q: '', sort: 'newest' };
+
+      const $ = id => document.getElementById(id);
+      const grid = $('blog-grid');
+
+      // ---- URL <-> state so a filtered view can be shared / survives refresh ----
+      function loadStateFromUrl() {
+        const p = new URLSearchParams(location.search);
+        if (p.get('type')) state.type = p.get('type');
+        if (p.get('topic')) state.topic = p.get('topic');
+        if (p.get('q')) state.q = p.get('q');
+        if (p.get('sort') && SORTS[p.get('sort')]) state.sort = p.get('sort');
+      }
+
+      function saveStateToUrl() {
+        const p = new URLSearchParams();
+        if (state.type !== 'All') p.set('type', state.type);
+        if (state.topic) p.set('topic', state.topic);
+        if (state.q) p.set('q', state.q);
+        if (state.sort !== 'newest') p.set('sort', state.sort);
+        const qs = p.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+      }
+
+      // ---- chips ----
+      function countBy(list, keyFn) {
+        const m = new Map();
+        list.forEach(item => [].concat(keyFn(item)).forEach(k => k && m.set(k, (m.get(k) || 0) + 1)));
+        return m;
+      }
+
+      function makeChip(label, count, kind, cls, onClick) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'chip' + (cls ? ' ' + cls : '');
+        btn.dataset.kind = kind;
+        btn.dataset.value = label;
+        btn.innerHTML = `${label}<span class="chip-count">${count}</span>`;
+        btn.addEventListener('click', onClick);
+        return btn;
+      }
+
+      function buildChips() {
+        const typeCounts = countBy(blogs, b => b._type);
+        const typeBox = $('type-chips');
+        typeBox.querySelectorAll('.chip').forEach(c => c.remove());
+        typeBox.appendChild(makeChip('All', blogs.length, 'type', '', () => { state.type = 'All'; update(); }));
+        [...typeCounts.entries()].sort((a, b) => b[1] - a[1]).forEach(([t, n]) => {
+          typeBox.appendChild(makeChip(t, n, 'type', '', () => { state.type = (state.type === t ? 'All' : t); update(); }));
+        });
+
+        const typeNames = new Set(typeCounts.keys());
+        const topicCounts = countBy(blogs, b => b.tags || []);
+        const topicBox = $('topic-chips');
+        topicBox.querySelectorAll('.chip').forEach(c => c.remove());
+        const topics = [...topicCounts.entries()]
+          .filter(([t, n]) => n >= 2 && !typeNames.has(t))
+          .sort((a, b) => b[1] - a[1]);
+        topics.forEach(([t, n]) => {
+          topicBox.appendChild(makeChip(t, n, 'topic', 'chip-topic', () => { state.topic = (state.topic === t ? '' : t); update(); }));
+        });
+        topicBox.hidden = topics.length === 0;
+      }
+
+      // Chips are built once; later updates only flip aria-pressed so focus is kept.
+      function syncChips() {
+        document.querySelectorAll('.chip').forEach(c => {
+          const active = c.dataset.kind === 'type' ? state.type === c.dataset.value : state.topic === c.dataset.value;
+          c.setAttribute('aria-pressed', String(active));
+        });
+      }
+
+      // ---- sort menu ----
+      const sortBtn = $('sort-btn');
+      const sortMenu = $('sort-menu');
+
+      function buildSortMenu() {
+        sortMenu.innerHTML = '';
+        const haveReads = Object.keys(readsMap).length > 0;
+        Object.entries(SORTS).forEach(([key, def]) => {
+          const li = document.createElement('li');
+          li.setAttribute('role', 'none');
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'sort-option';
+          b.setAttribute('role', 'menuitemradio');
+          b.setAttribute('aria-checked', String(state.sort === key));
+          b.textContent = def.label;
+          if (key === 'popular' && !haveReads) {
+            b.disabled = true;
+            b.title = 'Read counts are still loading';
+          }
+          b.addEventListener('click', () => { state.sort = key; closeSort(); update(); });
+          li.appendChild(b);
+          sortMenu.appendChild(li);
+        });
+        $('sort-label').textContent = SORTS[state.sort].label;
+      }
+
+      function openSort() { sortMenu.hidden = false; sortBtn.setAttribute('aria-expanded', 'true'); }
+      function closeSort() { sortMenu.hidden = true; sortBtn.setAttribute('aria-expanded', 'false'); }
+      sortBtn.addEventListener('click', e => { e.stopPropagation(); sortMenu.hidden ? openSort() : closeSort(); });
+      document.addEventListener('click', e => { if (!e.target.closest('.blog-sort')) closeSort(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSort(); });
+
+      // ---- search + reset ----
+      let searchTimer;
+      $('blog-search').addEventListener('input', e => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => { state.q = e.target.value.trim(); update(); }, 120);
+      });
+
+      function resetAll() {
+        state.type = 'All'; state.topic = ''; state.q = ''; state.sort = 'newest';
+        $('blog-search').value = '';
+        update();
+      }
+      $('reset-filters').addEventListener('click', resetAll);
+
+      // ---- render ----
+      function visiblePosts() {
+        const q = state.q.toLowerCase();
+        return blogs
+          .filter(b => state.type === 'All' || b._type === state.type)
+          .filter(b => !state.topic || (b.tags || []).includes(state.topic))
+          .filter(b => !q || q.split(/\s+/).every(w => b._hay.includes(w)))
+          .sort((a, b) => SORTS[state.sort].fn(a, b) || a._i - b._i);
+      }
+
+      function cardHtml(b) {
+        const thumbClass = {
+          'Essay': 'thumb-essay',
+          'Tutorial': 'thumb-tech',
+          'Poetry': 'thumb-poetry',
+          'Blog': 'thumb-general',
+          'Article': 'thumb-general'
+        }[b.catLabel] || 'thumb-general';
+
+        const tagHtml = (b.tags || []).map(t => `<span class="blog-tag">${t}</span>`).join('');
+        const metaHtml = [b.date, b.readTime].filter(Boolean).map(v => `<span>${v}</span>`).join('');
+
+        return `
+          <a href="${b.href}" class="blog-card">
+            <div class="blog-thumb ${thumbClass}">
+              <span>${b.badge || b.catLabel || 'ESSAY'}</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-tags">${tagHtml}</div>
+              <h3 class="blog-card-title">${b.title}</h3>
+              <p class="blog-excerpt">${b.desc || ''}</p>
+              <div class="blog-meta-footer">${metaHtml}${b._slug ? `<span class="reads-count" data-reads-for="${b._slug}">… reads</span>` : ''}</div>
+            </div>
+          </a>
+        `;
+      }
+
+      function paintReads() {
+        document.querySelectorAll('[data-reads-for]').forEach(el => {
+          const v = readsMap[el.dataset.readsFor];
+          if (typeof v === 'number' && isFinite(v) && v >= 0) el.textContent = `${v.toLocaleString()} reads`;
+        });
+      }
+
+      function update() {
+        const list = visiblePosts();
+        const filtered = state.type !== 'All' || state.topic || state.q || state.sort !== 'newest';
+
+        if (list.length) {
+          grid.innerHTML = list.map(cardHtml).join('');
+        } else {
+          grid.innerHTML = `<div class="blog-empty">No posts match these filters.<br><button type="button" class="reset-btn" id="empty-reset">Reset filters</button></div>`;
+          $('empty-reset').addEventListener('click', resetAll);
+        }
+
+        $('result-count').textContent = `${list.length} ${list.length === 1 ? 'post' : 'posts'}`;
+        $('reset-filters').hidden = !filtered;
+
+        syncChips();
+        buildSortMenu();
+        paintReads();
+        saveStateToUrl();
+      }
+
+      // Per-card read counts, fetched once. Primary: batch endpoint on the Pages
+      // Function (read-only, never increments). Fallback: public Abacus counter,
+      // fetched a few at a time to respect its rate limit.
       async function loadReadCounts() {
-        const els = Array.from(document.querySelectorAll('[data-reads-for]'));
-        if (!els.length) return;
-        const slugs = [...new Set(els.map(el => el.dataset.readsFor).filter(Boolean))];
+        const slugs = [...new Set(blogs.map(b => b._slug).filter(Boolean))];
         if (!slugs.length) return;
 
-        const paint = (counts) => {
-          els.forEach(el => {
-            const v = counts[el.dataset.readsFor];
-            if (typeof v === 'number' && isFinite(v) && v >= 0) {
-              el.textContent = `${v.toLocaleString()} reads`;
-            }
+        const store = (counts) => {
+          Object.entries(counts).forEach(([k, v]) => {
+            if (typeof v === 'number' && isFinite(v) && v >= 0) readsMap[k] = v;
           });
+          paintReads();
+          buildSortMenu(); // enables "Most read" once counts exist
+          if (state.sort === 'popular') update();
         };
 
         try {
           const res = await fetch(`/api/reads?slugs=${slugs.map(encodeURIComponent).join(',')}`, { cache: 'no-store' });
           if (res.ok) {
             const data = await res.json();
-            if (data && data.counts) {
-              paint(data.counts);
-              return;
-            }
+            if (data && data.counts) { store(data.counts); return; }
           }
           throw new Error('reads endpoint unavailable');
         } catch (e) {
@@ -213,7 +427,7 @@
             }));
             batch.forEach((slug, j) => { if (results[j] !== null) counts[slug] = results[j]; });
           }
-          paint(counts);
+          store(counts);
         }
       }
 
@@ -227,10 +441,18 @@
         } catch (e) {}
       })();
 
+      function init() {
+        loadStateFromUrl();
+        $('blog-search').value = state.q;
+        buildChips();
+        update();
+        loadReadCounts();
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', populateBlogGrid);
+        document.addEventListener('DOMContentLoaded', init);
       } else {
-        populateBlogGrid();
+        init();
       }
     </script>
     <script src="script.js"></script>

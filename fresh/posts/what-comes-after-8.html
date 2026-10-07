@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Comes After 8? | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="A sequence puzzle (1, 4, 8, ...) that turns into functions, information erasure, and Landauer's principle, an essay by Atharv Khare.">
+    <meta name="keywords"
+        content="Atharv Khare, Essay, Mathematics, Sequences, Information Theory, Landauer Principle, Computation">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/fresh/posts/what-comes-after-8.html">
+    <meta property="og:title" content="What Comes After 8? | Atharv Khare">
+    <meta property="og:description"
+        content="How much information does the present contain about the rule that produced it?">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Math rendering for the equations in this post -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">The Puzzle</a></li>
+                        <li><a href="#no-answer">No Unique Answer</a></li>
+                        <li><a href="#memory">A Machine With Memory</a></li>
+                        <li><a href="#forgetting">A Machine That Forgets</a></li>
+                        <li><a href="#distinctions">Removing Distinctions</a></li>
+                        <li><a href="#erasure">Erasing a Bit</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Essay</span>
+                        <span class="blog-tag">Mathematics</span>
+                    </div>
+                    <h1 class="article-title">What Comes After 8?</h1>
+                    <div class="article-meta">
+                        <span>Sep 17, 2026</span> • <span>6 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">How much information does the present contain about the rule that produced it?</p>
+
+                    <p>Because I'm taking up AI search methods and DL this term, I figured it was probably time to jog a part of my brain that has been sitting around collecting dust for the last 2 years. I haven't done a proper mathematical or algorithmic problem in what feels like forever.</p>
+
+                    <p>So to remove the rust, I wanted to do something simpler. I thought of a sequence:</p>
+
+                    <p>$$1,\quad 4,\quad 8,\quad \ldots$$</p>
+
+                    <p>Now try to complete this sequence. Most people immediately start looking for a pattern, so let's try to find one. Maybe it's the differences:</p>
+
+                    <p>$$3,\quad 4,\quad ?$$</p>
+
+                    <p>Maybe the ratios:</p>
+
+                    <p>$$4,\quad 2,\quad ?$$</p>
+
+                    <p>Maybe there is some hidden rule involving primes, powers, positions, or maybe something else entirely.</p>
+                </section>
+
+                <section id="no-answer">
+                    <h2>There Is No Unique Answer</h2>
+                    <p>But what seems interesting to me is that there cannot be a single unique answer for this pattern. Because given only:</p>
+
+                    <p>$$1,\quad 4,\quad 8$$</p>
+
+                    <p>we cannot actually know what comes next with the fundamentals of our brain. We can invent infinitely many rules that produce those three numbers and then diverge at the fourth. For example, perhaps the next number is 16 or 13 or 1000. All of these can be made consistent with the information we were given.</p>
+
+                    <p>So what I meant to say is that the question I wanted to ask wasn't "what comes next?" but rather: how much information does the present contain about the rule that produced it?</p>
+
+                    <p>Now back to the exercise, let's try to formulate it technically, like a machine or an agent with a memory. Starting simply, you put a number into the machine as input, and it transforms the number according to some rule. Call the rule $F$. If the machine starts with a state $S_t$, then after one step:</p>
+
+                    <p>$$S_{t+1} = F(S_t)$$</p>
+
+                    <p>This notation is very simple and all too familiar. It simply describes that the current state is produced by applying a transformation to the previous state.</p>
+                </section>
+
+                <section id="memory">
+                    <h2>A Machine With Memory</h2>
+                    <p>For example:</p>
+
+                    <p>$$F(x) = 2x$$</p>
+
+                    <p>gives us:</p>
+
+                    <p>$$3 \rightarrow 6 \rightarrow 12 \rightarrow 24 \rightarrow 48$$</p>
+
+                    <p>If I show you $24$, you can work backwards:</p>
+
+                    <p>$$24 \rightarrow 12 \rightarrow 6 \rightarrow 3$$</p>
+
+                    <p>because the transformation has a valid inverse function:</p>
+
+                    <p>$$F^{-1}(x) = \frac{x}{2}$$</p>
+                </section>
+
+                <section id="forgetting">
+                    <h2>A Machine That Forgets</h2>
+                    <p>But now let's build a different machine. This time, it will be a machine that forgets. Suppose we have a function:</p>
+
+                    <p>$$F(x) = x \bmod 2$$</p>
+
+                    <p>This function doesn't depend on the scale of the input number here, it just checks only whether the number is even or odd. So:</p>
+
+                    <p>$$2 \rightarrow 0,\quad 4 \rightarrow 0,\quad 6 \rightarrow 0,\quad 8 \rightarrow 0$$</p>
+
+                    <p>And:</p>
+
+                    <p>$$1 \rightarrow 1,\quad 3 \rightarrow 1,\quad 5 \rightarrow 1$$</p>
+
+                    <p>Now, again, imagine that you encounter the output:</p>
+
+                    <p>$$0$$</p>
+
+                    <p>and ask: what was the input? You don't know. It could have been $2$, $4$, $6$, $8$, or any even number, actually. So there are infinitely many possibilities. This function, or machine, has ignored the distinction between them. So:</p>
+
+                    <p>$$F(2) = F(4) = F(6) = F(8) = 0$$</p>
+
+                    <p>Here, different inputs have become indistinguishable. (This is me just trying to think out loud, so please bear with me.) And so, once that distinction of the input pattern is gone, no amount of cleverness can recover it from the output alone.</p>
+
+                    <p>This leads to another fundamental result from physics and thermodynamics: information can disappear without anything disappearing physically.</p>
+                </section>
+
+                <section id="distinctions">
+                    <h2>Removing Distinctions</h2>
+                    <p>Now, another example from statistics that pops into my mind: suppose I tell you that a coin was flipped. Before looking at it, there are two possibilities:</p>
+
+                    <p>$$H,\quad T$$</p>
+
+                    <p>Now imagine there is some machine that turns both heads and tails into a blank symbol like this:</p>
+
+                    <p>$$H \rightarrow X$$</p>
+
+                    <p>$$T \rightarrow X$$</p>
+
+                    <p>So here, the physical process happened and something came out, but the output again does not tell us which input had occurred. The information about the original distinction has disappeared.</p>
+
+                    <p>This gives us a useful way of thinking about transformations. A transformation doesn't just move one state of something into another, it can also "remove distinctions" between states. Take our previous example: $a \neq b$, but $F(a) = F(b)$. Two different inputs have produced the same output. So if I only have the output, I cannot tell which of the two inputs I started with.</p>
+
+                    <p>This is what we rule out when we talk about a 1:1 function, or an injective function. For a function to be 1:1, different inputs must always produce different outputs:</p>
+
+                    <p>$$a \neq b \implies F(a) \neq F(b)$$</p>
+
+                    <p>And this gives us a very simple test for whether we can run our machine backwards. If the function is injective, each output corresponds to at most one input. If it isn't, different possible pasts and inputs can lead to the same present and output. So given $S_{t+1} = F(S_t)$, we ask: can I recover $S_t$ if I only know $S_{t+1}$? The information needed to distinguish those possibilities is not in the output.</p>
+                </section>
+
+                <section id="erasure">
+                    <h2>Erasing a Bit</h2>
+                    <p>Now consider a single bit:</p>
+
+                    <p>$$0, 1 \rightarrow 0$$</p>
+
+                    <p>Two possible states have been forced into one. Nothing necessarily disappeared physically and the original system is still there. But our ability to distinguish which of the two states it originally was has vanished.</p>
+
+                    <p>This is what is meant by logical information erasure, commonly discussed in physics and thermodynamics. Also explained by Landauer's principle which tells us that, under idealized conditions, erasing one bit of information has a minimum thermodynamic cost:</p>
+
+                    <p>$$E_{\min} = k_B T \ln 2$$</p>
+
+                    <p>I find this connection more interesting as initially I thought of functions and distinguishable states and eventually it turns into a statement about physical energy.</p>
+
+                    <p>And that brings me back to the random tiny sequence I started with:</p>
+
+                    <p>$$1,\quad 4,\quad 8,\quad ?$$</p>
+
+                    <p>"How much information does the present actually contain about what produced it?" So I started from a question with a sequence puzzle, and then connected it with functions, computation, information, and physics.</p>
+
+                    <p>This was the end of my little exercise. To the seniors and folks with deeper experience, I welcome similar cross-domain analogies or connections that have helped these concepts click for you. I'd love to hear them so we can all learn from it.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="blog-lstm.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Understanding LSTM Networks</h4>
+                                <p class="text-xs">Demystifying cell states and the mathematics behind LSTMs</p>
+                            </div>
+                        </a>
+                        <a href="attention-mechanisms.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Understanding Attention Mechanisms</h4>
+                                <p class="text-xs">From scaled dot-product attention to multi-head attention</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+</body>
+
+</html>

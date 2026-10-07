@@ -44,7 +44,7 @@
   "commitsPerYear": 847,
   "verifiedRecords": 56,
   "researchCount": 7,
-  "blogsCount": 21,
+  "blogsCount": 28,
   "certificatesCount": 11,
   "educationCount": 2,
   "achievementsCount": 8
@@ -987,6 +987,101 @@
 
   var _blogs     = [
   {
+    "title": "The Same Old Road",
+    "sub": "POETRY · Oct 7, 2026",
+    "href": "fresh/posts/the-same-old-road.html",
+    "cat": "poem",
+    "catLabel": "Poetry",
+    "desc": "A poem about running, for dreams, names, money and fame, and what we are actually looking for underneath.",
+    "tags": [
+      "Poetry",
+      "Philosophy"
+    ],
+    "date": "Oct 7, 2026",
+    "readTime": "1 min read",
+    "badge": "POETRY"
+  },
+  {
+    "title": "Simple Prompts I Give LLMs to Check Their Competency",
+    "sub": "BLOG · Oct 1, 2026",
+    "href": "fresh/posts/simple-llm-prompts.html",
+    "cat": "blog",
+    "catLabel": "Blog",
+    "desc": "Four deceptively simple prompts I use to test frontier LLMs, and what their failures reveal about grounding, reasoning, memory and creativity.",
+    "tags": [
+      "AI",
+      "LLMs",
+      "Evaluation"
+    ],
+    "date": "Oct 1, 2026",
+    "readTime": "4 min read",
+    "badge": "BLOG"
+  },
+  {
+    "title": "Has War Become a Data Point?",
+    "sub": "ESSAY · Sep 23, 2026",
+    "href": "fresh/posts/has-war-become-a-data-point.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "Does modern warfare double as a learning system? On battlefield data, feedback loops, and why the speed of learning is becoming the real arms race.",
+    "tags": [
+      "Essay",
+      "Technology",
+      "Geopolitics"
+    ],
+    "date": "Sep 23, 2026",
+    "readTime": "6 min read",
+    "badge": "ESSAY"
+  },
+  {
+    "title": "Things We Don't Say",
+    "sub": "ESSAY · Sep 18, 2026",
+    "href": "fresh/posts/things-we-dont-say.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "On high-context communication, vocal cues, and the archetypes we perform until they trap us.",
+    "tags": [
+      "Essay",
+      "Communication",
+      "Philosophy"
+    ],
+    "date": "Sep 18, 2026",
+    "readTime": "7 min read",
+    "badge": "ESSAY"
+  },
+  {
+    "title": "What Comes After 8?",
+    "sub": "ESSAY · Sep 17, 2026",
+    "href": "fresh/posts/what-comes-after-8.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "A sequence puzzle, 1, 4, 8, and beyond, that turns into functions, information erasure, and Landauer's principle.",
+    "tags": [
+      "Essay",
+      "Mathematics",
+      "Information Theory"
+    ],
+    "date": "Sep 17, 2026",
+    "readTime": "6 min read",
+    "badge": "ESSAY"
+  },
+  {
+    "title": "India's Fresher Hiring Problem Is Becoming a Structural Problem",
+    "sub": "ESSAY · Sep 9, 2026",
+    "href": "fresh/posts/indias-fresher-hiring-problem.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "Entry-level hiring in India is no longer a cyclical slowdown but a structural pipeline breakdown, and credentials alone will not fix it.",
+    "tags": [
+      "Essay",
+      "India",
+      "Careers"
+    ],
+    "date": "Sep 9, 2026",
+    "readTime": "10 min read",
+    "badge": "ESSAY"
+  },
+  {
     "title": "Should You Move Abroad? A First-Principles Take",
     "sub": "ESSAY · Aug 30, 2026",
     "href": "fresh/posts/move-abroad-first-principles.html",
@@ -1030,6 +1125,22 @@
     "date": "Jul 17, 2026",
     "readTime": "14 min read",
     "badge": "PROJECT"
+  },
+  {
+    "title": "Whose Thought Is It Anyway?",
+    "sub": "ESSAY · Jul 16, 2026",
+    "href": "fresh/posts/whose-thought-is-it-anyway.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "If an LLM polishes every plank of your writing, is the ship still yours? A Ship-of-Theseus take on authorship in the age of AI.",
+    "tags": [
+      "Essay",
+      "Philosophy",
+      "AI"
+    ],
+    "date": "Jul 16, 2026",
+    "readTime": "8 min read",
+    "badge": "ESSAY"
   },
   {
     "title": "Reflection on This World",
@@ -1182,7 +1293,7 @@
     "badge": "BLOG PREVIEW"
   },
   {
-    "title": "Pen — Simple Write-ups",
+    "title": "Pen: Simple Write-ups",
     "sub": "1mystic.github.io/pen",
     "href": "https:",
     "desc": "Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.",

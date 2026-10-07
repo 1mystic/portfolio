@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Has War Become a Data Point? | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Does modern warfare double as a learning system? On battlefield data, feedback loops, and why the speed of learning is becoming the real arms race, by Atharv Khare.">
+    <meta name="keywords"
+        content="Atharv Khare, Essay, Warfare, Military Technology, AI, Data, Ukraine, Strategy">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/fresh/posts/has-war-become-a-data-point.html">
+    <meta property="og:title" content="Has War Become a Data Point? | Atharv Khare">
+    <meta property="og:description"
+        content="Maybe the interesting question isn't why wars start, but what modern militaries learn from them at unprecedented scale.">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">The Strange Thought</a></li>
+                        <li><a href="#battlefield">The Battlefield</a></li>
+                        <li><a href="#feedback">The Feedback Loop</a></li>
+                        <li><a href="#learning">The Speed of Learning</a></li>
+                        <li><a href="#weaker-version">The Weaker Version</a></li>
+                        <li><a href="#danger">A New Danger</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Essay</span>
+                        <span class="blog-tag">Technology</span>
+                    </div>
+                    <h1 class="article-title">Has War Become a Data Point?</h1>
+                    <div class="article-meta">
+                        <span>Sep 23, 2026</span> • <span>6 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">Maybe the interesting question isn't why wars start, but what modern militaries learn from them at an unprecedented scale.</p>
+
+                    <p>Okay, this is going to be one of those slightly strange thoughts that came to my mind recently.</p>
+
+                    <p>I was thinking about the different conflicts the United States has been involved in, especially some of the more recent ones, and I started wondering whether there might be another layer to modern warfare that we don't usually think about. Obviously, wars have political, economic and strategic reasons behind them, and those reasons are usually complicated enough on their own. But I started wondering whether there is another kind of value that a modern conflict creates, something that has become much more important with the development of increasingly sophisticated military technology, that is information.</p>
+
+                    <p>At first, that sounds like a ridiculous explanation for war. Why would a country go to war simply to collect information? Wars cost enormous amounts of money, equipment, soldiers and political capital. If someone told me that the United States was deliberately starting wars primarily because it wanted more information to improve its military systems, I wouldn't find that explanation convincing without some very strong evidence.</p>
+
+                    <p>But then I started thinking about what actually happens during a conflict.</p>
+                </section>
+
+                <section id="battlefield">
+                    <h2>The Battlefield as an Instrument</h2>
+                    <p>A modern battlefield produces an enormous amount of information. Aircraft, drones, satellites, radar, surveillance systems and communication networks are constantly observing what is happening. You get to see how equipment behaves outside controlled environments, how an opponent actually moves rather than how a simulation predicted they would move, where communications fail, how sensors behave under pressure and how quickly a particular strategy can be adapted when the other side starts responding to it.</p>
+
+                    <p>There is also something about real conflict that is extremely difficult to reproduce in a laboratory or a military exercise: another side is actively trying to defeat you. An exercise can simulate an opponent, and a computer can generate thousands of scenarios, but a real adversary is unpredictable in ways that are difficult to completely reproduce. They deceive you, adapt to your tactics, exploit weaknesses you didn't know existed and occasionally do things that weren't part of the original assumptions.</p>
+
+                    <p>That makes the information produced by a real conflict unusually valuable.</p>
+                </section>
+
+                <section id="feedback">
+                    <h2>The Feedback Loop</h2>
+                    <p>And this is where my original thought became less absurd than it initially sounded. The United States has openly been developing systems intended to combine large amounts of battlefield information, improve situational awareness and accelerate decision making. The Department of Defense has explicitly described data as foundational to these capabilities, while systems such as Maven are being used to process battlefield imagery and other information. Newer command and control systems are also being developed and tested through operational exercises, with feedback from those exercises being used in subsequent development.</p>
+
+                    <p>Ukraine provides an even clearer example of the underlying mechanism. Its military has established environments specifically for collecting real combat data to develop and test battlefield technologies. Some of those datasets consist of information gathered from actual encounters with Russian equipment. The reason is fairly straightforward: if you want systems that work in war, there is enormous value in understanding what actually happens when they are exposed to war.</p>
+
+                    <p>This doesn't mean that wars are being fought for the sake of producing datasets. I think that would be a much bigger claim than the evidence we have for now.</p>
+
+                    <p>The more plausible possibility is that once a conflict already exists, the conflict itself becomes an extraordinarily valuable source of feedback.</p>
+
+                    <p>You observe what happens, learn from it, change your equipment or tactics, and then observe the results. Ukraine has demonstrated how quickly this process can happen, with battlefield experience being passed between soldiers, engineers and developers and used to modify systems at a pace that traditional military procurement often struggles to match. Other militaries are now studying these developments precisely because wartime experience reveals things that exercises and simulations cannot fully reproduce.</p>
+                </section>
+
+                <section id="learning">
+                    <h2>The Speed of Learning</h2>
+                    <p>That made me reconsider my original question. Maybe the interesting issue is whether modern militaries are beginning to treat every conflict as an opportunity to learn at an unprecedented scale, probably using them to develop AI models suitable for war planning and military strategy.</p>
+
+                    <p>The advantage might eventually belong less to the country with the most powerful individual weapon and more to the country that can observe, interpret and adapt faster.</p>
+
+                    <p>This is also where the competition between the United States and China becomes interesting. Both countries are investing heavily in systems that depend on large quantities of information, computing infrastructure, autonomous technologies and increasingly sophisticated methods of interpreting the physical world. Chinese military and security researchers have also been studying outputs from American developed models, while Chinese institutions have placed considerable emphasis on collecting physical world data.</p>
+
+                    <p>So part of the larger strategic competition is becoming a competition over the speed of learning. If one side can take what happened yesterday, understand it quickly and incorporate the lesson into tomorrow's operations, it can gradually accumulate an advantage that isn't captured by simply counting aircraft, ships or missiles.</p>
+                </section>
+
+                <section id="weaker-version">
+                    <h2>The Weaker Version</h2>
+                    <p>I don't think the simple theory of "the United States keeps going to war with smaller countries to train its military systems" holds up.</p>
+
+                    <p>There is no convincing public evidence that this is the primary reason these conflicts occur. There are also much cheaper ways of generating useful information: simulations, exercises, historical data, intelligence gathered without direct combat, and information shared by allies. Starting a war purely to obtain battlefield experience would therefore be an extraordinarily expensive way of solving a data problem.</p>
+
+                    <p>But the weaker version of my thought still seems worth considering.</p>
+
+                    <div class="callout" style="font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6;">
+                        <strong>Once a war exists, the information produced by that war has strategic value.</strong>
+                    </div>
+
+                    <p>And that changes something about the nature of modern warfare.</p>
+
+                    <p>We usually think about a conflict in terms of what each side wants to obtain from it: territory, political concessions, strategic positions, resources, deterrence or influence. But increasingly, there is another thing being accumulated during the process: experience. Every failed prediction, unexpected tactic, equipment malfunction and successful adaptation tells the people designing the next generation of military systems something about how those systems need to change.</p>
+                </section>
+
+                <section id="danger">
+                    <h2>A New Kind of Danger</h2>
+                    <p>That process also introduces a new kind of danger. The systems being used to process all this information can themselves be wrong. Recent reporting from the 2026 U.S.-Iran conflict described an incident in which an AI-generated intelligence report incorrectly identified a Chinese vessel as carrying nuclear material, with human review catching the error before the assessment led to action. Whether every detail of that report is ultimately confirmed or not, the broader problem is real: increasing the speed of decision-making also increases the consequences when the information being processed is wrong.</p>
+
+                    <p>We often talk about whether machines will eventually become better at fighting wars than humans. I think that question misses something more subtle. The more important change may be that militaries themselves are becoming systems that can learn from experience much faster than they could before.</p>
+
+                    <p>A conflict happens, enormous amounts of information are collected, people and machines interpret what happened, decisions are made, those decisions produce consequences, and those consequences become the basis for future decisions. The process isn't perfectly autonomous, and it certainly isn't infallible, but the feedback loop is becoming faster.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="bigger-not-better.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Bigger Is Not the Same as Better</h4>
+                                <p class="text-xs">An essay on extensive vs. intensive growth and India's demographic dividend</p>
+                            </div>
+                        </a>
+                        <a href="move-abroad-first-principles.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Should You Move Abroad?</h4>
+                                <p class="text-xs">A first-principles take on moving abroad and lifestyle trade-offs</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+</body>
+
+</html>

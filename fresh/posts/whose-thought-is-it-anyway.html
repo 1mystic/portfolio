@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whose Thought Is It Anyway? | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="If an LLM polishes every plank of your writing, is the ship still yours? A Ship-of-Theseus take on authorship in the age of AI, by Atharv Khare.">
+    <meta name="keywords"
+        content="Atharv Khare, Essay, Philosophy, LLMs, AI, Writing, Authorship, Ship of Theseus">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/fresh/posts/whose-thought-is-it-anyway.html">
+    <meta property="og:title" content="Whose Thought Is It Anyway? | Atharv Khare">
+    <meta property="og:description"
+        content="If the outer planks of your writing are swapped out by technology, is the core idea still the same ship?">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro" class="active">The Ship</a></li>
+                        <li><a href="#language">The Language</a></li>
+                        <li><a href="#workflow">The Workflow</a></li>
+                        <li><a href="#shock">The Shock</a></li>
+                        <li><a href="#resistance">Resisting Change</a></li>
+                        <li><a href="#question">The Question</a></li>
+                        <li><a href="#software">A Software Parallel</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Essay</span>
+                        <span class="blog-tag">Philosophy</span>
+                    </div>
+                    <h1 class="article-title">Whose Thought Is It Anyway?</h1>
+                    <div class="article-meta">
+                        <span>Jul 16, 2026</span> • <span>8 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="intro">
+                    <p class="lead">If the outer planks of your writing are swapped out by technology, is the core idea still the same ship?</p>
+
+                    <p>There's a famous thought experiment in philosophy that I think almost everybody has heard at least once: the Ship of Theseus.</p>
+
+                    <p>Recently, my younger brother came across it. Naturally, I asked him for his interpretation. His answer was immediate: "No, the ship isn't the same." When I asked for his reasoning, he kept it simple: "Because it's been replaced completely." He's an outgoing, active guy, so I don't judge him for not giving it a second thought. It's the most straightforward, logical conclusion to jump to.</p>
+
+                    <p>But I reminded him that there are various ways to interpret it. Is the ship a symbol? If it is, then the longer that symbol stays afloat, even if its form or its planks change, it actually becomes more powerful with time. Is it a historic marker, or a sacred site? Depending on what value we assign to it, the meaning and the interpretation change entirely.</p>
+                </section>
+
+                <section id="language">
+                    <h2>What Is Language, Anyway?</h2>
+                    <p>Now, coming to the actual topic. I think first we need to evaluate it from the ground up. What is language? Is it just a means of communication? Looking closely at English, modern English is really just a highly functional business language. It isn't generally built to express the absolute depths of distinct cultures and intense emotions. It cannot hold the massive rows of expression found in primordial languages like Sanskrit or ancient Greek.</p>
+
+                    <p>And now enter the advent of LLMs. If English is primarily a business language, then using an LLM to polish it up for better presentation is something I think we can and should utilize responsibly.</p>
+                </section>
+
+                <section id="workflow">
+                    <h2>My Workflow</h2>
+                    <p>Personally, my workflow is something like this: instead of carefully crafting every single sentence these days, I just keep typing at the exact speed of the ideas as they form in my head. But instead of pasting my messy thoughts into an AI and asking it to produce a generic, perfect output, I paste it and say something like:</p>
+
+                    <div class="callout" style="font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6;">
+                        "Acting as a literary scholar from London, point out my weak phrases. Highlight the sections where I am lacking facts, where my examples are weak, or where the imagery is falling short."
+                    </div>
+
+                    <p>Why London? It's English, duh. What I get from this workflow isn't AI slop, I think it's the ability to iterate on my own writing much faster. It enables me to think clearly and edit my posts, emails, or articles to better suit a general mass of readers quickly. Some readers are in a hurry, some just want the core idea, and some are harsh critics. This approach bridges the gap.</p>
+
+                    <p>Shankar Vedantam, the host of the Hidden Brain podcast, actually touched on similar themes regarding human behavior and hidden biases in a TED Talk I watched recently.</p>
+                </section>
+
+                <section id="shock">
+                    <h2>The Shock in My Old Notebooks</h2>
+                    <p>Yet, the moment someone labels this workflow as "polished AI slop," my mind flashes back to something that happened three months ago. I was reading a conversation between Sam Altman and Elon Musk from back in 2016, and it suddenly hit me: man, so this is where LLMs get their default output style.</p>
+
+                    <p>Going back to my room, I pulled up some of my old physical notebooks and writings. I had (subconsciously) assumed that my writing must have improved over the last few years because I consume these polished, articulate AI responses so often. But looking through the pages, I found my essays and write-ups from 2020 had a vastly better structure and a far deeper emotional feel (and I think better vocab too).</p>
+
+                    <p>And this was shocking: my vocabulary has actually declined. My vocabulary during that 2020 era was objectively much better than it is now. And the visualisation that comes to my mind is: when swimming in a sea of standardized text, my own edges were getting rounded off.</p>
+
+                    <p>It reminded me of an episode from an anime I watched. The main characters run into another party that looks exactly like them, except this new group is a far more polished, idealized version of each character. It triggers an existential conflict: who is the real one, and who is the imposter? They ultimately resolve it not by trying to be perfect, but by displaying their absolute eccentricity. The flaws and the weird quirks were what proved their authenticity.</p>
+                </section>
+
+                <section id="resistance">
+                    <h2>Why We Resist Change</h2>
+                    <p>This again gives rise to a recurring question: why is it that we resist change so violently? We build these rigid circles where we like to constantly compare, reject, and accept things. Even though I'm only 20 years old, a time when I feel like I'm still highly flexible and open to accepting almost any human perspective, I sometimes catch myself doing this.</p>
+
+                    <p>Back in 2019 or 2020, when my close friends started heavily using custom chat stickers (following the design trends out of Japan's LINE), I judged them hard. I literally questioned them, saying, "I think regular emojis are expressive enough. You're just riding a shallow trend."</p>
+
+                    <p>But I soon realized that was just a short-sighted, rigid judgment on my part. When I gave those stickers a fresh, objective look, I realized they were expressing a specific type of humor, a cute, situational warmth that standard emojis could never replicate. I still don't personally prefer using stickers today, but I have grown to understand, respect, and genuinely like what they express.</p>
+
+                    <p>Technology is the exact same type of elephant in the room, and obviously, it's something a lot of people cannot easily adjust to. Some are too critical and dismiss it all as generic slop, some use it mechanically, and some practically breathe it. I honestly cannot predict where it will ultimately lead us, so I choose to observe. It's uncomfortable, but the core question remains the same.</p>
+
+                    <p>Is the Ship of Theseus still the same ship, even if its planks are altered and replaced by technology?</p>
+                </section>
+
+                <section id="question">
+                    <h2>The Core Question</h2>
+                    <p>If we use an LLM purely as a tool, like an aid to iterate faster and present our thoughts clearly in a utility language like English: isn't that fundamentally the same as any tool humankind has been using for the last 12,000 years? You use a physical keyboard to write, a structured language to communicate, and a digital screen over the internet to interact. Does the credit for your identity go to those tools just because they aid your thinking and help you consume the information that develops your thoughts?</p>
+
+                    <p>Or should we discard it all simply because it wasn't the novel, pure generation of a human mind sitting completely alone on a remote island, untouched by the rest of the world?</p>
+
+                    <p>My thoughts: I think it's honestly too early to decide exactly where to draw that line because we are looking at a generation currently being raised entirely in the age of AI. And obviously the way we speak and write has always been a natural byproduct of the information we consume over the years. Our minds subconsciously pick up patterns in vocabulary, structure, and feel, which then become the very parameters, I would say, we use to judge someone else's proficiency.</p>
+
+                    <p>With LLMs, that foundation is now shifting (completely). The models themselves, I feel, are an echo or a massive reflection of human created data, and as raw human intent declines and online biases increase, our collective ability to truly appreciate one another seems to be shrinking too.</p>
+
+                    <p>Interestingly, someone highly experienced recently told me they see immense potential in AI eventually becoming the primary medium of communication between humans. Their argument was that AI is often more empathetic and professional in formatting a response. It allows us to understand the message without the emotional outbursts or immediate, reflexive judgment. If we want to, we can still choose to look past that AI layer to reflect on the true expression and emotion the sender originally wanted to convey.</p>
+
+                    <p>While it feels uncomfortable now, this will most likely become the norm just ten years down the line. Because of that, the key shift needs to be toward appreciating the core "human ideas" rather than judging the outer presentation. And judgment has also never been absolute, it always adapts to whatever becomes socially acceptable over time.</p>
+
+                    <p>From my own experience over these last four years, I don't think I've ever found a single unique phrase or deeply emotional expression from an AI output that I could actually use. But for technical writing and formatting? LLMs are absolutely unmatched.</p>
+
+                    <p>So, circling back to the Ship of Theseus: if the outer presentation, we say, the planks, the grammar, the vocabulary, is entirely swapped out by technology, is the core idea still the same ship?</p>
+                </section>
+
+                <section id="software">
+                    <h2>A Software Parallel</h2>
+                    <p>In software, the thing being modified is still being defined by an external set of requirements. Client requirements, market demand, user behaviour, etc. decide what needs to change. Modular development then allows the same module to be reused while adapting the product for different specialised needs.</p>
+
+                    <p>So an interesting parallel for me is that the meaning of the ship itself can evolve without the physical ship changing.</p>
+
+                    <p>As generations pass, the people who carry the story of the ship change. Their perceptions change, their social norms change, their understanding of Theseus changes, and even what they consider important about the ship can change. So the invariant is not really the interpretation itself, but the continuity of the reference. The story survives by being reinterpreted again and again.</p>
+
+                    <p>In that sense, the Ship of Theseus is more like a software product that survives across generations of users. The code may remain largely the same, but what the product means, what people expect from it, and which parts they consider essential can keep changing.</p>
+
+                    <p>So we can also ask: "How much can the interpretation around the ship change before we are no longer talking about the same thing?"</p>
+
+                    <p>Going in circles, I like it though.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="anime-medium.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Anime as a Unique Content Medium</h4>
+                                <p class="text-xs">On climbing the summit of narrative art through anime</p>
+                            </div>
+                        </a>
+                        <a href="reflection-on-this-world.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Reflection on This World</h4>
+                                <p class="text-xs">A philosophical analysis of hyper-convenience and lost wisdom</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+</body>
+
+</html>
