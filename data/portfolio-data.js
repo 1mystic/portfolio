@@ -44,7 +44,7 @@
   "commitsPerYear": 847,
   "verifiedRecords": 56,
   "researchCount": 7,
-  "blogsCount": 28,
+  "blogsCount": 29,
   "certificatesCount": 11,
   "educationCount": 2,
   "achievementsCount": 8
@@ -1095,6 +1095,22 @@
     "date": "Aug 30, 2026",
     "readTime": "7 min read",
     "badge": "ESSAY"
+  },
+  {
+    "title": "The Sound of Unresolved Memory",
+    "sub": "REVIEW · Aug 29, 2026",
+    "href": "fresh/posts/the-sound-of-unresolved-memory.html",
+    "cat": "blog",
+    "catLabel": "Blog",
+    "desc": "A month-late review of Nolan's The Odyssey: unresolved music, practical scale, and what Indian epic adaptations keep getting wrong.",
+    "tags": [
+      "Film",
+      "Music",
+      "Review"
+    ],
+    "date": "Aug 29, 2026",
+    "readTime": "4 min read",
+    "badge": "REVIEW"
   },
   {
     "title": "Bigger Is Not the Same as Better",

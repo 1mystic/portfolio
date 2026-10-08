@@ -3,8 +3,8 @@
   "profile": {
     "name": "Atharv Khare",
     "handle": "@1mystic",
-    "role": "Data Scientist · IIT Madras",
-    "bio": "BS Data Science student at IIT Madras, building at the seam of ML and the web. I learn from first principles and ship things end-to-end — from model experiments to deployed systems. Currently exploring RAG, GenAI tooling, and well-configured Linux.",
+    "role": "Data Scientist \u00b7 IIT Madras",
+    "bio": "BS Data Science student at IIT Madras, building at the seam of ML and the web. I learn from first principles and ship things end-to-end \u2014 from model experiments to deployed systems. Currently exploring RAG, GenAI tooling, and well-configured Linux.",
     "location": "Bhopal, India",
     "timezone": "UTC+05:30",
     "email": "atharvkhare18@gmail.com",
@@ -29,7 +29,7 @@
     "commitsPerYear": 847,
     "verifiedRecords": 56,
     "researchCount": 7,
-    "blogsCount": 28,
+    "blogsCount": 29,
     "certificatesCount": 11,
     "educationCount": 2,
     "achievementsCount": 8
@@ -734,7 +734,7 @@
     },
     {
       "title": "Portfolio : atharvk.me",
-      "sub": "atharvk.me · 3 versions",
+      "sub": "atharvk.me \u00b7 3 versions",
       "href": "https://www.atharvk.me",
       "desc": "Personal portfolio as Atharv Khare, IIT Madras BS Data Science (CGPA 9.01). Showcases projects, research, certifications, hackathon wins, a blog, and an origami gallery. Available in three versions across different stacks and domains.",
       "tags": [
@@ -991,7 +991,7 @@
   "blogs": [
     {
       "title": "The Same Old Road",
-      "sub": "POETRY · Oct 7, 2026",
+      "sub": "POETRY \u00b7 Oct 7, 2026",
       "href": "fresh/posts/the-same-old-road.html",
       "cat": "poem",
       "catLabel": "Poetry",
@@ -1006,7 +1006,7 @@
     },
     {
       "title": "Simple Prompts I Give LLMs to Check Their Competency",
-      "sub": "BLOG · Oct 1, 2026",
+      "sub": "BLOG \u00b7 Oct 1, 2026",
       "href": "fresh/posts/simple-llm-prompts.html",
       "cat": "blog",
       "catLabel": "Blog",
@@ -1022,7 +1022,7 @@
     },
     {
       "title": "Has War Become a Data Point?",
-      "sub": "ESSAY · Sep 23, 2026",
+      "sub": "ESSAY \u00b7 Sep 23, 2026",
       "href": "fresh/posts/has-war-become-a-data-point.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1038,7 +1038,7 @@
     },
     {
       "title": "Things We Don't Say",
-      "sub": "ESSAY · Sep 18, 2026",
+      "sub": "ESSAY \u00b7 Sep 18, 2026",
       "href": "fresh/posts/things-we-dont-say.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1054,7 +1054,7 @@
     },
     {
       "title": "What Comes After 8?",
-      "sub": "ESSAY · Sep 17, 2026",
+      "sub": "ESSAY \u00b7 Sep 17, 2026",
       "href": "fresh/posts/what-comes-after-8.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1070,7 +1070,7 @@
     },
     {
       "title": "India's Fresher Hiring Problem Is Becoming a Structural Problem",
-      "sub": "ESSAY · Sep 9, 2026",
+      "sub": "ESSAY \u00b7 Sep 9, 2026",
       "href": "fresh/posts/indias-fresher-hiring-problem.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1086,7 +1086,7 @@
     },
     {
       "title": "Should You Move Abroad? A First-Principles Take",
-      "sub": "ESSAY · Aug 30, 2026",
+      "sub": "ESSAY \u00b7 Aug 30, 2026",
       "href": "fresh/posts/move-abroad-first-principles.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1100,8 +1100,24 @@
       "badge": "ESSAY"
     },
     {
+      "title": "The Sound of Unresolved Memory",
+      "sub": "REVIEW \u00b7 Aug 29, 2026",
+      "href": "fresh/posts/the-sound-of-unresolved-memory.html",
+      "cat": "blog",
+      "catLabel": "Blog",
+      "desc": "A month-late review of Nolan's The Odyssey: unresolved music, practical scale, and what Indian epic adaptations keep getting wrong.",
+      "tags": [
+        "Film",
+        "Music",
+        "Review"
+      ],
+      "date": "Aug 29, 2026",
+      "readTime": "4 min read",
+      "badge": "REVIEW"
+    },
+    {
       "title": "Bigger Is Not the Same as Better",
-      "sub": "ANALYSIS · Jul 20, 2026",
+      "sub": "ANALYSIS \u00b7 Jul 20, 2026",
       "href": "fresh/posts/bigger-not-better.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1116,7 +1132,7 @@
     },
     {
       "title": "From a 0.752 Kaggle Score to a Metacognition Engine: The Reflecta Story",
-      "sub": "PROJECT · Jul 17, 2026",
+      "sub": "PROJECT \u00b7 Jul 17, 2026",
       "href": "fresh/posts/reflecta.html",
       "cat": "tutorial",
       "catLabel": "Tutorial",
@@ -1131,7 +1147,7 @@
     },
     {
       "title": "Whose Thought Is It Anyway?",
-      "sub": "ESSAY · Jul 16, 2026",
+      "sub": "ESSAY \u00b7 Jul 16, 2026",
       "href": "fresh/posts/whose-thought-is-it-anyway.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1147,7 +1163,7 @@
     },
     {
       "title": "Reflection on This World",
-      "sub": "ESSAY · Jun 25, 2026",
+      "sub": "ESSAY \u00b7 Jun 25, 2026",
       "href": "fresh/posts/reflection-on-this-world.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1162,7 +1178,7 @@
     },
     {
       "title": "A Pilgrim of Passing Things",
-      "sub": "POETRY · Jun 25, 2026",
+      "sub": "POETRY \u00b7 Jun 25, 2026",
       "href": "fresh/posts/pilgrim.html",
       "cat": "poem",
       "catLabel": "Poetry",
@@ -1177,7 +1193,7 @@
     },
     {
       "title": "My Reflection on My Recent Life and Why I Got Into the IITM BS Degree",
-      "sub": "ESSAY · Jun 15, 2026",
+      "sub": "ESSAY \u00b7 Jun 15, 2026",
       "href": "fresh/posts/reflection-on-iitm-bs.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1192,7 +1208,7 @@
     },
     {
       "title": "Anime as a Unique Content Medium: The Art of Climbing the Summit",
-      "sub": "ART FORM · May 31, 2026",
+      "sub": "ART FORM \u00b7 May 31, 2026",
       "href": "fresh/posts/anime-medium.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1207,7 +1223,7 @@
     },
     {
       "title": "The Apple Propaganda",
-      "sub": "OPINION · Feb 11, 2026",
+      "sub": "OPINION \u00b7 Feb 11, 2026",
       "href": "fresh/posts/apple-propaganda.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1222,7 +1238,7 @@
     },
     {
       "title": "GitSyntropy: Astrology-Inspired Team Matching",
-      "sub": "ALGORITHM · Jan 28, 2026",
+      "sub": "ALGORITHM \u00b7 Jan 28, 2026",
       "href": "fresh/posts/gitsyntropy.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1237,7 +1253,7 @@
     },
     {
       "title": "Resonance",
-      "sub": "POETRY · Feb 10, 2026",
+      "sub": "POETRY \u00b7 Feb 10, 2026",
       "href": "fresh/posts/resonance.html",
       "cat": "poem",
       "catLabel": "Poetry",
@@ -1252,7 +1268,7 @@
     },
     {
       "title": "Time",
-      "sub": "POETRY · Feb 8, 2026",
+      "sub": "POETRY \u00b7 Feb 8, 2026",
       "href": "fresh/posts/time.html",
       "cat": "poem",
       "catLabel": "Poetry",
@@ -1267,7 +1283,7 @@
     },
     {
       "title": "Women Empowerment?",
-      "sub": "ESSAY · Feb 5, 2026",
+      "sub": "ESSAY \u00b7 Feb 5, 2026",
       "href": "fresh/posts/women-empowerment.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1282,7 +1298,7 @@
     },
     {
       "title": "Understanding LSTM Networks",
-      "sub": "BLOG PREVIEW · Jan 24, 2026",
+      "sub": "BLOG PREVIEW \u00b7 Jan 24, 2026",
       "href": "fresh/posts/blog-lstm.html",
       "cat": "blog",
       "catLabel": "Essay",
@@ -1428,7 +1444,7 @@
   "certificates": [
     {
       "title": "Oracle Agentic AI Certified Foundations",
-      "sub": "Oracle · 2026",
+      "sub": "Oracle \u00b7 2026",
       "href": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59",
       "desc": "Oracle Certified Foundations Associate validating core concepts of Agentic AI architectures, autonomous agents, LLM tool orchestration, and multi-agent workflows.",
       "tags": [
@@ -1443,7 +1459,7 @@
     },
     {
       "title": "BDM Best Capstone Award",
-      "sub": "IIT Madras · 2026",
+      "sub": "IIT Madras \u00b7 2026",
       "href": "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing",
       "desc": "Best Capstone Project Certificate awarded for outstanding project implementation and data modeling in the Business Data Management course in the IIT Madras BS program.",
       "tags": [
@@ -1457,7 +1473,7 @@
     },
     {
       "title": "HackerRank SQL (Advanced)",
-      "sub": "HackerRank · 2024",
+      "sub": "HackerRank \u00b7 2024",
       "href": "https://www.hackerrank.com/certificates/d366117ff2b9",
       "desc": "Certified proficiency in advanced SQL : covering complex joins, window functions, subqueries, aggregations, and query optimisation on real-world database schemas.",
       "tags": [
@@ -1470,7 +1486,7 @@
     },
     {
       "title": "DataCamp Data Science Associate",
-      "sub": "DataCamp · 2025",
+      "sub": "DataCamp \u00b7 2025",
       "href": "https://drive.google.com/file/d/1cJCsRdCffS1Z0RTXr0XELxlqySsg1P0s/view?usp=sharing",
       "desc": "Professional certification validating skills in Python, SQL, statistical analysis, data wrangling, and machine learning fundamentals across a proctored multi-stage assessment.",
       "tags": [
@@ -1538,7 +1554,7 @@
     },
     {
       "title": "NPTEL Distributed Systems & Cloud Computing",
-      "sub": "NPTEL · Elite Tier · 2026",
+      "sub": "NPTEL \u00b7 Elite Tier \u00b7 2026",
       "href": "https://drive.google.com/file/d/1XQ370Ym7WbiMCelf7I7i5pAM6aYwFaBH/view?usp=sharing",
       "desc": "Elite tier certification in Distributed Systems and Cloud Computing from NPTEL : covering architecture, virtualisation, resource management, and scalable system design.",
       "tags": [
@@ -1552,7 +1568,7 @@
     },
     {
       "title": "Machine Learning using Python",
-      "sub": "Simplilearn · 2026",
+      "sub": "Simplilearn \u00b7 2026",
       "href": "https://drive.google.com/file/d/1b0oOTDg5SqRQtlzQmwwOD17CNUqd3leJ/view?usp=sharing",
       "desc": "Comprehensive training in machine learning concepts using Python, covering data preprocessing, regression, classification, clustering, and model deployment.",
       "tags": [
@@ -1565,7 +1581,7 @@
     },
     {
       "title": "Cloud Computing Foundations",
-      "sub": "Simplilearn · 2026",
+      "sub": "Simplilearn \u00b7 2026",
       "href": "https://drive.google.com/file/d/1eFqV5gONP0AfkhjaOjMjau1mdr9YyKr9/view?usp=sharing",
       "desc": "Foundational training in cloud computing models, service architectures, virtualization, and deployment strategies across major cloud platforms.",
       "tags": [
@@ -1580,7 +1596,7 @@
   "education": [
     {
       "title": "B.S. Data Science & Applications",
-      "sub": "IIT Madras · 2023 – 2027",
+      "sub": "IIT Madras \u00b7 2023 \u2013 2027",
       "href": "https://study.iitm.ac.in",
       "desc": "Bachelor of Science in Data Science & Applications from IIT Madras : one of India's premier technical institutes. Curriculum spans mathematics, statistics, machine learning, databases, programming, and AI. Currently maintaining a CGPA of 9.15.",
       "tags": [
@@ -1596,7 +1612,7 @@
     },
     {
       "title": "Diploma in Programming",
-      "sub": "IIT Madras · Completed 2025",
+      "sub": "IIT Madras \u00b7 Completed 2025",
       "href": "https://study.iitm.ac.in",
       "desc": "Diploma-level qualification in programming from IIT Madras, completed with a 9.44 CGPA. Covered systems thinking, data structures, algorithms, web technologies, and application development.",
       "tags": [
@@ -1613,7 +1629,7 @@
   "achievements": [
     {
       "title": "IIT Madras Merit Prize Certificate",
-      "sub": "IIT Madras · Academic Excellence",
+      "sub": "IIT Madras \u00b7 Academic Excellence",
       "href": "https://drive.google.com/file/d/1cWg8Dqw0Xwb-ovccBXeFuhXJYKQ5eSSP/view?usp=sharing",
       "desc": "Awarded Merit Prize Certificate by IIT Madras in recognition of academic excellence and top performance in the BS Data Science & Applications program.",
       "tags": [
@@ -1626,7 +1642,7 @@
     },
     {
       "title": "Kaggle Comment Category Prediction : Top 0.8%",
-      "sub": "Rank 21 / 2,744 · 2026",
+      "sub": "Rank 21 / 2,744 \u00b7 2026",
       "href": "https://github.com/1mystic/kaggle-comment-classification",
       "desc": "Achieved Rank 21 out of 2,744 participants (Top 0.8%) in toxic comment sentiment classification using stacked ensembles (TF-IDF, LightGBM, NB-SVM, Logistic Regression) and custom feature engineering.",
       "tags": [
@@ -1641,7 +1657,7 @@
     },
     {
       "title": "BDM Best Capstone Project Award",
-      "sub": "IIT Madras · 2026",
+      "sub": "IIT Madras \u00b7 2026",
       "href": "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing",
       "desc": "Received the Business Data Management (BDM) Best Capstone Project Award at IIT Madras BS for outstanding project execution and predictive analytics modeling.",
       "tags": [
@@ -1654,7 +1670,7 @@
     },
     {
       "title": "Anthropic Claude Builder Club : 2nd Runner Up",
-      "sub": "Spring 2026 Hackathon · April 2026",
+      "sub": "Spring 2026 Hackathon \u00b7 April 2026",
       "href": null,
       "cat": "hackathon",
       "catLabel": "Hackathon Win",
@@ -1668,7 +1684,7 @@
     },
     {
       "title": "Hack4Health Hackathon : 3rd Position",
-      "sub": "Health-Tech · June 2025",
+      "sub": "Health-Tech \u00b7 June 2025",
       "href": null,
       "cat": "hackathon",
       "catLabel": "Hackathon Win",
@@ -1681,7 +1697,7 @@
     },
     {
       "title": "Inter-house Tech Dominion : 2nd Place",
-      "sub": "IIT Madras · January 2026",
+      "sub": "IIT Madras \u00b7 January 2026",
       "href": null,
       "cat": "hackathon",
       "catLabel": "Hackathon Win",
@@ -1694,7 +1710,7 @@
     },
     {
       "title": "Silver Medal : Anukriti, Paradox IITM",
-      "sub": "IIT Madras · 2025",
+      "sub": "IIT Madras \u00b7 2025",
       "href": null,
       "cat": "medal",
       "catLabel": "Medal",
@@ -2200,7 +2216,7 @@
       ]
     },
     {
-      "title": "Pen — Simple Write-ups",
+      "title": "Pen \u2014 Simple Write-ups",
       "sub": "1mystic.github.io/pen",
       "href": "https://1mystic.github.io/pen/",
       "catLabel": "Essay",
@@ -2229,7 +2245,7 @@
       "sub": "Technical Walkthrough",
       "href": "fresh/posts/attention-mechanisms.html",
       "catLabel": "Tutorial",
-      "desc": "Detailed walkthrough of self-attention in Transformers — from mathematical formulation of scaled dot-product attention to multi-head PyTorch implementation.",
+      "desc": "Detailed walkthrough of self-attention in Transformers \u2014 from mathematical formulation of scaled dot-product attention to multi-head PyTorch implementation.",
       "type": "article",
       "tags": [
         "Transformers",
@@ -2271,7 +2287,7 @@
       "sub": "Dev Journal",
       "href": "fresh/posts/building-marktex.html",
       "catLabel": "Article",
-      "desc": "Engineering story behind building MarkTex — full Markdown + LaTeX editor with annotation support and in-browser PDF generation.",
+      "desc": "Engineering story behind building MarkTex \u2014 full Markdown + LaTeX editor with annotation support and in-browser PDF generation.",
       "type": "article",
       "tags": [
         "Markdown",
@@ -2308,7 +2324,7 @@
     },
     {
       "title": "IIT Madras Merit Prize Certificate",
-      "sub": "IIT Madras · Academic Excellence",
+      "sub": "IIT Madras \u00b7 Academic Excellence",
       "href": "https:",
       "catLabel": "Merit Award",
       "desc": "Awarded Merit Prize Certificate by IIT Madras for academic excellence and top performance in BS Data Science & Applications.",
@@ -2320,7 +2336,7 @@
       ]
     },
     {
-      "title": "Kaggle Comment Category Prediction — Top 0.8%",
+      "title": "Kaggle Comment Category Prediction \u2014 Top 0.8%",
       "sub": "Rank 21 / 2,744",
       "href": "https:",
       "catLabel": "Rank 21",
@@ -2335,7 +2351,7 @@
     },
     {
       "title": "BDM Best Capstone Project Award",
-      "sub": "IIT Madras · 2026",
+      "sub": "IIT Madras \u00b7 2026",
       "href": "https://drive.google.com/file/d/1ryrmy_IYZPWy2MsnWUpaVnvwxN2ACkKC/view?usp=sharing",
       "catLabel": "Best Capstone",
       "desc": "Received Business Data Management Best Capstone Project Award at IIT Madras BS for predictive modeling and data engineering.",
@@ -2347,7 +2363,7 @@
       ]
     },
     {
-      "title": "Anthropic Claude Builder Club — 2nd Runner Up",
+      "title": "Anthropic Claude Builder Club \u2014 2nd Runner Up",
       "sub": "Spring 2026 Hackathon",
       "href": null,
       "catLabel": "Hackathon Win",
@@ -2361,8 +2377,8 @@
       ]
     },
     {
-      "title": "Hack4Health Hackathon — 3rd Position",
-      "sub": "Health-Tech · 2025",
+      "title": "Hack4Health Hackathon \u2014 3rd Position",
+      "sub": "Health-Tech \u00b7 2025",
       "href": null,
       "catLabel": "Hackathon Win",
       "desc": "3rd position in Hack4Health hackathon for clinical status tracking and healthcare predictive tools.",
@@ -2374,8 +2390,8 @@
       ]
     },
     {
-      "title": "Inter-house Tech Dominion — 2nd Place",
-      "sub": "IIT Madras · 2026",
+      "title": "Inter-house Tech Dominion \u2014 2nd Place",
+      "sub": "IIT Madras \u00b7 2026",
       "href": null,
       "catLabel": "Hackathon Win",
       "desc": "2nd place in Tech Dominion hackathon at IIT Madras for rapid prototyping and system design.",
@@ -2388,7 +2404,7 @@
     },
     {
       "title": "Silver Medal: Anukriti, Paradox IITM",
-      "sub": "IIT Madras · 2025",
+      "sub": "IIT Madras \u00b7 2025",
       "href": null,
       "catLabel": "Medal",
       "desc": "Silver medal at Anukriti (Paradox IITM) for mathematical and digital visualization challenges.",
@@ -2400,8 +2416,8 @@
       ]
     },
     {
-      "title": "Oracle Certified Associate — Agentic AI Foundations",
-      "sub": "Oracle · 2026",
+      "title": "Oracle Certified Associate \u2014 Agentic AI Foundations",
+      "sub": "Oracle \u00b7 2026",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Oracle Certified Foundations Associate validating core competencies in Agentic AI architectures, autonomous agents, LLM tool-calling orchestration, and multi-agent workflows.",
@@ -2416,7 +2432,7 @@
     },
     {
       "title": "BDM Best Capstone Award Certificate",
-      "sub": "IIT Madras · 2026",
+      "sub": "IIT Madras \u00b7 2026",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Official certificate awarded for best capstone project execution in Business Data Management at IIT Madras.",
@@ -2429,7 +2445,7 @@
     },
     {
       "title": "HackerRank SQL (Advanced)",
-      "sub": "HackerRank · 2024",
+      "sub": "HackerRank \u00b7 2024",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Advanced SQL certification covering window functions, complex joins, subqueries, and query optimization.",
@@ -2442,7 +2458,7 @@
     },
     {
       "title": "DataCamp Data Science Associate",
-      "sub": "DataCamp · 2025",
+      "sub": "DataCamp \u00b7 2025",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Multi-stage assessment validating Python, SQL, statistical analysis, and ML fundamentals.",
@@ -2507,7 +2523,7 @@
     },
     {
       "title": "NPTEL Distributed Systems & Cloud Computing",
-      "sub": "NPTEL · Elite Tier · 2026",
+      "sub": "NPTEL \u00b7 Elite Tier \u00b7 2026",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Elite tier certification in Distributed Systems architecture, cloud virtualization, and consensus algorithms.",
@@ -2520,7 +2536,7 @@
     },
     {
       "title": "Machine Learning using Python",
-      "sub": "Simplilearn · 2026",
+      "sub": "Simplilearn \u00b7 2026",
       "href": "https:",
       "catLabel": "Certificate",
       "desc": "Training in machine learning preprocessing, classification, clustering models, and Python serving.",
@@ -2533,7 +2549,7 @@
     },
     {
       "title": "B.S. Data Science & Applications",
-      "sub": "IIT Madras · 2023 – 2027",
+      "sub": "IIT Madras \u00b7 2023 \u2013 2027",
       "href": "https:",
       "catLabel": "Degree",
       "desc": "Bachelor of Science in Data Science & Applications from IIT Madras. Currently maintaining CGPA of 9.15.",
@@ -2547,7 +2563,7 @@
     },
     {
       "title": "Diploma in Programming",
-      "sub": "IIT Madras · Completed 2025",
+      "sub": "IIT Madras \u00b7 Completed 2025",
       "href": "https:",
       "catLabel": "Diploma",
       "desc": "Diploma in Programming from IIT Madras completed with 9.44 CGPA in algorithms and web systems.",
