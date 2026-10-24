@@ -299,6 +299,13 @@
   .code { position: relative; z-index: 2; font: 500 11px var(--display); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, 0.4); white-space: nowrap; padding: 2px 0; transition: text-decoration-color 0.2s; }
   .code:hover { text-decoration-color: #fff; }
 
+  .results { margin-top: clamp(28px, 4vw, 44px); padding-bottom: 8px; border: 2px dashed var(--line-soft); border-radius: var(--radius); padding: clamp(18px, 2.4vw, 28px); }
+  .results[hidden] { display: none; }
+  .results-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+  .results-head h2 { margin: 4px 0 0; font: 600 clamp(22px, 2.6vw, 30px) var(--display); letter-spacing: -0.02em; }
+  .results-count { font: 600 12px var(--display); border: 1px solid #777; border-radius: 999px; padding: 4px 14px; white-space: nowrap; }
+  .results-empty { display: none; padding: 24px 0 4px; color: var(--muted); font-size: 12px; }
+  .results-empty.show { display: block; }
   .empty { display: none; margin: 40px 0 10px; padding: 48px 20px; text-align: center; border: 2px dashed var(--line-soft); border-radius: var(--radius); color: var(--muted); }
   .empty.show { display: block; }
   .empty button { margin-top: 14px; background: none; border: 0; border-bottom: 1px solid currentColor; cursor: pointer; color: #fff; }
@@ -432,6 +439,18 @@
       <div class="meta-line"><span id="result-count" aria-live="polite"></span><button id="reset" type="button" hidden>Reset filters</button></div>
     </div>
 
+    <section class="results" id="results" aria-labelledby="results-title" hidden>
+      <header class="results-head">
+        <div class="results-text">
+          <div class="eyebrow">Search</div>
+          <h2 id="results-title">Results</h2>
+        </div>
+        <span class="results-count" id="results-count"></span>
+      </header>
+      <div class="cards" id="results-grid"></div>
+      <div class="results-empty" id="results-empty">No matches in any collection.</div>
+    </section>
+
     <div class="collections" id="collections">
       <section class="collection" id="notes" data-kind="notes" aria-labelledby="notes-title">
         <header class="collection-head">
@@ -557,7 +576,7 @@
   /* Which collection an entry lands in. Anything not listed here is classified
      from its source: study resources -> notes, everything else -> projects. */
   var VISUAL_TITLES = [
-    'BayesInspector', 'Axiom Canvas', 'Interactive ML Algorithms', 'Flipkart Gridlock',
+    'BayesInspector', 'Axiom Canvas', 'Flipkart Gridlock',
     'Bhopal Food Delivery Analysis', 'Origami Simulator', 'WikiViz'
   ];
   /* Screenshots that exist in assets/projects but are not referenced by the data file. */
@@ -572,6 +591,8 @@
     'Bhopal Food Delivery : Geospatial Study': 'assets/work/bhopal-food-delivery-analysis.webp'
   };
   /* Live links missing from the data file, and second deployments of the same work. */
+  /* duplicate of ML Explorer Lab, which covers the same algorithms */
+  var HIDDEN = ['https://1mystic.github.io/ML-Algos/', 'https://atharvk.pages.dev/', 'https://www.atharvk.me', 'https://glideml.vercel.app', 'https://mindfluence.netlify.app'];
   var LIVE_FIX = {
     'Comment Sentiment Classification': 'https://comment-classification-bs2t.onrender.com/'
   };
@@ -636,13 +657,12 @@
       desc: 'Restaurant management and insights portal built around the Shri Melan business data capstone.', tags: ['Analytics', 'Restaurant', 'Capstone'] },
     { kind: 'projects', title: '2026 Smartphone Insights', href: 'https://sites.google.com/view/2026-smartphone-insights/', label: 'Analysis site',
       desc: '', tags: ['Analysis', 'Smartphones'] },
-    { kind: 'projects', title: 'Atharv Khare: Personal Site', href: 'https://atharvkhare.netlify.app/', label: 'Portfolio',
-      desc: 'Atharv Khare, Data Scientist and Developer: ML pipelines, full-stack apps and AI-powered tools.', tags: ['Portfolio', 'Web'] }
   ];
   /* Screenshots taken from the live sites (assets/work/<slug>.webp). */
   var SHOTS = [
     '2026-smartphone-insights',
     'ai-llm-lab',
+    'ai-systems-academy',
     'askalot',
     'atharv-khare-personal-site',
     'bdm-best-capstone-award',
@@ -724,7 +744,7 @@
     var live = src.href && src.href !== '#' ? src.href : (LIVE_FIX[src.title] || '');
     var k = !force && VISUAL_TITLES.indexOf(src.title) !== -1 ? 'visuals' : kind;
     var key = (OWN_LIST[k] ? k + ':' : '') + (live ? normUrl(live) : 'title:' + src.title.toLowerCase());
-    if (seen[key]) return;
+    if (seen[key] || HIDDEN.indexOf(live) !== -1) return;
     if (!live && !src.github) return;
     seen[key] = true;
     var id = slug(src.title);
@@ -811,7 +831,7 @@
     'DominoML': 8, 'EcoView': 9, 'Plume': 10, 'Nayori': 11, 'Tarang': 12, 'Family Paradox': 13,
     /* interactive visuals */
     'ML Explorer Lab': 1, 'AI-LLM Lab': 2, 'Search Studio': 3, 'BayesInspector': 4, 'DryRun': 5,
-    'Interactive ML Algorithms': 6, 'Bhopal Food Delivery Analysis': 7, 'Origami Simulator': 8,
+    'Bhopal Food Delivery Analysis': 6, 'Origami Simulator': 7,
     /* study & notes */
     'AI Systems Academy': 1, 'The Ops Grind': 2, 'Deep Learning Notes': 3, 'Data Science Compendium': 4,
     'Full-Stack AI Engineer Guide': 5, 'Machine Learning Practice (MLP) Notes': 6, 'Tools in Data Science (TDS) Summary': 7,
@@ -859,11 +879,17 @@
     var words = q ? q.split(/\s+/) : [];
     var shown = 0;
     var perKind = { notes: [], visuals: [], projects: [], research: [], certificates: [], awards: [] };
+    var matched = [];
 
     items.forEach(function (it) {
-      if (state.kind !== 'all' && it.kind !== state.kind) return;
       if (state.live && !it.live) return;
       if (!words.every(function (w) { return it.hay.indexOf(w) !== -1; })) return;
+      matched.push(it);
+    });
+    matched.sort(function (a, b) { return rankOf(a) - rankOf(b) || items.indexOf(a) - items.indexOf(b); });
+
+    matched.forEach(function (it) {
+      if (state.kind !== 'all' && it.kind !== state.kind) return;
       perKind[it.kind].push(it);
       shown++;
     });
@@ -872,6 +898,18 @@
         .sort(function (a, b) { return rankOf(a.it) - rankOf(b.it) || a.i - b.i; })
         .map(function (x) { return x.it; });
     });
+
+    /* search panel: every match from all collections, ignoring the kind chip */
+    var searching = words.length > 0;
+    var panel = $('results');
+    panel.hidden = !searching;
+    if (searching) {
+      $('results-grid').innerHTML = matched.map(cardHtml).join('');
+      $('results-count').textContent = matched.length + (matched.length === 1 ? ' match' : ' matches');
+      $('results-empty').classList.toggle('show', matched.length === 0);
+    } else {
+      $('results-grid').innerHTML = '';
+    }
 
     Object.keys(KINDS).forEach(function (k) {
       var section = $(k);
