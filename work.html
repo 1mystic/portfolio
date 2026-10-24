@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="An index of everything Atharv Khare has built for learning and sharing: course notes, study websites, interactive visualisations and live project sites.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Work Index | Atharv Khare">
+<meta property="og:description" content="Course notes, study websites, interactive visualisations and project sites in one place.">
+<title>The Work Index | Atharv Khare</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121212'/%3E%3Ccircle cx='24' cy='40' r='11' fill='%23f8f8f5'/%3E%3Crect x='32' y='14' width='20' height='20' rx='3' fill='%23f8f8f5' transform='rotate(18 42 24)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/vendor/fonts/OpenDyslexic-Regular.woff" as="font" type="font/woff" crossorigin>
+<script src="/visit-counter.js" defer></script>
+<style>
+  /* OpenDyslexic (SIL Open Font License), self-hosted */
+  @font-face { font-family: 'OpenDyslexic'; src: url('assets/vendor/fonts/OpenDyslexic-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'OpenDyslexic'; src: url('assets/vendor/fonts/OpenDyslexic-Bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+
+  :root {
+    --bg: #121212;
+    --panel: #191919;
+    --white: #f8f8f5;
+    --muted: #a8a8a8;
+    --dim: #7c7c7c;
+    --line: rgba(255, 255, 255, 0.82);
+    --line-soft: rgba(255, 255, 255, 0.18);
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --display: 'Fredoka', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --body: 'OpenDyslexic', ui-monospace, 'Courier New', monospace;
+    --radius: 14px;
+    --gutter: 24px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; color: inherit; }
+  ::selection { background: #fff; color: #111; }
+  :focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  /* ---------- minimal scrollbar: a short, thin thumb (drawn by script on fine pointers) ---------- */
+  html { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.3) transparent; }
+  html.rail-on { scrollbar-width: none; }
+  html.rail-on::-webkit-scrollbar { display: none; }
+  .rail { position: fixed; top: 0; right: 0; bottom: 0; width: 14px; z-index: 60; }
+  .rail-thumb {
+    position: absolute; right: 4px; top: 0; width: 4px; height: 44px; border-radius: 99px;
+    background: rgba(255, 255, 255, 0.34); cursor: grab; touch-action: none;
+    transition: width 0.18s, right 0.18s, background 0.18s, opacity 0.3s;
+  }
+  .rail:hover .rail-thumb, .rail-thumb.drag { width: 6px; right: 3px; background: rgba(255, 255, 255, 0.78); }
+  .rail-thumb.drag { cursor: grabbing; }
+  .rail.idle .rail-thumb:not(.drag) { opacity: 0.45; }
+
+  .display { font-family: var(--display); letter-spacing: -0.025em; line-height: 1.1; }
+  .eyebrow {
+    font: 600 11px var(--display);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .wrap { width: min(1320px, calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(18, 18, 18, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 700 18px var(--display); white-space: nowrap; }
+  .brand-mark { width: 15px; height: 15px; border-radius: 50%; background: #fff; display: inline-grid; place-items: center; flex: none; }
+  .brand-mark::after { content: ''; width: 5px; height: 5px; background: #111; border-radius: 50%; }
+  .brand-sub { font: 10px var(--body); color: #bbb; border: 1px solid #555; border-radius: 5px; padding: 2px 7px; }
+  .nav { display: flex; align-items: center; gap: 22px; font-size: 11px; }
+  .nav a { color: #bbb; transition: color 0.2s; white-space: nowrap; }
+  .nav a:hover { color: #fff; }
+  .replay {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px dashed #fff; border-radius: 8px; padding: 6px 10px;
+    background: transparent; cursor: pointer; font-size: 11px; white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+  .replay:hover { background: #fff; color: #111; }
+
+  /* ---------- hero ---------- */
+  .hero-wrap { padding-top: clamp(18px, 3vw, 36px); }
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(560px, 76svh, 820px);
+    border: 2px solid var(--line);
+    border-radius: 22px;
+    background: radial-gradient(ellipse at 50% 22%, #222 0%, #171717 46%, #131313 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), inset 0 0 40px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    padding: clamp(36px, 6vw, 70px) clamp(16px, 4vw, 48px) clamp(124px, 15vw, 210px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 12px; z-index: 0;
+    border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 14px; pointer-events: none;
+  }
+  #shapes { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; display: block; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+  .hero-content { position: relative; z-index: 3; width: min(720px, 100%); text-align: center; }
+  .hero h1 { margin: 10px 0 0; font-size: clamp(38px, 8vw, 92px); font-weight: 700; text-wrap: balance; }
+  .intro { max-width: 600px; margin: 16px auto 0; color: var(--muted); font-size: clamp(11px, 1.4vw, 13px); }
+  .intro strong { color: #eee; font-weight: 600; }
+  .pills { display: grid; gap: 14px; width: min(520px, 100%); margin: clamp(26px, 4vw, 44px) auto 0; }
+  .pill { display: flex; align-items: stretch; min-height: 58px; }
+  .pill-label {
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex: 1;
+    border: 2px dashed #fff; border-right: 0; border-radius: 12px 0 0 12px; padding: 12px 16px;
+    font: 600 clamp(13px, 2.2vw, 18px) var(--display); letter-spacing: 0.06em; text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform 0.28s var(--ease), background 0.28s, box-shadow 0.28s;
+  }
+  .pill-label em { font-style: normal; font-size: 0.7em; opacity: 0.6; letter-spacing: 0.04em; }
+  .pill-arrow {
+    position: relative; width: 60px; flex: none; display: grid; place-items: center;
+    background: #fff;
+    clip-path: polygon(0 0, 66% 0, 100% 50%, 66% 100%, 0 100%);
+    transition: transform 0.28s var(--ease), color 0.28s;
+  }
+  .pill-arrow::before {
+    content: ''; position: absolute; inset: 2px 3px 2px 0; background: #181818;
+    clip-path: polygon(0 0, 66% 0, 100% 50%, 66% 100%, 0 100%);
+    transition: background 0.28s;
+  }
+  .pill-arrow svg { position: relative; z-index: 1; width: 20px; height: 20px; margin-right: 6px; transition: transform 0.28s; }
+  .pill:hover .pill-label, .pill:focus-visible .pill-label { background: rgba(255, 255, 255, 0.08); transform: translateX(-3px); box-shadow: 0 0 20px rgba(255, 255, 255, 0.14); }
+  .pill:hover .pill-arrow, .pill:focus-visible .pill-arrow { color: #111; transform: translateX(4px); }
+  .pill:hover .pill-arrow::before, .pill:focus-visible .pill-arrow::before { background: #fff; }
+  .pill:hover .pill-arrow svg { transform: translateX(3px); }
+  .hint { margin: 18px 0 0; font-size: 10px; color: var(--dim); }
+
+  /* ---------- toolbar ---------- */
+  .toolbar { margin-top: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 14px; }
+  .toolbar-row { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; }
+  .search {
+    flex: 1 1 260px; display: flex; align-items: center; gap: 10px; padding: 0 14px;
+    border: 2px dashed var(--line); border-radius: 12px; background: rgba(255, 255, 255, 0.02);
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .search:focus-within { background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 18px rgba(255, 255, 255, 0.1); }
+  .search svg { width: 17px; height: 17px; flex: none; color: var(--muted); }
+  .search input { flex: 1; min-width: 0; padding: 13px 0; border: 0; outline: 0; background: transparent; font-size: 12px; }
+  .search input::placeholder { color: var(--dim); }
+  .toggle {
+    display: inline-flex; align-items: center; gap: 10px; padding: 0 16px; cursor: pointer; user-select: none;
+    border: 2px solid var(--line); border-radius: 12px; font-size: 11px; white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+  .toggle:hover { background: rgba(255, 255, 255, 0.08); }
+  .toggle input { position: absolute; opacity: 0; pointer-events: none; }
+  .toggle .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; transition: background 0.2s; }
+  .toggle input:checked + .dot { background: #fff; }
+  .toggle:has(input:checked) { background: #fff; color: #111; }
+  .toggle:has(input:checked) .dot { border-color: #111; background: #111; }
+  .toggle:has(input:focus-visible) { outline: 2px solid #fff; outline-offset: 3px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; cursor: pointer;
+    border: 1px solid #777; border-radius: 8px; background: transparent; font-size: 11px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .chip small { font-size: 10px; opacity: 0.6; }
+  .chip:hover { border-color: #fff; transform: translateY(-2px); }
+  .chip[aria-pressed='true'] { background: #fff; border-color: #fff; color: #111; }
+  .meta-line { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--muted); }
+  .meta-line::before { content: ''; flex: 1; height: 0; border-top: 1px dashed var(--line-soft); }
+  .meta-line button { order: -1; background: none; border: 0; border-bottom: 1px solid currentColor; padding: 0 2px; cursor: pointer; font-size: 11px; color: inherit; }
+  .meta-line button[hidden] { display: none; }
+
+  /* ---------- collections ---------- */
+  .collections { padding-bottom: 20px; }
+  .collection { padding-top: clamp(40px, 6vw, 72px); }
+  .collection[hidden] { display: none; }
+  .collection + .collection { margin-top: clamp(28px, 4vw, 48px); border-top: 2px dashed var(--line-soft); }
+  .collection-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(18px, 3vw, 40px); margin-bottom: 28px; }
+  .collection-text h2 { margin: 6px 0 8px; font: 600 clamp(28px, 4vw, 46px) var(--display); letter-spacing: -0.03em; line-height: 1.05; }
+  .collection-text p { margin: 0; max-width: 560px; color: var(--muted); font-size: 12px; }
+  .collection-count { font: 600 13px var(--display); letter-spacing: 0.08em; border: 1px solid #777; border-radius: 999px; padding: 4px 14px; white-space: nowrap; }
+
+  .shape-icon { position: relative; width: 92px; height: 92px; display: grid; place-items: center; flex: none; }
+  .shape-icon span { font: 700 18px var(--display); position: relative; z-index: 1; }
+  .icon-diamond::before {
+    content: ''; position: absolute; width: 64px; height: 64px; border: 3px solid #fff; border-radius: 15px; transform: rotate(45deg);
+    transition: transform 0.4s var(--ease);
+  }
+  .collection:hover .icon-diamond::before { transform: rotate(135deg); }
+  .icon-circle::before {
+    content: ''; position: absolute; inset: 4px; border: 3px solid #fff; border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0) 100%);
+    animation: spin 7s linear infinite;
+  }
+  .icon-box::before { content: ''; position: absolute; width: 78px; height: 64px; border: 3px solid #fff; border-radius: 14px; }
+  .icon-box::after { content: ''; position: absolute; width: 58px; height: 44px; border: 2px dashed rgba(255, 255, 255, 0.55); border-radius: 8px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 18px; }
+
+  .card {
+    position: relative; display: flex; flex-direction: column; overflow: hidden;
+    border: 2px dashed #777; border-radius: var(--radius); background: rgba(255, 255, 255, 0.015);
+    transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    animation: cardIn 0.45s var(--ease) both;
+  }
+  .card:hover, .card:focus-within { transform: translateY(-5px); border-style: solid; border-color: #fff; background: rgba(255, 255, 255, 0.05); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 255, 255, 0.06); }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  .thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px dashed #555; background: radial-gradient(circle at 50% 40%, #2a2a2a, #141414); display: grid; place-items: center; }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s var(--ease), filter 0.3s; filter: saturate(0.9); }
+  .card:hover .thumb img { transform: scale(1.05); filter: saturate(1.05); }
+  .badge { position: absolute; z-index: 2; top: 10px; left: 10px; font: 600 10px var(--display); letter-spacing: 0.1em; padding: 2px 9px; border-radius: 999px; background: rgba(18, 18, 18, 0.86); border: 1px solid rgba(255, 255, 255, 0.55); }
+  .badge.repo { border-style: dashed; color: var(--muted); }
+
+  .glyph { position: relative; display: grid; place-items: center; width: 62px; height: 62px; background: var(--white); color: #121212; font: 700 20px var(--display); transition: transform 0.4s var(--ease); }
+  .card:hover .glyph { transform: rotate(-8deg) scale(1.1); }
+  .glyph.g-circle { border-radius: 50%; }
+  .glyph.g-square { border-radius: 8px; transform: rotate(10deg); }
+  .card:hover .glyph.g-square { transform: rotate(-4deg) scale(1.1); }
+  .glyph.g-diamond { border-radius: 8px; transform: rotate(45deg) scale(0.82); }
+  .glyph.g-diamond span { transform: rotate(-45deg); }
+  .card:hover .glyph.g-diamond { transform: rotate(135deg) scale(0.9); }
+  .glyph.g-triangle { width: 72px; height: 64px; clip-path: polygon(50% 0, 100% 100%, 0 100%); align-items: end; padding-bottom: 8px; font-size: 16px; }
+
+  .card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 6px; }
+  .card h3 { margin: 6px 0 8px; font: 600 clamp(19px, 1.7vw, 23px) var(--display); letter-spacing: -0.02em; line-height: 1.15; }
+  .card h3 a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+  .card .desc { margin: 0 0 14px; font-size: 11.5px; color: #b5b5b5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tag { border: 1px solid #5f5f5f; border-radius: 6px; padding: 2px 8px; font-size: 10px; color: #ccc; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 18px 0; padding: 12px 0 16px; border-top: 1px dashed #555; font-size: 11px; }
+  .foot-links { display: flex; gap: 14px; flex: none; }
+  .host { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .go { font: 600 12px var(--display); white-space: nowrap; transition: transform 0.25s; }
+  .card:hover .go { transform: translate(3px, -3px); }
+  .code { position: relative; z-index: 2; font: 500 11px var(--display); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, 0.4); white-space: nowrap; padding: 2px 0; transition: text-decoration-color 0.2s; }
+  .code:hover { text-decoration-color: #fff; }
+
+  .empty { display: none; margin: 40px 0 10px; padding: 48px 20px; text-align: center; border: 2px dashed var(--line-soft); border-radius: var(--radius); color: var(--muted); }
+  .empty.show { display: block; }
+  .empty button { margin-top: 14px; background: none; border: 0; border-bottom: 1px solid currentColor; cursor: pointer; color: #fff; }
+  noscript .wrap { padding: 40px 0; color: var(--muted); }
+
+  /* ---------- footer ---------- */
+  .site-footer { margin-top: clamp(48px, 7vw, 90px); border-top: 1px dashed var(--line-soft); padding: 34px 0 48px; text-align: center; }
+  .footer-shapes { display: flex; justify-content: center; align-items: center; gap: 9px; margin-bottom: 14px; }
+  .footer-shapes i { display: block; width: 10px; height: 10px; background: #fff; }
+  .footer-shapes i:nth-child(1) { transform: rotate(45deg); }
+  .footer-shapes i:nth-child(2) { border-radius: 50%; }
+  .footer-shapes i:nth-child(3) { width: 0; height: 0; background: none; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid #fff; }
+  .footer-name { font: 500 14px var(--display); letter-spacing: 0.06em; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 14px; font-size: 11px; color: var(--muted); }
+  .footer-links a:hover { color: #fff; }
+
+  /* ---------- large screens ---------- */
+  @media (min-width: 1700px) {
+    :root { --gutter: 48px; }
+    .wrap { width: min(1600px, calc(100% - var(--gutter) * 2)); }
+    body { font-size: 14px; }
+    .cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 22px; }
+    .card .desc { font-size: 12.5px; }
+  }
+
+  /* ---------- tablet ---------- */
+  @media (max-width: 900px) {
+    .nav a.nav-link { display: none; }
+    .collection-head { grid-template-columns: auto minmax(0, 1fr); }
+    .collection-count { grid-column: 1 / -1; justify-self: start; }
+    .shape-icon { width: 76px; height: 76px; }
+    .icon-diamond::before { width: 52px; height: 52px; border-radius: 12px; }
+    .icon-box::before { width: 64px; height: 52px; }
+    .icon-box::after { width: 46px; height: 34px; }
+  }
+
+  /* ---------- phone ---------- */
+  @media (max-width: 560px) {
+    :root { --gutter: 12px; }
+    body { font-size: 12px; }
+    .bar { min-height: 56px; }
+    .brand { font-size: 16px; }
+    .brand-sub { display: none; }
+    .replay { padding: 6px 9px; }
+    .hero { border-radius: 17px; min-height: 560px; }
+    .pill { min-height: 52px; }
+    .pill-arrow { width: 46px; }
+    .toolbar-row { flex-direction: column; gap: 10px; }
+    .search { flex: 0 0 auto; padding: 0 12px; border-radius: 10px; }
+    .search input { padding: 10px 0; font-size: 16px; line-height: 1.3; }
+    .toggle { padding: 9px 14px; justify-content: center; border-radius: 10px; }
+    .collection-head { grid-template-columns: 1fr; gap: 14px; }
+    .shape-icon { width: 64px; height: 64px; }
+    .icon-diamond::before { width: 42px; height: 42px; border-radius: 10px; }
+    .icon-box::before { width: 54px; height: 44px; }
+    .icon-box::after { width: 38px; height: 28px; }
+    .shape-icon span { font-size: 15px; }
+    .cards { gap: 14px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark"></span><span>ATHARV KHARE</span><span class="brand-sub">WORK INDEX</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-link" href="#notes">Notes</a>
+      <a class="nav-link" href="#visuals">Visuals</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="/">Portfolio</a>
+      <button class="replay" id="replay" type="button" aria-label="Replay the falling shapes">&#8635; <span>Replay shapes</span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero-wrap">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <canvas id="shapes" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <div class="eyebrow">Notes &middot; Visuals &middot; Project sites</div>
+        <h1 class="display" id="hero-title">The Work Index</h1>
+        <p class="intro">Everything I have built to <strong>learn, explain and ship</strong>, gathered in one place: course notes and study websites, interactive visualisations, and live project sites.</p>
+        <nav class="pills" aria-label="Jump to a collection">
+          <a class="pill" href="#notes" data-kind="notes"><span class="pill-label">STUDY &amp; NOTES <em data-count="notes"></em></span><span class="pill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></span></a>
+          <a class="pill" href="#visuals" data-kind="visuals"><span class="pill-label">INTERACTIVE VISUALS <em data-count="visuals"></em></span><span class="pill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></span></a>
+          <a class="pill" href="#projects" data-kind="projects"><span class="pill-label">PROJECT SITES <em data-count="projects"></em></span><span class="pill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></span></a>
+        </nav>
+        <p class="hint">Tap or click the shapes to scatter them</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <div class="toolbar" role="search">
+      <div class="toolbar-row">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search notes, tools, topics..." autocomplete="off" aria-label="Search the work index">
+        </label>
+        <label class="toggle"><input id="live" type="checkbox"><span class="dot" aria-hidden="true"></span>Live sites only</label>
+      </div>
+      <div class="chips" id="kind-chips" role="group" aria-label="Filter by collection"></div>
+      <div class="meta-line"><span id="result-count" aria-live="polite"></span><button id="reset" type="button" hidden>Reset filters</button></div>
+    </div>
+
+    <div class="collections" id="collections">
+      <section class="collection" id="notes" data-kind="notes" aria-labelledby="notes-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-diamond" aria-hidden="true"><span>01</span></div>
+          <div class="collection-text">
+            <div class="eyebrow">Course notes &amp; study websites</div>
+            <h2 id="notes-title">Study &amp; Notes</h2>
+            <p>Summaries, syllabus maps, revision sheets and practice sets built while studying at IIT Madras, shared so the next batch has less to dig through.</p>
+          </div>
+          <div class="collection-count" data-section-count="notes"></div>
+        </header>
+        <div class="cards" data-grid="notes"></div>
+      </section>
+
+      <section class="collection" id="visuals" data-kind="visuals" aria-labelledby="visuals-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-circle" aria-hidden="true"><span>02</span></div>
+          <div class="collection-text">
+            <div class="eyebrow">Interactive visualisations</div>
+            <h2 id="visuals-title">Interactive Visuals</h2>
+            <p>Things you can poke at: algorithms that animate as you tune them, models that show their reasoning, maps, dashboards and simulators.</p>
+          </div>
+          <div class="collection-count" data-section-count="visuals"></div>
+        </header>
+        <div class="cards" data-grid="visuals"></div>
+      </section>
+
+      <section class="collection" id="projects" data-kind="projects" aria-labelledby="projects-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-box" aria-hidden="true"><span>03</span></div>
+          <div class="collection-text">
+            <div class="eyebrow">Apps, platforms &amp; tools</div>
+            <h2 id="projects-title">Project Sites</h2>
+            <p>Deployed products and repositories across ML, data, developer tooling and the web. Repo-only entries are marked, and can be hidden with the live filter.</p>
+          </div>
+          <div class="collection-count" data-section-count="projects"></div>
+        </header>
+        <div class="cards" data-grid="projects"></div>
+      </section>
+
+      <div class="empty" id="empty" role="status">
+        <p>Nothing matches those filters.</p>
+        <button id="empty-reset" type="button">Reset filters</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<noscript><div class="wrap">This page lists work from a data file and needs JavaScript. Everything is also available on GitHub: https://github.com/1mystic</div></noscript>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-shapes" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="footer-name">ATHARV KHARE &middot; THE WORK INDEX</div>
+    <div class="footer-links">
+      <a href="/">Portfolio</a>
+      <a href="fresh/blog.html">Writing</a>
+      <a href="socials.html">Socials</a>
+      <a href="https://github.com/1mystic" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
+      <a href="#top">Back to top &#8593;</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/matter.min.js"></script>
+<script src="data/portfolio-data.js"></script>
+<script>
+/* =====================================================================
+   1. DATA: build one deduplicated list of "work" from the shared data file
+   ===================================================================== */
+(function () {
+  'use strict';
+
+  var DATA = window.PORTFOLIO_DATA || null;
+  function list(fn) {
+    try { return DATA && typeof DATA[fn] === 'function' ? (DATA[fn]({ basePath: '' }) || []) : []; }
+    catch (e) { return []; }
+  }
+
+  /* Which collection an entry lands in. Anything not listed here is classified
+     from its source: study resources -> notes, everything else -> projects. */
+  var VISUAL_TITLES = [
+    'BayesInspector', 'Axiom Canvas', 'Interactive ML Algorithms', 'Flipkart Gridlock',
+    'Bhopal Food Delivery Analysis', 'Origami Simulator', 'WikiViz'
+  ];
+  /* Screenshots that exist in assets/projects but are not referenced by the data file. */
+  var IMAGE_BY_TITLE = {
+    'Qwix.it': 'assets/projects/qwix.webp',
+    'Whiz.it': 'assets/projects/whizit.webp',
+    'Wixplore': 'assets/projects/wix.webp',
+    'MindFluence': 'assets/projects/mind.webp',
+    'Clearview Eco': 'assets/projects/clearv.webp',
+    'PyCrumbs': 'assets/projects/pylearn.webp',
+    'MLP Project Statistical Analysis': 'assets/projects/stat.webp'
+  };
+  /* Live links missing from the data file, and second deployments of the same work. */
+  var LIVE_FIX = {
+    'Comment Sentiment Classification': 'https://comment-classification-bs2t.onrender.com/'
+  };
+  var MIRRORS = {
+    'Mitra': { label: 'Mirror', url: 'https://mitra-gzl1.onrender.com/' },
+    'Tools in Data Science (TDS) Summary': { label: 'Mirror', url: 'https://1mystic.github.io/TDS-Summary/' },
+    'Machine Learning Practice (MLP) Notes': { label: 'Mirror', url: 'https://1mystic.github.io/mlp-summary/' }
+  };
+  /* Sites that are not in the data file yet. Add new work here (or to the data file). */
+  var EXTRA_WORK = [
+    { kind: 'notes', title: 'Deep Learning Notes', href: 'https://1mystic.github.io/Deep-Learning-Notes/', label: 'Study notes',
+      desc: 'Illustrated deep learning notes with derivations, solved examples and exam patterns.', tags: ['Deep Learning', 'Derivations', 'Exam prep'] },
+    { kind: 'notes', title: 'The Ops Grind', href: 'https://aiml-ops.pages.dev/', label: 'Interactive guide',
+      desc: 'Interactive guide to MLOps, LLMOps and AIOps for 2026-2027: export, serving, guardrails, deployment, monitoring and security, with animated labs, maths, code and interview chains.', tags: ['MLOps', 'LLMOps', 'AIOps'] },
+    { kind: 'notes', title: 'Prompt Sources', href: 'https://prompt-sources.edgeone.dev/', label: 'Resource list',
+      desc: 'A compiled list of AI and LLM prompt sources.', tags: ['Prompts', 'LLM', 'Resources'] },
+    { kind: 'notes', title: 'TDS Collaboration Hub', href: 'https://tds-collab.vercel.app/', label: 'Course site',
+      desc: 'Tools in Data Science T1 2026: collaborative assignment and project portal.', tags: ['TDS', 'IIT Madras', 'Collaboration'] },
+    { kind: 'notes', title: 'TDS Manual', href: 'https://tds-manual.vercel.app/', label: 'Course site',
+      desc: 'A manual for the Tools in Data Science course.', tags: ['TDS', 'IIT Madras', 'Reference'] },
+    { kind: 'notes', title: 'Study Stack', href: 'https://study-stack-weld.vercel.app/', label: 'Study site',
+      desc: '', tags: ['Study'] },
+    { kind: 'notes', title: 'Pen: The Archive of Transience', href: 'https://1mystic.github.io/pen/', label: 'Digital garden',
+      desc: 'Minimalist digital garden collecting simple essays, technical notes, ideas, and reflections on computer science and philosophy.', tags: ['Essays', 'Notes', 'Writing'] },
+
+    { kind: 'visuals', title: 'AI-LLM Lab', href: 'https://1mystic.github.io/AI-LLM/', label: 'Interactive lab',
+      desc: 'Interactive large-language-model lab: tokenisation, embeddings, transformers, attention variants, training, alignment, fine-tuning, inference, RAG, MCP and agents, each with an animated lab and a reference sheet.', tags: ['LLM', 'Transformers', 'RAG'] },
+    { kind: 'visuals', title: 'ML Explorer Lab', href: 'https://mlexplorer.pages.dev/', label: 'Interactive lab',
+      desc: 'Interactive machine-learning lab: every classic algorithm implemented from scratch in the browser, with animated step-by-step training, architecture diagrams and reference sheets.', tags: ['Machine Learning', 'Algorithms', 'From scratch'] },
+    { kind: 'visuals', title: 'Search Studio', href: 'https://aisearchstudio.pages.dev/', label: 'Algorithm visualiser',
+      desc: 'Free, open-source visual studio for AI search algorithms: BFS, DFS, A*, hill climbing, simulated annealing, genetic algorithms, ant colony, Minimax, Alpha-Beta and more, traced step by step.', tags: ['AI search', 'A*', 'Minimax'] },
+    { kind: 'visuals', title: 'DryRun', href: 'https://1mystic.github.io/DryRun/', label: 'Algorithm visualiser',
+      desc: 'Paste a LeetCode link and get a beginner and an optimized solution, an animated step-by-step trace, a memory trick and an Anki card. 200 curated problems across 8 role tracks.', tags: ['DSA', 'LeetCode', 'Animated trace'] },
+    { kind: 'visuals', title: 'CS-LLN Inspector', href: 'https://1mystic.github.io/CS-LLN/', label: 'Research visual',
+      desc: 'Interactive inspector for the Context-Shifting Log-Linear Network (CS-LLN).', tags: ['Research', 'Inspector', 'LLN'] },
+    { kind: 'visuals', title: 'TDS Submission Explorer', href: 'https://tds-subs.netlify.app/', label: 'Analytics',
+      desc: 'Submission explorer and analytics for Tools in Data Science.', tags: ['TDS', 'Analytics', 'Dashboard'] },
+
+    { kind: 'projects', title: 'Nayori', href: 'https://warm-haupia-7ae100.netlify.app/', label: 'Anime site',
+      desc: 'Watch anime free in sub and dub, with a cozy private player, smart recommendations, watch parties and MyAnimeList sync.', tags: ['Anime', 'Streaming', 'Watch parties'] },
+    { kind: 'projects', title: 'RomanjiClip', href: 'https://1mystic.github.io/RomanjiClip/', label: 'Web tool',
+      desc: 'A lyric video studio.', tags: ['Lyrics', 'Video', 'Studio'] },
+    { kind: 'projects', title: 'PaperLift', href: '', github: 'https://github.com/1mystic/paperlift/releases/tag/v0.2.0', badge: 'RELEASE', label: 'Open source',
+      desc: 'Lift clean, editable Markdown, Word, PDF and JSON out of flattened PDFs. Keeps figures, tables and exam question structure. Runs fully offline.', tags: ['PDF', 'Offline', 'Markdown'] },
+    { kind: 'projects', title: 'Tarang', href: 'https://1mystic.github.io/TarangAI/', label: 'Android app',
+      desc: 'Free, private, offline-first live voice translation across Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada and English.', tags: ['Android', 'Translation', 'Offline'] },
+    { kind: 'projects', title: 'Askalot', href: 'https://askalot-ai.netlify.app/', label: 'Learning tool',
+      desc: 'A Socratic learning harness: bring any AI model, learn any topic, and let it ask the questions.', tags: ['Socratic', 'Learning', 'AI'] },
+    { kind: 'projects', title: 'Family Paradox', href: 'https://family-paradox-c.vercel.app/', label: 'Game',
+      desc: 'A realtime minority-rule party game for families. One screen to share, everyone else plays from their phone.', tags: ['Game', 'Realtime', 'Multiplayer'] },
+    { kind: 'projects', title: 'Quorum', href: 'https://quorum-ruby-sigma.vercel.app/', label: 'Web app',
+      desc: '', tags: ['Web app'] },
+    { kind: 'projects', title: 'Zen Interview Garden', href: 'https://zenroom-4e951.web.app/', label: 'Daily planner',
+      desc: '91-day interview prep with real-time progress tracking and Firestore sync. My daily plan for Sept to Dec 2026.', tags: ['Interview prep', 'Firebase', 'Tracker'] },
+    { kind: 'projects', title: 'EduTubeX', href: 'https://ytvault.netlify.app/', label: 'Learning tool',
+      desc: 'A personal YouTube learning aggregation and knowledge system.', tags: ['YouTube', 'Learning', 'Knowledge base'] },
+    { kind: 'projects', title: 'Mitra: DL & GenAI Capstone', href: 'https://1mystic.github.io/mitra-capstone-project-DLGenAI/', label: 'Capstone',
+      desc: 'Mitra as a personal AI mastery roadmap for 2026, built as a Deep Learning and Generative AI course project.', tags: ['Capstone', 'GenAI', 'Roadmap'] },
+    { kind: 'projects', title: 'ShriMelan', href: 'https://shrimelan.pages.dev/', label: 'Analytics portal',
+      desc: 'Restaurant management and insights portal built around the Shri Melan business data capstone.', tags: ['Analytics', 'Restaurant', 'Capstone'] },
+    { kind: 'projects', title: '2026 Smartphone Insights', href: 'https://sites.google.com/view/2026-smartphone-insights/', label: 'Analysis site',
+      desc: '', tags: ['Analysis', 'Smartphones'] },
+    { kind: 'projects', title: 'Atharv Khare: Personal Site', href: 'https://atharvkhare.netlify.app/', label: 'Portfolio',
+      desc: 'Atharv Khare, Data Scientist and Developer: ML pipelines, full-stack apps and AI-powered tools.', tags: ['Portfolio', 'Web'] }
+  ];
+  /* Screenshots taken from the live sites (assets/work/<slug>.webp). */
+  var SHOTS = [
+    '2026-smartphone-insights',
+    'ai-llm-lab',
+    'askalot',
+    'atharv-khare-personal-site',
+    'bhopal-food-delivery-analysis',
+    'comment-sentiment-classification',
+    'cs-lln-inspector',
+    'daily-data-science-feed',
+    'data-science-compendium',
+    'deep-learning-notes',
+    'devloft',
+    'dryrun',
+    'edutubex',
+    'family-paradox',
+    'full-stack-ai-engineer-guide',
+    'glideml',
+    'iitm-bs-data-science-syllabus',
+    'interactive-ml-algorithms',
+    'kanha-student-house',
+    'machine-learning-practice-mlp-notes',
+    'marktex',
+    'mitra-dl-genai-capstone',
+    'ml-explorer-lab',
+    'nayori',
+    'pen-the-archive-of-transience',
+    'prompt-sources',
+    'psycholectures-hub',
+    'quorum',
+    'romanjiclip',
+    'search-studio',
+    'shrimelan',
+    'statistics-ii-course-analysis',
+    'study-stack',
+    'tarang',
+    'tds-collaboration-hub',
+    'tds-manual',
+    'tds-submission-explorer',
+    'the-ops-grind',
+    'tools-in-data-science-tds-summary',
+    'zen-interview-garden'
+  ];
+  function slug(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+
+  var KINDS = {
+    notes:    { label: 'Study & Notes',      short: 'Notes' },
+    visuals:  { label: 'Interactive Visuals', short: 'Visuals' },
+    projects: { label: 'Project Sites',      short: 'Projects' }
+  };
+
+  function normUrl(u) { return String(u || '').replace(/#.*$/, '').replace(/\/+$/, '').toLowerCase(); }
+  function clean(t) { return String(t || '').replace(/\s+/g, ' ').trim(); }
+  function hostOf(u) {
+    try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+  }
+
+  var seen = Object.create(null);
+  var items = [];
+  function add(src, kind, force) {
+    if (!src || !src.title) return;
+    var live = src.href && src.href !== '#' ? src.href : (LIVE_FIX[src.title] || '');
+    var key = live ? normUrl(live) : 'title:' + src.title.toLowerCase();
+    if (seen[key]) return;
+    if (!live && !src.github) return;
+    seen[key] = true;
+    var k = !force && VISUAL_TITLES.indexOf(src.title) !== -1 ? 'visuals' : kind;
+    var id = slug(src.title);
+    items.push({
+      kind: k,
+      title: clean(src.title),
+      desc: clean(src.desc),
+      tags: (src.tags || []).slice(0, 4),
+      live: live,
+      repo: src.github || '',
+      mirror: MIRRORS[src.title] || null,
+      badge: src.badge || '',
+      img: src.img || IMAGE_BY_TITLE[src.title] || (SHOTS.indexOf(id) !== -1 ? 'assets/work/' + id + '.webp' : ''),
+      label: clean(src.label || src.catLabel) || ''
+    });
+  }
+
+  list('getEduResources').forEach(function (r) { add(r, 'notes'); });
+  list('getProjects').forEach(function (p) { add(p, 'projects'); });
+  list('getResearch').forEach(function (r) {
+    if (r.href && r.cat === 'analysis' && !/zenodo\.org/i.test(r.href)) add(r, 'notes');
+  });
+  EXTRA_WORK.forEach(function (x) { add(x, x.kind, true); });
+
+  items.forEach(function (it) {
+    it.host = hostOf(it.live || it.repo);
+    it.hay = [it.title, it.desc, it.tags.join(' '), it.host, KINDS[it.kind].label].join(' ').toLowerCase();
+  });
+
+  /* =====================================================================
+     2. RENDER + FILTERS
+     ===================================================================== */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return Math.abs(h); }
+  function monogram(title) {
+    var words = title.replace(/[^A-Za-z0-9 ]/g, ' ').split(' ').filter(Boolean);
+    if (words.length > 1) return (words[0][0] + words[1][0]).toUpperCase();
+    return (words[0] || '?').slice(0, 2).toUpperCase();
+  }
+  var SHAPES = ['circle', 'square', 'diamond', 'triangle'];
+
+  function glyphHtml(it) {
+    var shape = SHAPES[hash(it.title) % SHAPES.length];
+    return '<span class="glyph g-' + shape + '"><span>' + esc(monogram(it.title)) + '</span></span>';
+  }
+
+  function cardHtml(it, i) {
+    var primary = it.live || it.repo;
+    var thumb = it.img
+      ? '<img src="' + esc(it.img) + '" alt="" loading="lazy" decoding="async" data-fallback="' + esc(it.title) + '">'
+      : glyphHtml(it);
+    var tags = it.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
+    var badge = it.live ? '<span class="badge">LIVE</span>' : '<span class="badge repo">' + esc(it.badge || 'REPO ONLY') + '</span>';
+    var links = '';
+    if (it.live && it.repo) links += '<a class="code" href="' + esc(it.repo) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(it.title) + ' source code">Code</a>';
+    if (it.mirror) links += '<a class="code" href="' + esc(it.mirror.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(it.title) + ' ' + esc(it.mirror.label.toLowerCase()) + '">' + esc(it.mirror.label) + '</a>';
+    var code = links ? '<span class="foot-links">' + links + '</span>' : '<span class="go" aria-hidden="true">&#8599;</span>';
+    return '<article class="card" style="animation-delay:' + Math.min(i, 12) * 35 + 'ms">' +
+      '<div class="thumb">' + badge + thumb + '</div>' +
+      '<div class="card-body">' +
+        '<div class="eyebrow">' + esc(it.label || KINDS[it.kind].short) + '</div>' +
+        '<h3><a href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer">' + esc(it.title) + '</a></h3>' +
+        (it.desc ? '<p class="desc">' + esc(it.desc) + '</p>' : '') +
+        (tags ? '<div class="tags">' + tags + '</div>' : '') +
+      '</div>' +
+      '<div class="card-foot"><span class="host">' + esc(it.host) + '</span>' + code + '</div>' +
+    '</article>';
+  }
+
+  var state = { kind: 'all', q: '', live: false };
+  var $ = function (id) { return document.getElementById(id); };
+  var totals = { notes: 0, visuals: 0, projects: 0 };
+  items.forEach(function (it) { totals[it.kind]++; });
+
+  function readUrl() {
+    var p = new URLSearchParams(location.search);
+    if (KINDS[p.get('kind')]) state.kind = p.get('kind');
+    if (p.get('q')) state.q = p.get('q');
+    state.live = p.get('live') === '1';
+  }
+  function writeUrl() {
+    var p = new URLSearchParams();
+    if (state.kind !== 'all') p.set('kind', state.kind);
+    if (state.q) p.set('q', state.q);
+    if (state.live) p.set('live', '1');
+    var qs = p.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+  }
+
+  function buildChips() {
+    var box = $('kind-chips');
+    var defs = [['all', 'All', items.length]].concat(Object.keys(KINDS).map(function (k) { return [k, KINDS[k].short, totals[k]]; }));
+    box.innerHTML = '';
+    defs.forEach(function (d) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.dataset.kind = d[0];
+      b.innerHTML = esc(d[1]) + ' <small>' + d[2] + '</small>';
+      b.addEventListener('click', function () { state.kind = (state.kind === d[0] ? 'all' : d[0]); update(); });
+      box.appendChild(b);
+    });
+  }
+
+  function update() {
+    var q = state.q.toLowerCase().trim();
+    var words = q ? q.split(/\s+/) : [];
+    var shown = 0;
+    var perKind = { notes: [], visuals: [], projects: [] };
+
+    items.forEach(function (it) {
+      if (state.kind !== 'all' && it.kind !== state.kind) return;
+      if (state.live && !it.live) return;
+      if (!words.every(function (w) { return it.hay.indexOf(w) !== -1; })) return;
+      perKind[it.kind].push(it);
+      shown++;
+    });
+
+    Object.keys(KINDS).forEach(function (k) {
+      var section = $(k);
+      var grid = section.querySelector('[data-grid]');
+      var rows = perKind[k];
+      section.hidden = rows.length === 0;
+      grid.innerHTML = rows.map(cardHtml).join('');
+      section.querySelector('[data-section-count]').textContent = rows.length + (rows.length === 1 ? ' site' : ' sites');
+    });
+
+    document.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.kind === state.kind)); });
+    var filtered = state.kind !== 'all' || state.q || state.live;
+    $('result-count').textContent = shown === items.length ? items.length + ' works' : 'Showing ' + shown + ' of ' + items.length + ' works';
+    $('reset').hidden = !filtered;
+    $('empty').classList.toggle('show', shown === 0);
+    writeUrl();
+  }
+
+  function resetAll() {
+    state.kind = 'all'; state.q = ''; state.live = false;
+    $('q').value = ''; $('live').checked = false;
+    update();
+  }
+
+  /* broken screenshots fall back to the generated shape glyph */
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.dataset.fallback) return;
+    var it = items.filter(function (x) { return x.title === img.dataset.fallback; })[0];
+    if (it) img.replaceWith(document.createRange().createContextualFragment(glyphHtml(it)));
+  }, true);
+
+  var timer;
+  $('q').addEventListener('input', function (e) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { state.q = e.target.value.trim(); update(); }, 120);
+  });
+  $('live').addEventListener('change', function (e) { state.live = e.target.checked; update(); });
+  $('reset').addEventListener('click', resetAll);
+  $('empty-reset').addEventListener('click', resetAll);
+
+  /* hero pills: reveal the collection if a filter was hiding it, then scroll */
+  document.querySelectorAll('.pill').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = $(a.dataset.kind);
+      if (!target) return;
+      e.preventDefault();
+      if (state.kind !== 'all' && state.kind !== a.dataset.kind) state.kind = 'all';
+      if (state.live) { state.live = false; $('live').checked = false; }
+      update();
+      target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = totals[el.dataset.count] || 0; });
+
+  readUrl();
+  $('q').value = state.q;
+  $('live').checked = state.live;
+  buildChips();
+  update();
+  if (location.hash && $(location.hash.slice(1))) $(location.hash.slice(1)).scrollIntoView();
+})();
+
+/* =====================================================================
+   3. HERO PHYSICS
+   Shapes drop one at a time from above the frame. The hero's inner edges
+   (floor, side walls and the rounded bottom corners) are solid walls, so
+   shapes bounce, tumble, collide and settle into a pile. A cosmetic spring
+   squashes each shape on impact for a wobbly feel; collisions stay rigid.
+   ===================================================================== */
+(function () {
+  'use strict';
+  var hero = document.getElementById('hero');
+  var canvas = document.getElementById('shapes');
+  if (!hero || !canvas || !canvas.getContext || !window.Matter) return;
+
+  var M = window.Matter;
+  var Engine = M.Engine, Bodies = M.Bodies, Body = M.Body, Composite = M.Composite,
+      Events = M.Events, Sleeping = M.Sleeping, Query = M.Query;
+  var ctx = canvas.getContext('2d');
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var STEP = 1000 / 60;
+  var INK = '#121212', PAPER = '#f8f8f5';
+  var W = 0, H = 0, dpr = 1, size = 40, cornerR = 20;
+  var engine, walls = [], bodies = [], plan = [], nextIdx = 0, spawnAcc = 0, spawnGap = 300;
+  var raf = 0, last = 0, acc = 0, idleFrames = 0, visible = true, started = false, startedW = 0;
+  var pointer = { x: 0, y: 0, has: false };
+
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = (Math.random() * (i + 1)) | 0; var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* ---------- sizing ---------- */
+  function measure() {
+    W = hero.clientWidth;
+    H = hero.clientHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, Math.round(W * dpr));
+    canvas.height = Math.max(1, Math.round(H * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var r = parseFloat(getComputedStyle(hero).borderBottomLeftRadius) || 20;
+    cornerR = Math.max(8, r - 2);
+  }
+
+  function makePlan() {
+    size = Math.round(clamp(W / 22, 30, 64));
+    var margin = size * 0.8, TYPES = ['circle', 'square', 'triangle', 'square', 'circle', 'triangle'];
+
+    /* spread shapes: evenly staggered across the whole width */
+    var spread = clamp(Math.floor(W / (size * 1.15) * 1.2), 8, 24);
+    var slots = shuffle(Array.from({ length: spread }, function (_, i) { return i; }));
+    var slotW = (W - margin * 2) / spread;
+    plan = [];
+    for (var i = 0; i < spread; i++) {
+      var t = TYPES[i % TYPES.length];
+      plan.push({
+        type: t,
+        scale: 0.75 + Math.random() * 0.5,
+        x: margin + (slots[i] + 0.5) * slotW + (Math.random() - 0.5) * slotW * 0.5,
+        eyes: t !== 'triangle' && Math.random() < 0.38
+      });
+    }
+
+    /* corner piles: a narrow drop zone beside each wall, mixed small and large
+       shapes, so they land on top of each other and build a stack */
+    var perCorner = clamp(Math.round(W / 170), 4, 9);
+    var zone = size * 2.1;
+    [0, 1].forEach(function (side) {
+      for (var c = 0; c < perCorner; c++) {
+        var big = c % 3 === 0;
+        var sc = big ? 1.25 + Math.random() * 0.35 : 0.62 + Math.random() * 0.5;
+        var ty = TYPES[(c + side * 2 + (Math.random() * 3 | 0)) % TYPES.length];
+        var half = size * sc * 0.6;
+        var off = half + Math.random() * zone;
+        plan.push({
+          type: ty,
+          scale: sc,
+          x: side === 0 ? off : W - off,
+          eyes: ty !== 'triangle' && Math.random() < 0.38
+        });
+      }
+    });
+
+    shuffle(plan);
+    spawnGap = clamp(9000 / plan.length, 200, 400);
+  }
+
+  /* ---------- engine + walls ---------- */
+  function makeEngine() {
+    engine = Engine.create({ enableSleeping: true, positionIterations: 8, velocityIterations: 6 });
+    engine.gravity.y = 1;
+    engine.gravity.scale = 0.00095 * clamp(H / 600, 0.85, 1.35);
+    Events.on(engine, 'collisionStart', onCollide);
+    walls = [];
+    bodies = [];
+  }
+
+  function buildWalls() {
+    if (walls.length) Composite.remove(engine.world, walls);
+    var T = 400, tall = H * 8, mid = (H + T - tall) / 2, opts = { isStatic: true, friction: 0.5, restitution: 0.3 };
+    var list = [
+      Bodies.rectangle(W / 2, H + T / 2, W + T * 2, T, opts),
+      Bodies.rectangle(-T / 2, mid, T, tall + H + T, opts),
+      Bodies.rectangle(W + T / 2, mid, T, tall + H + T, opts)
+    ];
+    /* quarter-circle arcs so the rounded bottom corners are solid, like the frame */
+    var seg = 7, t = 80, R = cornerR;
+    [[R, H - R, Math.PI / 2], [W - R, H - R, 0]].forEach(function (c) {
+      for (var k = 0; k < seg; k++) {
+        var a0 = c[2] + (k / seg) * (Math.PI / 2), a1 = c[2] + ((k + 1) / seg) * (Math.PI / 2), am = (a0 + a1) / 2;
+        var len = 2 * R * Math.sin((a1 - a0) / 2) + 6;
+        var d = R + t / 2;
+        list.push(Bodies.rectangle(c[0] + Math.cos(am) * d, c[1] + Math.sin(am) * d, len, t, {
+          isStatic: true, friction: 0.5, restitution: 0.3, angle: am + Math.PI / 2
+        }));
+      }
+    });
+    walls = list;
+    Composite.add(engine.world, walls);
+  }
+
+  /* ---------- shapes ---------- */
+  function spawn(spec) {
+    var s = size * spec.scale, y = -s * 1.6, body;
+    var opts = { restitution: 0.42, friction: 0.45, frictionAir: 0.0025, density: 0.002, sleepThreshold: 50, slop: 0.04 };
+    if (spec.type === 'circle') body = Bodies.circle(spec.x, y, s / 2, opts);
+    else if (spec.type === 'square') body = Bodies.rectangle(spec.x, y, s, s, opts);
+    else body = Bodies.polygon(spec.x, y, 3, s * 0.62, opts);
+    body.shapeKind = spec.type;
+    body.shapeSize = s;
+    body.hasEyes = spec.eyes;
+    body.wob = { s: 0, v: 0, ax: 0, ay: 1 };
+    Body.setAngle(body, Math.random() * Math.PI * 2);
+    Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.14);
+    Body.setVelocity(body, { x: (Math.random() - 0.5) * 1.2, y: 0 });
+    Composite.add(engine.world, body);
+    bodies.push(body);
+  }
+
+  function onCollide(e) {
+    for (var i = 0; i < e.pairs.length; i++) {
+      var p = e.pairs[i], n = p.collision.normal;
+      var rvx = p.bodyA.velocity.x - p.bodyB.velocity.x, rvy = p.bodyA.velocity.y - p.bodyB.velocity.y;
+      var speed = Math.abs(rvx * n.x + rvy * n.y);
+      var amt = Math.min(0.3, speed * 0.05);
+      if (amt < 0.03) continue;
+      [p.bodyA, p.bodyB].forEach(function (b) {
+        if (b.isStatic || !b.wob) return;
+        if (amt > Math.abs(b.wob.s)) { b.wob.s = -amt; b.wob.v = 0; b.wob.ax = n.x; b.wob.ay = n.y; }
+      });
+    }
+  }
+
+  function wobble() {
+    for (var i = 0; i < bodies.length; i++) {
+      var w = bodies[i].wob;
+      if (w.s === 0 && w.v === 0) continue;
+      w.v += -0.2 * w.s - 0.085 * w.v;
+      w.s += w.v;
+      if (Math.abs(w.s) < 0.0008 && Math.abs(w.v) < 0.0008) { w.s = 0; w.v = 0; }
+    }
+  }
+
+  /* ---------- drawing ---------- */
+  function squash(px, py, cx, cy, w) {
+    var rx = px - cx, ry = py - cy;
+    var d = rx * w.ax + ry * w.ay, p = -rx * w.ay + ry * w.ax;
+    var k = 1 + w.s, nd = d * k, np = p / k;
+    return [cx + nd * w.ax - np * w.ay, cy + nd * w.ay + np * w.ax];
+  }
+
+  function outline(b) {
+    var cx = b.position.x, cy = b.position.y, pts = [], i;
+    if (b.shapeKind === 'circle') {
+      var r = b.circleRadius;
+      for (i = 0; i < 28; i++) pts.push([cx + Math.cos(i / 28 * Math.PI * 2) * r, cy + Math.sin(i / 28 * Math.PI * 2) * r]);
+    } else {
+      for (i = 0; i < b.vertices.length; i++) pts.push([b.vertices[i].x, b.vertices[i].y]);
+    }
+    if (b.wob.s !== 0) pts = pts.map(function (q) { return squash(q[0], q[1], cx, cy, b.wob); });
+    return pts;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var rect = canvas.getBoundingClientRect();
+    var px = pointer.has ? pointer.x - rect.left : W / 2, py = pointer.has ? pointer.y - rect.top : H * 0.45;
+    ctx.lineJoin = 'round';
+    for (var i = 0; i < bodies.length; i++) {
+      var b = bodies[i], pts = outline(b);
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+      ctx.closePath();
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = 'rgba(18,18,18,0.7)';
+      ctx.stroke();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = PAPER;
+      ctx.fillStyle = PAPER;
+      ctx.fill();
+      ctx.stroke();
+      if (b.hasEyes) eye(b.position.x, b.position.y, b.shapeSize * 0.2, px, py);
+    }
+  }
+
+  function eye(cx, cy, r, tx, ty) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = INK;
+    ctx.fill();
+    var dx = tx - cx, dy = ty - cy, d = Math.hypot(dx, dy) || 1, off = r * 0.42;
+    ctx.beginPath();
+    ctx.arc(cx + dx / d * off, cy + dy / d * off, r * 0.4, 0, Math.PI * 2);
+    ctx.fillStyle = PAPER;
+    ctx.fill();
+  }
+
+  /* ---------- loop ---------- */
+  function allSettled() {
+    if (nextIdx < plan.length) return false;
+    for (var i = 0; i < bodies.length; i++) {
+      var b = bodies[i];
+      if (!b.isSleeping || b.wob.s !== 0 || b.wob.v !== 0) return false;
+    }
+    return true;
+  }
+
+  function frame(t) {
+    raf = requestAnimationFrame(frame);
+    var dt = Math.min(100, t - last);
+    last = t;
+
+    if (nextIdx < plan.length) {
+      spawnAcc += dt;
+      while (nextIdx < plan.length && spawnAcc >= spawnGap) { spawn(plan[nextIdx++]); spawnAcc -= spawnGap; }
+    }
+    acc += dt;
+    var steps = 0;
+    while (acc >= STEP && steps < 4) { Engine.update(engine, STEP); wobble(); acc -= STEP; steps++; }
+    if (steps === 4) acc = 0;
+    draw();
+
+    idleFrames = allSettled() ? idleFrames + 1 : 0;
+    if (idleFrames > 30) stop();
+  }
+
+  function run() {
+    if (raf || reduceMotion || !visible || document.hidden || !started) return;
+    last = performance.now();
+    acc = 0;
+    idleFrames = 0;
+    raf = requestAnimationFrame(frame);
+  }
+  function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+  var drawQueued = false;
+  function requestDraw() {
+    if (raf || drawQueued || !started) return;
+    drawQueued = true;
+    requestAnimationFrame(function () { drawQueued = false; draw(); });
+  }
+
+  /* ---------- lifecycle ---------- */
+  function start() {
+    stop();
+    measure();
+    makePlan();
+    startedW = W;
+    makeEngine();
+    buildWalls();
+    nextIdx = 0; spawnAcc = spawnGap; // first shape drops immediately
+    started = true;
+    if (reduceMotion) {
+      /* no animation: let everything land instantly and paint the resting pile */
+      for (var s = 0; s < plan.length; s++) { spawn(plan[s]); for (var k = 0; k < 8; k++) Engine.update(engine, STEP); }
+      nextIdx = plan.length;
+      for (var n = 0; n < 700; n++) Engine.update(engine, STEP);
+      bodies.forEach(function (b) { b.wob.s = 0; b.wob.v = 0; });
+      draw();
+      return;
+    }
+    draw();
+    run();
+  }
+
+  function onResize() {
+    var nw = hero.clientWidth, nh = hero.clientHeight;
+    if (!started || (nw === W && nh === H)) return;
+    if (Math.abs(nw - startedW) / startedW > 0.25) { start(); return; }
+    measure();
+    buildWalls();
+    bodies.forEach(function (b) {
+      var r = b.shapeSize * 0.75;
+      var x = clamp(b.position.x, r, W - r), y = Math.min(b.position.y, H - r);
+      if (x !== b.position.x || y !== b.position.y) Body.setPosition(b, { x: x, y: y });
+      Sleeping.set(b, false);
+    });
+    if (reduceMotion) draw(); else { run(); requestDraw(); }
+  }
+  var resizeTimer;
+  if ('ResizeObserver' in window) new ResizeObserver(function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(onResize, 120); }).observe(hero);
+  else addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(onResize, 120); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) run(); else stop();
+    }, { threshold: 0.05 }).observe(hero);
+  }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else run(); });
+
+  /* ---------- interaction ---------- */
+  addEventListener('pointermove', function (e) {
+    pointer.x = e.clientX; pointer.y = e.clientY; pointer.has = true;
+    if (visible) requestDraw();
+  }, { passive: true });
+
+  hero.addEventListener('pointerdown', function (e) {
+    if (reduceMotion || e.target.closest('a, button, input, label')) return;
+    var rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top;
+    var radius = size * 3.2;
+    bodies.forEach(function (b) {
+      var dx = b.position.x - x, dy = b.position.y - y, d = Math.hypot(dx, dy);
+      if (d > radius) return;
+      var f = (1 - d / radius), nx = dx / (d || 1), ny = dy / (d || 1);
+      Sleeping.set(b, false);
+      Body.setVelocity(b, { x: b.velocity.x + nx * 9 * f, y: b.velocity.y + ny * 9 * f - 6 * f });
+      Body.setAngularVelocity(b, b.angularVelocity + (Math.random() - 0.5) * 0.5 * f);
+    });
+    run();
+  });
+
+  document.getElementById('replay').addEventListener('click', function () {
+    var top = hero.getBoundingClientRect().top;
+    if (top < 0 || top > innerHeight * 0.4) hero.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    start();
+  });
+
+  /* start once fonts/layout have settled so the hero has its final size */
+  function boot() { requestAnimationFrame(function () { start(); }); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot, boot); else boot();
+})();
+/* =====================================================================
+   4. MINIMAL SCROLLBAR: a short, thin thumb on fine pointers (mouse/trackpad).
+   Native scrolling is untouched; touch devices keep their own overlay bar.
+   ===================================================================== */
+(function () {
+  'use strict';
+  if (!matchMedia('(pointer: fine)').matches) return;
+  var html = document.documentElement;
+  var rail = document.createElement('div');
+  var thumb = document.createElement('div');
+  rail.className = 'rail idle';
+  rail.setAttribute('aria-hidden', 'true');
+  thumb.className = 'rail-thumb';
+  rail.appendChild(thumb);
+  document.body.appendChild(rail);
+  html.classList.add('rail-on');
+
+  var idleTimer, dragging = false, startY = 0, startScroll = 0;
+  function maxScroll() { return Math.max(0, html.scrollHeight - innerHeight); }
+  function travel() { return Math.max(1, rail.clientHeight - thumb.offsetHeight - 8); }
+
+  function update() {
+    var max = maxScroll();
+    rail.style.display = max > 8 ? '' : 'none';
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    thumb.style.transform = 'translateY(' + (4 + p * travel()) + 'px)';
+  }
+  function wake() {
+    rail.classList.remove('idle');
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { if (!dragging) rail.classList.add('idle'); }, 900);
+  }
+
+  addEventListener('scroll', function () { update(); wake(); }, { passive: true });
+  addEventListener('resize', update);
+  if ('ResizeObserver' in window) new ResizeObserver(update).observe(document.body);
+
+  thumb.addEventListener('pointerdown', function (e) {
+    dragging = true; startY = e.clientY; startScroll = window.scrollY;
+    thumb.classList.add('drag');
+    thumb.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  thumb.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    window.scrollTo({ top: startScroll + (e.clientY - startY) * (maxScroll() / travel()), behavior: 'instant' });
+  });
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    thumb.classList.remove('drag');
+    try { thumb.releasePointerCapture(e.pointerId); } catch (err) {}
+    wake();
+  }
+  thumb.addEventListener('pointerup', endDrag);
+  thumb.addEventListener('pointercancel', endDrag);
+
+  rail.addEventListener('pointerdown', function (e) {
+    if (e.target === thumb) return;
+    var p = (e.clientY - 4 - thumb.offsetHeight / 2) / travel();
+    window.scrollTo({ top: Math.min(1, Math.max(0, p)) * maxScroll(), behavior: 'smooth' });
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
