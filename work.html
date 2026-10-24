@@ -132,6 +132,46 @@
   .menu-sep { margin-top: 4px; border-top: 1px dashed var(--line-soft); border-radius: 0 0 8px 8px !important; padding-top: 12px !important; }
   @keyframes menuIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
+  /* ---------- welcome gate: one tap unlocks sound ---------- */
+  body.gate { overflow: hidden; }
+  .welcome {
+    position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px;
+    background: rgba(10, 10, 10, 0.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.6s var(--ease), visibility 0s linear 0.6s;
+  }
+  .welcome.leave { opacity: 0; visibility: hidden; }
+  .welcome-card {
+    position: relative; width: min(420px, 100%); padding: clamp(28px, 5vw, 40px) clamp(22px, 4vw, 34px);
+    text-align: center; border: 2px solid var(--line); border-radius: 22px; background: #161616; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 255, 255, 0.06);
+    animation: welcomeIn 0.7s var(--ease) both;
+  }
+  @keyframes welcomeIn { from { opacity: 0; transform: translateY(24px) scale(0.96); } to { opacity: 1; transform: none; } }
+  .welcome-shapes i { position: absolute; background: var(--white); pointer-events: none; opacity: 0.9; }
+  .welcome-shapes .ws1 { width: 28px; height: 28px; top: 16px; left: 18px; border-radius: 50%; animation: wsBob 3.2s ease-in-out infinite; }
+  .welcome-shapes .ws2 { width: 20px; height: 20px; top: 22px; right: 22px; transform: rotate(45deg); animation: wsBob 2.6s ease-in-out infinite reverse; }
+  .welcome-shapes .ws3 { width: 0; height: 0; bottom: 20px; left: 22px; background: none; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 20px solid var(--white); animation: wsBob 3.8s ease-in-out infinite; }
+  .welcome-shapes .ws4 { width: 22px; height: 22px; bottom: 18px; right: 20px; border-radius: 4px; transform: rotate(14deg); animation: wsBob 3s ease-in-out infinite reverse; }
+  @keyframes wsBob { 50% { transform: translateY(-8px) rotate(8deg); } }
+  .welcome h2 { margin: 8px 0 10px; font: 600 clamp(28px, 6vw, 36px) var(--display); letter-spacing: -0.03em; }
+  .welcome-sub { margin: 0 0 26px; color: var(--muted); font-size: 13px; }
+  .welcome-btn {
+    position: relative; display: inline-grid; place-items: center; width: 150px; height: 150px; margin: 4px auto 0; padding: 0;
+    border: 0; border-radius: 50%; background: var(--white); color: #111; cursor: pointer; isolation: isolate;
+    font: 700 20px var(--display); letter-spacing: 0.06em; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    animation: welcomePulse 1.6s ease-out infinite; transition: transform 0.2s var(--ease);
+  }
+  .welcome-btn:hover { transform: scale(1.06); }
+  .welcome-btn:active { transform: scale(0.96); }
+  .welcome-btn:focus-visible { outline: 3px solid #fff; outline-offset: 6px; }
+  .welcome-ring { position: absolute; inset: -14px; border: 2px dashed rgba(255, 255, 255, 0.6); border-radius: 50%; animation: spin 10s linear infinite; z-index: -1; }
+  @keyframes welcomePulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45); }
+    70%, 100% { box-shadow: 0 0 0 26px rgba(255, 255, 255, 0); }
+  }
+  .welcome-note { margin: 22px 0 0; font-size: 11px; color: var(--dim); }
+  @media (prefers-reduced-motion: reduce) { .welcome-btn, .welcome-shapes i, .welcome-ring { animation: none !important; } }
+
   /* ---------- hero ---------- */
   .hero-wrap { padding-top: clamp(18px, 3vw, 36px); }
   .hero {
@@ -380,6 +420,20 @@
 </style>
 </head>
 <body>
+
+<div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+  <div class="welcome-card">
+    <div class="welcome-shapes" aria-hidden="true"><i class="ws1"></i><i class="ws2"></i><i class="ws3"></i><i class="ws4"></i></div>
+    <div class="eyebrow">Welcome</div>
+    <h2 id="welcome-title">The Work Index</h2>
+    <p class="welcome-sub">Shapes will fall with sound. Tap below to enter.</p>
+    <button class="welcome-btn" id="welcome-btn" type="button">
+      <span class="welcome-ring" aria-hidden="true"></span>
+      <span class="welcome-label">Enter</span>
+    </button>
+    <p class="welcome-note">Sound effects need one tap to start.</p>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="wrap bar">
@@ -1132,6 +1186,7 @@
     };
   })();
   var simSilent = false;
+  var gateOpen = false;
 
   /* ---------- sizing ---------- */
   function measure() {
@@ -1450,7 +1505,6 @@
 
   /* sound is always on; browsers keep audio locked until the first gesture, which also unlocks it */
   sfx.set(true);
-  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, sfx.unlock, { passive: true }); });
   document.addEventListener('visibilitychange', function () { if (document.hidden) sfx.suspend(); else sfx.resume(); });
 
   document.getElementById('replay').addEventListener('click', function () {
@@ -1461,8 +1515,32 @@
   });
 
   /* start once fonts/layout have settled so the hero has its final size */
-  function boot() { requestAnimationFrame(function () { start(); }); }
+  /* the first drop waits for the welcome gate, so the visitor's Enter tap unlocks sound before it plays */
+  function boot() { if (gateOpen) requestAnimationFrame(function () { start(); }); }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot, boot); else boot();
+
+  /* welcome gate: Enter is a real user gesture, so it unlocks audio, then the hero drop plays with sound */
+  (function () {
+    var gate = document.getElementById('welcome'), btn = document.getElementById('welcome-btn');
+    document.body.classList.add('gate');
+    btn.focus({ preventScroll: true });
+    function enter() {
+      sfx.set(true);
+      sfx.unlock();
+      gateOpen = true;
+      gate.classList.add('leave');
+      document.body.classList.remove('gate');
+      setTimeout(function () { gate.remove(); }, 650);
+      setTimeout(function () { start(); }, 250);
+    }
+    btn.addEventListener('click', enter);
+    /* a click or tap anywhere on the overlay also counts, including outside the card */
+    gate.addEventListener('click', enter);
+    gate.addEventListener('pointerdown', function (e) { if (!gateOpen && e.pointerType === 'touch') enter(); }, { passive: true });
+    document.addEventListener('keydown', function (e) {
+      if (!gateOpen && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); enter(); }
+    });
+  })();
 })();
 /* =====================================================================
    4. MINIMAL SCROLLBAR: a short, thin thumb on fine pointers (mouse/trackpad).
