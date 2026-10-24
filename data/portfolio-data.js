@@ -45,9 +45,9 @@
   "verifiedRecords": 56,
   "researchCount": 7,
   "blogsCount": 29,
-  "certificatesCount": 11,
+  "certificatesCount": 12,
   "educationCount": 2,
-  "achievementsCount": 8
+  "achievementsCount": 9
 };
 
   var _projects  = [
@@ -1441,6 +1441,20 @@
 
   var _certs     = [
   {
+    "title": "Best Software Engineering Course Project",
+    "sub": "IIT Madras · Team Rank 3 / 100 · 2026",
+    "href": "https://drive.google.com/file/d/11f8hc-JE-nDJqJaRWrpKffRW88cebZ3x/view?usp=sharing",
+    "desc": "Certificate of Appreciation for the best course project in Software Engineering from the IIT Madras BS Degree Program. Secured team rank 3 out of 100.",
+    "tags": [
+      "Software Engineering",
+      "IIT Madras",
+      "Team Project",
+      "Rank 3"
+    ],
+    "cat": "cert",
+    "catLabel": "Certificate"
+  },
+  {
     "title": "Oracle Agentic AI Certified Foundations",
     "sub": "Oracle · 2026",
     "href": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=899E45D97BCBF8B489F169421B50BC2819DC1ACB2ED7ECC2EB6853A39CBEBD59",
@@ -1627,6 +1641,20 @@
 ];
 
   var _achieves  = [
+  {
+    "title": "Best Software Engineering Course Project",
+    "sub": "IIT Madras · Team Rank 3 / 100 · 2026",
+    "href": "https://drive.google.com/file/d/11f8hc-JE-nDJqJaRWrpKffRW88cebZ3x/view?usp=sharing",
+    "desc": "Certificate of Appreciation for the best course project in Software Engineering from the IIT Madras BS Degree Program. Secured team rank 3 out of 100.",
+    "tags": [
+      "Software Engineering",
+      "IIT Madras",
+      "Team Project",
+      "Rank 3"
+    ],
+    "cat": "award",
+    "catLabel": "Course Award"
+  },
   {
     "title": "IIT Madras Merit Prize Certificate",
     "sub": "IIT Madras · Academic Excellence",

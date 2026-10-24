@@ -104,6 +104,34 @@
   }
   .replay:hover { background: #fff; color: #111; }
 
+  .nav { gap: 12px; }
+  .replay svg { width: 14px; height: 14px; flex: none; }
+
+  /* ---------- menu dropdown ---------- */
+  .menu { position: relative; }
+  .menu-btn {
+    display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px 6px 12px; cursor: pointer;
+    border: 1px solid #777; border-radius: 8px; background: transparent; font-size: 11px; white-space: nowrap;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .menu-btn svg { width: 13px; height: 13px; transition: transform 0.25s var(--ease); }
+  .menu-btn:hover, .menu-btn[aria-expanded='true'] { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .menu-btn[aria-expanded='true'] svg { transform: rotate(180deg); }
+  .menu-panel {
+    position: absolute; top: calc(100% + 10px); right: 0; z-index: 70; min-width: 210px; padding: 6px;
+    border: 2px solid var(--line); border-radius: 12px; background: #161616;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.6), 0 0 22px rgba(255, 255, 255, 0.05);
+    animation: menuIn 0.2s var(--ease);
+  }
+  .menu-panel[hidden] { display: none; }
+  .menu-panel a { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 9px 12px; border-radius: 8px; color: #ddd; font-size: 12px; transition: background 0.15s, color 0.15s, transform 0.15s; }
+  .menu-panel a:hover, .menu-panel a:focus-visible { background: rgba(255, 255, 255, 0.1); color: #fff; transform: translateX(3px); outline: none; }
+  .menu-panel small { font: 600 11px var(--display); color: var(--dim); }
+  .menu-panel a:hover small { color: #ccc; }
+  .menu-mobile { display: none !important; }
+  .menu-sep { margin-top: 4px; border-top: 1px dashed var(--line-soft); border-radius: 0 0 8px 8px !important; padding-top: 12px !important; }
+  @keyframes menuIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
   /* ---------- hero ---------- */
   .hero-wrap { padding-top: clamp(18px, 3vw, 36px); }
   .hero {
@@ -220,6 +248,13 @@
   }
   .icon-box::before { content: ''; position: absolute; width: 78px; height: 64px; border: 3px solid #fff; border-radius: 14px; }
   .icon-box::after { content: ''; position: absolute; width: 58px; height: 44px; border: 2px dashed rgba(255, 255, 255, 0.55); border-radius: 8px; }
+  .icon-triangle svg, .icon-hex svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform 0.4s var(--ease); }
+  .icon-triangle span { margin-top: 16px; }
+  .collection:hover .icon-triangle svg { transform: rotate(-8deg) scale(1.06); }
+  .collection:hover .icon-hex svg { transform: rotate(30deg); }
+  .icon-hex span { transform: none; }
+  .icon-ring::before { content: ''; position: absolute; inset: 4px; border: 3px solid #fff; border-radius: 50%; }
+  .icon-ring::after { content: ''; position: absolute; inset: 15px; border: 2px dashed rgba(255, 255, 255, 0.55); border-radius: 50%; animation: spin 14s linear infinite reverse; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 18px; }
@@ -252,6 +287,7 @@
   .card-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 6px; }
   .card h3 { margin: 6px 0 8px; font: 600 clamp(19px, 1.7vw, 23px) var(--display); letter-spacing: -0.02em; line-height: 1.15; }
   .card h3 a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+  .card .sub { margin: -2px 0 8px; font-size: 11px; color: var(--muted); }
   .card .desc { margin: 0 0 14px; font-size: 11.5px; color: #b5b5b5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
   .tag { border: 1px solid #5f5f5f; border-radius: 6px; padding: 2px 8px; font-size: 10px; color: #ccc; }
@@ -291,6 +327,7 @@
   /* ---------- tablet ---------- */
   @media (max-width: 900px) {
     .nav a.nav-link { display: none; }
+    .menu-mobile { display: flex !important; }
     .collection-head { grid-template-columns: auto minmax(0, 1fr); }
     .collection-count { grid-column: 1 / -1; justify-self: start; }
     .shape-icon { width: 76px; height: 76px; }
@@ -307,6 +344,7 @@
     .brand { font-size: 16px; }
     .brand-sub { display: none; }
     .replay { padding: 6px 9px; }
+    .nav { gap: 8px; }
     .hero { border-radius: 17px; min-height: 560px; }
     .pill { min-height: 52px; }
     .pill-arrow { width: 46px; }
@@ -323,6 +361,11 @@
     .cards { gap: 14px; }
   }
 
+  @media (max-width: 400px) {
+    .replay span { display: none; }
+    .replay { padding: 7px 10px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -335,10 +378,24 @@
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark"></span><span>ATHARV KHARE</span><span class="brand-sub">WORK INDEX</span></a>
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav-link" href="#notes">Notes</a>
-      <a class="nav-link" href="#visuals">Visuals</a>
-      <a class="nav-link" href="#projects">Projects</a>
       <a class="nav-link" href="/">Portfolio</a>
+      <a class="nav-link" href="socials.html">Socials</a>
+      <div class="menu" id="menu">
+        <button class="menu-btn" id="menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-panel">
+          <span>Menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="menu-panel" id="menu-panel" role="menu" aria-label="Collections" hidden>
+          <a role="menuitem" href="#notes" data-kind="notes"><span>Notes</span><small data-count="notes"></small></a>
+          <a role="menuitem" href="#visuals" data-kind="visuals"><span>Visuals</span><small data-count="visuals"></small></a>
+          <a role="menuitem" href="#projects" data-kind="projects"><span>Projects</span><small data-count="projects"></small></a>
+          <a role="menuitem" href="#research" data-kind="research"><span>Research</span><small data-count="research"></small></a>
+          <a role="menuitem" href="#certificates" data-kind="certificates"><span>Certificates</span><small data-count="certificates"></small></a>
+          <a role="menuitem" href="#awards" data-kind="awards"><span>Awards</span><small data-count="awards"></small></a>
+          <a class="menu-mobile menu-sep" role="menuitem" href="/"><span>Portfolio</span><small>&#8599;</small></a>
+          <a class="menu-mobile" role="menuitem" href="socials.html"><span>Socials</span><small>&#8599;</small></a>
+        </div>
+      </div>
       <button class="replay" id="replay" type="button" aria-label="Replay the falling shapes">&#8635; <span>Replay shapes</span></button>
     </nav>
   </div>
@@ -357,7 +414,7 @@
           <a class="pill" href="#visuals" data-kind="visuals"><span class="pill-label">INTERACTIVE VISUALS <em data-count="visuals"></em></span><span class="pill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></span></a>
           <a class="pill" href="#projects" data-kind="projects"><span class="pill-label">PROJECT SITES <em data-count="projects"></em></span><span class="pill-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></span></a>
         </nav>
-        <p class="hint">Tap or click the shapes to scatter them</p>
+        <p class="hint">Tap the shapes to scatter them &middot; press Replay for sound</p>
       </div>
     </section>
   </div>
@@ -367,7 +424,7 @@
       <div class="toolbar-row">
         <label class="search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" type="search" placeholder="Search notes, tools, topics..." autocomplete="off" aria-label="Search the work index">
+          <input id="q" type="search" placeholder="Search notes, tools, research, certificates..." autocomplete="off" aria-label="Search the work index">
         </label>
         <label class="toggle"><input id="live" type="checkbox"><span class="dot" aria-hidden="true"></span>Live sites only</label>
       </div>
@@ -413,6 +470,49 @@
           <div class="collection-count" data-section-count="projects"></div>
         </header>
         <div class="cards" data-grid="projects"></div>
+      </section>
+
+      <section class="collection" id="research" data-kind="research" aria-labelledby="research-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-triangle" aria-hidden="true">
+            <svg viewBox="0 0 92 92" fill="none"><path d="M46 12 82 76H10Z" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><span>04</span>
+          </div>
+          <div class="collection-text">
+            <div class="eyebrow">Preprints &amp; analyses</div>
+            <h2 id="research-title">Research</h2>
+            <p>Papers on Zenodo, data studies and course analyses, each linked to the full write-up.</p>
+          </div>
+          <div class="collection-count" data-section-count="research"></div>
+        </header>
+        <div class="cards" data-grid="research"></div>
+      </section>
+
+      <section class="collection" id="certificates" data-kind="certificates" aria-labelledby="certificates-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-hex" aria-hidden="true">
+            <svg viewBox="0 0 92 92" fill="none"><path d="M46 10 78 28v36L46 82 14 64V28Z" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M46 22 67 34v24L46 70 25 58V34Z" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-dasharray="4 4" stroke-linejoin="round"/></svg><span>05</span>
+          </div>
+          <div class="collection-text">
+            <div class="eyebrow">Credentials &amp; workshops</div>
+            <h2 id="certificates-title">Certificates</h2>
+            <p>Verified credentials and workshop certificates, linked to the original files.</p>
+          </div>
+          <div class="collection-count" data-section-count="certificates"></div>
+        </header>
+        <div class="cards" data-grid="certificates"></div>
+      </section>
+
+      <section class="collection" id="awards" data-kind="awards" aria-labelledby="awards-title">
+        <header class="collection-head">
+          <div class="shape-icon icon-ring" aria-hidden="true"><span>06</span></div>
+          <div class="collection-text">
+            <div class="eyebrow">Recognition &amp; results</div>
+            <h2 id="awards-title">Awards</h2>
+            <p>Awards and competition results that come with a proof link.</p>
+          </div>
+          <div class="collection-count" data-section-count="awards"></div>
+        </header>
+        <div class="cards" data-grid="awards"></div>
       </section>
 
       <div class="empty" id="empty" role="status">
@@ -468,7 +568,8 @@
     'MindFluence': 'assets/projects/mind.webp',
     'Clearview Eco': 'assets/projects/clearv.webp',
     'PyCrumbs': 'assets/projects/pylearn.webp',
-    'MLP Project Statistical Analysis': 'assets/projects/stat.webp'
+    'MLP Project Statistical Analysis': 'assets/projects/stat.webp',
+    'Bhopal Food Delivery : Geospatial Study': 'assets/work/bhopal-food-delivery-analysis.webp'
   };
   /* Live links missing from the data file, and second deployments of the same work. */
   var LIVE_FIX = {
@@ -542,26 +643,39 @@
     'ai-llm-lab',
     'askalot',
     'atharv-khare-personal-site',
+    'bdm-best-capstone-award',
+    'bdm-best-capstone-project-award',
+    'best-software-engineering-course-project',
     'bhopal-food-delivery-analysis',
+    'cloud-computing-foundations',
     'comment-sentiment-classification',
     'cs-lln-inspector',
     'daily-data-science-feed',
     'data-science-compendium',
+    'datacamp-data-science-associate',
     'deep-learning-notes',
     'devloft',
     'dryrun',
+    'dynamic-programming-workshop',
     'edutubex',
     'family-paradox',
     'full-stack-ai-engineer-guide',
+    'gcp-cloud-workshop',
+    'gitsyntropy',
     'glideml',
+    'iit-madras-merit-prize-certificate',
     'iitm-bs-data-science-syllabus',
     'interactive-ml-algorithms',
     'kanha-student-house',
     'machine-learning-practice-mlp-notes',
+    'machine-learning-using-python',
+    'machine-learning-workshop',
     'marktex',
     'mitra-dl-genai-capstone',
     'ml-explorer-lab',
     'nayori',
+    'nptel-distributed-systems-cloud-computing',
+    'oracle-agentic-ai-certified-foundations',
     'pen-the-archive-of-transience',
     'prompt-sources',
     'psycholectures-hub',
@@ -575,8 +689,10 @@
     'tds-collaboration-hub',
     'tds-manual',
     'tds-submission-explorer',
+    'terraheal',
     'the-ops-grind',
     'tools-in-data-science-tds-summary',
+    'typestate',
     'zen-interview-garden'
   ];
   function slug(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
@@ -584,8 +700,14 @@
   var KINDS = {
     notes:    { label: 'Study & Notes',      short: 'Notes' },
     visuals:  { label: 'Interactive Visuals', short: 'Visuals' },
-    projects: { label: 'Project Sites',      short: 'Projects' }
+    projects: { label: 'Project Sites',      short: 'Projects' },
+    research:     { label: 'Research',     short: 'Research' },
+    certificates: { label: 'Certificates', short: 'Certificates' },
+    awards:       { label: 'Awards',       short: 'Awards' }
   };
+  /* these three are lists in their own right, so one link may also appear in a collection above */
+  var OWN_LIST = { research: 1, certificates: 1, awards: 1 };
+  var BADGES = { certificates: 'CERT', awards: 'AWARD' };
 
   function normUrl(u) { return String(u || '').replace(/#.*$/, '').replace(/\/+$/, '').toLowerCase(); }
   function clean(t) { return String(t || '').replace(/\s+/g, ' ').trim(); }
@@ -598,21 +720,23 @@
   function add(src, kind, force) {
     if (!src || !src.title) return;
     var live = src.href && src.href !== '#' ? src.href : (LIVE_FIX[src.title] || '');
-    var key = live ? normUrl(live) : 'title:' + src.title.toLowerCase();
+    var k = !force && VISUAL_TITLES.indexOf(src.title) !== -1 ? 'visuals' : kind;
+    var key = (OWN_LIST[k] ? k + ':' : '') + (live ? normUrl(live) : 'title:' + src.title.toLowerCase());
     if (seen[key]) return;
     if (!live && !src.github) return;
     seen[key] = true;
-    var k = !force && VISUAL_TITLES.indexOf(src.title) !== -1 ? 'visuals' : kind;
     var id = slug(src.title);
+    var sub = clean(src.sub);
     items.push({
       kind: k,
       title: clean(src.title),
+      sub: OWN_LIST[k] && !/^[\w-]+(\.[\w-]+)+$/.test(sub) ? sub : '',
       desc: clean(src.desc),
       tags: (src.tags || []).slice(0, 4),
       live: live,
       repo: src.github || '',
       mirror: MIRRORS[src.title] || null,
-      badge: src.badge || '',
+      badge: src.badge || BADGES[k] || (k === 'research' ? (src.cat === 'paper' ? 'PAPER' : 'ANALYSIS') : ''),
       img: src.img || IMAGE_BY_TITLE[src.title] || (SHOTS.indexOf(id) !== -1 ? 'assets/work/' + id + '.webp' : ''),
       label: clean(src.label || src.catLabel) || ''
     });
@@ -620,10 +744,11 @@
 
   list('getEduResources').forEach(function (r) { add(r, 'notes'); });
   list('getProjects').forEach(function (p) { add(p, 'projects'); });
-  list('getResearch').forEach(function (r) {
-    if (r.href && r.cat === 'analysis' && !/zenodo\.org/i.test(r.href)) add(r, 'notes');
-  });
   EXTRA_WORK.forEach(function (x) { add(x, x.kind, true); });
+  list('getResearch').forEach(function (r) { add(r, 'research', true); });
+  list('getCertificates').forEach(function (c) { add(c, 'certificates', true); });
+  list('getAchievements').forEach(function (a) { add(a, 'awards', true); });
+
 
   items.forEach(function (it) {
     it.host = hostOf(it.live || it.repo);
@@ -657,7 +782,9 @@
       ? '<img src="' + esc(it.img) + '" alt="" loading="lazy" decoding="async" data-fallback="' + esc(it.title) + '">'
       : glyphHtml(it);
     var tags = it.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
-    var badge = it.live ? '<span class="badge">LIVE</span>' : '<span class="badge repo">' + esc(it.badge || 'REPO ONLY') + '</span>';
+    var badge = it.live
+      ? '<span class="badge">' + esc(it.badge || 'LIVE') + '</span>'
+      : '<span class="badge repo">' + esc(it.badge || 'REPO ONLY') + '</span>';
     var links = '';
     if (it.live && it.repo) links += '<a class="code" href="' + esc(it.repo) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(it.title) + ' source code">Code</a>';
     if (it.mirror) links += '<a class="code" href="' + esc(it.mirror.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(it.title) + ' ' + esc(it.mirror.label.toLowerCase()) + '">' + esc(it.mirror.label) + '</a>';
@@ -667,6 +794,7 @@
       '<div class="card-body">' +
         '<div class="eyebrow">' + esc(it.label || KINDS[it.kind].short) + '</div>' +
         '<h3><a href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer">' + esc(it.title) + '</a></h3>' +
+        (it.sub ? '<p class="sub">' + esc(it.sub) + '</p>' : '') +
         (it.desc ? '<p class="desc">' + esc(it.desc) + '</p>' : '') +
         (tags ? '<div class="tags">' + tags + '</div>' : '') +
       '</div>' +
@@ -676,7 +804,7 @@
 
   var state = { kind: 'all', q: '', live: false };
   var $ = function (id) { return document.getElementById(id); };
-  var totals = { notes: 0, visuals: 0, projects: 0 };
+  var totals = { notes: 0, visuals: 0, projects: 0, research: 0, certificates: 0, awards: 0 };
   items.forEach(function (it) { totals[it.kind]++; });
 
   function readUrl() {
@@ -713,7 +841,7 @@
     var q = state.q.toLowerCase().trim();
     var words = q ? q.split(/\s+/) : [];
     var shown = 0;
-    var perKind = { notes: [], visuals: [], projects: [] };
+    var perKind = { notes: [], visuals: [], projects: [], research: [], certificates: [], awards: [] };
 
     items.forEach(function (it) {
       if (state.kind !== 'all' && it.kind !== state.kind) return;
@@ -734,7 +862,7 @@
 
     document.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.kind === state.kind)); });
     var filtered = state.kind !== 'all' || state.q || state.live;
-    $('result-count').textContent = shown === items.length ? items.length + ' works' : 'Showing ' + shown + ' of ' + items.length + ' works';
+    $('result-count').textContent = shown === items.length ? items.length + ' entries' : 'Showing ' + shown + ' of ' + items.length + ' entries';
     $('reset').hidden = !filtered;
     $('empty').classList.toggle('show', shown === 0);
     writeUrl();
@@ -764,7 +892,7 @@
   $('empty-reset').addEventListener('click', resetAll);
 
   /* hero pills: reveal the collection if a filter was hiding it, then scroll */
-  document.querySelectorAll('.pill').forEach(function (a) {
+  document.querySelectorAll('.pill, .nav a[data-kind], .menu-panel a[data-kind]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var target = $(a.dataset.kind);
       if (!target) return;
@@ -775,6 +903,27 @@
       target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     });
   });
+
+  /* header menu dropdown */
+  (function () {
+    var btn = $('menu-btn'), panel = $('menu-panel');
+    function close(focusBtn) { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); if (focusBtn) btn.focus(); }
+    function open() { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); panel.hidden ? open() : close(false); });
+    panel.addEventListener('click', function (e) { if (e.target.closest('a')) close(false); });
+    document.addEventListener('click', function (e) { if (!panel.hidden && !e.target.closest('#menu')) close(false); });
+    document.addEventListener('keydown', function (e) {
+      if (panel.hidden) return;
+      var links = [].slice.call(panel.querySelectorAll('a')).filter(function (a) { return a.offsetParent !== null; });
+      var i = links.indexOf(document.activeElement);
+      if (e.key === 'Escape') { e.preventDefault(); close(true); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); links[(i + 1) % links.length].focus(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); links[(i - 1 + links.length) % links.length].focus(); }
+    });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); open(); var f = panel.querySelector('a'); if (f) f.focus(); }
+    });
+  })();
 
   document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = totals[el.dataset.count] || 0; });
 
@@ -810,10 +959,119 @@
   var W = 0, H = 0, dpr = 1, size = 40, cornerR = 20;
   var engine, walls = [], bodies = [], plan = [], nextIdx = 0, spawnAcc = 0, spawnGap = 300;
   var raf = 0, last = 0, acc = 0, idleFrames = 0, visible = true, started = false, startedW = 0;
-  var pointer = { x: 0, y: 0, has: false };
+  var pointer = { x: 0, y: 0, has: false }, flourished = false;
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = (Math.random() * (i + 1)) | 0; var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+
+  /* ---------- sound: tiny synth, no audio files ----------
+     Every landing plays a note from a pentatonic scale, so a pile of shapes
+     sounds musical instead of noisy: small shapes ring high, big ones low.
+     Circles are soft marimba plucks, squares are woodblock clicks, triangles
+     are glassy bells; walls add a low thump. Off by default, remembered. */
+  var sfx = (function () {
+    var ac = null, master, out, noiseBuf, enabled = false, lastT = 0, active = 0;
+    var PENTA = [0, 2, 4, 7, 9], BASE = 55;
+    function hz(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+    function note(ratio) {
+      var idx = Math.round((1 - clamp((ratio - 0.55) / 1.1, 0, 1)) * 14) + ((Math.random() * 3) | 0) - 1;
+      idx = clamp(idx, 0, 14);
+      return hz(BASE + Math.floor(idx / 5) * 12 + PENTA[idx % 5]);
+    }
+    function ensure() {
+      if (ac) return ac;
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      ac = new AC();
+      master = ac.createGain(); master.gain.value = 0.55;
+      var comp = ac.createDynamicsCompressor();
+      comp.threshold.value = -18; comp.ratio.value = 6; comp.attack.value = 0.003; comp.release.value = 0.2;
+      comp.connect(ac.destination);
+      master.connect(comp);
+      /* a short synthetic room gives the plucks some air */
+      var len = Math.floor(ac.sampleRate * 1.3), imp = ac.createBuffer(2, len, ac.sampleRate);
+      for (var c = 0; c < 2; c++) { var d = imp.getChannelData(c); for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.6); }
+      var verb = ac.createConvolver(); verb.buffer = imp;
+      var wet = ac.createGain(); wet.gain.value = 0.2;
+      master.connect(verb); verb.connect(wet); wet.connect(comp);
+      noiseBuf = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.4), ac.sampleRate);
+      var nd = noiseBuf.getChannelData(0); for (var j = 0; j < nd.length; j++) nd[j] = Math.random() * 2 - 1;
+      out = master;
+      return ac;
+    }
+    function tone(f, type, vol, atk, dec, when, glide) {
+      var o = ac.createOscillator(), g = ac.createGain();
+      o.type = type; o.frequency.setValueAtTime(f, when);
+      if (glide) o.frequency.exponentialRampToValueAtTime(Math.max(30, f * glide), when + dec);
+      g.gain.setValueAtTime(0.0001, when);
+      g.gain.linearRampToValueAtTime(vol, when + atk);
+      g.gain.exponentialRampToValueAtTime(0.0001, when + atk + dec);
+      o.connect(g); g.connect(out);
+      active++; o.onended = function () { active--; g.disconnect(); };
+      o.start(when); o.stop(when + atk + dec + 0.05);
+    }
+    function noise(vol, dur, when, filterType, f0, f1) {
+      var src = ac.createBufferSource(), flt = ac.createBiquadFilter(), g = ac.createGain();
+      src.buffer = noiseBuf; flt.type = filterType;
+      flt.frequency.setValueAtTime(f0, when);
+      if (f1) flt.frequency.exponentialRampToValueAtTime(f1, when + dur);
+      flt.Q.value = filterType === 'bandpass' ? 1.2 : 0.7;
+      g.gain.setValueAtTime(vol, when);
+      g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      src.connect(flt); flt.connect(g); g.connect(out);
+      active++; src.onended = function () { active--; g.disconnect(); };
+      src.start(when); src.stop(when + dur + 0.02);
+    }
+    return {
+      get on() { return enabled; },
+      set: function (v) {
+        enabled = !!v;
+        if (enabled) { ensure(); if (ac && ac.state === 'suspended') ac.resume().catch(function () {}); }
+      },
+      /* resume after the browser blocks autoplay until a first gesture */
+      unlock: function () { if (enabled && ensure() && ac.state === 'suspended') ac.resume().catch(function () {}); },
+      suspend: function () { if (ac && ac.state === 'running') ac.suspend(); },
+      resume: function () { if (enabled && ac && ac.state === 'suspended') ac.resume().catch(function () {}); },
+      hit: function (kind, ratio, speed, wall) {
+        if (!enabled || !ac || ac.state !== 'running' || active > 14) return;
+        var now = ac.currentTime;
+        if (now - lastT < 0.028) return;
+        lastT = now;
+        var v = Math.pow(clamp(speed / 14, 0.08, 1), 0.7) * 0.4, f = note(ratio);
+        if (kind === 'circle') {
+          tone(f, 'sine', v, 0.004, 0.55, now);
+          tone(f * 4, 'sine', v * 0.22, 0.002, 0.12, now);
+        } else if (kind === 'square') {
+          tone(f * 2, 'triangle', v * 0.8, 0.002, 0.2, now, 0.92);
+          noise(v * 0.5, 0.04, now, 'highpass', 2500);
+        } else {
+          tone(f, 'sine', v * 0.7, 0.003, 0.9, now);
+          tone(f * 2.76, 'sine', v * 0.3, 0.002, 0.45, now);
+          tone(f * 5.4, 'sine', v * 0.12, 0.002, 0.2, now);
+        }
+        if (wall) tone(f / 2, 'sine', v * 0.55, 0.003, 0.16, now, 0.6);
+      },
+      whoosh: function () {
+        if (!enabled || !ac || ac.state !== 'running') return;
+        var now = ac.currentTime;
+        noise(0.28, 0.32, now, 'bandpass', 350, 2600);
+        tone(hz(72), 'sine', 0.12, 0.004, 0.25, now, 1.5);
+      },
+      flourish: function () {
+        if (!enabled || !ac || ac.state !== 'running') return;
+        var now = ac.currentTime, steps = [0, 4, 7, 9, 12, 16];
+        steps.forEach(function (st, i) { tone(hz(72 + st), 'sine', 0.1, 0.004, 0.7, now + i * 0.085); });
+      },
+      chime: function () {
+        if (!enabled || !ac || ac.state !== 'running') return;
+        var now = ac.currentTime;
+        tone(hz(76), 'sine', 0.16, 0.004, 0.4, now);
+        tone(hz(83), 'sine', 0.16, 0.004, 0.6, now + 0.09);
+      }
+    };
+  })();
+  var simSilent = false;
 
   /* ---------- sizing ---------- */
   function measure() {
@@ -928,6 +1186,14 @@
       var rvx = p.bodyA.velocity.x - p.bodyB.velocity.x, rvy = p.bodyA.velocity.y - p.bodyB.velocity.y;
       var speed = Math.abs(rvx * n.x + rvy * n.y);
       var amt = Math.min(0.3, speed * 0.05);
+      if (!simSilent && speed > 1.3) {
+        var A = p.bodyA, B = p.bodyB, hitter = A.isStatic ? B : (B.isStatic ? A : (Math.random() < 0.5 ? A : B));
+        var now = performance.now();
+        if (!hitter.isStatic && now - (hitter.lastSfx || 0) > 90) {
+          hitter.lastSfx = now;
+          sfx.hit(hitter.shapeKind, hitter.shapeSize / size, speed, A.isStatic || B.isStatic);
+        }
+      }
       if (amt < 0.03) continue;
       [p.bodyA, p.bodyB].forEach(function (b) {
         if (b.isStatic || !b.wob) return;
@@ -1027,6 +1293,7 @@
     draw();
 
     idleFrames = allSettled() ? idleFrames + 1 : 0;
+    if (idleFrames === 1 && !flourished) { flourished = true; sfx.flourish(); }
     if (idleFrames > 30) stop();
   }
 
@@ -1055,13 +1322,16 @@
     makeEngine();
     buildWalls();
     nextIdx = 0; spawnAcc = spawnGap; // first shape drops immediately
+    flourished = false;
     started = true;
     if (reduceMotion) {
       /* no animation: let everything land instantly and paint the resting pile */
+      simSilent = true;
       for (var s = 0; s < plan.length; s++) { spawn(plan[s]); for (var k = 0; k < 8; k++) Engine.update(engine, STEP); }
       nextIdx = plan.length;
       for (var n = 0; n < 700; n++) Engine.update(engine, STEP);
       bodies.forEach(function (b) { b.wob.s = 0; b.wob.v = 0; });
+      simSilent = false;
       draw();
       return;
     }
@@ -1104,7 +1374,7 @@
   hero.addEventListener('pointerdown', function (e) {
     if (reduceMotion || e.target.closest('a, button, input, label')) return;
     var rect = canvas.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top;
-    var radius = size * 3.2;
+    var radius = size * 3.2, touched = false;
     bodies.forEach(function (b) {
       var dx = b.position.x - x, dy = b.position.y - y, d = Math.hypot(dx, dy);
       if (d > radius) return;
@@ -1112,11 +1382,19 @@
       Sleeping.set(b, false);
       Body.setVelocity(b, { x: b.velocity.x + nx * 9 * f, y: b.velocity.y + ny * 9 * f - 6 * f });
       Body.setAngularVelocity(b, b.angularVelocity + (Math.random() - 0.5) * 0.5 * f);
+      touched = true;
     });
+    if (touched) sfx.whoosh();
     run();
   });
 
+  /* sound is always on; browsers keep audio locked until the first gesture, which also unlocks it */
+  sfx.set(true);
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, sfx.unlock, { passive: true }); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) sfx.suspend(); else sfx.resume(); });
+
   document.getElementById('replay').addEventListener('click', function () {
+    sfx.unlock();
     var top = hero.getBoundingClientRect().top;
     if (top < 0 || top > innerHeight * 0.4) hero.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
     start();
