@@ -582,6 +582,8 @@
   };
   /* Sites that are not in the data file yet. Add new work here (or to the data file). */
   var EXTRA_WORK = [
+    { kind: 'notes', title: 'AI Systems Academy', href: 'https://1mystic.github.io/Ai-Systems-Study/', label: 'Study course',
+      desc: 'Hands-on classroom for Forward Deployed Engineers and Backend Engineers for AI Systems: 101 micro-lessons with diagrams, simulators, production Python and labs.', tags: ['AI Systems', 'Backend', 'Labs'] },
     { kind: 'notes', title: 'Deep Learning Notes', href: 'https://1mystic.github.io/Deep-Learning-Notes/', label: 'Study notes',
       desc: 'Illustrated deep learning notes with derivations, solved examples and exam patterns.', tags: ['Deep Learning', 'Derivations', 'Exam prep'] },
     { kind: 'notes', title: 'The Ops Grind', href: 'https://aiml-ops.pages.dev/', label: 'Interactive guide',
@@ -802,6 +804,21 @@
     '</article>';
   }
 
+  /* Display order inside each collection: lower numbers first. Unlisted work follows in its source order. */
+  var RANK = {
+    /* project sites */
+    'Sentio': 1, 'Reflecta': 2, 'Episteme': 3, 'GitSyntropy': 4, 'Mitra': 5, 'Flipkart Gridlock': 6, 'Axiom Canvas': 7,
+    'DominoML': 8, 'EcoView': 9, 'Plume': 10, 'Nayori': 11, 'Tarang': 12, 'Family Paradox': 13,
+    /* interactive visuals */
+    'ML Explorer Lab': 1, 'AI-LLM Lab': 2, 'Search Studio': 3, 'BayesInspector': 4, 'DryRun': 5,
+    'Interactive ML Algorithms': 6, 'Bhopal Food Delivery Analysis': 7, 'Origami Simulator': 8,
+    /* study & notes */
+    'AI Systems Academy': 1, 'The Ops Grind': 2, 'Deep Learning Notes': 3, 'Data Science Compendium': 4,
+    'Full-Stack AI Engineer Guide': 5, 'Machine Learning Practice (MLP) Notes': 6, 'Tools in Data Science (TDS) Summary': 7,
+    'PsychoLectures Hub': 8, 'Applied AI Engineering Challenges': 9
+  };
+  function rankOf(it) { return RANK[it.title] || 999; }
+
   var state = { kind: 'all', q: '', live: false };
   var $ = function (id) { return document.getElementById(id); };
   var totals = { notes: 0, visuals: 0, projects: 0, research: 0, certificates: 0, awards: 0 };
@@ -849,6 +866,11 @@
       if (!words.every(function (w) { return it.hay.indexOf(w) !== -1; })) return;
       perKind[it.kind].push(it);
       shown++;
+    });
+    Object.keys(perKind).forEach(function (k) {
+      perKind[k] = perKind[k].map(function (it, i) { return { it: it, i: i }; })
+        .sort(function (a, b) { return rankOf(a.it) - rankOf(b.it) || a.i - b.i; })
+        .map(function (x) { return x.it; });
     });
 
     Object.keys(KINDS).forEach(function (k) {
