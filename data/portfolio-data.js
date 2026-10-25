@@ -44,7 +44,7 @@
   "commitsPerYear": 847,
   "verifiedRecords": 56,
   "researchCount": 7,
-  "blogsCount": 29,
+  "blogsCount": 30,
   "certificatesCount": 12,
   "educationCount": 2,
   "achievementsCount": 9
@@ -986,6 +986,22 @@
 ];
 
   var _blogs     = [
+  {
+    "title": "Religion, Cosmology and the Shared Roots of Belief",
+    "sub": "ESSAY · Oct 25, 2026",
+    "href": "fresh/posts/religion-cosmology-and-shared-roots.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "A comparative look at creation stories, the Hindu cosmos, and the questions religions across the world have tried to answer.",
+    "tags": [
+      "Essay",
+      "Religion",
+      "Cosmology"
+    ],
+    "date": "Oct 25, 2026",
+    "readTime": "25 min read",
+    "badge": "ESSAY"
+  },
   {
     "title": "The Same Old Road",
     "sub": "POETRY · Oct 7, 2026",
