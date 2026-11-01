@@ -2744,6 +2744,16 @@ function populateMinimalStats() {
     }
   });
 
+  // navigation badges and the other inline counts, from the same data source
+  const counts = {
+    projects: stats.projectsShipped, research: stats.researchCount, blogs: stats.blogsCount,
+    certificates: stats.certificatesCount, education: stats.educationCount, achievements: stats.achievementsCount
+  };
+  document.querySelectorAll('.nav-badge[data-count], #proj-count[data-count], span[data-count]:not(.band-count)').forEach(el => {
+    const v = counts[el.dataset.count];
+    if (v !== undefined && v !== null) el.textContent = v;
+  });
+
   // Also populate band counts
   const bandCounts = document.querySelectorAll('.band-count[data-count]');
   bandCounts.forEach(el => {
