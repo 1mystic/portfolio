@@ -39,7 +39,7 @@
   "cgpa": 9.15,
   "diplomaCgpa": 9.44,
   "deployedApps": 18,
-  "projectsShipped": 41,
+  "projectsShipped": 51,
   "hackathonWins": "3/8",
   "commitsPerYear": 847,
   "verifiedRecords": 56,
@@ -748,6 +748,148 @@
     "cat": "edu",
     "catLabel": "Education",
     "github": "https://github.com/1mystic/data-science-compendium"
+  },
+  {
+    "title": "Quorum",
+    "sub": "quorum-ruby-sigma.vercel.app",
+    "href": "https://quorum-ruby-sigma.vercel.app/",
+    "desc": "Multi-tenant community operations platform for housing societies, campus clubs, NGOs, alumni chapters, co-ops, sports clubs and guilds. Covers requests, dues, events, announcements and polls, with a statistical engine underneath that attaches sample size, interval, method and assumption checks to every figure. Kaplan-Meier survival curves, control charts, Erlang-C queueing, conformal ETAs and calibrated forecasts, each validated against published or known answers. An AI assistant may explain a figure but may not compute one.",
+    "tags": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Row-level security",
+      "Survival analysis",
+      "Conformal prediction",
+      "Statistical process control",
+      "Vue"
+    ],
+    "featured": true,
+    "cat": "platform",
+    "catLabel": "Platform",
+    "github": "https://github.com/1mystic/quorum"
+  },
+  {
+    "title": "Nayori",
+    "sub": "warm-haupia-7ae100.netlify.app",
+    "href": "https://warm-haupia-7ae100.netlify.app/",
+    "desc": "Free anime streaming site with a cozy private player, smart recommendations, watch parties and MyAnimeList sync, in sub and dub.",
+    "tags": [
+      "Anime",
+      "Streaming",
+      "Watch parties",
+      "MyAnimeList"
+    ],
+    "cat": "web",
+    "catLabel": "Web App"
+  },
+  {
+    "title": "Tarang",
+    "sub": "1mystic.github.io/TarangAI",
+    "href": "https://1mystic.github.io/TarangAI/",
+    "desc": "Free, private, offline-first Android app for live voice translation across Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada and English.",
+    "tags": [
+      "Android",
+      "Speech translation",
+      "Offline",
+      "Indian languages"
+    ],
+    "cat": "ml-ai",
+    "catLabel": "ML / AI"
+  },
+  {
+    "title": "Askalot",
+    "sub": "askalot-ai.netlify.app",
+    "href": "https://askalot-ai.netlify.app/",
+    "desc": "A Socratic learning harness: bring any AI model, learn any topic, and let it ask the questions.",
+    "tags": [
+      "Socratic learning",
+      "LLM",
+      "Education"
+    ],
+    "cat": "edu",
+    "catLabel": "Education"
+  },
+  {
+    "title": "Family Paradox",
+    "sub": "family-paradox-c.vercel.app",
+    "href": "https://family-paradox-c.vercel.app/",
+    "desc": "Realtime minority-rule party game for families. One screen to share, everyone else plays from their phone.",
+    "tags": [
+      "Realtime",
+      "Multiplayer",
+      "Game"
+    ],
+    "cat": "web",
+    "catLabel": "Web App"
+  },
+  {
+    "title": "Zen Interview Garden",
+    "sub": "zenroom-4e951.web.app",
+    "href": "https://zenroom-4e951.web.app/",
+    "desc": "91-day interview preparation planner with real-time progress tracking and Firestore sync.",
+    "tags": [
+      "Firebase",
+      "Firestore",
+      "Interview prep",
+      "Tracker"
+    ],
+    "cat": "web",
+    "catLabel": "Web App"
+  },
+  {
+    "title": "EduTubeX",
+    "sub": "ytvault.netlify.app",
+    "href": "https://ytvault.netlify.app/",
+    "desc": "A personal YouTube learning aggregation and knowledge system.",
+    "tags": [
+      "YouTube",
+      "Knowledge base",
+      "Learning"
+    ],
+    "cat": "edu",
+    "catLabel": "Education"
+  },
+  {
+    "title": "RomanjiClip",
+    "sub": "1mystic.github.io/RomanjiClip",
+    "href": "https://1mystic.github.io/RomanjiClip/",
+    "desc": "Lyric video studio for building romanised lyric videos.",
+    "tags": [
+      "Video",
+      "Lyrics",
+      "Studio"
+    ],
+    "cat": "web",
+    "catLabel": "Web App"
+  },
+  {
+    "title": "PaperLift",
+    "sub": "github.com/1mystic/paperlift",
+    "href": "https://github.com/1mystic/paperlift/releases/tag/v0.2.0",
+    "github": "https://github.com/1mystic/paperlift",
+    "desc": "Lifts clean, editable Markdown, Word, PDF and JSON out of flattened PDFs. Keeps figures, tables and exam question structure. Runs fully offline.",
+    "tags": [
+      "PDF",
+      "Markdown",
+      "Offline",
+      "Python"
+    ],
+    "cat": "tool",
+    "catLabel": "Dev Tool"
+  },
+  {
+    "title": "ShriMelan",
+    "sub": "shrimelan.pages.dev",
+    "href": "https://shrimelan.pages.dev/",
+    "desc": "Restaurant management and insights portal built around the Shri Melan business data capstone.",
+    "tags": [
+      "Analytics",
+      "Restaurant",
+      "Capstone"
+    ],
+    "cat": "data-science",
+    "catLabel": "Data Science"
   }
 ];
 
