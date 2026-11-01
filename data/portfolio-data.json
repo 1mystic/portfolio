@@ -1002,19 +1002,23 @@
       "catLabel": "Web App"
     },
     {
-      "title": "PaperLift",
+      "title": "Paperlift",
       "sub": "github.com/1mystic/paperlift",
       "href": "https://github.com/1mystic/paperlift/releases/tag/v0.2.0",
       "github": "https://github.com/1mystic/paperlift",
-      "desc": "Lifts clean, editable Markdown, Word, PDF and JSON out of flattened PDFs. Keeps figures, tables and exam question structure. Runs fully offline.",
+      "desc": "Lift clean, editable documents out of flattened PDFs, and prove nothing was lost. Markdown, Word, PDF and JSON, with figures intact. Every conversion is checked against the source, and it runs entirely on your computer. Two profiles, document and exam paper, are chosen automatically per file. A fidelity audit detects lost, duplicated or altered words, options, questions, images and table rows, with 0 false alarms on clean extractions and 99 to 100 percent detection on injected faults.",
       "tags": [
-        "PDF",
+        "Python",
+        "PDF extraction",
         "Markdown",
+        "Document structure",
+        "Fidelity audit",
         "Offline",
-        "Python"
+        "OCR"
       ],
       "cat": "tool",
-      "catLabel": "Dev Tool"
+      "catLabel": "Dev Tool",
+      "img": "assets/projects/paperlift.webp"
     },
     {
       "title": "ShriMelan",
