@@ -39,7 +39,7 @@
   "cgpa": 9.15,
   "diplomaCgpa": 9.44,
   "deployedApps": 18,
-  "projectsShipped": 51,
+  "projectsShipped": 52,
   "hackathonWins": "3/8",
   "commitsPerYear": 847,
   "verifiedRecords": 56,
@@ -894,6 +894,22 @@
     ],
     "cat": "data-science",
     "catLabel": "Data Science"
+  },
+  {
+    "title": "Augur",
+    "sub": "auger-chess.vercel.app",
+    "href": "https://auger-chess.vercel.app/",
+    "desc": "Reads a chess position from a screenshot in under a second using a from-scratch 400 KB vision model, then analyses it with Stockfish. Fully offline.",
+    "tags": [
+      "Computer vision",
+      "Stockfish (WASM)",
+      "PWA",
+      "Offline-first"
+    ],
+    "cat": "ml-ai",
+    "catLabel": "ML / AI",
+    "img": "assets/work/augur.webp",
+    "github": "https://github.com/1mystic/Augur"
   }
 ];
 
@@ -1128,6 +1144,22 @@
       "Notes"
     ],
     "github": "https://github.com/1mystic/data-science-compendium"
+  },
+  {
+    "title": "Transformer Models",
+    "sub": "1mystic.github.io/Transformer-Models",
+    "href": "https://1mystic.github.io/Transformer-Models/",
+    "cat": "edu",
+    "catLabel": "Education",
+    "desc": "Visual atlas of 135 Transformer models, from the 2017 original to the open releases of 2026, each drawn block by block. Click any block for what it does, its maths and a worked example you can check by hand, with one toy input traced through every block. Covers decoder, encoder and encoder-decoder LLMs, vision, speech and world models, mixtures of experts and hybrid linear-attention designs.",
+    "tags": [
+      "Transformers",
+      "LLM architecture",
+      "Visual notes",
+      "Interactive"
+    ],
+    "featured": false,
+    "github": "https://github.com/1mystic/Transformer-Models"
   }
 ];
 
