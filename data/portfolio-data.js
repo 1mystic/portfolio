@@ -44,7 +44,7 @@
   "commitsPerYear": 847,
   "verifiedRecords": 56,
   "researchCount": 7,
-  "blogsCount": 30,
+  "blogsCount": 31,
   "certificatesCount": 12,
   "educationCount": 2,
   "achievementsCount": 9
@@ -1164,6 +1164,22 @@
 ];
 
   var _blogs     = [
+  {
+    "title": "Astrology as Ancient Data Science",
+    "sub": "ESSAY · Nov 13, 2026",
+    "href": "fresh/posts/astrology-ancient-data-science.html",
+    "cat": "blog",
+    "catLabel": "Essay",
+    "desc": "A data science perspective on astrology: what if ancient observers used constellations as an indexing framework to model human behavior, before modern markets monetized anxiety?",
+    "tags": [
+      "Essay",
+      "Philosophy",
+      "Data Science"
+    ],
+    "date": "Nov 13, 2026",
+    "readTime": "5 min read",
+    "badge": "ESSAY"
+  },
   {
     "title": "Religion, Cosmology and the Shared Roots of Belief",
     "sub": "ESSAY · Oct 25, 2026",

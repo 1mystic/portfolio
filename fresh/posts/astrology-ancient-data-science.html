@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology as Ancient Data Science | Atharv Khare</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="What if ancient astrology was an attempt to model everyday human behaviour using celestial positions as an indexing system? By Atharv Khare.">
+    <meta name="keywords"
+        content="Atharv Khare, Essay, Astrology, Data Science, Ancient Civilisations, Machine Learning, Capitalism, Human Behaviour, Philosophy">
+    <meta name="author" content="Atharv Khare">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://1mystic.github.io/portfolio/fresh/posts/astrology-ancient-data-science.html">
+    <meta property="og:title" content="Astrology as Ancient Data Science | Atharv Khare">
+    <meta property="og:description"
+        content="What if ancient astrology was an attempt to model human behaviour using celestial positions as an indexing system?">
+    <meta property="og:image" content="../assets/bg_images/my-img .webp">
+
+    <link rel="icon" type="image/webp" href="../assets/yoda.webp">
+    <link rel="apple-touch-icon" href="../assets/yoda.webp">
+
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <img class="jute-bg" src="../assets/rough.avif" alt="">
+    <audio id="bg-music" style="display : none" controls loop>
+        <source src="../assets/bgsong.opus" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../blog.html">Home</a></li>
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="../../socials.html" target="_blank">Socials</a></li>
+                    <li class="theme-toggle-li">
+                        <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-sun">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="theme-icon-moon" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Article Container -->
+        <div class="blog-wrapper">
+
+            <!-- LEFT SIDEBAR (TOC) -->
+            <aside class="blog-sidebar">
+                <div class="sticky-toc">
+                    <h4>ON THIS PAGE</h4>
+                    <ul class="toc-list">
+                        <li><a href="#the-origin" class="active">The Underlying Idea</a></li>
+                        <li><a href="#modeling-behaviour">Modeling Human Behaviour</a></li>
+                        <li><a href="#the-framework">A Universal Reference System</a></li>
+                        <li><a href="#data-science-parallel">The Data Science Parallel</a></li>
+                        <li><a href="#environmental-signals">Environmental Signals</a></li>
+                        <li><a href="#pseudoscience-and-hope">Pseudoscience and Hope</a></li>
+                        <li><a href="#capitalist-mindset">The Market for Anxiety</a></li>
+                    </ul>
+
+                    <div class="toc-divider"></div>
+                    <a href="../blog.html" class="back-link">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_back</span>
+                        Back to Blogs
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <article class="blog-article">
+                <header class="article-header">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Essay</span>
+                        <span class="blog-tag">Philosophy</span>
+                        <span class="blog-tag">Data Science</span>
+                    </div>
+                    <h1 class="article-title">Astrology as Ancient Data Science</h1>
+                    <div class="article-meta">
+                        <span>Nov 13, 2026</span> • <span>5 min read</span> • <span>By Atharv Khare</span>
+                    </div>
+                </header>
+
+                <section id="the-origin">
+                    <p class="lead">I gave astrology thought a few years back. The reason was that after retirement my grandfather started reading books and I tried to understand the subject rationally to capture the underlying idea.</p>
+
+                    <p>Astrology was developed by sages and some form of astrology exists in almost every major ancient civilisation. The Chinese had their systems, the Greeks had theirs, the Indians had theirs and so on. This made me wonder whether there was something sensible under all of it.</p>
+
+                    <p>Then I had an interesting thought while trying to read between the lines of a few introductory books.</p>
+                </section>
+
+                <section id="modeling-behaviour">
+                    <h2>Modeling Everyday Human Behaviour</h2>
+                    <p>What if these people were essentially trying to model an amount of everyday human behaviour? Someone purchased gold, someone gave a gift, someone made an offering to the poor, someone had a fight with their spouse, someone left their window open while sleeping and so on. They accumulated such observations across generations, potentially millions of recorded events and observations and attempted to identify patterns within them.</p>
+
+                    <p>Essentially they were trying to study associations, correlations, causal relationships and their effects on behaviour and maybe even interactions at a much larger universal scale.</p>
+                </section>
+
+                <section id="the-framework">
+                    <h2>A Universal Reference System</h2>
+                    <p>They did not have computers, digital storage devices, databases, hash maps or indexing systems to store and retrieve enormous amounts of observations and the results of their studies. So they used something visible, something that was relatively stable for them, accessible to practically everyone and capable of serving as a common reference system, which is : the stars, their positions and constellations.</p>
+
+                    <p>They essentially used the positions as a reference framework to organise and remember these observations.. eventually they probably developed systems to identify patterns and assign weights to different factors.</p>
+                </section>
+
+                <section id="data-science-parallel">
+                    <h2>The Data Science Parallel</h2>
+                    <p>If you look at it from that perspective, astrology also attempts to predict compatibility chances of success in endeavours and other aspects of human life through multidimensional weighted systems, whether it is an 8 point or 32 point system, where each of those weights supposedly represents patterns derived from thousands of observations of everyday human behaviour, mapped against celestial positions.</p>
+
+                    <p>So do you see something here? Conceptually it resembles something we study in Data Science today. It is like an attempt at building an ML algorithm and discovering patterns in large datasets, learning weights, finding better expressions and using those expressions to predict outcomes.</p>
+                </section>
+
+                <section id="environmental-signals">
+                    <h2>Environmental Signals</h2>
+                    <p>It can also be a possibility that ancient people also had a much more developed understanding of their immediate environment than we give them credit for. They observed changes, animal behaviour, celestial cycles, agricultural patterns and environmental signals. Some animals and birds can sense changes that humans cannot easily perceive. These observations could have contributed to their ability to anticipate events and make predictions about whether a particular activity or undertaking would be favourable.</p>
+                </section>
+
+                <section id="pseudoscience-and-hope">
+                    <h2>Pseudoscience and the Need for Hope</h2>
+                    <p>Of course this is my interpretation of what might have been happening conceptually not a claim that astrology has some demonstrated predictive capabilities. There is a clear difference between identifying genuine correlations and assuming that planetary positions can predict individual human destinies.</p>
+
+                    <p>Yes astrology has largely become a pseudoscience in its commercial form and honestly I cannot entirely blame people for gravitating towards it. Humans essentially need something that gives them hope. We are, at our core, incentive driven, pleasure seeking animals. Our intellect has also made us develop all these insecurities and anxieties that we are often unable to process rationally.</p>
+
+                    <p>Consequently we need explanations and patterns even when they are not necessarily rational. Someone sees a swan and interprets it as a goddesss avatar or a sign of good luck rather than simply recognising that the presence of certain birds in an agricultural environment could indicate a healthy ecosystem, maybe even fewer agricultural pests depending on the species and its feeding habits.</p>
+
+                    <p>The same thing happens with religion. Something that might have originated from an attempt to understand the world, establish structures, explain natural phenomena or provide psychological security.. it eventually becomes something much larger with its own institutions, interpretations and commercial interests.</p>
+                </section>
+
+                <section id="capitalist-mindset">
+                    <h2>The Market for Anxiety</h2>
+                    <p>As for how astrology operates today, the capitalist mindset has spread like an all consuming plague. Thanks to western economic dominance and visible success over the past centuries, it has grown into an unstoppable virus, with no powerful or influential philosophy or economic model left to counter balance it.. There is little incentive to consider its long term psychological, emotional or societal consequences when there is an immediate financial incentive to exploit peoples insecurities.</p>
+
+                    <p>Even societies that historically had different economic and philosophical foundations, such as China have increasingly adopted capitalist economic structures. India in its way is moving in the same direction, and this is where the problem lies. It is not that people want answers about their future., it is that we have built a society where uncertainty, insecurity and anxiety have become profitable markets.</p>
+
+                    <p>Just my interpretation, not claiming anything.</p>
+                </section>
+
+                <hr class="divider-sm">
+
+                <!-- "Read Next" Section -->
+                <section class="read-next-section">
+                    <h3>Read Next</h3>
+                    <div class="blog-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                        <a href="religion-cosmology-and-shared-roots.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Religion, Cosmology and the Shared Roots of Belief</h4>
+                                <p class="text-xs">A comparative look at creation stories and the questions religions have tried to answer</p>
+                            </div>
+                        </a>
+                        <a href="whose-thought-is-it-anyway.html" class="blog-card">
+                            <div class="blog-content">
+                                <h4 class="blog-card-title">Whose Thought Is It Anyway?</h4>
+                                <p class="text-xs">A Ship-of-Theseus take on authorship, technology, and original expression</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <div class="read-counter-wrap"><span id="readCounter" class="read-counter">... reads</span></div>
+            </article>
+        </div>
+
+        <footer class="footer-style">
+            <div style="margin-bottom: 30px;">
+                <a href="mailto:atharvkhare18@gmail.com"
+                    style="font-size: 1.2rem; text-decoration: underline;">atharvkhare18@gmail.com</a>
+            </div>
+            <div
+                style="display: flex; justify-content: center; gap: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color : rgb(38, 41, 30) ; margin-bottom: 20px;">
+                <a href="https://linkedin.com/in/atharvkhare/" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/1mystic" target="_blank">GITHUB</a>
+                <a href="../../socials.html" target="_blank">SOCIALS</a>
+                <a href="https://leetcode.com/1mystic" target="_blank">LEETCODE</a>
+                <a href="https://t.me/1mystic4u" target="_blank">TELEGRAM</a>
+            </div>
+            <p>© 2026 1mystic</p>
+        </footer>
+
+    </div>
+
+    <!-- Music Control Button -->
+    <button id="music-toggle" class="music-toggle" aria-label="Toggle Music">
+        <span class="material-symbols-outlined">play_arrow</span>
+    </button>
+
+    <script src="../script.js"></script>
+    <script src="../post-visit-counter.js"></script>
+</body>
+
+</html>
